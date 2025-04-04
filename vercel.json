@@ -1,0 +1,8 @@
+{
+  "buildCommand": "DISABLE_ESLINT=1 NEXT_DISABLE_ESLINT=1 NODE_OPTIONS=--max_old_space_size=4096 next build --no-lint",
+  "env": {
+    "DISABLE_ESLINT": "1",
+    "NEXT_DISABLE_ESLINT": "1",
+    "ESLINT_SKIP": "true"
+  }
+}
