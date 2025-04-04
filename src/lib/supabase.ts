@@ -4,11 +4,41 @@ import { createClient } from "@supabase/supabase-js";
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
 
-console.log("Supabase URL:", supabaseUrl.substring(0, 20) + "...");
-console.log("Supabase Key available:", !!supabaseAnonKey);
+// Add fallback values for build time
+const isBrowser = typeof window !== "undefined";
+const isDev = process.env.NODE_ENV !== "production";
+
+// Only log during development or client-side
+if (isDev || isBrowser) {
+  console.log(
+    "Supabase URL:",
+    supabaseUrl ? supabaseUrl.substring(0, 20) + "..." : "Not set"
+  );
+  console.log("Supabase Key available:", !!supabaseAnonKey);
+}
 
 // Create a single supabase client for interacting with your database
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Use a mock client during build/SSR if credentials are missing
+// This prevents build errors during prerendering
+export const supabase =
+  (!supabaseUrl || !supabaseAnonKey) && !isBrowser
+    ? {
+        from: () => ({
+          select: () => ({
+            eq: () => ({ single: () => ({ data: null, error: null }) }),
+            order: () => ({ data: [], error: null }),
+          }),
+        }),
+        auth: {
+          signInWithPassword: () =>
+            Promise.resolve({ data: null, error: null }),
+          signInWithOtp: () => Promise.resolve({ data: null, error: null }),
+          signUp: () => Promise.resolve({ data: null, error: null }),
+          signOut: () => Promise.resolve({ error: null }),
+          getUser: () => Promise.resolve({ data: { user: null }, error: null }),
+        },
+      }
+    : createClient(supabaseUrl, supabaseAnonKey);
 
 // Define database types
 export type User = {
