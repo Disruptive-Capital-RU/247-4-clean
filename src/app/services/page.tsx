@@ -3,7 +3,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { WavyBackground } from "@/components/ui/wavy-background";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import {
   FaLock,
   FaUtensils,
@@ -13,15 +13,95 @@ import {
   FaGlassMartiniAlt,
   FaLandmark,
 } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { ServicesTextEffect } from "@/components/ui/services-text-effect";
 
 export default function ServicesPage() {
+  const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    // Delay showing the main content until after the intro animation
+    const timer = setTimeout(() => {
+      setShowContent(true);
+    }, 5000); // 5 seconds for the animation duration
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <main className="min-h-screen bg-black text-white">
+      {!showContent && (
+        <motion.div
+          className="fixed inset-0 flex items-center justify-center bg-black z-50"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          transition={{ duration: 0.8, delay: 4.2 }}
+          onAnimationComplete={() => setShowContent(true)}
+        >
+          {/* Gold accent lines */}
+          <motion.div
+            className="absolute left-0 top-1/2 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent w-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2, delay: 1 }}
+          />
+
+          <motion.div
+            className="absolute left-1/4 top-0 w-px bg-gradient-to-b from-transparent via-[#D4AF37]/20 to-transparent h-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, delay: 1.8 }}
+          />
+
+          <motion.div
+            className="absolute right-1/4 top-0 w-px bg-gradient-to-b from-transparent via-[#D4AF37]/20 to-transparent h-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, delay: 2 }}
+          />
+
+          <div className="text-center px-4 relative z-30 max-w-4xl mx-auto">
+            <ServicesTextEffect
+              words="Our Elite Services"
+              className="mb-8"
+              duration={0.8}
+            />
+
+            <motion.div
+              className="h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-12"
+              initial={{ width: 0 }}
+              animate={{ width: "80%" }}
+              transition={{
+                duration: 1.2,
+                delay: 2.5,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            />
+
+            <motion.p
+              className="mt-8 text-xl md:text-2xl text-white/70 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 3.2 }}
+            >
+              Luxury concierge services for the elite
+            </motion.p>
+          </div>
+        </motion.div>
+      )}
+
       <Navigation />
 
       {/* Hero Section */}
       <section className="relative pt-28 pb-16">
-        <WavyBackground className="absolute inset-0 z-0" />
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <AuroraBackground
+            showRadialGradient={true}
+            className="h-[70vh] opacity-60"
+          >
+            <div className="hidden">placeholder</div>
+          </AuroraBackground>
+        </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-cormorant font-bold text-white mb-6">

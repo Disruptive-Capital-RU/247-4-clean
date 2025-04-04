@@ -256,3 +256,12 @@ label,
 .font-dm-sans {
   font-family: var(--font-dm-sans) !important;
 }
+.no-visible-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-visible-scrollbar::-webkit-scrollbar {
+  display: none;
+}

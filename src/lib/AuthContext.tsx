@@ -131,11 +131,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const logOut = async () => {
     try {
       setLoading(true);
+      // First clear the user and profile state to ensure immediate UI update
+      setUser(null);
+      setProfile(null);
+
+      // Then perform the actual signout
       const { error } = await signOut();
       if (error) {
         console.error("Sign out error:", error);
         throw error;
       }
+
+      // Navigate after state is cleared
       router.push("/");
     } catch (err) {
       console.error("Logout error:", err);
