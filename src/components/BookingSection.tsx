@@ -446,18 +446,52 @@ export default function BookingSection() {
                     <Label htmlFor="language" className="text-white">
                       Language Preference
                     </Label>
-                    <select
-                      id="language"
-                      name="language"
-                      value={formData.language}
-                      onChange={handleChange}
-                      aria-label="Language Preference"
-                      className="w-full bg-white/5 border border-white/10 text-white p-2 rounded-md focus:border-[#D4AF37] focus:outline-none"
-                    >
-                      <option value="arabic">Arabic</option>
-                      <option value="english">English</option>
-                      <option value="russian">Russian</option>
-                    </select>
+                    <div className="grid grid-cols-3 gap-3">
+                      {[
+                        { value: "arabic", label: "Arabic" },
+                        { value: "english", label: "English" },
+                        { value: "russian", label: "Russian" },
+                      ].map((lang) => (
+                        <div
+                          key={lang.value}
+                          onClick={() =>
+                            setFormData({ ...formData, language: lang.value })
+                          }
+                          className={`relative cursor-pointer rounded-md px-4 py-3 transition-all duration-300 border ${
+                            formData.language === lang.value
+                              ? "border-[#D4AF37] bg-gradient-to-b from-[#D4AF37]/20 to-transparent shadow-[0_0_10px_rgba(212,175,55,0.3)]"
+                              : "border-white/10 bg-white/5 hover:border-white/30"
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            id={`language-${lang.value}`}
+                            name="language"
+                            value={lang.value}
+                            checked={formData.language === lang.value}
+                            onChange={handleChange}
+                            className="sr-only"
+                          />
+                          <label
+                            htmlFor={`language-${lang.value}`}
+                            className="flex justify-center items-center cursor-pointer font-medium text-center"
+                          >
+                            <span
+                              className={`${
+                                formData.language === lang.value
+                                  ? "text-[#D4AF37]"
+                                  : "text-white"
+                              }`}
+                            >
+                              {lang.label}
+                            </span>
+                          </label>
+                          {formData.language === lang.value && (
+                            <div className="absolute -bottom-px left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
+                          )}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 

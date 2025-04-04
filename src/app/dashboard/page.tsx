@@ -12,6 +12,8 @@ import {
   getRemainingDays,
 } from "@/lib/supabase";
 import { toast, Toaster } from "react-hot-toast";
+import ServicesCarousel from "@/components/ServicesCarousel";
+import MessageConciergeModal from "@/components/MessageConciergeModal";
 
 type Service = {
   id: string;
@@ -295,15 +297,14 @@ export default function Dashboard() {
                       {weatherInfo.condition}
                     </p>
                   </div>
-                  <div>
-                    <button
-                      className="px-4 py-2 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 text-[#D4AF37] rounded-lg transition-colors"
-                      onClick={() =>
-                        window.open("https://wa.me/+1234567890", "_blank")
-                      }
+                  <div className="flex flex-col space-y-2">
+                    <MessageConciergeModal />
+                    <Link
+                      href="/dashboard/profile"
+                      className="px-4 py-2 bg-[#111] hover:bg-[#222] text-white/80 hover:text-white rounded-lg transition-colors border border-white/10 text-center"
                     >
-                      Message Concierge
-                    </button>
+                      Manage Profile
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -411,157 +412,8 @@ export default function Dashboard() {
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-6 bg-[#111]">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredServices.map((service) => (
-              <div
-                key={service.id}
-                className="bg-[#0a0a0a] border border-white/5 rounded-lg overflow-hidden hover:border-[#D4AF37]/30 transition-all group"
-              >
-                <div className="h-48 bg-[#222] overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-[#D4AF37]/20 to-black/50 flex items-center justify-center text-[#D4AF37]">
-                    {service.category === "shopping" && (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-12 w-12"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1}
-                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                        />
-                      </svg>
-                    )}
-                    {service.category === "dining" && (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-12 w-12"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1}
-                          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                        />
-                      </svg>
-                    )}
-                    {service.category === "culture" && (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-12 w-12"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1}
-                          d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-                        />
-                      </svg>
-                    )}
-                    {service.category === "transport" && (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-12 w-12"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1}
-                          d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
-                        />
-                      </svg>
-                    )}
-                    {service.category === "medical" && (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-12 w-12"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1}
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        />
-                      </svg>
-                    )}
-                    {service.category === "nightlife" && (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-12 w-12"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                        />
-                      </svg>
-                    )}
-                    {service.category === "travel" && (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-12 w-12"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1}
-                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                        />
-                      </svg>
-                    )}
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-lg font-medium text-white group-hover:text-[#D4AF37] transition-colors">
-                      {service.title}
-                    </h3>
-                    {service.duration && (
-                      <span className="text-xs bg-black/50 text-white/70 px-2 py-1 rounded">
-                        {service.duration}
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-white/60 text-sm mb-4">
-                    {service.description}
-                  </p>
-                  <button
-                    onClick={() => addToCart(service)}
-                    className="w-full py-2 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/30 rounded transition-colors"
-                  >
-                    Add to My Concierge List
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Services Carousel */}
+      <ServicesCarousel addToCart={addToCart} />
 
       {/* Floating Cart Button */}
       <button
