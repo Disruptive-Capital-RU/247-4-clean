@@ -15,7 +15,10 @@ export default function HeroSection() {
         muted
         playsInline
       >
-        <source src="/videos/background-video.mp4" type="video/mp4" />
+        <source
+          src="/videos/5058324-uhd_3840_2160_25fps.mp4"
+          type="video/mp4"
+        />
       </video>
 
       {/* Gradient Overlay */}
