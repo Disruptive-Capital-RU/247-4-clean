@@ -163,13 +163,10 @@ export default function Navigation() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8 font-dm-sans">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/services">Services</NavLink>
-          <NavLink href="/why-us">Why Us</NavLink>
-
           {user ? (
             <>
-              <NavLink href="/dashboard">My Dashboard</NavLink>
+              <NavLink href="/dashboard/services">Access Suite</NavLink>
+              <NavLink href="/dashboard">Dashboard</NavLink>
               <button
                 onClick={handleLogout}
                 className="px-5 py-2 text-white border border-[#D4AF37] font-medium rounded-sm hover:bg-[#D4AF37]/10 transition-all duration-300"
@@ -178,12 +175,17 @@ export default function Navigation() {
               </button>
             </>
           ) : (
-            <button
-              onClick={() => setShowLoginModal(true)}
-              className="px-5 py-2 text-white border border-[#D4AF37] font-medium rounded-sm hover:bg-[#D4AF37]/10 transition-all duration-300"
-            >
-              Log In
-            </button>
+            <>
+              <NavLink href="/">Home</NavLink>
+              <NavLink href="/services">Services</NavLink>
+              <NavLink href="/why-us">Why Us</NavLink>
+              <button
+                onClick={() => setShowLoginModal(true)}
+                className="px-5 py-2 text-white border border-[#D4AF37] font-medium rounded-sm hover:bg-[#D4AF37]/10 transition-all duration-300"
+              >
+                Log In
+              </button>
+            </>
           )}
 
           <Link
@@ -230,20 +232,16 @@ export default function Navigation() {
           transition={{ duration: 0.3 }}
         >
           <div className="container mx-auto px-4 py-6 flex flex-col space-y-6">
-            <NavLink href="/" onClick={() => setIsMenuOpen(false)}>
-              Home
-            </NavLink>
-            <NavLink href="/services" onClick={() => setIsMenuOpen(false)}>
-              Services
-            </NavLink>
-            <NavLink href="/why-us" onClick={() => setIsMenuOpen(false)}>
-              Why Us
-            </NavLink>
-
             {user ? (
               <>
+                <NavLink
+                  href="/dashboard/services"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Access Suite
+                </NavLink>
                 <NavLink href="/dashboard" onClick={() => setIsMenuOpen(false)}>
-                  My Dashboard
+                  Dashboard
                 </NavLink>
                 <button
                   onClick={() => {
@@ -256,15 +254,26 @@ export default function Navigation() {
                 </button>
               </>
             ) : (
-              <button
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  setShowLoginModal(true);
-                }}
-                className="px-5 py-3 text-white border border-[#D4AF37] font-medium text-center rounded-sm"
-              >
-                Log In
-              </button>
+              <>
+                <NavLink href="/" onClick={() => setIsMenuOpen(false)}>
+                  Home
+                </NavLink>
+                <NavLink href="/services" onClick={() => setIsMenuOpen(false)}>
+                  Services
+                </NavLink>
+                <NavLink href="/why-us" onClick={() => setIsMenuOpen(false)}>
+                  Why Us
+                </NavLink>
+                <button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setShowLoginModal(true);
+                  }}
+                  className="px-5 py-3 text-white border border-[#D4AF37] font-medium text-center rounded-sm"
+                >
+                  Log In
+                </button>
+              </>
             )}
 
             <Link
