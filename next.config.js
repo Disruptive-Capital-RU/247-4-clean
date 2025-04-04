@@ -9,12 +9,12 @@ const nextConfig = {
     // Disable TypeScript type checking during builds
     ignoreBuildErrors: true,
   },
-  // Add additional experimental flags to bypass checks
-  experimental: {
-    disableStaticImages: true,
-  },
   // Disable react strict mode to avoid double rendering issues
   reactStrictMode: false,
+  // Configure allowed image domains
+  images: {
+    domains: ["randomuser.me"],
+  },
 };
 
 module.exports = nextConfig;

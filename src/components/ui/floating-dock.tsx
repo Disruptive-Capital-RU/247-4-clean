@@ -7,7 +7,7 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
-} from "motion/react";
+} from "framer-motion";
 import Link from "next/link";
 import { useRef, useState } from "react";
 
@@ -75,6 +75,7 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
+        aria-label="Toggle navigation menu"
         className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-800 flex items-center justify-center"
       >
         <IconLayoutNavbarCollapse className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />

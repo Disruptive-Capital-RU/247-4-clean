@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Spotlight } from "@/components/ui/spotlight";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
-import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import {
   FaGem,
   FaUserShield,
@@ -14,42 +13,6 @@ import {
   FaCalendarCheck,
   FaKey,
 } from "react-icons/fa";
-
-const testimonials = [
-  {
-    quote: "They didn't just help. They understood.",
-    name: "Khalid A.",
-    title: "Riyadh",
-    image: "https://randomuser.me/api/portraits/men/1.jpg",
-  },
-  {
-    quote: "Every detail felt made for me.",
-    name: "Salma M.",
-    title: "Abu Dhabi",
-    image: "https://randomuser.me/api/portraits/women/2.jpg",
-  },
-  {
-    quote:
-      "I landed in Moscow not knowing a soul — and felt like I never left home.",
-    name: "Noura R.",
-    title: "Kuwait City",
-    image: "https://randomuser.me/api/portraits/women/3.jpg",
-  },
-  {
-    quote:
-      "The level of personal service was beyond anything I've experienced.",
-    name: "Fahad K.",
-    title: "Dubai",
-    image: "https://randomuser.me/api/portraits/men/4.jpg",
-  },
-  {
-    quote:
-      "My privacy was protected at all times. This is what true luxury means.",
-    name: "Aisha L.",
-    title: "Doha",
-    image: "https://randomuser.me/api/portraits/women/5.jpg",
-  },
-];
 
 const advantages = [
   {
@@ -230,44 +193,30 @@ export default function WhyUsPage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* CTA Section */}
       <section className="py-16 bg-black">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-16">
+          <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-cormorant font-bold text-white mb-4">
-              What Our Clients <span className="text-[#D4AF37]">Say</span>
+              Ready for <span className="text-[#D4AF37]">True Luxury</span>?
             </h2>
-            <p className="text-lg text-white/80 max-w-3xl mx-auto">
-              The experiences of our valued clients speak to our commitment to
-              excellence.
+            <p className="text-lg text-white/80 max-w-3xl mx-auto mb-8">
+              Begin your journey with us today. Our concierge team is ready to
+              create an experience perfectly tailored to your needs.
             </p>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block"
+            >
+              <a
+                href="/book"
+                className="inline-block px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded-sm hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300"
+              >
+                Book Your Concierge
+              </a>
+            </motion.div>
           </div>
-
-          <div className="max-w-5xl mx-auto">
-            <AnimatedTestimonials
-              testimonials={testimonials}
-              className="bg-black/30 backdrop-blur-sm border border-white/10"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-b from-black to-[#111]">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-cormorant font-bold text-white mb-6">
-            Ready to Experience Moscow Like Never Before?
-          </h2>
-          <p className="text-lg text-white/80 max-w-3xl mx-auto mb-8">
-            Book your personal concierge for 5 days for just $100 and elevate
-            your Moscow journey.
-          </p>
-          <a
-            href="/book"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded-sm hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all duration-300"
-          >
-            Reserve Your Concierge
-          </a>
         </div>
       </section>
 

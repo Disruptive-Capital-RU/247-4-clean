@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import React, {
   ReactNode,
   createContext,
@@ -195,6 +195,7 @@ const CloseIcon = () => {
   return (
     <button
       onClick={() => setOpen(false)}
+      aria-label="Close modal"
       className="absolute top-4 right-4 group"
     >
       <svg

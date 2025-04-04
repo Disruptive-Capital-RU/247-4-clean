@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "@/lib/AuthContext";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
@@ -18,8 +18,25 @@ export default function Navigation() {
   const { user, profile, loading, signIn, logOut } = useAuth();
   const router = useRouter();
 
+  // Effect to close the login modal when user is authenticated
+  useEffect(() => {
+    if (user && showLoginModal) {
+      setShowLoginModal(false);
+      setLoginMessage(null);
+      router.push("/dashboard");
+    }
+  }, [user, showLoginModal, router]);
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // If user is already logged in, redirect to dashboard
+    if (user) {
+      setShowLoginModal(false);
+      router.push("/dashboard");
+      return;
+    }
+
     if (!email) {
       setLoginMessage({
         type: "error",
@@ -262,7 +279,7 @@ export default function Navigation() {
       )}
 
       {/* Login Modal */}
-      {showLoginModal && (
+      {showLoginModal && !user && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
           <motion.div
             className="bg-[#111] border border-[#D4AF37]/30 rounded-lg p-6 w-full max-w-md"

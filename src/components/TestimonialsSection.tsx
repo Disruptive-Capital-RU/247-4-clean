@@ -7,35 +7,35 @@ const testimonials = [
   {
     quote: "They didn&apos;t just help. They understood.",
     name: "Khalid A.",
-    title: "Riyadh",
-    image: "https://randomuser.me/api/portraits/men/1.jpg",
+    designation: "Riyadh",
+    src: "https://randomuser.me/api/portraits/men/1.jpg",
   },
   {
     quote: "Every detail felt made for me.",
     name: "Salma M.",
-    title: "Abu Dhabi",
-    image: "https://randomuser.me/api/portraits/women/2.jpg",
+    designation: "Abu Dhabi",
+    src: "https://randomuser.me/api/portraits/women/2.jpg",
   },
   {
     quote:
       "I landed in Moscow not knowing a soul — and felt like I never left home.",
     name: "Noura R.",
-    title: "Kuwait City",
-    image: "https://randomuser.me/api/portraits/women/3.jpg",
+    designation: "Kuwait City",
+    src: "https://randomuser.me/api/portraits/women/3.jpg",
   },
   {
     quote:
       "The level of personal service was beyond anything I&apos;ve experienced.",
     name: "Fahad K.",
-    title: "Dubai",
-    image: "https://randomuser.me/api/portraits/men/4.jpg",
+    designation: "Dubai",
+    src: "https://randomuser.me/api/portraits/men/4.jpg",
   },
   {
     quote:
       "My privacy was protected at all times. This is what true luxury means.",
     name: "Aisha L.",
-    title: "Doha",
-    image: "https://randomuser.me/api/portraits/women/5.jpg",
+    designation: "Doha",
+    src: "https://randomuser.me/api/portraits/women/5.jpg",
   },
 ];
 
