@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { MovingBorder } from "@/components/ui/moving-border";
 import {
   FaLock,
   FaUtensils,
@@ -13,7 +13,13 @@ import {
   FaLandmark,
 } from "react-icons/fa";
 
-const services = [
+type Service = {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+};
+
+const services: Service[] = [
   {
     icon: <FaShoppingBag className="w-6 h-6" />,
     title: "VIP Shopping",
@@ -58,6 +64,46 @@ const services = [
   },
 ];
 
+interface ServiceCardProps {
+  service: Service;
+  index: number;
+}
+
+const ServiceCard = ({ service, index }: ServiceCardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      className="relative h-full rounded-xl overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {isHovered && (
+        <div className="absolute inset-0 z-0">
+          <MovingBorder duration={8000} rx="12px" ry="12px">
+            <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
+          </MovingBorder>
+        </div>
+      )}
+      <div
+        className={`
+          relative z-10 h-full bg-black/60 backdrop-blur-sm 
+          border ${isHovered ? "border-[#D4AF37]/30" : "border-white/10"} 
+          p-6 rounded-xl group transition-all duration-300
+        `}
+      >
+        <div className="text-[#D4AF37] mb-4 group-hover:scale-110 transition-transform duration-300">
+          {service.icon}
+        </div>
+        <h3 className="text-xl font-cormorant font-semibold text-white mb-3">
+          {service.title}
+        </h3>
+        <p className="font-dm-sans text-white/70">{service.description}</p>
+      </div>
+    </div>
+  );
+};
+
 export default function ServicesSection() {
   return (
     <section className="py-20 bg-black relative overflow-hidden">
@@ -97,17 +143,7 @@ export default function ServicesSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <CardSpotlight className="h-full bg-black/40 backdrop-blur-sm border border-white/10 p-6 group">
-                <div className="text-[#D4AF37] mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-cormorant font-semibold text-white mb-3">
-                  {service.title}
-                </h3>
-                <p className="font-dm-sans text-white/70">
-                  {service.description}
-                </p>
-              </CardSpotlight>
+              <ServiceCard service={service} index={index} />
             </motion.div>
           ))}
         </div>
