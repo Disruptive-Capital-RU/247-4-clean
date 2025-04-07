@@ -11,7 +11,15 @@ import {
   FaHeartbeat,
   FaGlassMartiniAlt,
   FaLandmark,
+  FaApple,
+  FaAndroid,
 } from "react-icons/fa";
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalTrigger,
+} from "@/components/ui/animated-modal";
 
 type Service = {
   icon: React.ReactNode;
@@ -104,6 +112,128 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
   );
 };
 
+// Golden Button Instructions Component
+const GoldenButtonInstructions = ({
+  deviceType,
+}: {
+  deviceType: "iphone" | "android" | null;
+}) => {
+  if (!deviceType) return null;
+
+  const iphoneInstructions = [
+    "Open Safari and navigate to our website",
+    "Tap the Share icon at the bottom of the screen",
+    "Scroll down and tap 'Add to Home Screen'",
+    "Keep the default name or customize it, then tap 'Add'",
+    "Your Golden Button will appear on your home screen exactly as shown above",
+  ];
+
+  const androidInstructions = [
+    "Open Chrome and navigate to our website",
+    "Tap the three-dot menu in the top right",
+    "Select 'Add to Home screen'",
+    "Keep the default name or customize it, then tap 'Add'",
+    "Your Golden Button will appear on your home screen exactly as shown above",
+  ];
+
+  const instructions =
+    deviceType === "iphone" ? iphoneInstructions : androidInstructions;
+
+  return (
+    <div className="p-6">
+      <h3 className="text-2xl font-cormorant font-semibold text-white mb-5">
+        {deviceType === "iphone" ? "iPhone" : "Android"} Installation
+      </h3>
+      <div className="space-y-3">
+        {instructions.map((instruction, index) => (
+          <div key={index} className="flex items-start">
+            <div className="w-6 h-6 rounded-full bg-[#D4AF37] text-black flex items-center justify-center mr-3 shrink-0 mt-0.5">
+              {index + 1}
+            </div>
+            <p className="text-white/80">{instruction}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Golden Button Component
+const GoldenButton = () => {
+  const [deviceType, setDeviceType] = useState<"iphone" | "android" | null>(
+    null
+  );
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="mb-16 max-w-3xl mx-auto"
+    >
+      <div className="bg-black/60 backdrop-blur-sm border border-[#D4AF37]/30 rounded-2xl overflow-hidden">
+        <div className="p-6 md:p-8 text-center">
+          {/* iPhone-style app icon with rounded square shape */}
+          <div className="w-24 h-24 rounded-[22%] bg-gradient-to-r from-[#D4AF37] to-[#F5D76E] mx-auto mb-6 flex items-center justify-center shadow-lg shadow-[#D4AF37]/20 p-[2px]">
+            <div className="w-full h-full rounded-[20%] bg-black flex items-center justify-center">
+              <img
+                src="/Images/logo_3.png"
+                alt="24/7 Logo"
+                className="w-[70%] h-[70%] object-contain"
+              />
+            </div>
+          </div>
+
+          <h3 className="text-2xl md:text-3xl font-cormorant font-bold text-[#D4AF37] mb-4">
+            Your Golden Button
+          </h3>
+
+          <p className="font-dm-sans text-white/80 mb-6 max-w-2xl mx-auto">
+            This is more than just a button — it is your direct line to luxury,
+            discretion, and the finest the city has to offer. One touch connects
+            you to your personal concierge, available day and night.
+          </p>
+
+          <p className="font-dm-sans text-white/80 mb-8 italic">
+            Press and hold to add it to your home screen.
+          </p>
+
+          <p className="font-dm-sans text-white/90 mb-4">
+            Choose your device to continue:
+          </p>
+
+          <div className="flex justify-center gap-4">
+            <Modal>
+              <ModalTrigger className="px-6 py-3 bg-black border border-[#D4AF37] rounded-full text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-colors flex items-center gap-2">
+                <FaApple className="w-5 h-5" />
+                <span className="font-dm-sans">iPhone</span>
+              </ModalTrigger>
+              <ModalBody className="bg-black border border-[#D4AF37]/30 max-w-md">
+                <ModalContent>
+                  <GoldenButtonInstructions deviceType="iphone" />
+                </ModalContent>
+              </ModalBody>
+            </Modal>
+
+            <Modal>
+              <ModalTrigger className="px-6 py-3 bg-black border border-[#D4AF37] rounded-full text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-colors flex items-center gap-2">
+                <FaAndroid className="w-5 h-5" />
+                <span className="font-dm-sans">Android</span>
+              </ModalTrigger>
+              <ModalBody className="bg-black border border-[#D4AF37]/30 max-w-md">
+                <ModalContent>
+                  <GoldenButtonInstructions deviceType="android" />
+                </ModalContent>
+              </ModalBody>
+            </Modal>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 export default function ServicesSection() {
   return (
     <section className="py-20 bg-black relative overflow-hidden">
@@ -133,6 +263,9 @@ export default function ServicesSection() {
             desires before you express them.
           </p>
         </motion.div>
+
+        {/* Golden Button Feature */}
+        <GoldenButton />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (

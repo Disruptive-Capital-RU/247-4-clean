@@ -1,0 +1,66 @@
+        <nav className="hidden md:flex items-center space-x-8 font-dm-sans">
+          {user ? (
+            <>
+              <NavLink href="/dashboard/services">Access Suite</NavLink>
+              <NavLink href="/dashboard">Dashboard</NavLink>
+              <button
+                onClick={handleLogout}
+                className="px-5 py-2 text-white border border-[#D4AF37] font-medium rounded-sm hover:bg-[#D4AF37]/10 transition-all duration-300"
+              >
+                Log Out
+              </button>
+            </>
+          ) : (
+            <>
+              <NavLink href="/">Home</NavLink>
+              <NavLink href="/services">Services</NavLink>
+              <NavLink href="/why-us">Why Us</NavLink>
+              <button
+                onClick={() => setShowLoginModal(true)}
+                className="px-5 py-2 text-white border border-[#D4AF37] font-medium rounded-sm hover:bg-[#D4AF37]/10 transition-all duration-300"
+              >
+                Log In
+              </button>
+            </>
+          )}
+
+          <Link
+            href="/book"
+            className="px-5 py-2 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded-sm hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300"
+          >
+            Book Now
+          </Link>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden flex items-center"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <span className="sr-only">Menu</span>
+          <div className="space-y-2">
+            <span
+              className={`block w-8 h-0.5 bg-white transition-transform duration-300 ${
+                isMenuOpen ? "translate-y-2.5 rotate-45" : ""
+              }`}
+            ></span>
+            <span
+              className={`block w-8 h-0.5 bg-white transition-opacity duration-300 ${
+                isMenuOpen ? "opacity-0" : "opacity-100"
+              }`}
+            ></span>
+            <span
+              className={`block w-8 h-0.5 bg-white transition-transform duration-300 ${
+                isMenuOpen ? "-translate-y-2.5 -rotate-45" : ""
+              }`}
+            ></span>
+          </div>
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <motion.div
+          className="md:hidden bg-black/95 border-t border-white/10"
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}

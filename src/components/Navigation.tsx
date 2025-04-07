@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import { useAuth } from "@/lib/AuthContext";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
+import Image from "next/image";
+import logo from "../../Images/logo_2.png";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -152,74 +154,91 @@ export default function Navigation() {
 
   return (
     <header className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
-      <div className="container mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
-        <Link
-          href="/"
-          className="text-xl md:text-2xl font-cormorant tracking-wider text-white"
-        >
-          <span className="font-bold">Reluxi</span>
-          <span className="text-[#D4AF37] ml-2">Concierge</span>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8 font-dm-sans">
-          {user ? (
-            <>
-              <NavLink href="/dashboard/services">Access Suite</NavLink>
-              <NavLink href="/dashboard">Dashboard</NavLink>
-              <button
-                onClick={handleLogout}
-                className="px-5 py-2 text-white border border-[#D4AF37] font-medium rounded-sm hover:bg-[#D4AF37]/10 transition-all duration-300"
-              >
-                Log Out
-              </button>
-            </>
-          ) : (
-            <>
-              <NavLink href="/">Home</NavLink>
-              <NavLink href="/services">Services</NavLink>
-              <NavLink href="/why-us">Why Us</NavLink>
-              <button
-                onClick={() => setShowLoginModal(true)}
-                className="px-5 py-2 text-white border border-[#D4AF37] font-medium rounded-sm hover:bg-[#D4AF37]/10 transition-all duration-300"
-              >
-                Log In
-              </button>
-            </>
-          )}
-
+      <div className="container mx-auto px-4 md:px-6 py-4 flex items-center">
+        {/* Left section */}
+        <div className="flex-1 flex justify-start">
           <Link
-            href="/book"
-            className="px-5 py-2 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded-sm hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300"
+            href="/"
+            className="text-xl md:text-2xl font-cormorant tracking-wider text-white"
           >
-            Book Now
+            <span className="font-bold">Reluxi</span>
+            <span className="text-[#D4AF37] ml-2">Concierge</span>
           </Link>
-        </nav>
+        </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden flex items-center"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <span className="sr-only">Menu</span>
-          <div className="space-y-2">
-            <span
-              className={`block w-8 h-0.5 bg-white transition-transform duration-300 ${
-                isMenuOpen ? "translate-y-2.5 rotate-45" : ""
-              }`}
-            ></span>
-            <span
-              className={`block w-8 h-0.5 bg-white transition-opacity duration-300 ${
-                isMenuOpen ? "opacity-0" : "opacity-100"
-              }`}
-            ></span>
-            <span
-              className={`block w-8 h-0.5 bg-white transition-transform duration-300 ${
-                isMenuOpen ? "-translate-y-2.5 -rotate-45" : ""
-              }`}
-            ></span>
-          </div>
-        </button>
+        {/* Center logo */}
+        <div className="flex justify-center items-center absolute left-1/2 transform -translate-x-1/2">
+          <Image
+            src={logo}
+            alt="Reluxi Concierge Logo"
+            width={40}
+            height={16}
+            className="object-contain"
+          />
+        </div>
+
+        {/* Right section */}
+        <div className="flex-1 flex justify-end">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-5 font-dm-sans">
+            {user ? (
+              <>
+                <NavLink href="/dashboard/services">Access Suite</NavLink>
+                <NavLink href="/dashboard">Dashboard</NavLink>
+                <button
+                  onClick={handleLogout}
+                  className="px-5 py-2 text-white border border-[#D4AF37] font-medium rounded-sm hover:bg-[#D4AF37]/10 transition-all duration-300"
+                >
+                  Log Out
+                </button>
+              </>
+            ) : (
+              <>
+                <NavLink href="/">Home</NavLink>
+                <NavLink href="/services">Services</NavLink>
+                <NavLink href="/why-us">Why Us</NavLink>
+                <button
+                  onClick={() => setShowLoginModal(true)}
+                  className="px-5 py-2 text-white border border-[#D4AF37] font-medium rounded-sm hover:bg-[#D4AF37]/10 transition-all duration-300"
+                >
+                  Log In
+                </button>
+              </>
+            )}
+
+            <Link
+              href="/book"
+              className="px-5 py-2 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded-sm hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300"
+            >
+              Book Now
+            </Link>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden flex items-center"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <span className="sr-only">Menu</span>
+            <div className="space-y-2">
+              <span
+                className={`block w-8 h-0.5 bg-white transition-transform duration-300 ${
+                  isMenuOpen ? "translate-y-2.5 rotate-45" : ""
+                }`}
+              ></span>
+              <span
+                className={`block w-8 h-0.5 bg-white transition-opacity duration-300 ${
+                  isMenuOpen ? "opacity-0" : "opacity-100"
+                }`}
+              ></span>
+              <span
+                className={`block w-8 h-0.5 bg-white transition-transform duration-300 ${
+                  isMenuOpen ? "-translate-y-2.5 -rotate-45" : ""
+                }`}
+              ></span>
+            </div>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}

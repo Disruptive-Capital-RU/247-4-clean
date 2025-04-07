@@ -20,6 +20,14 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Reluxi — Elite Concierge Service",
   description: "Premium concierge services for Arab tourists visiting Moscow",
+  appleWebApp: {
+    capable: true,
+    title: "24/7 Golden Service",
+    statusBarStyle: "black-translucent",
+  },
+  applicationName: "24/7 Golden Service",
+  manifest: "/manifest.json",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({
@@ -40,6 +48,14 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400;1,9..40,500;1,9..40,700&display=swap"
           rel="stylesheet"
         />
+        <link rel="apple-touch-icon" href="/images/app-icon.png" />
+        <link rel="icon" type="image/png" href="/images/app-icon.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+        <meta name="apple-mobile-web-app-title" content="24/7 Golden Service" />
         <style
           dangerouslySetInnerHTML={{
             __html: `
