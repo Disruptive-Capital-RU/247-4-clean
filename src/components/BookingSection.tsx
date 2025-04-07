@@ -371,7 +371,7 @@ export default function BookingSection() {
                   Booking Confirmed
                 </h3>
                 <p className="text-white/80 mb-6">
-                  Thank you for booking with 24/7 Concierge. You will receive a
+                  Thank you for booking with Reluxi Concierge. You will receive a
                   confirmation email shortly.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">

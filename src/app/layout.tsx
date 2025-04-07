@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "24/7 — Elite Concierge Service",
+  title: "Reluxi — Elite Concierge Service",
   description: "Premium concierge services for Arab tourists visiting Moscow",
 };
 

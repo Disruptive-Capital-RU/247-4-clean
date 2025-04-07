@@ -33,7 +33,7 @@ export default function HeroSection() {
           className="max-w-4xl mx-auto"
         >
           <h1 className="font-cormorant text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 text-white">
-            <span className="block">24/7</span>
+            <span className="block">Reluxi</span>
             <span className="text-[#D4AF37] block">
               Elite Concierge Service
             </span>

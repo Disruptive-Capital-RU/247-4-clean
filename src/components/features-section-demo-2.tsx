@@ -41,7 +41,7 @@ export default function FeaturesSectionDemo() {
       icon: <IconRouteAltLeft />,
     },
     {
-      title: "24/7 Customer Support",
+      title: "24-Hour Customer Support",
       description:
         "We are available a 100% of the time. Atleast our AI Agents are.",
       icon: <IconHelp />,

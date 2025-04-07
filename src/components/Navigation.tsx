@@ -157,7 +157,7 @@ export default function Navigation() {
           href="/"
           className="text-xl md:text-2xl font-cormorant tracking-wider text-white"
         >
-          <span className="font-bold">24/7</span>
+          <span className="font-bold">Reluxi</span>
           <span className="text-[#D4AF37] ml-2">Concierge</span>
         </Link>
 

@@ -128,7 +128,7 @@ export default function ServicesSection() {
             </span>
           </h2>
           <p className="font-dm-sans text-lg text-white/80 max-w-3xl mx-auto">
-            24/7 is your private gateway to everything Moscow offers — without
+            Reluxi is your private gateway to everything Moscow offers — without
             noise, delay, or compromise. We specialize in anticipating your
             desires before you express them.
           </p>

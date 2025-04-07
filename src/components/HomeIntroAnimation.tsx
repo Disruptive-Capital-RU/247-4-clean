@@ -248,7 +248,7 @@ export default function HomeIntroAnimation({
 
       <div className="text-center px-4 relative z-30 max-w-4xl mx-auto">
         <ServicesTextEffect
-          words="24/7 Elite Concierge"
+          words="Reluxi Elite Concierge"
           className="mb-8"
           duration={0.8}
         />

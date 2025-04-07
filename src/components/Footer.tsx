@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-cormorant mb-4">24/7 Concierge</h3>
+            <h3 className="text-xl font-cormorant mb-4">Reluxi Concierge</h3>
             <p className="font-dm-sans text-white/70 italic mb-4">
               &quot;Always with you. Even when the world is not.&quot;
             </p>
@@ -18,7 +18,7 @@ export default function Footer() {
               <SocialLink href="#" icon={<FaWhatsapp />} label="WhatsApp" />
               <SocialLink href="#" icon={<FaTelegram />} label="Telegram" />
               <SocialLink
-                href="mailto:service@247concierge.com"
+                href="mailto:service@reluxi.com"
                 icon={<FaEnvelope />}
                 label="Email"
               />
@@ -108,10 +108,10 @@ export default function Footer() {
               <p className="flex items-center gap-2">
                 <FaEnvelope className="text-[#D4AF37]" />
                 <a
-                  href="mailto:service@247concierge.com"
+                  href="mailto:service@reluxi.com"
                   className="hover:text-white transition-colors"
                 >
-                  service@247concierge.com
+                  service@reluxi.com
                 </a>
               </p>
             </div>
@@ -120,7 +120,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/50 text-sm">
-            &copy; {new Date().getFullYear()} 24/7 Concierge. All rights
+            &copy; {new Date().getFullYear()} Reluxi Concierge. All rights
             reserved.
           </p>
           <p className="text-white/50 text-sm mt-2 md:mt-0">

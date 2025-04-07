@@ -106,7 +106,7 @@ export default function WhyUsPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-4">
-              Why Choose <span className="text-[#D4AF37]">24/7</span>
+              Why Choose <span className="text-[#D4AF37]">Reluxi</span>
             </h2>
             <p className="font-dm-sans text-lg text-white/80 max-w-3xl mx-auto">
               We elevate your Moscow experience through a commitment to
