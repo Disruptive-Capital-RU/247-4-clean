@@ -92,30 +92,6 @@ export default function ServicesPage() {
 
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative pt-28 pb-16">
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <AuroraBackground
-            showRadialGradient={true}
-            className="h-[70vh] opacity-60"
-          >
-            <div className="hidden">placeholder</div>
-          </AuroraBackground>
-        </div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-cormorant font-bold text-white mb-6">
-              Our Elite <span className="text-[#D4AF37]">Services</span>
-            </h1>
-            <p className="font-dm-sans text-lg md:text-xl text-white/80">
-              24/7 is your private gateway to everything Moscow offers — without
-              noise, delay, or compromise. We specialize in anticipating your
-              desires before you express them.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Services Detail */}
       <section className="py-16 bg-black">
         <div className="container mx-auto px-4 md:px-6">
