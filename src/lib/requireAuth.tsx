@@ -94,7 +94,7 @@ export default function RequireAuth({
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex flex-col items-center justify-center">
+      <main className="min-h-screen bg-black flex flex-col items-center justify-center">
         <div className="animate-pulse text-[#D4AF37] text-xl font-cormorant mb-4">
           Loading your exclusive experience...
         </div>
@@ -126,7 +126,7 @@ export default function RequireAuth({
             </div>
           </div>
         )}
-      </div>
+      </main>
     );
   }
 

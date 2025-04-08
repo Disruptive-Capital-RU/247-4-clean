@@ -53,10 +53,10 @@ export default function ServicesCarousel({
         id: "s1",
         title: "Private Chauffeur Service",
         description: "Arrive anywhere with style, safety, and discretion.",
-        image: "/chauffeur_service.jpg",
+        image: "/taxi.jpg",
         category: "transport",
         duration: "4h or 8h",
-        src: "/images/chauffeur_service.jpeg",
+        src: "/taxi.jpg",
         content: (
           <div className="space-y-4">
             <p>
@@ -76,7 +76,7 @@ export default function ServicesCarousel({
                   title: "Private Chauffeur Service",
                   description:
                     "Arrive anywhere with style, safety, and discretion.",
-                  image: "/chauffeur_service.jpg",
+                  image: "/taxi.jpg",
                   category: "transport",
                   duration: "4h or 8h",
                 })
