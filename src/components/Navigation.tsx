@@ -203,15 +203,14 @@ export default function Navigation() {
                 >
                   Log In
                 </button>
+                <Link
+                  href="/book"
+                  className="px-5 py-2 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded-sm hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300"
+                >
+                  Book Now
+                </Link>
               </>
             )}
-
-            <Link
-              href="/book"
-              className="px-5 py-2 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded-sm hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300"
-            >
-              Book Now
-            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -292,16 +291,15 @@ export default function Navigation() {
                 >
                   Log In
                 </button>
+                <Link
+                  href="/book"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="px-5 py-3 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium text-center rounded-sm"
+                >
+                  Book Now
+                </Link>
               </>
             )}
-
-            <Link
-              href="/book"
-              onClick={() => setIsMenuOpen(false)}
-              className="px-5 py-3 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium text-center rounded-sm"
-            >
-              Book Now
-            </Link>
           </div>
         </motion.div>
       )}

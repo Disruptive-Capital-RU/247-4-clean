@@ -48,6 +48,36 @@ export default function Dashboard() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    // Fetch weather data for Moscow
+    const fetchWeatherData = async () => {
+      try {
+        const response = await fetch(
+          `https://api.weatherapi.com/v1/current.json?key=dfa26fd003b1414e99e131529250804&q=Moscow&aqi=no`
+        );
+
+        if (!response.ok) {
+          throw new Error("Weather data fetch failed");
+        }
+
+        const data = await response.json();
+
+        // Format the temperature and condition from WeatherAPI.com response
+        const temp = `${Math.round(data.current.temp_c)}°C`;
+        const condition = data.current.condition.text;
+
+        setWeatherInfo({
+          temp,
+          condition,
+        });
+      } catch (error) {
+        console.error("Error fetching weather data:", error);
+        // Keep the default values in case of error
+      }
+    };
+
+    // Fetch weather data when component mounts
+    fetchWeatherData();
+
     // Set username from profile
     if (profile) {
       setUserName(profile.name);
