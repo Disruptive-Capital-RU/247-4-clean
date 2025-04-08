@@ -60,6 +60,7 @@ export default function Dashboard() {
   const [orderSubmitted, setOrderSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [dataLoaded, setDataLoaded] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Skip data loading on window focus if already loaded
   const isDataInitialized = useRef(false);
@@ -517,9 +518,28 @@ export default function Dashboard() {
       {/* Service Categories */}
       <section className="py-6 bg-[#111]">
         <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-2xl font-cormorant font-semibold mb-6">
-            Browse & Book Services
-          </h2>
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-cormorant font-semibold">
+              Browse & Book Services
+            </h2>
+            <div className="relative w-full max-w-xs">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search services..."
+                className="w-full px-4 py-2 bg-[#222] border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-[#D4AF37] focus:border-[#D4AF37]"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white/50 hover:text-white"
+                >
+                  ×
+                </button>
+              )}
+            </div>
+          </div>
 
           <div className="overflow-x-auto pb-4">
             <div className="flex space-x-4 min-w-max">
@@ -542,7 +562,7 @@ export default function Dashboard() {
       </section>
 
       {/* Services Carousel */}
-      <ServicesCarousel addToCart={addToCart} />
+      <ServicesCarousel addToCart={addToCart} searchQuery={searchQuery} />
 
       {/* Floating Message Concierge Button */}
       <MessageConciergeButton />

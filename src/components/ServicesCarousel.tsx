@@ -27,11 +27,16 @@ type Service = {
 
 type ServicesCarouselProps = {
   addToCart?: (service: ServiceType) => void;
+  searchQuery?: string;
 };
 
-export default function ServicesCarousel({ addToCart }: ServicesCarouselProps) {
+export default function ServicesCarousel({
+  addToCart,
+  searchQuery = "",
+}: ServicesCarouselProps) {
   const [services, setServices] = React.useState<Service[]>([]);
   const { user } = useAuth();
+  const [filteredServices, setFilteredServices] = React.useState<Service[]>([]);
 
   const handleAddToCart = (service: ServiceType) => {
     if (addToCart) {
@@ -280,31 +285,60 @@ export default function ServicesCarousel({ addToCart }: ServicesCarouselProps) {
     ];
 
     setServices(servicesData);
+    setFilteredServices(servicesData);
   }, []);
 
-  return (
-    <div className="w-full py-8 bg-[#111]">
-      <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-2xl font-cormorant font-semibold mb-6 text-white">
-          Premium Services
-        </h2>
+  // Filter services based on search query
+  React.useEffect(() => {
+    if (!searchQuery.trim()) {
+      setFilteredServices(services);
+      return;
+    }
 
-        <Carousel
-          items={services.map((service, index) => (
-            <Card
-              key={service.id}
-              index={index}
-              card={{
-                src: service.src,
-                title: service.title,
-                category: service.category,
-                content: service.content,
-              }}
-              layout={true}
-            />
-          ))}
-        />
+    const query = searchQuery.toLowerCase();
+    const filtered = services.filter(
+      (service) =>
+        service.title.toLowerCase().includes(query) ||
+        service.description.toLowerCase().includes(query) ||
+        service.category.toLowerCase().includes(query)
+    );
+
+    setFilteredServices(filtered);
+  }, [searchQuery, services]);
+
+  if (services.length === 0) {
+    return (
+      <div className="py-12 text-center text-white/50">Loading services...</div>
+    );
+  }
+
+  return (
+    <section className="py-6 bg-black">
+      <div className="container mx-auto px-4 md:px-6">
+        {filteredServices.length === 0 ? (
+          <div className="py-12 text-center text-white/50">
+            No services found matching "{searchQuery}". Try a different search
+            term.
+          </div>
+        ) : (
+          <Carousel
+            items={filteredServices.map((service, index) => (
+              <Card
+                key={service.id}
+                index={index}
+                card={{
+                  src: service.src,
+                  title: service.title,
+                  category: service.category,
+                  content: service.content,
+                }}
+                layout={true}
+                className="max-w-[280px] md:max-w-[320px]"
+              />
+            ))}
+          />
+        )}
       </div>
-    </div>
+    </section>
   );
 }
