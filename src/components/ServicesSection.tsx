@@ -245,28 +245,40 @@ export default function ServicesSection() {
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
+        {/* In our own words section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-16 relative overflow-hidden rounded-2xl -mx-4 md:-mx-6 lg:-mx-8"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-4">
-            A Service of{" "}
-            <span className="text-[#D4AF37]">
-              Presence, Power, and Precision
-            </span>
-          </h2>
-          <p className="font-dm-sans text-lg text-white/80 max-w-3xl mx-auto">
-            Reluxi is your private gateway to everything Moscow offers — without
-            noise, delay, or compromise. We specialize in anticipating your
-            desires before you express them.
-          </p>
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-black" />{" "}
+            {/* Black base background */}
+            <div className="absolute top-0 right-0 bottom-0 w-3/5 md:w-2/3 lg:w-4/5">
+              <div className="absolute inset-0 bg-[url('/images/castle.jpg')] bg-cover bg-[position:75%_top] right-0" />{" "}
+              {/* Image positioned further right */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/20 to-transparent" />{" "}
+              {/* Even lighter gradient */}
+            </div>
+          </div>
+          <div className="relative z-10 container mx-auto flex flex-col items-start text-left min-h-[80vh] py-32">
+            <div className="max-w-lg pl-4 md:pl-6">
+              <h3 className="text-xl md:text-2xl font-cormorant text-white/80 mb-2">
+                In our own words
+              </h3>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-6">
+                A Service of Presence, Power, and Precision
+              </h2>
+              <p className="font-dm-sans text-lg text-white/90">
+                Reluxi is your private gateway to everything Moscow offers —
+                without noise, delay, or compromise. We specialize in
+                anticipating your desires before you express them.
+              </p>
+            </div>
+          </div>
         </motion.div>
-
-        {/* Golden Button Feature */}
-        <GoldenButton />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
@@ -281,6 +293,9 @@ export default function ServicesSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Golden Button Feature */}
+        <GoldenButton />
 
         {/* Container Scroll Animation */}
         <div className="mt-24">
