@@ -64,7 +64,7 @@ export default function Navigation() {
       if (userError) {
         if (userError.code === "PGRST116") {
           // PGRST116 is "no rows returned"
-          console.error("User not found in database:", normalizedEmail);
+          console.log("Checking auth for user:", normalizedEmail);
 
           // Double-check auth users as well
           const { data: authUser, error: authError } =

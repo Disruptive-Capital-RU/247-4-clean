@@ -170,7 +170,7 @@ export default function Dashboard() {
         description:
           "Reserved seating at one of Moscow's most prestigious restaurants with panoramic views.",
         image: "/images/restaurant.jpg",
-        category: "Dining",
+        category: "Dining & Culinary",
       },
       {
         id: "s4",
@@ -212,7 +212,7 @@ export default function Dashboard() {
         description:
           "Enjoy authentic Middle Eastern cuisine prepared by a private chef in your accommodation.",
         image: "/images/chef.jpg",
-        category: "Dining",
+        category: "Dining & Culinary",
         duration: "4h",
       },
     ]);

@@ -94,7 +94,7 @@ export const demoSignIn = async (email: string) => {
     }
 
     if (!users || users.length === 0) {
-      console.error("User not found in users table:", normalizedEmail);
+      console.log("Checking auth for user:", normalizedEmail);
 
       // Check if the user exists in auth but not in our users table
       const { data: authUser, error: authError } =

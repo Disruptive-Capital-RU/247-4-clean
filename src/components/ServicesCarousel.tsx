@@ -134,7 +134,7 @@ export default function ServicesCarousel({
         description:
           "Reserved seating at the most prestigious restaurants with panoramic views.",
         image: "/restaurant.jpg",
-        category: "Dining",
+        category: "Dining & Culinary",
         src: "/images/restaurant_service_1.jpg",
         content: (
           <div className="space-y-4">
@@ -156,7 +156,7 @@ export default function ServicesCarousel({
                   description:
                     "Reserved seating at the most prestigious restaurants with panoramic views.",
                   image: "/restaurant.jpg",
-                  category: "Dining",
+                  category: "Dining & Culinary",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
