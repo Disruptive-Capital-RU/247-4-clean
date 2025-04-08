@@ -178,7 +178,7 @@ const GoldenButton = () => {
           <div className="w-24 h-24 rounded-[22%] bg-gradient-to-r from-[#D4AF37] to-[#F5D76E] mx-auto mb-6 flex items-center justify-center shadow-lg shadow-[#D4AF37]/20 p-[2px]">
             <div className="w-full h-full rounded-[20%] bg-black flex items-center justify-center">
               <img
-                src="/Images/logo_3.png"
+                src="/images/logo_2.png"
                 alt="24/7 Logo"
                 className="w-[70%] h-[70%] object-contain"
               />

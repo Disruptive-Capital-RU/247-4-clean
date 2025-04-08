@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iOS App Icon Generator</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5;
+        flex-direction: column;
+      }
+
+      .container {
+        text-align: center;
+        margin: 20px;
+      }
+
+      /* iOS app icon styling */
+      .ios-app-icon {
+        width: 180px;
+        height: 180px;
+        border-radius: 38px; /* iOS 14+ app icon shape */
+        background: linear-gradient(to right, #d4af37, #f5d76e);
+        padding: 10px;
+        box-sizing: border-box;
+        display: inline-block;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        position: relative;
+        margin: 20px;
+      }
+
+      .ios-app-icon-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .ios-app-icon-inner img {
+        width: 65%;
+        height: 65%;
+        object-fit: contain;
+      }
+
+      button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #0071e3;
+        border: none;
+        border-radius: 6px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background-color: #0077ed;
+      }
+
+      .instructions {
+        max-width: 500px;
+        margin: 20px auto;
+        line-height: 1.5;
+        color: #333;
+      }
+
+      .step {
+        margin-bottom: 12px;
+        text-align: left;
+      }
+
+      .note {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 20px;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>iOS App Icon</h1>
+
+    <div class="container">
+      <div class="ios-app-icon">
+        <div class="ios-app-icon-inner">
+          <img src="logo_2.png" alt="24/7 Logo" />
+        </div>
+      </div>
+
+      <div class="instructions">
+        <p>For the best home screen icon experience:</p>
+        <ol>
+          <div class="step">
+            1. Take a screenshot of this icon (try to capture just the icon)
+          </div>
+          <div class="step">2. Crop it to a perfect square</div>
+          <div class="step">
+            3. Save it as "apple-touch-icon.png" in the images folder
+          </div>
+          <div class="step">
+            4. Update your site's metadata to use this new icon
+          </div>
+        </ol>
+        <p class="note">
+          This icon follows iOS design guidelines with the proper radius and
+          styling for optimal home screen appearance.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // You could add download functionality here if needed
+    </script>
+  </body>
+</html>

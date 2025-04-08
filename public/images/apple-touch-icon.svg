@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="180" height="180" viewBox="0 0 180 180">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#F5D76E" />
+    </linearGradient>
+    <!-- Image reference -->
+    <image id="logo" href="logo_2.png" width="117" height="117" />
+  </defs>
+  
+  <!-- iOS app icon shape with golden gradient border -->
+  <rect x="0" y="0" width="180" height="180" rx="38" ry="38" fill="url(#gradient)" />
+  
+  <!-- Black inner background -->
+  <rect x="10" y="10" width="160" height="160" rx="30" ry="30" fill="#000000" />
+  
+  <!-- Centered logo -->
+  <use xlink:href="#logo" x="31.5" y="31.5" />
+</svg> 
