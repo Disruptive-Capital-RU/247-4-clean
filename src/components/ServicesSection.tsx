@@ -171,7 +171,7 @@ const GoldenButton = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="mb-16 max-w-3xl mx-auto"
+      className="mb-8 max-w-3xl mx-auto"
     >
       <div className="bg-black/60 backdrop-blur-sm border border-[#D4AF37]/30 rounded-2xl overflow-hidden">
         <div className="p-6 md:p-8 text-center">
@@ -294,14 +294,14 @@ export default function ServicesSection() {
           ))}
         </div>
 
-        {/* Golden Button Feature */}
-        <GoldenButton />
-
         {/* Container Scroll Animation */}
-        <div className="mt-24">
+        <div className="mt-6">
+          {/* Golden Button Feature */}
+          <GoldenButton />
+
           <ContainerScroll
             titleComponent={
-              <div>
+              <div className="-mt-4">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-4">
                   <span className="text-[#D4AF37]">Access</span> Your Personal
                   Concierge Dashboard
