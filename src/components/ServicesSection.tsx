@@ -286,9 +286,16 @@ export default function ServicesSection() {
         <div className="mt-24">
           <ContainerScroll
             titleComponent={
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-4">
-                <span className="text-[#D4AF37]">Exceptional</span> Experiences
-              </h2>
+              <div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-4">
+                  <span className="text-[#D4AF37]">Access</span> Your Personal
+                  Concierge Dashboard
+                </h2>
+                <p className="font-dm-sans text-lg text-white/80 max-w-3xl mx-auto mb-6">
+                  Manage services, explore experiences, and connect directly
+                  with your concierge
+                </p>
+              </div>
             }
           >
             <div className="flex items-center justify-center h-full w-full bg-black text-white p-0">
