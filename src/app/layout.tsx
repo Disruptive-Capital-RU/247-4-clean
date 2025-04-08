@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/lib/AuthContext";
+import { Viewport } from "next";
 
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -27,6 +28,9 @@ export const metadata: Metadata = {
   },
   applicationName: "24/7 Golden Service",
   manifest: "/manifest.json",
+};
+
+export const viewport: Viewport = {
   themeColor: "#000000",
 };
 
