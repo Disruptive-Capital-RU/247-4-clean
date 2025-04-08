@@ -20,6 +20,7 @@ import {
   ModalContent,
   ModalTrigger,
 } from "@/components/ui/animated-modal";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 
 type Service = {
   icon: React.ReactNode;
@@ -279,6 +280,30 @@ export default function ServicesSection() {
               <ServiceCard service={service} index={index} />
             </motion.div>
           ))}
+        </div>
+
+        {/* Container Scroll Animation */}
+        <div className="mt-24">
+          <ContainerScroll
+            titleComponent={
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-4">
+                <span className="text-[#D4AF37]">Exceptional</span> Experiences
+              </h2>
+            }
+          >
+            <div className="flex items-center justify-center h-full w-full bg-black text-white p-8">
+              <div className="max-w-2xl text-center">
+                <p className="font-dm-sans text-lg text-white/80 mb-6">
+                  Discover the most exclusive experiences Moscow has to offer.
+                  Our luxury concierge service provides unparalleled access to
+                  the finest establishments and events in the city.
+                </p>
+                <div className="inline-block px-6 py-3 bg-[#D4AF37] rounded-md text-black font-dm-sans font-medium hover:bg-[#C49F33] transition-colors cursor-pointer">
+                  Explore Our Collection
+                </div>
+              </div>
+            </div>
+          </ContainerScroll>
         </div>
       </div>
     </section>
