@@ -328,47 +328,47 @@ export default function Dashboard() {
     // Map condition to appropriate icon
     if (conditionLower.includes("sunny") || conditionLower.includes("clear")) {
       return isDay ? (
-        <WiDaySunny className="w-12 h-12 text-yellow-300" />
+        <WiDaySunny className="w-8 h-8 text-yellow-300" />
       ) : (
-        <WiNightClear className="w-12 h-12 text-blue-200" />
+        <WiNightClear className="w-8 h-8 text-blue-200" />
       );
     } else if (
       conditionLower.includes("cloud") ||
       conditionLower.includes("overcast")
     ) {
       return isDay ? (
-        <WiCloudy className="w-12 h-12 text-gray-300" />
+        <WiCloudy className="w-8 h-8 text-gray-300" />
       ) : (
-        <WiNightAltCloudy className="w-12 h-12 text-gray-400" />
+        <WiNightAltCloudy className="w-8 h-8 text-gray-400" />
       );
     } else if (
       conditionLower.includes("rain") ||
       conditionLower.includes("drizzle") ||
       conditionLower.includes("shower")
     ) {
-      return <WiRain className="w-12 h-12 text-blue-300" />;
+      return <WiRain className="w-8 h-8 text-blue-300" />;
     } else if (
       conditionLower.includes("snow") ||
       conditionLower.includes("blizzard") ||
       conditionLower.includes("ice")
     ) {
-      return <WiSnow className="w-12 h-12 text-white" />;
+      return <WiSnow className="w-8 h-8 text-white" />;
     } else if (
       conditionLower.includes("thunder") ||
       conditionLower.includes("lightning")
     ) {
-      return <WiThunderstorm className="w-12 h-12 text-yellow-400" />;
+      return <WiThunderstorm className="w-8 h-8 text-yellow-400" />;
     } else if (
       conditionLower.includes("fog") ||
       conditionLower.includes("mist")
     ) {
-      return <WiFog className="w-12 h-12 text-gray-400" />;
+      return <WiFog className="w-8 h-8 text-gray-400" />;
     } else if (conditionLower.includes("wind")) {
-      return <WiWindy className="w-12 h-12 text-blue-200" />;
+      return <WiWindy className="w-8 h-8 text-blue-200" />;
     }
 
     // Default icon if condition doesn't match any of the above
-    return <WiDaySunny className="w-12 h-12 text-yellow-300" />;
+    return <WiDaySunny className="w-8 h-8 text-yellow-300" />;
   };
 
   return (
