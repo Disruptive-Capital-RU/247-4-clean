@@ -54,7 +54,7 @@ export default function ServicesCarousel({
         title: "Private Chauffeur Service",
         description: "Arrive anywhere with style, safety, and discretion.",
         image: "/taxi.jpg",
-        category: "transport",
+        category: "Transport",
         duration: "4h or 8h",
         src: "/taxi.jpg",
         content: (
@@ -77,7 +77,7 @@ export default function ServicesCarousel({
                   description:
                     "Arrive anywhere with style, safety, and discretion.",
                   image: "/taxi.jpg",
-                  category: "transport",
+                  category: "Transport",
                   duration: "4h or 8h",
                 })
               }
@@ -94,7 +94,7 @@ export default function ServicesCarousel({
         description:
           "Expert personal shopper guiding you through exclusive shopping venues.",
         image: "/shopping.jpg",
-        category: "shopping",
+        category: "Shopping",
         duration: "3h",
         src: "/images/shopping_service_1.png",
         content: (
@@ -117,7 +117,7 @@ export default function ServicesCarousel({
                   description:
                     "Expert personal shopper guiding you through exclusive shopping venues.",
                   image: "/shopping.jpg",
-                  category: "shopping",
+                  category: "Shopping",
                   duration: "3h",
                 })
               }
@@ -134,7 +134,7 @@ export default function ServicesCarousel({
         description:
           "Reserved seating at the most prestigious restaurants with panoramic views.",
         image: "/restaurant.jpg",
-        category: "dining",
+        category: "Dining",
         src: "/images/restaurant_service_1.jpg",
         content: (
           <div className="space-y-4">
@@ -156,7 +156,7 @@ export default function ServicesCarousel({
                   description:
                     "Reserved seating at the most prestigious restaurants with panoramic views.",
                   image: "/restaurant.jpg",
-                  category: "dining",
+                  category: "Dining",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -168,21 +168,23 @@ export default function ServicesCarousel({
       },
       {
         id: "s4",
-        title: "Private Church Experience",
+        title: "Timeless Architectural Icons",
         description:
           "Exclusive access to religious and cultural landmarks with expert guides.",
         image: "/church.jpg",
-        category: "culture",
+        category: "Culture",
         duration: "2h",
         src: "/images/church_service_1.jpg",
         content: (
           <div className="space-y-4">
             <p>
-              Our private church and religious site tours offer respectful and
-              informative experiences at significant sacred locations.
+              Our private tours of architectural landmarks offer respectful and
+              informative experiences at significant historical locations.
             </p>
             <ul className="list-disc pl-5 space-y-2">
-              <li>Knowledgeable guides specializing in religious history</li>
+              <li>
+                Knowledgeable guides specializing in architectural history
+              </li>
               <li>Skip-the-line access to popular sites</li>
               <li>Private viewing arrangements where possible</li>
               <li>Customized itineraries based on your interests</li>
@@ -191,11 +193,11 @@ export default function ServicesCarousel({
               onClick={() =>
                 handleAddToCart({
                   id: "s4",
-                  title: "Private Church Experience",
+                  title: "Timeless Architectural Icons",
                   description:
                     "Exclusive access to religious and cultural landmarks with expert guides.",
                   image: "/church.jpg",
-                  category: "culture",
+                  category: "Culture",
                   duration: "2h",
                 })
               }
@@ -212,7 +214,7 @@ export default function ServicesCarousel({
         description:
           "Comprehensive health services with top medical professionals.",
         image: "/medical.jpg",
-        category: "medical",
+        category: "Medical",
         src: "/images/medical_service_1.jpg",
         content: (
           <div className="space-y-4">
@@ -234,7 +236,7 @@ export default function ServicesCarousel({
                   description:
                     "Comprehensive health services with top medical professionals.",
                   image: "/medical.jpg",
-                  category: "medical",
+                  category: "Medical",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -250,7 +252,7 @@ export default function ServicesCarousel({
         description:
           "Professional security personnel for your safety and peace of mind.",
         image: "/security.jpg",
-        category: "security",
+        category: "Security",
         src: "/images/security_service_1.jpeg",
         content: (
           <div className="space-y-4">
@@ -272,7 +274,7 @@ export default function ServicesCarousel({
                   description:
                     "Professional security personnel for your safety and peace of mind.",
                   image: "/security.jpg",
-                  category: "security",
+                  category: "Security",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -313,7 +315,7 @@ export default function ServicesCarousel({
   }
 
   return (
-    <section className="py-6 bg-black">
+    <section className="pt-0 pb-6 bg-black">
       <div className="container mx-auto px-4 md:px-6">
         {filteredServices.length === 0 ? (
           <div className="py-12 text-center text-white/50">

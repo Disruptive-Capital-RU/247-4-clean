@@ -152,7 +152,7 @@ export default function Dashboard() {
         description:
           "Arrive anywhere in Moscow with style, safety, and discretion.",
         image: "/images/luxury-car.jpg",
-        category: "transport",
+        category: "Transport",
         duration: "4h or 8h",
       },
       {
@@ -161,7 +161,7 @@ export default function Dashboard() {
         description:
           "Expert personal shopper guiding you through Moscow's prestigious GUM mall.",
         image: "/images/personal-shopper.jpg",
-        category: "shopping",
+        category: "Shopping",
         duration: "3h",
       },
       {
@@ -170,7 +170,7 @@ export default function Dashboard() {
         description:
           "Reserved seating at one of Moscow's most prestigious restaurants with panoramic views.",
         image: "/images/restaurant.jpg",
-        category: "dining",
+        category: "Dining",
       },
       {
         id: "s4",
@@ -178,7 +178,7 @@ export default function Dashboard() {
         description:
           "Exclusive access to Moscow's finest cultural institutions with an expert guide.",
         image: "/images/museum.jpg",
-        category: "culture",
+        category: "Culture",
         duration: "2h",
       },
       {
@@ -187,7 +187,7 @@ export default function Dashboard() {
         description:
           "High-speed data SIM card delivered directly to your hotel.",
         image: "/images/sim-card.jpg",
-        category: "travel",
+        category: "Travel",
       },
       {
         id: "s6",
@@ -195,7 +195,7 @@ export default function Dashboard() {
         description:
           "Comprehensive health assessment at Moscow's premier private clinic.",
         image: "/images/health.jpg",
-        category: "medical",
+        category: "Medical",
         duration: "2h",
       },
       {
@@ -204,7 +204,7 @@ export default function Dashboard() {
         description:
           "Priority access and premium seating at Moscow's exclusive nightlife venues.",
         image: "/images/nightclub.jpg",
-        category: "nightlife",
+        category: "Nightlife",
       },
       {
         id: "s8",
@@ -212,7 +212,7 @@ export default function Dashboard() {
         description:
           "Enjoy authentic Middle Eastern cuisine prepared by a private chef in your accommodation.",
         image: "/images/chef.jpg",
-        category: "dining",
+        category: "Dining",
         duration: "4h",
       },
     ]);
@@ -309,13 +309,13 @@ export default function Dashboard() {
 
   const categories = [
     { id: "all", name: "All Services" },
-    { id: "shopping", name: "Shopping" },
-    { id: "dining", name: "Dining & Culinary" },
-    { id: "culture", name: "Culture & History" },
-    { id: "transport", name: "Transport" },
-    { id: "medical", name: "Medical & Wellness" },
-    { id: "nightlife", name: "Nightlife & Events" },
-    { id: "travel", name: "Travel Support" },
+    { id: "Shopping", name: "Shopping" },
+    { id: "Dining", name: "Dining & Culinary" },
+    { id: "Culture", name: "Culture & History" },
+    { id: "Transport", name: "Transport" },
+    { id: "Medical", name: "Medical & Wellness" },
+    { id: "Nightlife", name: "Nightlife & Events" },
+    { id: "Travel", name: "Travel Support" },
   ];
 
   // Function to determine which weather icon to display based on condition
