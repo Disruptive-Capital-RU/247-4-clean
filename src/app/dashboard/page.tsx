@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -14,6 +14,18 @@ import {
 import { toast, Toaster } from "react-hot-toast";
 import ServicesCarousel from "@/components/ServicesCarousel";
 import MessageConciergePopover from "@/components/MessageConciergePopover";
+import MessageConciergeButton from "@/components/MessageConciergeButton";
+import {
+  WiDaySunny,
+  WiCloudy,
+  WiRain,
+  WiSnow,
+  WiThunderstorm,
+  WiFog,
+  WiNightClear,
+  WiNightAltCloudy,
+  WiWindy,
+} from "react-icons/wi";
 
 type Service = {
   id: string;
@@ -29,13 +41,14 @@ type CartItem = Service & {
 };
 
 export default function Dashboard() {
-  const { user, profile } = useAuth();
+  const { user, profile, loading: authLoading } = useAuth();
 
   const [userName, setUserName] = useState("Valued Client");
   const [daysRemaining, setDaysRemaining] = useState(3);
   const [weatherInfo, setWeatherInfo] = useState({
     temp: "12°C",
     condition: "Partly Cloudy",
+    isDay: true,
   });
   const [activeCategory, setActiveCategory] = useState("all");
   const [services, setServices] = useState<Service[]>([]);
@@ -46,8 +59,30 @@ export default function Dashboard() {
   const [showCart, setShowCart] = useState(false);
   const [orderSubmitted, setOrderSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [dataLoaded, setDataLoaded] = useState(false);
+
+  // Skip data loading on window focus if already loaded
+  const isDataInitialized = useRef(false);
 
   useEffect(() => {
+    // Track whether data has been initialized
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible" && isDataInitialized.current) {
+        console.log("Tab became visible, data already loaded");
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Skip loading if we're auth loading or data is already initialized
+    if (authLoading) return;
+    if (isDataInitialized.current && dataLoaded) return;
+
     // Fetch weather data for Moscow
     const fetchWeatherData = async () => {
       try {
@@ -64,10 +99,12 @@ export default function Dashboard() {
         // Format the temperature and condition from WeatherAPI.com response
         const temp = `${Math.round(data.current.temp_c)}°C`;
         const condition = data.current.condition.text;
+        const isDay = data.current.is_day === 1;
 
         setWeatherInfo({
           temp,
           condition,
+          isDay,
         });
       } catch (error) {
         console.error("Error fetching weather data:", error);
@@ -178,7 +215,10 @@ export default function Dashboard() {
         duration: "4h",
       },
     ]);
-  }, [user, profile]);
+
+    setDataLoaded(true);
+    isDataInitialized.current = true;
+  }, [user, profile, authLoading, dataLoaded]);
 
   const addToCart = (service: Service) => {
     setCart((prevCart) => {
@@ -277,6 +317,60 @@ export default function Dashboard() {
     { id: "travel", name: "Travel Support" },
   ];
 
+  // Function to determine which weather icon to display based on condition
+  const getWeatherIcon = (condition: string) => {
+    // Convert condition to lowercase for easier comparison
+    const conditionLower = condition.toLowerCase();
+
+    // Check if it's day or night
+    const isDay = weatherInfo.isDay;
+
+    // Map condition to appropriate icon
+    if (conditionLower.includes("sunny") || conditionLower.includes("clear")) {
+      return isDay ? (
+        <WiDaySunny className="w-12 h-12 text-yellow-300" />
+      ) : (
+        <WiNightClear className="w-12 h-12 text-blue-200" />
+      );
+    } else if (
+      conditionLower.includes("cloud") ||
+      conditionLower.includes("overcast")
+    ) {
+      return isDay ? (
+        <WiCloudy className="w-12 h-12 text-gray-300" />
+      ) : (
+        <WiNightAltCloudy className="w-12 h-12 text-gray-400" />
+      );
+    } else if (
+      conditionLower.includes("rain") ||
+      conditionLower.includes("drizzle") ||
+      conditionLower.includes("shower")
+    ) {
+      return <WiRain className="w-12 h-12 text-blue-300" />;
+    } else if (
+      conditionLower.includes("snow") ||
+      conditionLower.includes("blizzard") ||
+      conditionLower.includes("ice")
+    ) {
+      return <WiSnow className="w-12 h-12 text-white" />;
+    } else if (
+      conditionLower.includes("thunder") ||
+      conditionLower.includes("lightning")
+    ) {
+      return <WiThunderstorm className="w-12 h-12 text-yellow-400" />;
+    } else if (
+      conditionLower.includes("fog") ||
+      conditionLower.includes("mist")
+    ) {
+      return <WiFog className="w-12 h-12 text-gray-400" />;
+    } else if (conditionLower.includes("wind")) {
+      return <WiWindy className="w-12 h-12 text-blue-200" />;
+    }
+
+    // Default icon if condition doesn't match any of the above
+    return <WiDaySunny className="w-12 h-12 text-yellow-300" />;
+  };
+
   return (
     <main className="min-h-screen bg-black text-white">
       <Toaster
@@ -320,10 +414,15 @@ export default function Dashboard() {
             <div className="flex flex-col items-end">
               <div className="bg-[#111] border border-white/10 rounded-lg p-4 w-full max-w-sm">
                 <div className="flex justify-between items-center">
-                  <div>
+                  <div className="flex flex-col">
                     <p className="text-sm text-white/60">Moscow Weather</p>
-                    <p className="text-xl font-medium">{weatherInfo.temp}</p>
-                    <p className="text-sm text-white/80">
+                    <div className="flex items-center mt-1">
+                      {getWeatherIcon(weatherInfo.condition)}
+                      <p className="text-xl font-medium ml-2">
+                        {weatherInfo.temp}
+                      </p>
+                    </div>
+                    <p className="text-sm text-white/80 mt-1">
                       {weatherInfo.condition}
                     </p>
                   </div>
@@ -445,31 +544,8 @@ export default function Dashboard() {
       {/* Services Carousel */}
       <ServicesCarousel addToCart={addToCart} />
 
-      {/* Floating Cart Button */}
-      <button
-        onClick={() => setShowCart(true)}
-        className="fixed bottom-6 right-6 bg-[#D4AF37] text-black p-4 rounded-full shadow-lg z-10 flex items-center justify-center"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-          />
-        </svg>
-        {cart.length > 0 && (
-          <span className="absolute -top-2 -right-2 bg-white text-black text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">
-            {cart.reduce((total, item) => total + item.quantity, 0)}
-          </span>
-        )}
-      </button>
+      {/* Floating Message Concierge Button */}
+      <MessageConciergeButton />
 
       {/* Cart Modal */}
       {showCart && (

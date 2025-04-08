@@ -1,12 +1,15 @@
 "use client";
 
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalTrigger,
-} from "@/components/ui/animated-modal";
+import { useState } from "react";
 import { motion } from "motion/react";
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 interface ContactOption {
   id: string;
@@ -15,7 +18,9 @@ interface ContactOption {
   action: () => void;
 }
 
-export default function MessageConciergeModal() {
+export default function MessageConciergeButton() {
+  const [open, setOpen] = useState(false);
+
   const contactOptions: ContactOption[] = [
     {
       id: "whatsapp",
@@ -157,14 +162,14 @@ export default function MessageConciergeModal() {
   ];
 
   return (
-    <Modal>
+    <AlertDialog open={open} onOpenChange={setOpen}>
       <motion.div
         initial={{ scale: 1 }}
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300, damping: 15 }}
         className="fixed bottom-6 right-6 z-10 w-14 h-14"
       >
-        <ModalTrigger className="bg-[#D4AF37] text-black w-14 h-14 rounded-full shadow-lg flex items-center justify-center">
+        <AlertDialogTrigger className="bg-[#D4AF37] text-black w-14 h-14 rounded-full shadow-lg flex items-center justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -179,38 +184,58 @@ export default function MessageConciergeModal() {
               d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
             />
           </svg>
-        </ModalTrigger>
+        </AlertDialogTrigger>
       </motion.div>
-      <ModalBody className="bg-[#111] border border-[#D4AF37]/30 text-white md:max-w-md w-full mx-4">
-        <ModalContent>
-          <h2 className="text-2xl font-cormorant font-semibold mb-6 text-center">
+      <AlertDialogContent className="bg-[#111] border border-[#D4AF37]/30 text-white md:max-w-md w-full mx-4">
+        <button
+          onClick={() => setOpen(false)}
+          className="absolute top-3 right-3 text-white/60 hover:text-white"
+          aria-label="Close dialog"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <AlertDialogHeader>
+          <AlertDialogTitle className="text-2xl font-cormorant font-semibold text-center text-white">
             Contact Your Executive Assistant
-          </h2>
-          <p className="text-white/70 mb-8 text-center">
+          </AlertDialogTitle>
+          <AlertDialogDescription className="text-white/70 text-center">
             Select your preferred method to reach your personal executive
             assistant
-          </p>
+          </AlertDialogDescription>
+        </AlertDialogHeader>
 
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-            {contactOptions.map((option) => (
-              <motion.button
-                key={option.id}
-                onClick={option.action}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.2 }}
-                whileHover={{ scale: 1.05 }}
-                className="flex flex-col items-center p-4 bg-[#222] rounded-lg border border-white/5 hover:border-[#D4AF37]/30"
-              >
-                <div className="w-12 h-12 mb-3 relative flex items-center justify-center">
-                  {option.icon}
-                </div>
-                <span className="text-white font-medium">{option.name}</span>
-              </motion.button>
-            ))}
-          </div>
-        </ModalContent>
-      </ModalBody>
-    </Modal>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 mt-6">
+          {contactOptions.map((option) => (
+            <motion.button
+              key={option.id}
+              onClick={option.action}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2 }}
+              whileHover={{ scale: 1.05 }}
+              className="flex flex-col items-center p-4 bg-[#222] rounded-lg border border-white/5 hover:border-[#D4AF37]/30"
+            >
+              <div className="w-12 h-12 mb-3 relative flex items-center justify-center">
+                {option.icon}
+              </div>
+              <span className="text-white font-medium">{option.name}</span>
+            </motion.button>
+          ))}
+        </div>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }

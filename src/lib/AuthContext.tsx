@@ -1,7 +1,13 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useRef,
+} from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { User as SupabaseUser } from "@supabase/supabase-js";
 import {
   getCurrentUser,
@@ -19,6 +25,7 @@ interface AuthContextType {
   error: string | null;
   signIn: (email: string) => Promise<{ success: boolean; message: string }>;
   logOut: () => Promise<void>;
+  resetLoading: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -28,17 +35,61 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [profile, setProfile] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isInitialized, setIsInitialized] = useState(false);
+  const previousPathRef = useRef<string | null>(null);
   const router = useRouter();
+  const pathname = usePathname();
 
+  // Track path changes to prevent auth rechecks during internal navigation
+  useEffect(() => {
+    if (previousPathRef.current && previousPathRef.current !== pathname) {
+      console.log(`Navigation from ${previousPathRef.current} to ${pathname}`);
+      // Don't show loading screen for internal navigation if already authenticated
+      if (user) {
+        setLoading(false);
+      }
+    }
+    previousPathRef.current = pathname;
+  }, [pathname, user]);
+
+  // Force reset loading state - used as an escape hatch
+  const resetLoading = () => {
+    console.log("Manually resetting loading state");
+    setLoading(false);
+  };
+
+  // Initial auth check that runs once
   useEffect(() => {
     // Check for active session on mount
     const checkUser = async () => {
       try {
+        setLoading(true);
+        // Check if we have auth data in localStorage to avoid a loading flash
+        const storedUser = localStorage.getItem("authUser");
+        if (storedUser) {
+          try {
+            const parsedUser = JSON.parse(storedUser);
+            setUser(parsedUser);
+          } catch (e) {
+            console.error("Error parsing stored user:", e);
+          }
+        }
+
         const user = await getCurrentUser();
         console.log("Current user from session:", user?.email);
-        setUser(user);
 
         if (user) {
+          // Store minimal user data in localStorage for quick access
+          localStorage.setItem(
+            "authUser",
+            JSON.stringify({
+              id: user.id,
+              email: user.email,
+            })
+          );
+
+          setUser(user);
+
           const { data: profileData, error: profileError } =
             await getUserProfile(user.id);
           if (profileError) {
@@ -46,6 +97,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             throw new Error(profileError.message);
           }
           setProfile(profileData);
+        } else {
+          // Clear stored user if no active session
+          localStorage.removeItem("authUser");
         }
       } catch (err) {
         console.error("Auth error:", err);
@@ -54,17 +108,38 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         );
       } finally {
         setLoading(false);
+        setIsInitialized(true);
       }
     };
 
     checkUser();
+  }, []);
+
+  // Set up auth state change subscription
+  useEffect(() => {
+    if (!isInitialized) return;
 
     // Subscribe to auth changes
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
       console.log("Auth state changed:", event, session?.user?.email);
+
+      // Only set loading to true for meaningful auth events
+      if (event !== "INITIAL_SESSION" && event !== "TOKEN_REFRESHED") {
+        setLoading(true);
+      }
+
       if (session?.user) {
+        // Store minimal user data in localStorage for quick access
+        localStorage.setItem(
+          "authUser",
+          JSON.stringify({
+            id: session.user.id,
+            email: session.user.email,
+          })
+        );
+
         setUser(session.user);
         try {
           const { data: profileData, error: profileError } =
@@ -78,16 +153,44 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           console.error("Error fetching profile on auth change:", err);
         }
       } else {
+        localStorage.removeItem("authUser");
         setUser(null);
         setProfile(null);
       }
-      setLoading(false);
+
+      // Only set loading to false for meaningful auth events
+      if (event !== "INITIAL_SESSION" && event !== "TOKEN_REFRESHED") {
+        setLoading(false);
+      }
     });
 
     return () => {
       subscription.unsubscribe();
     };
-  }, []);
+  }, [isInitialized]);
+
+  // Handle visibility changes to prevent reload on window focus
+  useEffect(() => {
+    if (!isInitialized) return;
+
+    const handleVisibilityChange = () => {
+      // Don't trigger auth rechecks when the tab becomes visible again
+      if (document.visibilityState === "visible") {
+        console.log("Tab became visible, checking auth state");
+        // If we have a user locally but loading is true, reset loading
+        if (user && loading) {
+          console.log("Forcing loading state to false on visibility change");
+          setLoading(false);
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [isInitialized, user, loading]);
 
   const signIn = async (email: string) => {
     try {
@@ -132,6 +235,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       setLoading(true);
       // First clear the user and profile state to ensure immediate UI update
+      localStorage.removeItem("authUser");
       setUser(null);
       setProfile(null);
 
@@ -161,6 +265,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         error,
         signIn,
         logOut,
+        resetLoading,
       }}
     >
       {children}
