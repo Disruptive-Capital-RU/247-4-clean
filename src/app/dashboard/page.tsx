@@ -13,7 +13,7 @@ import {
 } from "@/lib/supabase";
 import { toast, Toaster } from "react-hot-toast";
 import ServicesCarousel from "@/components/ServicesCarousel";
-import MessageConciergeModal from "@/components/MessageConciergeModal";
+import MessageConciergePopover from "@/components/MessageConciergePopover";
 
 type Service = {
   id: string;
@@ -298,7 +298,7 @@ export default function Dashboard() {
                     </p>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <MessageConciergeModal />
+                    <MessageConciergePopover />
                     <Link
                       href="/dashboard/profile"
                       className="px-4 py-2 bg-[#111] hover:bg-[#222] text-white/80 hover:text-white rounded-lg transition-colors border border-white/10 text-center"
