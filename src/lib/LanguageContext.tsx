@@ -41,9 +41,9 @@ const translations: Translations = {
 
     // Hero section
     eliteConciergeService: "Elite Concierge Service",
-    alwaysWithYou: "Always With You",
+    alwaysWithYou: "The Art of Effortless Booking",
     heroDescription:
-      "A premium personal concierge for Arab travelers visiting Moscow.",
+      "A premium personal concierge for travelers visiting Moscow.",
     heroDescription2:
       "Available 24 hours a day, 7 days a week — to arrange, accompany, protect, and serve.",
     reserveYourConcierge: "Reserve Your Concierge",
@@ -130,8 +130,8 @@ const translations: Translations = {
     faq: "FAQ",
     footerContact: "Contact",
     phoneNumber: "+7 (XXX) XXX-XXXX",
-    email: "service@reluxi.com",
-    copyright: "© 2025 Reluxi Concierge. All rights reserved.",
+    emailAddress: "service@reluxi.com",
+    copyright: " 2025 Reluxi Concierge. All rights reserved.",
   },
 
   AR: {
@@ -238,8 +238,8 @@ const translations: Translations = {
     faq: "الأسئلة الشائعة",
     footerContact: "اتصل بنا",
     phoneNumber: "+7 (XXX) XXX-XXXX",
-    email: "service@reluxi.com",
-    copyright: "© 2025 ريلوكسي كونسيرج. جميع الحقوق محفوظة.",
+    emailAddress: "service@reluxi.com",
+    copyright: " 2025 ريلوكسي كونسيرج. جميع الحقوق محفوظة.",
   },
 
   CN: {
@@ -341,8 +341,8 @@ const translations: Translations = {
     faq: "常见问题",
     footerContact: "联系",
     phoneNumber: "+7 (XXX) XXX-XXXX",
-    email: "service@reluxi.com",
-    copyright: "© 2025 Reluxi礼宾服务。保留所有权利。",
+    emailAddress: "service@reluxi.com",
+    copyright: " 2025 Reluxi礼宾服务。保留所有权利。",
   },
 };
 

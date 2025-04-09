@@ -73,7 +73,7 @@ export default function Footer() {
             <ul className="space-y-2 text-white/70 font-dm-sans">
               <li>
                 <Link
-                  href="/privacy"
+                  href="/privacy-policy"
                   className="hover:text-[#D4AF37] transition-colors"
                 >
                   {t("privacyPolicy")}
@@ -81,7 +81,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/terms"
+                  href="/terms-of-service"
                   className="hover:text-[#D4AF37] transition-colors"
                 >
                   {t("termsOfService")}
