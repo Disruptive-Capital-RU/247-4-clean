@@ -1,0 +1,25 @@
+# Default Netlify configuration for Next.js projects
+
+[build]
+  # Directory (relative to root) to build for production
+  publish = ".next"
+
+  # Default build command
+  command = "npm run build"
+
+# Enable the Netlify Next.js runtime
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NEXT_USE_NETLIFY_EDGE = "true"
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.images]
+  compress = true
+
+# Large Media configuration
+[build.large_media]
+  enabled = true
