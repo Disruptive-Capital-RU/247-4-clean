@@ -8,8 +8,15 @@ node_modules/
 .env.production.local
 
 # Large media files
-*.mp4
-*.mov
+# Videos are now tracked with Git LFS instead of being ignored
+# *.mp4
+# *.mov
 *.avi
 *.webm
 *.mkv
+
+# Exception: Do not ignore specific videos tracked by Git LFS
+!public/videos/*.mp4
+
+# Local Netlify folder
+.netlify
