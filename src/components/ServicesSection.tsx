@@ -53,10 +53,8 @@ const GoldenButton = () => {
         <p className="text-white/60 mb-8">{t("goldenButtonInstructions")}</p>
 
         <Modal open={isModalOpen} onOpenChange={setIsModalOpen}>
-          <ModalTrigger asChild>
-            <button className="inline-block px-6 py-3 bg-black border border-[#D4AF37] rounded-md text-white hover:bg-[#D4AF37]/10 transition-colors">
-              {t("chooseDevice")}
-            </button>
+          <ModalTrigger className="inline-block px-6 py-3 bg-black border border-[#D4AF37] rounded-md text-white hover:bg-[#D4AF37]/10 transition-colors">
+            {t("chooseDevice")}
           </ModalTrigger>
           <ModalContent className="bg-gray-900 border border-[#D4AF37]/40 rounded-lg p-0 w-full max-w-md">
             <ModalBody className="p-0">
