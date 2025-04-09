@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/lib/AuthContext";
+import { LanguageProvider } from "@/lib/LanguageContext";
 import { Viewport } from "next";
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -31,14 +32,17 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <head>
@@ -74,9 +78,11 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${cormorantGaramond.variable} ${dmSans.variable} antialiased bg-black text-white`}
+        className={`${cormorantGaramond.variable} ${dmSans.variable} font-sans antialiased`}
       >
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <LanguageProvider>{children}</LanguageProvider>
+        </AuthProvider>
       </body>
     </html>
   );

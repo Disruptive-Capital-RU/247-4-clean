@@ -21,221 +21,110 @@ import {
   ModalTrigger,
 } from "@/components/ui/animated-modal";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { useLanguage } from "@/lib/LanguageContext";
 
 type Service = {
   icon: React.ReactNode;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
 };
 
-const services: Service[] = [
-  {
-    icon: <FaShoppingBag className="w-6 h-6" />,
-    title: "VIP Shopping",
-    description:
-      "Private access to Moscow's most prestigious boutiques. Arabic-speaking stylists. Exclusive time slots.",
-  },
-  {
-    icon: <FaUtensils className="w-6 h-6" />,
-    title: "High-End Dining",
-    description:
-      "Guaranteed tables in Moscow's most in-demand restaurants. Chefs prepared for your preferences.",
-  },
-  {
-    icon: <FaCar className="w-6 h-6" />,
-    title: "Chauffeured Vehicles",
-    description:
-      "Black Mercedes, S-Class, Maybach. Professionally trained drivers. Fully discreet. Hourly or daily.",
-  },
-  {
-    icon: <FaLandmark className="w-6 h-6" />,
-    title: "Private Cultural Tours",
-    description:
-      "Unlock access to palaces, museums, and Islamic heritage sites with elite guides and interpreters.",
-  },
-  {
-    icon: <FaLock className="w-6 h-6" />,
-    title: "Personal Protection",
-    description:
-      "Trained executive protection upon request. For those whose privacy and safety are non-negotiable.",
-  },
-  {
-    icon: <FaHeartbeat className="w-6 h-6" />,
-    title: "Health & Wellness",
-    description:
-      "Exclusive clinics, VIP access to medical care, cosmetic specialists, and spa recovery — without waiting lists.",
-  },
-  {
-    icon: <FaGlassMartiniAlt className="w-6 h-6" />,
-    title: "Nightlife & Events",
-    description:
-      "Entry into closed circles, high society gatherings, and events no tourist can reach.",
-  },
-];
-
-interface ServiceCardProps {
-  service: Service;
-  index: number;
-}
-
-const ServiceCard = ({ service, index }: ServiceCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <div
-      className="relative h-full rounded-xl overflow-hidden"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {isHovered && (
-        <div className="absolute inset-0 z-0">
-          <MovingBorder duration={8000} rx="12px" ry="12px">
-            <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
-          </MovingBorder>
-        </div>
-      )}
-      <div
-        className={`
-          relative z-10 h-full bg-black/60 backdrop-blur-sm 
-          border ${isHovered ? "border-[#D4AF37]/30" : "border-white/10"} 
-          p-6 rounded-xl group transition-all duration-300
-        `}
-      >
-        <div className="text-[#D4AF37] mb-4 group-hover:scale-110 transition-transform duration-300">
-          {service.icon}
-        </div>
-        <h3 className="text-xl font-cormorant font-semibold text-white mb-3">
-          {service.title}
-        </h3>
-        <p className="font-dm-sans text-white/70">{service.description}</p>
-      </div>
-    </div>
-  );
-};
-
-// Golden Button Instructions Component
-const GoldenButtonInstructions = ({
-  deviceType,
-}: {
-  deviceType: "iphone" | "android" | null;
-}) => {
-  if (!deviceType) return null;
-
-  const iphoneInstructions = [
-    "Open Safari and navigate to our website",
-    "Tap the Share icon at the bottom of the screen",
-    "Scroll down and tap 'Add to Home Screen'",
-    "Keep the default name or customize it, then tap 'Add'",
-    "Your Golden Button will appear on your home screen exactly as shown above",
-  ];
-
-  const androidInstructions = [
-    "Open Chrome and navigate to our website",
-    "Tap the three-dot menu in the top right",
-    "Select 'Add to Home screen'",
-    "Keep the default name or customize it, then tap 'Add'",
-    "Your Golden Button will appear on your home screen exactly as shown above",
-  ];
-
-  const instructions =
-    deviceType === "iphone" ? iphoneInstructions : androidInstructions;
-
-  return (
-    <div className="p-6">
-      <h3 className="text-2xl font-cormorant font-semibold text-white mb-5">
-        {deviceType === "iphone" ? "iPhone" : "Android"} Installation
-      </h3>
-      <div className="space-y-3">
-        {instructions.map((instruction, index) => (
-          <div key={index} className="flex items-start">
-            <div className="w-6 h-6 rounded-full bg-[#D4AF37] text-black flex items-center justify-center mr-3 shrink-0 mt-0.5">
-              {index + 1}
-            </div>
-            <p className="text-white/80">{instruction}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-// Golden Button Component
 const GoldenButton = () => {
-  const [deviceType, setDeviceType] = useState<"iphone" | "android" | null>(
-    null
-  );
+  const { t } = useLanguage();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="mb-0 max-w-3xl mx-auto"
-    >
-      <div className="bg-black/60 backdrop-blur-sm border border-[#D4AF37]/30 rounded-2xl overflow-hidden">
-        <div className="p-6 md:p-8 text-center">
-          {/* iPhone-style app icon with rounded square shape */}
-          <div className="w-24 h-24 rounded-[22%] bg-gradient-to-r from-[#D4AF37] to-[#F5D76E] mx-auto mb-6 flex items-center justify-center shadow-lg shadow-[#D4AF37]/20 p-[2px]">
-            <div className="w-full h-full rounded-[20%] bg-black flex items-center justify-center">
-              <img
-                src="/images/logo_2.png"
-                alt="24/7 Logo"
-                className="w-[70%] h-[70%] object-contain"
-              />
-            </div>
-          </div>
-
-          <h3 className="text-2xl md:text-3xl font-cormorant font-bold text-[#D4AF37] mb-4">
-            Your Golden Button
-          </h3>
-
-          <p className="font-dm-sans text-white/80 mb-6 max-w-2xl mx-auto">
-            This is more than just a button — it is your direct line to luxury,
-            discretion, and the finest the city has to offer. One touch connects
-            you to your personal concierge, available day and night.
-          </p>
-
-          <p className="font-dm-sans text-white/80 mb-8 italic">
-            Press and hold to add it to your home screen.
-          </p>
-
-          <p className="font-dm-sans text-white/90 mb-4">
-            Choose your device to continue:
-          </p>
-
-          <div className="flex justify-center gap-4">
-            <Modal>
-              <ModalTrigger className="px-6 py-3 bg-black border border-[#D4AF37] rounded-full text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-colors flex items-center gap-2">
-                <FaApple className="w-5 h-5" />
-                <span className="font-dm-sans">iPhone</span>
-              </ModalTrigger>
-              <ModalBody className="bg-black border border-[#D4AF37]/30 max-w-md">
-                <ModalContent>
-                  <GoldenButtonInstructions deviceType="iphone" />
-                </ModalContent>
-              </ModalBody>
-            </Modal>
-
-            <Modal>
-              <ModalTrigger className="px-6 py-3 bg-black border border-[#D4AF37] rounded-full text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-colors flex items-center gap-2">
-                <FaAndroid className="w-5 h-5" />
-                <span className="font-dm-sans">Android</span>
-              </ModalTrigger>
-              <ModalBody className="bg-black border border-[#D4AF37]/30 max-w-md">
-                <ModalContent>
-                  <GoldenButtonInstructions deviceType="android" />
-                </ModalContent>
-              </ModalBody>
-            </Modal>
-          </div>
-        </div>
+    <div className="my-36 relative bg-black/50 border border-white/10 rounded-xl p-10 mb-8">
+      <div className="absolute inset-0 overflow-hidden rounded-xl">
+        <div className="absolute inset-0 bg-[url('/images/city-lights.jpg')] bg-cover bg-center opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
       </div>
-    </motion.div>
+
+      <div className="relative text-center">
+        <span className="inline-block px-4 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/20 text-[#D4AF37] text-sm mb-6">
+          {t("goldLogo")}
+        </span>
+        <h2 className="text-3xl md:text-4xl font-cormorant font-bold mb-6 text-white">
+          {t("goldenButton")}
+        </h2>
+        <p className="text-lg text-white/80 max-w-2xl mx-auto mb-8">
+          {t("goldenButtonDesc")}
+        </p>
+        <p className="text-white/60 mb-8">{t("goldenButtonInstructions")}</p>
+
+        <Modal open={isModalOpen} onOpenChange={setIsModalOpen}>
+          <ModalTrigger asChild>
+            <button className="inline-block px-6 py-3 bg-black border border-[#D4AF37] rounded-md text-white hover:bg-[#D4AF37]/10 transition-colors">
+              {t("chooseDevice")}
+            </button>
+          </ModalTrigger>
+          <ModalContent className="bg-gray-900 border border-[#D4AF37]/40 rounded-lg p-0 w-full max-w-md">
+            <ModalBody className="p-0">
+              <div className="divide-y divide-[#D4AF37]/10">
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="flex items-center gap-3 w-full p-6 text-left hover:bg-[#D4AF37]/10 transition-colors"
+                >
+                  <FaApple className="text-white/90 w-6 h-6" />
+                  <span className="text-lg text-white">{t("iphone")}</span>
+                </button>
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="flex items-center gap-3 w-full p-6 text-left hover:bg-[#D4AF37]/10 transition-colors"
+                >
+                  <FaAndroid className="text-white/90 w-6 h-6" />
+                  <span className="text-lg text-white">{t("android")}</span>
+                </button>
+              </div>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+      </div>
+    </div>
   );
 };
 
 export default function ServicesSection() {
+  const { t } = useLanguage();
+
+  const services: Service[] = [
+    {
+      icon: <FaShoppingBag className="w-6 h-6" />,
+      titleKey: "vipShopping",
+      descriptionKey: "vipShoppingDesc",
+    },
+    {
+      icon: <FaUtensils className="w-6 h-6" />,
+      titleKey: "highEndDining",
+      descriptionKey: "highEndDiningDesc",
+    },
+    {
+      icon: <FaCar className="w-6 h-6" />,
+      titleKey: "chauffeuredVehicles",
+      descriptionKey: "chauffeuredVehiclesDesc",
+    },
+    {
+      icon: <FaLandmark className="w-6 h-6" />,
+      titleKey: "privateCulturalTours",
+      descriptionKey: "privateCulturalToursDesc",
+    },
+    {
+      icon: <FaLock className="w-6 h-6" />,
+      titleKey: "personalProtection",
+      descriptionKey: "personalProtectionDesc",
+    },
+    {
+      icon: <FaHeartbeat className="w-6 h-6" />,
+      titleKey: "healthWellness",
+      descriptionKey: "healthWellnessDesc",
+    },
+    {
+      icon: <FaGlassMartiniAlt className="w-6 h-6" />,
+      titleKey: "nightlifeEvents",
+      descriptionKey: "nightlifeEventsDesc",
+    },
+  ];
+
   return (
     <section className="py-20 bg-black relative overflow-hidden">
       {/* Background Effect */}
@@ -266,15 +155,13 @@ export default function ServicesSection() {
           <div className="relative z-10 container mx-auto flex flex-col items-start text-left min-h-[80vh] py-32">
             <div className="max-w-lg pl-4 md:pl-6">
               <h3 className="text-xl md:text-2xl font-cormorant text-white/80 mb-2">
-                In our own words
+                {t("serviceMainTitle")}
               </h3>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-6">
-                A Service of Presence, Power, and Precision
+                {t("serviceSubtitle")}
               </h2>
               <p className="font-dm-sans text-lg text-white/90">
-                Reluxi is your private gateway to everything Moscow offers —
-                without noise, delay, or compromise. We specialize in
-                anticipating your desires before you express them.
+                {t("serviceIntro")}
               </p>
             </div>
           </div>
@@ -303,12 +190,10 @@ export default function ServicesSection() {
             titleComponent={
               <div className="-mt-64">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-4">
-                  <span className="text-[#D4AF37]">Access</span> Your Personal
-                  Concierge Dashboard
+                  <span className="text-[#D4AF37]">{t("accessDashboard")}</span>
                 </h2>
                 <p className="font-dm-sans text-lg text-white/80 max-w-3xl mx-auto mb-6">
-                  Manage services, explore experiences, and connect directly
-                  with your concierge
+                  {t("dashboardDesc")}
                 </p>
               </div>
             }
@@ -328,3 +213,46 @@ export default function ServicesSection() {
     </section>
   );
 }
+
+interface ServiceCardProps {
+  service: Service;
+  index: number;
+}
+
+const ServiceCard = ({ service, index }: ServiceCardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const { t } = useLanguage();
+
+  return (
+    <div
+      className="relative h-full rounded-xl overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {isHovered && (
+        <div className="absolute inset-0 z-0">
+          <MovingBorder duration={8000} rx="12px" ry="12px">
+            <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
+          </MovingBorder>
+        </div>
+      )}
+      <div
+        className={`
+          relative z-10 h-full bg-black/60 backdrop-blur-sm 
+          border ${isHovered ? "border-[#D4AF37]/30" : "border-white/10"} 
+          p-6 rounded-xl group transition-all duration-300
+        `}
+      >
+        <div className="text-[#D4AF37] mb-4 group-hover:scale-110 transition-transform duration-300">
+          {service.icon}
+        </div>
+        <h3 className="text-xl font-cormorant font-semibold text-white mb-3">
+          {t(service.titleKey)}
+        </h3>
+        <p className="font-dm-sans text-white/70">
+          {t(service.descriptionKey)}
+        </p>
+      </div>
+    </div>
+  );
+};

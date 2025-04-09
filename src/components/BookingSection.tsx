@@ -8,6 +8,7 @@ import { SparklesCore } from "@/components/ui/sparkles";
 import { supabase } from "@/lib/supabase";
 import { toast, Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { useLanguage } from "@/lib/LanguageContext";
 
 type FormData = {
   name: string;
@@ -22,6 +23,7 @@ type FormData = {
 
 export default function BookingSection() {
   const router = useRouter();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -101,119 +103,57 @@ export default function BookingSection() {
 
       let userId;
 
-      // If user doesn't exist, create a new auth user
-      if (!existingUser) {
-        console.log("User doesn't exist, creating new user:", normalizedEmail);
+      // If user exists in our database, use that ID
+      if (existingUser) {
+        console.log("User already exists:", existingUser);
+        userId = existingUser.id;
+      } else {
+        // User doesn't exist, try to create a new auth user
+        console.log("Creating new user for:", normalizedEmail);
 
-        // Calculate concierge dates
-        const arrivalDate = new Date(formData.arrival);
-        const departureDate = new Date(formData.departure);
-        const conciergeEndDate = new Date(departureDate);
-
-        // For the demo, we'll use the email as the password
-        // In a real app, we would NEVER do this
-        const { data: authData, error: authError } = await supabase.auth.signUp(
+        // Create a new auth user with this email
+        const { data: authUser, error: authError } = await supabase.auth.signUp(
           {
             email: normalizedEmail,
-            password: normalizedEmail, // For demo only! In a real app use passwordless or secure password
-            options: {
-              data: {
-                full_name: formData.name,
-              },
-            },
+            password: normalizedEmail, // This is just a demo - in a real app, use a secure password workflow
           }
         );
 
         if (authError) {
-          console.error("Auth creation error:", authError);
+          console.error("Error creating auth user:", authError);
           throw authError;
         }
 
-        if (!authData?.user?.id) {
-          console.error("No user ID returned from auth signup");
-          throw new Error("Failed to create user account");
+        if (!authUser || !authUser.user) {
+          throw new Error("Failed to create user account.");
         }
 
-        userId = authData.user.id;
-        console.log("Auth user created with ID:", userId);
+        console.log("Auth user created:", authUser);
+        userId = authUser.user.id;
 
-        // Sign in as the user first so we can insert into the users table
-        try {
-          console.log("Signing in as the new user");
-          const { error: signInError } = await supabase.auth.signInWithPassword(
-            {
-              email: normalizedEmail,
-              password: normalizedEmail, // Demo only!
-            }
-          );
-
-          if (signInError) {
-            console.error("Sign in error:", signInError);
-            throw signInError;
-          }
-
-          // Small delay to ensure auth state is processed
-          await new Promise((resolve) => setTimeout(resolve, 1000));
-        } catch (signInError) {
-          console.error("Error during sign-in:", signInError);
-          // We'll still try to create the user profile directly, even if sign-in fails
-        }
-
-        // Create user profile in our users table
-        console.log("Creating user profile in users table");
-        const { error: profileError } = await supabase.from("users").insert([
+        // Now create a user profile in our database
+        const { error: insertError } = await supabase.from("users").insert([
           {
             id: userId,
             email: normalizedEmail,
             name: formData.name,
-            concierge_end_date: conciergeEndDate.toISOString(),
+            concierge_end_date: new Date(
+              Date.now() + 5 * 24 * 60 * 60 * 1000
+            ).toISOString(), // 5 days from now
           },
         ]);
 
-        if (profileError) {
-          console.error("Error creating user profile:", profileError);
-
-          // If RLS is preventing insertion, try a direct API call instead
-          // This is a fallback approach
-          console.log("Attempting direct user creation as fallback");
-          try {
-            // Make a server-side API call to create the user
-            const response = await fetch("/api/create-user", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                id: userId,
-                email: normalizedEmail,
-                name: formData.name,
-                conciergeEndDate: conciergeEndDate.toISOString(),
-              }),
-            });
-
-            if (!response.ok) {
-              const errorData = await response.json();
-              console.error("API fallback error:", errorData);
-              throw new Error(
-                `API error: ${errorData.message || response.statusText}`
-              );
-            }
-
-            console.log("User created via API fallback");
-          } catch (apiError) {
-            console.error("Error with API fallback:", apiError);
-            // Continue anyway to at least try to create the booking
-          }
-        } else {
-          console.log("User profile created in users table");
+        if (insertError) {
+          console.error("Error creating user profile:", insertError);
+          throw insertError;
         }
-      } else {
-        console.log("User already exists:", existingUser);
-        userId = existingUser.id;
+
+        console.log("User profile created successfully");
       }
 
-      // Create booking record
-      console.log("Creating booking record for user ID:", userId);
+      // Now create a booking linked to this user
+      console.log("Creating booking for user:", userId);
+
       const { error: bookingError } = await supabase.from("bookings").insert([
         {
           user_id: userId,
@@ -266,60 +206,19 @@ export default function BookingSection() {
     return email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
   };
 
-  const handleLoginFromSuccess = async () => {
-    try {
-      setLoading(true);
-      // For demo purposes, we'll sign the user in directly
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: formData.email.trim().toLowerCase(),
-        password: formData.email.trim().toLowerCase(), // Demo only!
-      });
-
-      if (error) throw error;
-
-      // Redirect to dashboard
-      router.push("/dashboard");
-    } catch (error) {
-      console.error("Login error:", error);
-      toast.error(
-        "Failed to log in. Please use the login button in the navigation."
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <section className="py-20 bg-black relative overflow-hidden">
-      <Toaster
-        position="top-center"
-        toastOptions={{
-          style: {
-            background: "#111",
-            color: "#fff",
-            border: "1px solid rgba(212,175,55,0.3)",
-          },
-          success: {
-            iconTheme: {
-              primary: "#D4AF37",
-              secondary: "black",
-            },
-          },
-        }}
-      />
-
-      {/* Sparkling Effect */}
-      <div className="absolute inset-0 w-full h-full z-0">
+      {/* Background Effect */}
+      <div className="absolute inset-0 z-0 opacity-10">
         <SparklesCore
           id="booking-sparkles"
           background="transparent"
           minSize={0.6}
           maxSize={1.4}
-          particleDensity={70}
+          particleDensity={20}
           className="w-full h-full"
           particleColor="#D4AF37"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-black/90" />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -331,13 +230,10 @@ export default function BookingSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-4">
-            Your Time Is <span className="text-[#D4AF37]">Precious</span>. Start
-            Now.
+            {t("bookingHeader")}
           </h2>
           <p className="font-dm-sans text-lg text-white/80 max-w-3xl mx-auto">
-            Book your personal concierge for 5 days for just $100. Once booked,
-            we&apos;ll contact you directly to confirm your arrival details,
-            preferences, and priorities.
+            {t("bookingDesc")}
           </p>
         </motion.div>
 
@@ -371,31 +267,22 @@ export default function BookingSection() {
                   Booking Confirmed
                 </h3>
                 <p className="text-white/80 mb-6">
-                  Thank you for booking with Reluxi Concierge. You will receive a
-                  confirmation email shortly.
+                  Thank you for booking with Reluxi Concierge. You will receive
+                  a confirmation email shortly.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button
-                    onClick={handleLoginFromSuccess}
-                    disabled={loading}
-                    className="px-6 py-2 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded transition-colors"
-                  >
-                    {loading ? "Processing..." : "Go to My Dashboard"}
-                  </button>
-                  <button
-                    onClick={() => setSuccess(false)}
-                    className="px-6 py-2 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/30 rounded transition-colors"
-                  >
-                    Book Another
-                  </button>
-                </div>
+                <button
+                  onClick={() => router.push("/dashboard")}
+                  className="px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded-sm hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300"
+                >
+                  {t("dashboard")}
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6 font-dm-sans">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-white">
-                      Full Name <span className="text-[#D4AF37]">*</span>
+                      {t("fullName")}
                     </Label>
                     <Input
                       id="name"
@@ -409,7 +296,7 @@ export default function BookingSection() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-white">
-                      Email <span className="text-[#D4AF37]">*</span>
+                      {t("email")}
                     </Label>
                     <Input
                       id="email"
@@ -422,7 +309,7 @@ export default function BookingSection() {
                       required
                     />
                     <p className="text-xs text-white/60 mt-1">
-                      You'll use this email to log into your concierge dashboard
+                      {t("emailHint")}
                     </p>
                   </div>
                 </div>
@@ -430,7 +317,7 @@ export default function BookingSection() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="contact" className="text-white">
-                      Phone / WhatsApp <span className="text-[#D4AF37]">*</span>
+                      {t("phoneWhatsapp")}
                     </Label>
                     <Input
                       id="contact"
@@ -444,13 +331,13 @@ export default function BookingSection() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="language" className="text-white">
-                      Language Preference
+                      {t("languagePreference")}
                     </Label>
                     <div className="grid grid-cols-3 gap-3">
                       {[
-                        { value: "arabic", label: "Arabic" },
-                        { value: "english", label: "English" },
-                        { value: "russian", label: "Russian" },
+                        { value: "arabic", label: t("arabic") },
+                        { value: "english", label: t("english") },
+                        { value: "russian", label: t("russian") },
                       ].map((lang) => (
                         <div
                           key={lang.value}
@@ -498,7 +385,7 @@ export default function BookingSection() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="arrival" className="text-white">
-                      Arrival Date <span className="text-[#D4AF37]">*</span>
+                      {t("arrivalDate")}
                     </Label>
                     <Input
                       id="arrival"
@@ -512,7 +399,7 @@ export default function BookingSection() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="departure" className="text-white">
-                      Departure Date <span className="text-[#D4AF37]">*</span>
+                      {t("departureDate")}
                     </Label>
                     <Input
                       id="departure"
@@ -527,33 +414,34 @@ export default function BookingSection() {
                 </div>
 
                 <div className="space-y-3">
-                  <Label className="text-white">Interests</Label>
+                  <Label className="text-white">{t("interests")}</Label>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {[
-                      "Shopping",
-                      "Dining & Culinary",
-                      "Protection",
-                      "Medical",
-                      "Culture",
-                      "Events",
+                      { value: "shopping", label: t("shopping") },
+                      { value: "dining_culinary", label: t("diningCulinary") },
+                      { value: "protection", label: t("protection") },
+                      { value: "medical", label: t("medical") },
+                      { value: "culture", label: t("culture") },
+                      { value: "events", label: t("events") },
                     ].map((interest) => (
-                      <div key={interest} className="flex items-center gap-2">
+                      <div
+                        key={interest.value}
+                        className="flex items-center gap-2"
+                      >
                         <input
                           type="checkbox"
-                          id={`interest-${interest.toLowerCase()}`}
+                          id={`interest-${interest.value}`}
                           name="interests"
-                          value={interest.toLowerCase()}
-                          checked={formData.interests.includes(
-                            interest.toLowerCase()
-                          )}
+                          value={interest.value}
+                          checked={formData.interests.includes(interest.value)}
                           onChange={handleCheckboxChange}
                           className="rounded border-white/30 bg-white/5 text-[#D4AF37] focus:ring-[#D4AF37]"
                         />
                         <label
-                          htmlFor={`interest-${interest.toLowerCase()}`}
+                          htmlFor={`interest-${interest.value}`}
                           className="text-white cursor-pointer"
                         >
-                          {interest}
+                          {interest.label}
                         </label>
                       </div>
                     ))}
@@ -562,7 +450,7 @@ export default function BookingSection() {
 
                 <div className="space-y-2">
                   <Label htmlFor="notes" className="text-white">
-                    Special Instructions
+                    {t("specialInstructions")}
                   </Label>
                   <textarea
                     id="notes"
@@ -582,13 +470,11 @@ export default function BookingSection() {
                     loading ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
-                  {loading ? "Processing..." : "Reserve My Concierge"}
+                  {loading ? "Processing..." : t("reserveButton")}
                 </button>
 
                 <p className="text-white/60 text-sm text-center">
-                  This is a pre-reservation only. You will be contacted within
-                  12 hours to confirm availability and preferences. No payment
-                  is collected on the website.
+                  {t("reserveDisclaimer")}
                 </p>
               </form>
             )}

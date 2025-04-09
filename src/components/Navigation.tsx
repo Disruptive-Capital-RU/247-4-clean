@@ -4,10 +4,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/lib/AuthContext";
+import { useLanguage } from "@/lib/LanguageContext";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import Image from "next/image";
 import logo from "../../Images/logo_2.png";
+import LanguageSelector from "./LanguageSelector";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,6 +20,7 @@ export default function Navigation() {
     text: string;
   } | null>(null);
   const { user, profile, loading, signIn, logOut } = useAuth();
+  const { t } = useLanguage();
   const router = useRouter();
 
   // Effect to close the login modal when user is authenticated
@@ -183,60 +186,64 @@ export default function Navigation() {
           <nav className="hidden md:flex items-center space-x-5 font-dm-sans">
             {user ? (
               <>
-                <NavLink href="/dashboard/services">Access Suite</NavLink>
-                <NavLink href="/dashboard">Dashboard</NavLink>
+                <NavLink href="/dashboard/services">{t("accessSuite")}</NavLink>
+                <NavLink href="/dashboard">{t("dashboard")}</NavLink>
                 <button
                   onClick={handleLogout}
                   className="px-5 py-2 text-white border border-[#D4AF37] font-medium rounded-sm hover:bg-[#D4AF37]/10 transition-all duration-300"
                 >
-                  Log Out
+                  {t("logout")}
                 </button>
               </>
             ) : (
               <>
-                <NavLink href="/">Home</NavLink>
-                <NavLink href="/services">Services</NavLink>
-                <NavLink href="/why-us">Why Us</NavLink>
+                <NavLink href="/">{t("home")}</NavLink>
+                <NavLink href="/services">{t("services")}</NavLink>
+                <NavLink href="/why-us">{t("whyUs")}</NavLink>
+                <LanguageSelector />
                 <button
                   onClick={() => setShowLoginModal(true)}
                   className="px-5 py-2 text-white border border-[#D4AF37] font-medium rounded-sm hover:bg-[#D4AF37]/10 transition-all duration-300"
                 >
-                  Log In
+                  {t("login")}
                 </button>
                 <Link
                   href="/book"
                   className="px-5 py-2 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded-sm hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300"
                 >
-                  Book Now
+                  {t("bookNow")}
                 </Link>
               </>
             )}
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden flex items-center"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <span className="sr-only">Menu</span>
-            <div className="space-y-2">
-              <span
-                className={`block w-8 h-0.5 bg-white transition-transform duration-300 ${
-                  isMenuOpen ? "translate-y-2.5 rotate-45" : ""
-                }`}
-              ></span>
-              <span
-                className={`block w-8 h-0.5 bg-white transition-opacity duration-300 ${
-                  isMenuOpen ? "opacity-0" : "opacity-100"
-                }`}
-              ></span>
-              <span
-                className={`block w-8 h-0.5 bg-white transition-transform duration-300 ${
-                  isMenuOpen ? "-translate-y-2.5 -rotate-45" : ""
-                }`}
-              ></span>
-            </div>
-          </button>
+          <div className="md:hidden flex items-center space-x-2">
+            <LanguageSelector />
+            <button
+              className="flex items-center ml-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <span className="sr-only">Menu</span>
+              <div className="space-y-2">
+                <span
+                  className={`block w-8 h-0.5 bg-white transition-transform duration-300 ${
+                    isMenuOpen ? "translate-y-2.5 rotate-45" : ""
+                  }`}
+                ></span>
+                <span
+                  className={`block w-8 h-0.5 bg-white transition-opacity duration-300 ${
+                    isMenuOpen ? "opacity-0" : "opacity-100"
+                  }`}
+                ></span>
+                <span
+                  className={`block w-8 h-0.5 bg-white transition-transform duration-300 ${
+                    isMenuOpen ? "-translate-y-2.5 -rotate-45" : ""
+                  }`}
+                ></span>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -256,10 +263,10 @@ export default function Navigation() {
                   href="/dashboard/services"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Access Suite
+                  {t("accessSuite")}
                 </NavLink>
                 <NavLink href="/dashboard" onClick={() => setIsMenuOpen(false)}>
-                  Dashboard
+                  {t("dashboard")}
                 </NavLink>
                 <button
                   onClick={() => {
@@ -268,19 +275,19 @@ export default function Navigation() {
                   }}
                   className="px-5 py-3 text-white border border-[#D4AF37] font-medium text-center rounded-sm"
                 >
-                  Log Out
+                  {t("logout")}
                 </button>
               </>
             ) : (
               <>
                 <NavLink href="/" onClick={() => setIsMenuOpen(false)}>
-                  Home
+                  {t("home")}
                 </NavLink>
                 <NavLink href="/services" onClick={() => setIsMenuOpen(false)}>
-                  Services
+                  {t("services")}
                 </NavLink>
                 <NavLink href="/why-us" onClick={() => setIsMenuOpen(false)}>
-                  Why Us
+                  {t("whyUs")}
                 </NavLink>
                 <button
                   onClick={() => {
@@ -289,14 +296,14 @@ export default function Navigation() {
                   }}
                   className="px-5 py-3 text-white border border-[#D4AF37] font-medium text-center rounded-sm"
                 >
-                  Log In
+                  {t("login")}
                 </button>
                 <Link
                   href="/book"
                   onClick={() => setIsMenuOpen(false)}
                   className="px-5 py-3 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium text-center rounded-sm"
                 >
-                  Book Now
+                  {t("bookNow")}
                 </Link>
               </>
             )}
@@ -315,7 +322,7 @@ export default function Navigation() {
           >
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-cormorant font-semibold text-white">
-                Welcome Back
+                {t("welcomeBack")}
               </h2>
               <button
                 onClick={() => {
