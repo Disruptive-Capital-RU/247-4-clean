@@ -3,7 +3,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Spotlight } from "@/components/ui/spotlight";
+import { Spotlight } from "@/components/ui/spotlight-new";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
 import {
   FaGem,
@@ -60,7 +60,12 @@ export default function WhyUsPage() {
 
       {/* Hero Section */}
       <section className="relative pt-28 pb-16 overflow-hidden">
-        <Spotlight className="top-10 left-0" fill="#D4AF37" />
+        <Spotlight 
+          gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(47, 69%, 52%, .08) 0, hsla(47, 69%, 52%, .02) 50%, hsla(47, 69%, 52%, 0) 80%)"
+          gradientSecond="radial-gradient(50% 50% at 50% 50%, hsla(47, 69%, 52%, .06) 0, hsla(47, 69%, 52%, .02) 80%, transparent 100%)"
+          gradientThird="radial-gradient(50% 50% at 50% 50%, hsla(47, 69%, 52%, .04) 0, hsla(47, 69%, 52%, .02) 80%, transparent 100%)"
+          className="top-10 left-0" 
+        />
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-cormorant font-bold text-white mb-6">

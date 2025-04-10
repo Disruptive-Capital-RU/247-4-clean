@@ -197,7 +197,7 @@ export default function Navigation() {
               </>
             ) : (
               <>
-                <NavLink href="/">{t("home")}</NavLink>
+                <NavLink href="/pricing">{t("pricing")}</NavLink>
                 <NavLink href="/services">{t("services")}</NavLink>
                 <NavLink href="/why-us">{t("whyUs")}</NavLink>
                 <LanguageSelector />
@@ -280,8 +280,8 @@ export default function Navigation() {
               </>
             ) : (
               <>
-                <NavLink href="/" onClick={() => setIsMenuOpen(false)}>
-                  {t("home")}
+                <NavLink href="/pricing" onClick={() => setIsMenuOpen(false)}>
+                  {t("pricing")}
                 </NavLink>
                 <NavLink href="/services" onClick={() => setIsMenuOpen(false)}>
                   {t("services")}

@@ -30,6 +30,7 @@ const translations: Translations = {
   EN: {
     // Navigation
     home: "Home",
+    pricing: "Pricing",
     services: "Services",
     whyUs: "Why Us",
     login: "Log In",
@@ -38,6 +39,16 @@ const translations: Translations = {
     accessSuite: "Access Suite",
     dashboard: "Dashboard",
     logout: "Log Out",
+    
+    // Pricing page
+    freedom: "Freedom, Perfected",
+    pricingDescription: "Discover our range of premium concierge services tailored to your needs and preferences.",
+    whatYouReceive: "What You Receive in Every Plan:",
+    planDescription: "From the moment your journey begins, we take over every detail — with precision, elegance, and unwavering discretion. Each plan unlocks a complete suite of premium services designed to liberate your time, so you can focus entirely on what matters: living fully.",
+    planOverview: "Plan Overview",
+    readyToExperience: "Ready to Experience True Luxury?",
+    bookYourPersonal: "Book your personal concierge now and transform your Moscow experience into something extraordinary.",
+    bookYourConcierge: "Book Your Concierge",
 
     // Hero section
     eliteConciergeService: "Elite Concierge Service",
@@ -137,6 +148,7 @@ const translations: Translations = {
   AR: {
     // Navigation
     home: "الرئيسية",
+    pricing: "الأسعار",
     services: "الخدمات",
     whyUs: "لماذا نحن",
     login: "تسجيل الدخول",
@@ -145,6 +157,16 @@ const translations: Translations = {
     accessSuite: "الوصول إلى المجموعة",
     dashboard: "لوحة التحكم",
     logout: "تسجيل الخروج",
+    
+    // Pricing page
+    freedom: "الحرية المثالية",
+    pricingDescription: "اكتشف مجموعتنا من خدمات الكونسيرج المتميزة المصممة خصيصًا لتلبية احتياجاتك وتفضيلاتك.",
+    whatYouReceive: "ما تحصل عليه في كل خطة:",
+    planDescription: "من لحظة بدء رحلتك، نتولى كل التفاصيل — بدقة وأناقة وتقدير مطلق. كل خطة تفتح مجموعة كاملة من الخدمات المتميزة المصممة لتحرير وقتك، حتى تتمكن من التركيز تمامًا على ما يهم: العيش بشكل كامل.",
+    planOverview: "نظرة عامة على الخطة",
+    readyToExperience: "هل أنت مستعد لتجربة الرفاهية الحقيقية؟",
+    bookYourPersonal: "احجز الكونسيرج الشخصي الخاص بك الآن وحول تجربتك في موسكو إلى شيء استثنائي.",
+    bookYourConcierge: "احجز الكونسيرج الخاص بك",
 
     // Hero section
     eliteConciergeService: "خدمة كونسيرج النخبة",
@@ -245,6 +267,7 @@ const translations: Translations = {
   CN: {
     // Navigation
     home: "首页",
+    pricing: "价格",
     services: "服务",
     whyUs: "为什么选择我们",
     login: "登录",
@@ -253,6 +276,16 @@ const translations: Translations = {
     accessSuite: "访问套件",
     dashboard: "仪表板",
     logout: "登出",
+    
+    // Pricing page
+    freedom: "完美的自由",
+    pricingDescription: "探索我们根据您的需求和偏好量身定制的高级礼宾服务。",
+    whatYouReceive: "每个计划中您将获得的内容：",
+    planDescription: "从您旅程开始的那一刻起，我们接管每一个细节 — 以精确、优雅和坚定的谨慎态度。每个计划都能解锁一套完整的高级服务，旨在解放您的时间，让您能够完全专注于重要的事情：充分生活。",
+    planOverview: "计划概览",
+    readyToExperience: "准备体验真正的奢华？",
+    bookYourPersonal: "立即预订您的个人礼宾，将您的莫斯科体验转变为非凡之旅。",
+    bookYourConcierge: "预订您的礼宾服务",
 
     // Hero section
     eliteConciergeService: "精英礼宾服务",
