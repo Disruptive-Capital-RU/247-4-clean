@@ -1,25 +1,26 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SparklesCore } from "@/components/ui/sparkles";
+// Import Supabase with proper types to avoid TypeScript errors
 import { supabase } from "@/lib/supabase";
+import { createClient } from "@supabase/supabase-js";
+import { AuthChangeEvent, Session } from "@supabase/supabase-js";
 import { toast, Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/lib/LanguageContext";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 
 type FormData = {
   name: string;
   email: string;
   contact: string;
-  arrival: string;
-  departure: string;
   language: string;
-  interests: string[];
-  notes: string;
+  password: string;
   captchaToken: string;
 };
 
@@ -31,16 +32,71 @@ export default function BookingSection() {
     name: "",
     email: "",
     contact: "",
-    arrival: "",
-    departure: "",
     language: "arabic",
-    interests: [],
-    notes: "",
+    password: "",
     captchaToken: "",
   });
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(false); // Used for the success view
   const [showCaptchaMessage, setShowCaptchaMessage] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
+  const [emailVerificationSent, setEmailVerificationSent] = useState(false);
+  const [emailVerified, setEmailVerified] = useState(false);
+  
+  // Check for email verification status when component mounts
+  useEffect(() => {
+    const checkEmailVerification = async () => {
+      try {
+        // Safe access to Supabase client methods
+        const client = supabase as ReturnType<typeof createClient>;
+        const { data } = await client.auth.getSession();
+        
+        if (data?.session?.user) {
+          setEmailVerified(true);
+        }
+      } catch (error) {
+        console.error("Error checking session:", error);
+      }
+    };
+    
+    // Listen for auth state changes (like when user confirms email)
+    let subscription: { unsubscribe: () => void } = { unsubscribe: () => {} };
+    
+    try {
+      // Safe access to Supabase client methods
+      const client = supabase as ReturnType<typeof createClient>;
+      const authListener = client.auth.onAuthStateChange(
+        (event: AuthChangeEvent, session: Session | null) => {
+          if (event === "SIGNED_IN" && session?.user) {
+            setEmailVerified(true);
+            // Redirect to dashboard if they just confirmed email
+            if (emailVerificationSent) {
+              router.push("/dashboard");
+            }
+          }
+          }
+        );
+      
+      subscription = authListener.data.subscription;
+    } catch (error) {
+      console.error("Error setting up auth listener:", error);
+    }
+    
+    checkEmailVerification();
+    
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [router, emailVerificationSent]);
+  
+  const loadingStates = [
+    { text: "Matching you with a personal concierge" },
+    { text: "Checking availability of premium experiences" },
+    { text: "Securing your exclusive access" },
+    { text: "Confirming luxury partner services" },
+    { text: "Finalizing your reservation" },
+    { text: "Welcome to the Inner Circle" }
+  ];
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -54,20 +110,7 @@ export default function BookingSection() {
     }));
   };
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, checked } = e.target;
-    if (checked) {
-      setFormData((prev) => ({
-        ...prev,
-        interests: [...prev.interests, value],
-      }));
-    } else {
-      setFormData((prev) => ({
-        ...prev,
-        interests: prev.interests.filter((interest) => interest !== value),
-      }));
-    }
-  };
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -76,8 +119,7 @@ export default function BookingSection() {
       !formData.name ||
       !formData.email ||
       !formData.contact ||
-      !formData.arrival ||
-      !formData.departure
+      !formData.password
     ) {
       toast.error("Please fill in all required fields");
       return;
@@ -100,6 +142,13 @@ export default function BookingSection() {
 
     try {
       const normalizedEmail = formData.email.trim().toLowerCase();
+      
+      // If we already sent a verification email but it's not verified yet
+      if (emailVerificationSent && !emailVerified) {
+        setLoading(false);
+        toast.error("Please verify your email before continuing");
+        return;
+      }
 
       // Check if the user already exists
       const { data: existingUser, error: queryError } = await supabase
@@ -125,10 +174,14 @@ export default function BookingSection() {
         console.log("Creating new user for:", normalizedEmail);
 
         // Create a new auth user with this email
-        const { data: authUser, error: authError } = await supabase.auth.signUp(
+        const client = supabase as ReturnType<typeof createClient>;
+        const { data: authUser, error: authError } = await client.auth.signUp(
           {
             email: normalizedEmail,
-            password: normalizedEmail, // This is just a demo - in a real app, use a secure password workflow
+            password: formData.password,
+            options: {
+              emailRedirectTo: `${window.location.origin}/dashboard`,
+            }
           }
         );
 
@@ -136,6 +189,9 @@ export default function BookingSection() {
           console.error("Error creating auth user:", authError);
           throw authError;
         }
+        
+        // Set flag that verification email was sent
+        setEmailVerificationSent(true);
 
         if (!authUser || !authUser.user) {
           throw new Error("Failed to create user account.");
@@ -145,7 +201,8 @@ export default function BookingSection() {
         userId = authUser.user.id;
 
         // Now create a user profile in our database
-        const { error: insertError } = await supabase.from("users").insert([
+        const dbClient = supabase as ReturnType<typeof createClient>;
+        const { error: insertError } = await dbClient.from("users").insert([
           {
             id: userId,
             email: normalizedEmail,
@@ -167,17 +224,14 @@ export default function BookingSection() {
       // Now create a booking linked to this user
       console.log("Creating booking for user:", userId);
 
-      const { error: bookingError } = await supabase.from("bookings").insert([
+      const dbClient = supabase as ReturnType<typeof createClient>;
+      const { error: bookingError } = await dbClient.from("bookings").insert([
         {
           user_id: userId,
           name: formData.name,
           email: normalizedEmail,
           contact: formData.contact,
-          arrival_date: formData.arrival,
-          departure_date: formData.departure,
           language: formData.language,
-          interests: formData.interests,
-          notes: formData.notes,
           status: "pending",
         },
       ]);
@@ -189,28 +243,40 @@ export default function BookingSection() {
 
       console.log("Booking created successfully");
 
-      // Success!
-      setSuccess(true);
+      // Handle verification flow or success
+      // Check if this is a new user who needs to verify their email
+      if (!emailVerified && !existingUser) {
+        setLoading(false);
+        toast.success("Verification email sent! Please check your inbox and confirm your email address.");
+        return;
+      }
+      
+      // If it's an existing user or email is already verified
+      
+      // If we reached here, email is verified or user already existed
+      setShowLoader(true);
       toast.success("Booking submitted successfully!");
-
-      // Reset form after 5 seconds
+      
+      // Show loader for a few seconds before redirecting to dashboard
       setTimeout(() => {
-        setFormData({
-          name: "",
-          email: "",
-          contact: "",
-          arrival: "",
-          departure: "",
-          language: "arabic",
-          interests: [],
-          notes: "",
-          captchaToken: "",
-        });
-        setSuccess(false);
-      }, 5000);
+        setShowLoader(false);
+        setSuccess(true); // Set success to true to show success message briefly before redirect
+        
+        // Redirect after showing success message briefly
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 2000);
+      }, 15000); // 15 seconds for the loader to show all steps
     } catch (error) {
       console.error("Error submitting booking:", error);
-      toast.error(error.message || "An error occurred. Please try again.");
+      
+      // Check if this is an email confirmation error
+      if (error.message?.includes("confirmation") || error.message?.includes("verify")) {
+        setEmailVerificationSent(true);
+        toast.error("Please verify your email address before continuing. Check your inbox for a confirmation link.");
+      } else {
+        toast.error(error.message || "An error occurred. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
@@ -230,6 +296,7 @@ export default function BookingSection() {
 
   return (
     <section className="py-20 bg-black relative overflow-hidden">
+      <MultiStepLoader loadingStates={loadingStates} loading={showLoader} duration={2500} loop={false} />
       {/* Background Effect */}
       <div className="absolute inset-0 z-0 opacity-10">
         <SparklesCore
@@ -267,7 +334,39 @@ export default function BookingSection() {
             viewport={{ once: true }}
             className="bg-black/40 backdrop-blur-sm border border-white/10 p-8 rounded-md"
           >
-            {success ? (
+            {emailVerificationSent && !emailVerified ? (
+              <div className="text-center py-12">
+                <div className="w-20 h-20 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg 
+                    className="w-10 h-10 text-amber-500" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth="2" 
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-cormorant font-bold text-white mb-3">
+                  Email Verification Required
+                </h3>
+                <p className="text-white/80 mb-6">
+                  Please check your inbox and click the verification link to complete your registration.
+                  Once verified, you will be automatically redirected to your dashboard.
+                </p>
+                <button
+                  onClick={() => window.location.reload()}
+                  className="px-6 py-3 bg-white/10 text-white font-medium rounded-sm hover:bg-white/20 transition-all duration-300 mr-3"
+                >
+                  I&apos;ve Verified My Email
+                </button>
+              </div>
+            ) : success ? (
               <div className="text-center py-12">
                 <div className="w-20 h-20 bg-[#D4AF37]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <svg
@@ -404,85 +503,23 @@ export default function BookingSection() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="arrival" className="text-white">
-                      {t("arrivalDate")}
-                    </Label>
-                    <Input
-                      id="arrival"
-                      name="arrival"
-                      value={formData.arrival}
-                      onChange={handleChange}
-                      type="date"
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/50 focus:border-[#D4AF37]"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="departure" className="text-white">
-                      {t("departureDate")}
-                    </Label>
-                    <Input
-                      id="departure"
-                      name="departure"
-                      value={formData.departure}
-                      onChange={handleChange}
-                      type="date"
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/50 focus:border-[#D4AF37]"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <Label className="text-white">{t("interests")}</Label>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    {[
-                      { value: "shopping", label: t("shopping") },
-                      { value: "dining_culinary", label: t("diningCulinary") },
-                      { value: "protection", label: t("protection") },
-                      { value: "medical", label: t("medical") },
-                      { value: "culture", label: t("culture") },
-                      { value: "events", label: t("events") },
-                    ].map((interest) => (
-                      <div
-                        key={interest.value}
-                        className="flex items-center gap-2"
-                      >
-                        <input
-                          type="checkbox"
-                          id={`interest-${interest.value}`}
-                          name="interests"
-                          value={interest.value}
-                          checked={formData.interests.includes(interest.value)}
-                          onChange={handleCheckboxChange}
-                          className="rounded border-white/30 bg-white/5 text-[#D4AF37] focus:ring-[#D4AF37]"
-                        />
-                        <label
-                          htmlFor={`interest-${interest.value}`}
-                          className="text-white cursor-pointer"
-                        >
-                          {interest.label}
-                        </label>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
                 <div className="space-y-2">
-                  <Label htmlFor="notes" className="text-white">
-                    {t("specialInstructions")}
+                  <Label htmlFor="password" className="text-white">
+                    {t("password") || "Password"}
                   </Label>
-                  <textarea
-                    id="notes"
-                    name="notes"
-                    value={formData.notes}
+                  <Input
+                    id="password"
+                    name="password"
+                    type="password"
+                    value={formData.password}
                     onChange={handleChange}
-                    rows={4}
-                    placeholder="Any specific requirements or preferences"
-                    className="w-full bg-white/5 border border-white/10 text-white p-2 rounded-md focus:border-[#D4AF37] focus:outline-none placeholder:text-white/50"
-                  ></textarea>
+                    placeholder="Enter your password"
+                    className="bg-white/5 border-white/10 text-white placeholder:text-white/50 focus:border-[#D4AF37]"
+                    required
+                  />
+                  <p className="text-xs text-white/60 mt-1">
+                    {t("passwordHint") || "Password must be at least 6 characters"}
+                  </p>
                 </div>
 
                 <div className="flex justify-center my-6">
@@ -503,12 +540,16 @@ export default function BookingSection() {
 
                 <button
                   type="submit"
-                  disabled={loading}
-                  className={`w-full py-3 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded-sm hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 ${
+                  disabled={loading || (emailVerificationSent && !emailVerified)}
+                  className={`w-full py-3 ${emailVerified 
+                    ? "bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]" 
+                    : "bg-white/10 text-white hover:bg-white/20"} font-medium rounded-sm transition-all duration-300 ${
                     loading ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
-                  {loading ? "Processing..." : t("reserveButton")}
+                  {loading ? "Processing..." : emailVerificationSent && !emailVerified 
+                    ? "Email Verification Required" 
+                    : t("reserveButton")}
                 </button>
                 
                 <p className="text-white/60 text-sm text-center">
