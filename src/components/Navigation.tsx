@@ -15,11 +15,10 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [email, setEmail] = useState("");
-  const [loginMessage, setLoginMessage] = useState<{
-    type: "success" | "error";
-    text: string;
-  } | null>(null);
-  const { user, profile, loading, signIn, logOut } = useAuth();
+  const [password, setPassword] = useState("");
+  const [loginMessage, setLoginMessage] = useState<string | null>(null);
+  const [loginMessageType, setLoginMessageType] = useState<"success" | "error" | null>(null);
+  const { user, loading, logOut } = useAuth();
   const { t } = useLanguage();
   const router = useRouter();
 
@@ -42,11 +41,9 @@ export default function Navigation() {
       return;
     }
 
-    if (!email) {
-      setLoginMessage({
-        type: "error",
-        text: "Please enter your email address.",
-      });
+    if (!email || !password) {
+      setLoginMessageType("error");
+      setLoginMessage("Please enter both email and password.");
       return;
     }
 
@@ -73,10 +70,10 @@ export default function Navigation() {
           const { data: authUser, error: authError } =
             await supabase.auth.signInWithPassword({
               email: normalizedEmail,
-              password: normalizedEmail, // Demo only!
+              password: password,
             });
 
-          if (authUser && !authError) {
+          if (authUser && !authError && authUser.user) {
             console.log(
               "User exists in auth but not in users table, attempting to create profile"
             );
@@ -88,7 +85,7 @@ export default function Navigation() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                  id: authUser.id,
+                  id: authUser.user.id,
                   email: normalizedEmail,
                   name: normalizedEmail.split("@")[0],
                   conciergeEndDate: new Date(
@@ -99,9 +96,17 @@ export default function Navigation() {
 
               if (response.ok) {
                 console.log("Profile created, attempting sign in");
-                // Now try to sign in
-                const result = await signIn(normalizedEmail);
-                handleSignInResult(result);
+                // Now try to sign in with password
+                const { data, error } = await supabase.auth.signInWithPassword({
+                  email: normalizedEmail,
+                  password: password,
+                });
+                
+                if (!error && data) {
+                  handleSignInResult({ success: true, message: "Login successful!" });
+                } else {
+                  handleSignInResult({ success: false, message: "Invalid credentials. Please try again." });
+                }
                 return;
               }
             } catch (err) {
@@ -109,10 +114,8 @@ export default function Navigation() {
             }
           }
 
-          setLoginMessage({
-            type: "error",
-            text: "We couldn't find a user with that email. Please make sure you entered the correct email when booking your concierge.",
-          });
+          setLoginMessageType("error");
+          setLoginMessage("We couldn't find a user with that email. Please make sure you entered the correct email when booking your concierge.");
           return;
         } else {
           console.error("Database error checking user:", userError);
@@ -122,14 +125,35 @@ export default function Navigation() {
 
       // Email exists, attempt to sign in
       console.log("User found, attempting to sign in");
-      const result = await signIn(normalizedEmail);
-      handleSignInResult(result);
+      
+      // Sign in with email and password
+      const { error: authError } = await supabase.auth.signInWithPassword({
+        email: normalizedEmail,
+        password: password,
+      });
+      
+      if (authError) {
+        console.error("Auth error during login:", authError);
+        setLoginMessageType("error");
+        setLoginMessage("Invalid email or password. Please try again.");
+        return;
+      }
+      
+      // If authentication succeeded, proceed with login flow
+      setLoginMessageType("success");
+      setLoginMessage("Login successful!");
+      
+      // Redirect to dashboard after a short delay
+      setTimeout(() => {
+        setShowLoginModal(false);
+        setLoginMessage(null);
+        setLoginMessageType(null);
+        router.push("/dashboard");
+      }, 1500);
     } catch (error) {
       console.error("Login error:", error);
-      setLoginMessage({
-        type: "error",
-        text: "An unexpected error occurred. Please try again.",
-      });
+      setLoginMessageType("error");
+      setLoginMessage("An unexpected error occurred. Please try again.");
     }
   };
 
@@ -138,16 +162,19 @@ export default function Navigation() {
     message: string;
   }) => {
     if (result.success) {
-      setLoginMessage({ type: "success", text: result.message });
+      setLoginMessageType("success");
+      setLoginMessage(result.message);
       // In a real magic link system, the user would receive an email and click a link.
       // For demo purposes, we might skip this step and automatically log them in.
       setTimeout(() => {
         setShowLoginModal(false);
         setLoginMessage(null);
+        setLoginMessageType(null);
         router.push("/dashboard");
-      }, 3000);
+      }, 1500);
     } else {
-      setLoginMessage({ type: "error", text: result.message });
+      setLoginMessageType("error");
+      setLoginMessage(result.message);
     }
   };
 
@@ -328,7 +355,9 @@ export default function Navigation() {
                 onClick={() => {
                   setShowLoginModal(false);
                   setLoginMessage(null);
+                  setLoginMessageType(null);
                   setEmail("");
+                  setPassword("");
                 }}
                 className="text-white/60 hover:text-white"
                 aria-label="Close login dialog"
@@ -357,29 +386,42 @@ export default function Navigation() {
             {loginMessage ? (
               <div
                 className={`p-4 mb-4 rounded text-center ${
-                  loginMessage.type === "success"
+                  loginMessageType === "success"
                     ? "bg-green-900/30 text-green-300 border border-green-700"
                     : "bg-red-900/30 text-red-300 border border-red-700"
                 }`}
               >
-                {loginMessage.text}
+                {loginMessage}
               </div>
             ) : (
-              <form onSubmit={handleLogin}>
-                <div className="mb-4">
-                  <input
-                    type="email"
-                    placeholder="Your Email Address"
-                    className="w-full p-3 bg-black/50 border border-[#D4AF37]/30 rounded text-white focus:outline-none focus:border-[#D4AF37] transition-colors font-dm-sans"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
+              <form onSubmit={handleLogin} className="mb-2">
+                <div className="space-y-4">
+                  <div>
+                    <input
+                      type="email"
+                      placeholder="Your Email Address"
+                      className="w-full p-3 bg-black/50 border border-[#D4AF37]/30 rounded text-white focus:outline-none focus:border-[#D4AF37] transition-colors font-dm-sans"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <input
+                      type="password"
+                      placeholder="Your Password"
+                      className="w-full p-3 bg-black/50 border border-[#D4AF37]/30 rounded text-white focus:outline-none focus:border-[#D4AF37] transition-colors font-dm-sans"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                  </div>
 
-                  {loginMessage?.type === "error" && (
+                  {loginMessage && loginMessageType === "error" && (
                     <div className="p-3 mt-2 rounded text-red-300 bg-red-900/30 border border-red-700/50 text-sm">
-                      {loginMessage.text}
-                      {loginMessage.text.includes("couldn't find a user") && (
+                      {loginMessage}
+                      {loginMessage.includes("couldn't find a user") && (
                         <p className="mt-2">
                           <Link
                             href="/book"
@@ -394,6 +436,10 @@ export default function Navigation() {
                     </div>
                   )}
                 </div>
+                <div className="flex justify-between items-center text-sm text-white/60 mt-2 mb-4">
+                  <div>Enter the password you used during registration</div>
+                </div>
+                
                 <button
                   type="submit"
                   disabled={loading}
