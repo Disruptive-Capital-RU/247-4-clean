@@ -40,6 +40,7 @@ export default function BookingSection() {
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [showCaptchaMessage, setShowCaptchaMessage] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -87,8 +88,11 @@ export default function BookingSection() {
       return;
     }
 
+    // Make hCaptcha verification mandatory
     if (!formData.captchaToken) {
-      toast.error("Please complete the captcha verification");
+      toast.error("Please complete the captcha verification to continue");
+      captchaRef.current?.execute();
+      setShowCaptchaMessage(true); // Show the captcha message when user tries to submit without completing captcha
       return;
     }
 
@@ -221,6 +225,7 @@ export default function BookingSection() {
       ...prev,
       captchaToken: token
     }));
+    setShowCaptchaMessage(false); // Hide the message once captcha is verified
   };
 
   return (
@@ -480,6 +485,22 @@ export default function BookingSection() {
                   ></textarea>
                 </div>
 
+                <div className="flex justify-center my-6">
+                  <HCaptcha
+                    sitekey="6ee82a4c-7088-43b0-99de-ec9ed0c8c4e4"
+                    onVerify={handleCaptchaVerify}
+                    ref={captchaRef}
+                  />
+                </div>
+                
+                {showCaptchaMessage && (
+                  <div className="text-center mb-4">
+                    <p className="text-amber-300 text-sm">
+                      * {t("captchaRequired") || "Captcha verification is required before submitting"}
+                    </p>
+                  </div>
+                )}
+
                 <button
                   type="submit"
                   disabled={loading}
@@ -489,14 +510,6 @@ export default function BookingSection() {
                 >
                   {loading ? "Processing..." : t("reserveButton")}
                 </button>
-
-                <div className="flex justify-center my-6">
-                  <HCaptcha
-                    sitekey="6ee82a4c-7088-43b0-99de-ec9ed0c8c4e4"
-                    onVerify={handleCaptchaVerify}
-                    ref={captchaRef}
-                  />
-                </div>
                 
                 <p className="text-white/60 text-sm text-center">
                   {t("reserveDisclaimer")}
