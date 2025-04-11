@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,6 +9,7 @@ import { supabase } from "@/lib/supabase";
 import { toast, Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/lib/LanguageContext";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 type FormData = {
   name: string;
@@ -19,11 +20,13 @@ type FormData = {
   language: string;
   interests: string[];
   notes: string;
+  captchaToken: string;
 };
 
 export default function BookingSection() {
   const router = useRouter();
   const { t } = useLanguage();
+  const captchaRef = useRef(null);
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -33,6 +36,7 @@ export default function BookingSection() {
     language: "arabic",
     interests: [],
     notes: "",
+    captchaToken: "",
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -80,6 +84,11 @@ export default function BookingSection() {
 
     if (!validateEmail(formData.email)) {
       toast.error("Please enter a valid email address");
+      return;
+    }
+
+    if (!formData.captchaToken) {
+      toast.error("Please complete the captcha verification");
       return;
     }
 
@@ -191,6 +200,7 @@ export default function BookingSection() {
           language: "arabic",
           interests: [],
           notes: "",
+          captchaToken: "",
         });
         setSuccess(false);
       }, 5000);
@@ -204,6 +214,13 @@ export default function BookingSection() {
 
   const validateEmail = (email: string) => {
     return email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+  };
+
+  const handleCaptchaVerify = (token: string) => {
+    setFormData(prev => ({
+      ...prev,
+      captchaToken: token
+    }));
   };
 
   return (
@@ -473,6 +490,14 @@ export default function BookingSection() {
                   {loading ? "Processing..." : t("reserveButton")}
                 </button>
 
+                <div className="flex justify-center my-6">
+                  <HCaptcha
+                    sitekey="6ee82a4c-7088-43b0-99de-ec9ed0c8c4e4"
+                    onVerify={handleCaptchaVerify}
+                    ref={captchaRef}
+                  />
+                </div>
+                
                 <p className="text-white/60 text-sm text-center">
                   {t("reserveDisclaimer")}
                 </p>
