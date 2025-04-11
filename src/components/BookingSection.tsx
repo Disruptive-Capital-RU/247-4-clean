@@ -24,6 +24,9 @@ type FormData = {
   captchaToken: string;
 };
 
+// Development mode flag to bypass email verification
+const isDev = process.env.NODE_ENV !== "production";
+
 export default function BookingSection() {
   const router = useRouter();
   const { t } = useLanguage();
@@ -69,9 +72,21 @@ export default function BookingSection() {
         (event: AuthChangeEvent, session: Session | null) => {
           if (event === "SIGNED_IN" && session?.user) {
             setEmailVerified(true);
-            // Redirect to dashboard if they just confirmed email
+            // Don't redirect to dashboard - stay on the same page and show loader
             if (emailVerificationSent) {
-              router.push("/dashboard");
+              // Start the multi-step loader animation
+              setShowLoader(true);
+              
+              // After loader completes, show success animation then redirect
+              setTimeout(() => {
+                setShowLoader(false);
+                setSuccess(true); // Show success animation
+                
+                // Finally redirect to dashboard
+                setTimeout(() => {
+                  router.push("/dashboard");
+                }, 3000); // Allow 3 seconds for success animation
+              }, 15000); // 15 seconds for the loader
             }
           }
           }
@@ -180,7 +195,8 @@ export default function BookingSection() {
             email: normalizedEmail,
             password: formData.password,
             options: {
-              emailRedirectTo: `${window.location.origin}/dashboard`,
+              // Redirect back to the same page, not directly to dashboard
+              emailRedirectTo: `${window.location.origin}${window.location.pathname}`,
             }
           }
         );
@@ -247,7 +263,13 @@ export default function BookingSection() {
       // Check if this is a new user who needs to verify their email
       if (!emailVerified && !existingUser) {
         setLoading(false);
-        toast.success("Verification email sent! Please check your inbox and confirm your email address.");
+        setEmailVerificationSent(true);
+        
+        if (isDev) {
+          toast.success("Dev mode: Verification email would be sent in production. Use the 'Simulate Verification' button.");
+        } else {
+          toast.success("Verification email sent! Please check your inbox and confirm your email address.");
+        }
         return;
       }
       
@@ -273,7 +295,7 @@ export default function BookingSection() {
       // Check if this is an email confirmation error
       if (error.message?.includes("confirmation") || error.message?.includes("verify")) {
         setEmailVerificationSent(true);
-        toast.error("Please verify your email address before continuing. Check your inbox for a confirmation link.");
+        toast.error("Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.");
       } else {
         toast.error(error.message || "An error occurred. Please try again.");
       }
@@ -357,14 +379,45 @@ export default function BookingSection() {
                 </h3>
                 <p className="text-white/80 mb-6">
                   Please check your inbox and click the verification link to complete your registration.
-                  Once verified, you will be automatically redirected to your dashboard.
+                  After verification, please return to this page to continue with your booking.
                 </p>
+                {isDev && (
+                  <p className="text-amber-400 text-sm mb-4">
+                    <strong>Development Mode:</strong> Email delivery may not be configured. 
+                    Use the button below to simulate verification.
+                  </p>
+                )}
                 <button
                   onClick={() => window.location.reload()}
                   className="px-6 py-3 bg-white/10 text-white font-medium rounded-sm hover:bg-white/20 transition-all duration-300 mr-3"
                 >
-                  I&apos;ve Verified My Email
+                  I&apos;ve Confirmed My Email
                 </button>
+                {isDev && (
+                  <button
+                    onClick={() => {
+                      // Simulate email verification in development
+                      // No need to actually interact with Supabase for simulation
+                      // Update verification status and trigger the loader
+                      setEmailVerified(true);
+                      setShowLoader(true);
+                      
+                      // After loader completes, show success animation then redirect
+                      setTimeout(() => {
+                        setShowLoader(false);
+                        setSuccess(true);
+                        
+                        // Finally redirect to dashboard
+                        setTimeout(() => {
+                          router.push("/dashboard");
+                        }, 3000);
+                      }, 15000);
+                    }}
+                    className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-medium rounded-sm hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all duration-300 mt-3"
+                  >
+                    Dev Mode: Simulate Verification
+                  </button>
+                )}
               </div>
             ) : success ? (
               <div className="text-center py-12">
