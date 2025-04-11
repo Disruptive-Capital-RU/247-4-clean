@@ -6,11 +6,24 @@ import Footer from "@/components/Footer";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { useLanguage } from "@/lib/LanguageContext";
 import { ServicesTextEffect } from "@/components/ui/services-text-effect";
+import { useRouter } from "next/navigation";
 
 export default function PricingPage() {
   const { t } = useLanguage();
+  const router = useRouter();
   const [showContent, setShowContent] = useState(false);
   const [scope, animate] = useAnimate();
+  
+  // Handle plan selection
+  const handlePlanSelect = (planName: string, planType: string, price: string, days?: number) => {
+    const params = new URLSearchParams();
+    params.append('planName', planName);
+    params.append('planType', planType);
+    params.append('price', price);
+    if (days) params.append('days', days.toString());
+    
+    router.push(`/cart?${params.toString()}`);
+  };
 
   useEffect(() => {
     // The intro animation will show for 5 seconds before fading out
@@ -147,7 +160,10 @@ export default function PricingPage() {
                       <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
                       <p className="font-dm-sans text-white/90">Weekend escapes, romantic city breaks</p>
                     </div>
-                    <button className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20">
+                    <button 
+                      onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
+                      className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                    >
                       Select Plan
                     </button>
                   </div>
@@ -167,7 +183,10 @@ export default function PricingPage() {
                       <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
                       <p className="font-dm-sans text-white/90">Leisure travel, business-stay support</p>
                     </div>
-                    <button className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20">
+                    <button 
+                      onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
+                      className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                    >
                       Select Plan
                     </button>
                   </div>
@@ -187,7 +206,10 @@ export default function PricingPage() {
                       <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
                       <p className="font-dm-sans text-white/90">Long vacations, events, or premium hospitality</p>
                     </div>
-                    <button className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20">
+                    <button 
+                      onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
+                      className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                    >
                       Select Plan
                     </button>
                   </div>
@@ -207,7 +229,10 @@ export default function PricingPage() {
                       <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
                       <p className="font-dm-sans text-white/90">High-net-worth individuals, business delegations, VIP events</p>
                     </div>
-                    <button className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20">
+                    <button 
+                      onClick={() => router.push('/contact')}
+                      className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                    >
                       Contact Us
                     </button>
                   </div>
@@ -265,7 +290,10 @@ export default function PricingPage() {
                         <p className="mt-2 text-white/70 italic text-xs">Prefer a spa instead of flowers? Simply let us know — every detail is tailorable.</p>
                       </div>
                       
-                      <button className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20">
+                      <button 
+                        onClick={() => router.push(`/cart?planName=Date Plan&planType=One-Day Premium Plan&price=$20&days=1`)}
+                        className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                      >
                         Select Plan
                       </button>
                     </div>
@@ -297,7 +325,10 @@ export default function PricingPage() {
                         <p className="mt-2 text-white/70 italic text-xs">Have special dietary needs or a different setup in mind? We're flexible.</p>
                       </div>
                       
-                      <button className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20">
+                      <button 
+                        onClick={() => router.push(`/cart?planName=Date Plan&planType=One-Day Premium Plan&price=$20&days=1`)}
+                        className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                      >
                         Select Plan
                       </button>
                     </div>
@@ -324,7 +355,10 @@ export default function PricingPage() {
                         <p className="font-dm-sans text-white/90 text-sm">All services are fully tailored: from logistics to ambiance, security, cultural protocol, and beyond</p>
                       </div>
                       
-                      <button className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20">
+                      <button 
+                        onClick={() => router.push('/contact')}
+                        className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                      >
                         Contact Us
                       </button>
                     </div>

@@ -40,9 +40,9 @@ export default function BookingSection() {
     captchaToken: "",
   });
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false); // Used for the success view
   const [showCaptchaMessage, setShowCaptchaMessage] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [emailVerificationSent, setEmailVerificationSent] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
   
@@ -89,10 +89,12 @@ export default function BookingSection() {
               }, 15000); // 15 seconds for the loader
             }
           }
-          }
-        );
+        }
+      );
       
-      subscription = authListener.data.subscription;
+      if (!formData.captchaToken) {
+        toast.error("Please complete the captcha verification");
+      }
     } catch (error) {
       console.error("Error setting up auth listener:", error);
     }
@@ -119,177 +121,141 @@ export default function BookingSection() {
     >
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
-      [name]: value,
+      [name]: value
     }));
   };
 
-
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (
-      !formData.name ||
-      !formData.email ||
-      !formData.contact ||
-      !formData.password
-    ) {
-      toast.error("Please fill in all required fields");
-      return;
-    }
-
-    if (!validateEmail(formData.email)) {
-      toast.error("Please enter a valid email address");
-      return;
-    }
-
-    // Make hCaptcha verification mandatory
+    
+    // Show captcha message if not verified
     if (!formData.captchaToken) {
-      toast.error("Please complete the captcha verification to continue");
-      captchaRef.current?.execute();
-      setShowCaptchaMessage(true); // Show the captcha message when user tries to submit without completing captcha
+      setShowCaptchaMessage(true);
+      toast.error("Please complete the captcha verification.");
       return;
     }
-
+    
+    // Validate email format
+    if (!validateEmail(formData.email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+    
+    // Validate password
+    if (formData.password.length < 6) {
+      toast.error("Password must be at least 6 characters.");
+      return;
+    }
+    
     setLoading(true);
-
+    
     try {
-      const normalizedEmail = formData.email.trim().toLowerCase();
+      let userId: string;
+      const normalizedEmail = formData.email.toLowerCase().trim();
       
-      // If we already sent a verification email but it's not verified yet
-      if (emailVerificationSent && !emailVerified) {
-        setLoading(false);
-        toast.error("Please verify your email before continuing");
-        return;
-      }
-
-      // Check if the user already exists
-      const { data: existingUser, error: queryError } = await supabase
-        .from("users")
-        .select("id, email")
-        .eq("email", normalizedEmail)
-        .single();
-
-      if (queryError && queryError.code !== "PGRST116") {
-        // PGRST116 is "no rows returned"
-        console.error("Error checking existing user:", queryError);
-        throw queryError;
-      }
-
-      let userId;
-
-      // If user exists in our database, use that ID
-      if (existingUser) {
-        console.log("User already exists:", existingUser);
-        userId = existingUser.id;
-      } else {
-        // User doesn't exist, try to create a new auth user
-        console.log("Creating new user for:", normalizedEmail);
-
-        // Create a new auth user with this email
+      // DEV MODE: Skip email verification for development
+      if (isDev) {
+        console.log("DEV MODE: Bypassing email verification");
+        
+        // Clean existing session if any
         const client = supabase as ReturnType<typeof createClient>;
-        const { data: authUser, error: authError } = await client.auth.signUp(
-          {
+        await client.auth.signOut();
+        
+        // Create a new session directly
+        const { data: authData, error: signInError } = await client.auth.signInWithPassword({
+          email: normalizedEmail,
+          password: formData.password
+        });
+        
+        if (signInError) {
+          // If login fails, try to create account
+          const { data: signUpData, error: signUpError } = await client.auth.signUp({
             email: normalizedEmail,
             password: formData.password,
-            options: {
-              // Redirect back to the same page on production domain, not directly to dashboard
-              emailRedirectTo: `https://reluxi.ru${window.location.pathname}`,
-            }
+          });
+          
+          if (signUpError) {
+            throw signUpError;
           }
-        );
-
-        if (authError) {
-          console.error("Error creating auth user:", authError);
-          throw authError;
+          
+          userId = signUpData.user?.id || "";
+        } else {
+          userId = authData.user?.id || "";
         }
         
-        // Set flag that verification email was sent
-        setEmailVerificationSent(true);
-
-        if (!authUser || !authUser.user) {
-          throw new Error("Failed to create user account.");
+        // Start loader animation
+        setShowLoader(true);
+        
+        // After loader completes, show success animation then redirect
+        setTimeout(() => {
+          setShowLoader(false);
+          setSuccess(true);
+          
+          // Finally redirect to dashboard
+          setTimeout(() => {
+            router.push("/dashboard");
+          }, 2000);
+        }, 15000);
+        
+        return;
+      }
+      
+      // PRODUCTION MODE: Normal flow with email verification
+      
+      // Create a new auth user with this email
+      const client = supabase as ReturnType<typeof createClient>;
+      const { data: authUser, error: authError } = await client.auth.signUp(
+        {
+          email: normalizedEmail,
+          password: formData.password,
+          options: {
+            // Redirect back to the same page on production domain, not directly to dashboard
+            emailRedirectTo: `https://reluxi.ru${window.location.pathname}`,
+          }
         }
+      );
 
-        console.log("Auth user created:", authUser);
-        userId = authUser.user.id;
+      if (authError) {
+        console.error("Error creating auth user:", authError);
+        throw authError;
+      }
+      
+      // Set flag that verification email was sent
+      setEmailVerificationSent(true);
 
-        // Now create a user profile in our database
-        const dbClient = supabase as ReturnType<typeof createClient>;
-        const { error: insertError } = await dbClient.from("users").insert([
-          {
-            id: userId,
-            email: normalizedEmail,
-            name: formData.name,
-            concierge_end_date: new Date(
-              Date.now() + 5 * 24 * 60 * 60 * 1000
-            ).toISOString(), // 5 days from now
-          },
-        ]);
-
-        if (insertError) {
-          console.error("Error creating user profile:", insertError);
-          throw insertError;
-        }
-
-        console.log("User profile created successfully");
+      if (!authUser || !authUser.user) {
+        throw new Error("Failed to create user account.");
       }
 
-      // Now create a booking linked to this user
-      console.log("Creating booking for user:", userId);
+      console.log("Auth user created:", authUser);
+      userId = authUser.user.id;
 
+      // Now create a user profile in our database
       const dbClient = supabase as ReturnType<typeof createClient>;
-      const { error: bookingError } = await dbClient.from("bookings").insert([
+      const { error: insertError } = await dbClient.from("users").insert([
         {
-          user_id: userId,
-          name: formData.name,
+          id: userId,
           email: normalizedEmail,
-          contact: formData.contact,
-          language: formData.language,
-          status: "pending",
+          name: formData.name,
+          concierge_end_date: new Date(
+            Date.now() + 5 * 24 * 60 * 60 * 1000
+          ).toISOString(),
         },
       ]);
 
-      if (bookingError) {
-        console.error("Error creating booking:", bookingError);
-        throw bookingError;
-      }
-
-      console.log("Booking created successfully");
-
-      // Handle verification flow or success
-      // Check if this is a new user who needs to verify their email
-      if (!emailVerified && !existingUser) {
-        setLoading(false);
-        setEmailVerificationSent(true);
-        
-        if (isDev) {
-          toast.success("Dev mode: Verification email would be sent in production. Use the 'Simulate Verification' button.");
-        } else {
-          toast.success("Verification email sent! Please check your inbox and confirm your email address.");
-        }
-        return;
+      if (insertError) {
+        console.error("Error creating user profile:", insertError);
+        throw insertError;
       }
       
-      // If it's an existing user or email is already verified
+      toast.success("Please check your email to verify your account");
       
-      // If we reached here, email is verified or user already existed
-      setShowLoader(true);
-      toast.success("Booking submitted successfully!");
+      // When account is created and the user has verified email,
+      // the auth listener will catch the SIGNED_IN event and redirect
       
-      // Show loader for a few seconds before redirecting to dashboard
-      setTimeout(() => {
-        setShowLoader(false);
-        setSuccess(true); // Set success to true to show success message briefly before redirect
-        
-        // Redirect after showing success message briefly
-        setTimeout(() => {
-          router.push("/dashboard");
-        }, 2000);
-      }, 15000); // 15 seconds for the loader to show all steps
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error submitting booking:", error);
       
       // Check if this is an email confirmation error
@@ -327,291 +293,223 @@ export default function BookingSection() {
           minSize={0.6}
           maxSize={1.4}
           particleDensity={20}
+          speed={0.3}
           className="w-full h-full"
-          particleColor="#D4AF37"
         />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-4">
-            {t("bookingHeader")}
-          </h2>
-          <p className="font-dm-sans text-lg text-white/80 max-w-3xl mx-auto">
-            {t("bookingDesc")}
-          </p>
-        </motion.div>
-
-        <div className="max-w-3xl mx-auto">
+      <div className="container mx-auto px-4 relative z-10">
+        <Toaster position="top-center" />
+        {success ? (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="bg-black/40 backdrop-blur-sm border border-white/10 p-8 rounded-md"
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-lg mx-auto text-center"
           >
-            {emailVerificationSent && !emailVerified ? (
-              <div className="text-center py-12">
-                <div className="w-20 h-20 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg 
-                    className="w-10 h-10 text-amber-500" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth="2" 
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-cormorant font-bold text-white mb-3">
-                  Email Verification Required
-                </h3>
-                <p className="text-white/80 mb-6">
-                  Please check your inbox and click the verification link to complete your registration.
-                  After verification, please return to this page to continue with your booking.
-                </p>
-                {isDev && (
-                  <p className="text-amber-400 text-sm mb-4">
-                    <strong>Development Mode:</strong> Email delivery may not be configured. 
-                    Use the button below to simulate verification.
+            <div className="bg-gradient-to-b from-[#D4AF37]/20 to-transparent p-10 rounded-lg border border-[#D4AF37]/30">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B8860B] flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-black"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <h2 className="text-3xl font-cormorant font-bold text-white mb-4">
+                {t("successTitle")}
+              </h2>
+              <p className="text-lg text-white/80 mb-6">
+                {t("successMessage")}
+              </p>
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-6"></div>
+              <p className="text-white/60 text-sm">
+                {t("redirectMessage")}
+              </p>
+            </div>
+          </motion.div>
+        ) : (
+          <div className="max-w-lg mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {isSubmitted && emailVerificationSent && !emailVerified ? (
+                <div className="text-center p-8 bg-black/50 rounded-lg border border-[#D4AF37]/30">
+                  <h3 className="text-2xl font-cormorant font-semibold text-white mb-4">
+                    {t("verificationEmailSent")}
+                  </h3>
+                  <p className="text-white/80 mb-6">
+                    {t("checkInbox")}
                   </p>
-                )}
-                <button
-                  onClick={() => window.location.reload()}
-                  className="px-6 py-3 bg-white/10 text-white font-medium rounded-sm hover:bg-white/20 transition-all duration-300 mr-3"
-                >
-                  I&apos;ve Confirmed My Email
-                </button>
-                {isDev && (
-                  <button
-                    onClick={() => {
-                      // Simulate email verification in development
-                      // No need to actually interact with Supabase for simulation
-                      // Update verification status and trigger the loader
-                      setEmailVerified(true);
-                      setShowLoader(true);
-                      
-                      // After loader completes, show success animation then redirect
-                      setTimeout(() => {
-                        setShowLoader(false);
-                        setSuccess(true);
-                        
-                        // Finally redirect to dashboard
-                        setTimeout(() => {
-                          router.push("/dashboard");
-                        }, 3000);
-                      }, 15000);
-                    }}
-                    className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-medium rounded-sm hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all duration-300 mt-3"
-                  >
-                    Dev Mode: Simulate Verification
-                  </button>
-                )}
-              </div>
-            ) : success ? (
-              <div className="text-center py-12">
-                <div className="w-20 h-20 bg-[#D4AF37]/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg
-                    className="w-10 h-10 text-[#D4AF37]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
+                  <div className="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent mb-6"></div>
+                  <p className="text-sm text-white/60">
+                    {t("afterVerification")}
+                  </p>
                 </div>
-                <h3 className="text-2xl font-cormorant font-bold text-white mb-3">
-                  Booking Confirmed
-                </h3>
-                <p className="text-white/80 mb-6">
-                  Thank you for booking with Reluxi Concierge. You will receive
-                  a confirmation email shortly.
-                </p>
-                <button
-                  onClick={() => router.push("/dashboard")}
-                  className="px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded-sm hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300"
-                >
-                  {t("dashboard")}
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6 font-dm-sans">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name" className="text-white">
-                      {t("fullName")}
-                    </Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your name"
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/50 focus:border-[#D4AF37]"
-                      required
-                    />
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <h2 className="text-3xl font-cormorant font-bold text-white text-center mb-2">
+                    {t("bookingHeading")}
+                  </h2>
+                  <p className="text-white/70 text-center mb-8">
+                    {t("bookingSubheading")}
+                  </p>
+
+                  <div className="space-y-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="text-white">
+                        {t("name")}
+                      </Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Your name"
+                        className="bg-white/5 border-white/10 text-white placeholder:text-white/50 focus:border-[#D4AF37]"
+                        required
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-white">
+                        {t("email")}
+                      </Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Your email"
+                        className="bg-white/5 border-white/10 text-white placeholder:text-white/50 focus:border-[#D4AF37]"
+                        required
+                      />
+                      <p className="text-xs text-white/60 mt-1">
+                        {t("emailHint")}
+                      </p>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="language" className="text-white">
+                        {t("languagePreference")}
+                      </Label>
+                      <div className="grid grid-cols-3 gap-3">
+                        {[
+                          { value: "arabic", label: t("arabic") },
+                          { value: "english", label: t("english") },
+                          { value: "russian", label: t("russian") },
+                        ].map((lang) => (
+                          <div
+                            key={lang.value}
+                            onClick={() =>
+                              setFormData({ ...formData, language: lang.value })
+                            }
+                            className={`relative cursor-pointer rounded-md px-4 py-3 transition-all duration-300 border ${
+                              formData.language === lang.value
+                                ? "border-[#D4AF37] bg-gradient-to-b from-[#D4AF37]/20 to-transparent shadow-[0_0_10px_rgba(212,175,55,0.3)]"
+                                : "border-white/10 bg-white/5 hover:border-white/30"
+                            }`}
+                          >
+                            <input
+                              type="radio"
+                              id={`language-${lang.value}`}
+                              name="language"
+                              value={lang.value}
+                              checked={formData.language === lang.value}
+                              onChange={handleChange}
+                              className="sr-only"
+                            />
+                            <label
+                              htmlFor={`language-${lang.value}`}
+                              className="flex justify-center items-center cursor-pointer font-medium text-center"
+                            >
+                              <span
+                                className={`${
+                                  formData.language === lang.value
+                                    ? "text-[#D4AF37]"
+                                    : "text-white"
+                                }`}
+                              >
+                                {lang.label}
+                              </span>
+                            </label>
+                            {formData.language === lang.value && (
+                              <div className="absolute -bottom-px left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
+
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-white">
-                      {t("email")}
+                    <Label htmlFor="password" className="text-white">
+                      {t("password") || "Password"}
                     </Label>
                     <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
+                      id="password"
+                      name="password"
+                      type="password"
+                      value={formData.password}
                       onChange={handleChange}
-                      placeholder="Your email"
+                      placeholder="Enter your password"
                       className="bg-white/5 border-white/10 text-white placeholder:text-white/50 focus:border-[#D4AF37]"
                       required
                     />
                     <p className="text-xs text-white/60 mt-1">
-                      {t("emailHint")}
+                      {t("passwordHint") || "Password must be at least 6 characters"}
                     </p>
                   </div>
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="contact" className="text-white">
-                      {t("phoneWhatsapp")}
-                    </Label>
-                    <Input
-                      id="contact"
-                      name="contact"
-                      value={formData.contact}
-                      onChange={handleChange}
-                      placeholder="+971 55 123 4567"
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/50 focus:border-[#D4AF37]"
-                      required
+                  <div className="flex justify-center my-6">
+                    <HCaptcha
+                      sitekey="6ee82a4c-7088-43b0-99de-ec9ed0c8c4e4"
+                      onVerify={handleCaptchaVerify}
+                      ref={captchaRef}
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="language" className="text-white">
-                      {t("languagePreference")}
-                    </Label>
-                    <div className="grid grid-cols-3 gap-3">
-                      {[
-                        { value: "arabic", label: t("arabic") },
-                        { value: "english", label: t("english") },
-                        { value: "russian", label: t("russian") },
-                      ].map((lang) => (
-                        <div
-                          key={lang.value}
-                          onClick={() =>
-                            setFormData({ ...formData, language: lang.value })
-                          }
-                          className={`relative cursor-pointer rounded-md px-4 py-3 transition-all duration-300 border ${
-                            formData.language === lang.value
-                              ? "border-[#D4AF37] bg-gradient-to-b from-[#D4AF37]/20 to-transparent shadow-[0_0_10px_rgba(212,175,55,0.3)]"
-                              : "border-white/10 bg-white/5 hover:border-white/30"
-                          }`}
-                        >
-                          <input
-                            type="radio"
-                            id={`language-${lang.value}`}
-                            name="language"
-                            value={lang.value}
-                            checked={formData.language === lang.value}
-                            onChange={handleChange}
-                            className="sr-only"
-                          />
-                          <label
-                            htmlFor={`language-${lang.value}`}
-                            className="flex justify-center items-center cursor-pointer font-medium text-center"
-                          >
-                            <span
-                              className={`${
-                                formData.language === lang.value
-                                  ? "text-[#D4AF37]"
-                                  : "text-white"
-                              }`}
-                            >
-                              {lang.label}
-                            </span>
-                          </label>
-                          {formData.language === lang.value && (
-                            <div className="absolute -bottom-px left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
-                          )}
-                        </div>
-                      ))}
+                  
+                  {showCaptchaMessage && (
+                    <div className="text-center mb-4">
+                      <p className="text-amber-300 text-sm">
+                        * {t("captchaRequired") || "Captcha verification is required before submitting"}
+                      </p>
                     </div>
-                  </div>
-                </div>
+                  )}
 
-                <div className="space-y-2">
-                  <Label htmlFor="password" className="text-white">
-                    {t("password") || "Password"}
-                  </Label>
-                  <Input
-                    id="password"
-                    name="password"
-                    type="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    placeholder="Enter your password"
-                    className="bg-white/5 border-white/10 text-white placeholder:text-white/50 focus:border-[#D4AF37]"
-                    required
-                  />
-                  <p className="text-xs text-white/60 mt-1">
-                    {t("passwordHint") || "Password must be at least 6 characters"}
+                  <button
+                    type="submit"
+                    disabled={loading || (emailVerificationSent && !emailVerified)}
+                    className={`w-full py-3 ${emailVerified 
+                      ? "bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]" 
+                      : "bg-white/10 text-white hover:bg-white/20"} font-medium rounded-sm transition-all duration-300 ${
+                      loading ? "opacity-70 cursor-not-allowed" : ""
+                    }`}
+                  >
+                    {loading ? "Processing..." : emailVerificationSent && !emailVerified 
+                      ? "Email Verification Required" 
+                      : t("reserveButton")}
+                  </button>
+                  
+                  <p className="text-white/60 text-sm text-center">
+                    {t("reserveDisclaimer")}
                   </p>
-                </div>
-
-                <div className="flex justify-center my-6">
-                  <HCaptcha
-                    sitekey="6ee82a4c-7088-43b0-99de-ec9ed0c8c4e4"
-                    onVerify={handleCaptchaVerify}
-                    ref={captchaRef}
-                  />
-                </div>
-                
-                {showCaptchaMessage && (
-                  <div className="text-center mb-4">
-                    <p className="text-amber-300 text-sm">
-                      * {t("captchaRequired") || "Captcha verification is required before submitting"}
-                    </p>
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={loading || (emailVerificationSent && !emailVerified)}
-                  className={`w-full py-3 ${emailVerified 
-                    ? "bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]" 
-                    : "bg-white/10 text-white hover:bg-white/20"} font-medium rounded-sm transition-all duration-300 ${
-                    loading ? "opacity-70 cursor-not-allowed" : ""
-                  }`}
-                >
-                  {loading ? "Processing..." : emailVerificationSent && !emailVerified 
-                    ? "Email Verification Required" 
-                    : t("reserveButton")}
-                </button>
-                
-                <p className="text-white/60 text-sm text-center">
-                  {t("reserveDisclaimer")}
-                </p>
-              </form>
-            )}
-          </motion.div>
-        </div>
+                </form>
+              )}
+            </motion.div>
+          </div>
+        )}
       </div>
     </section>
   );
