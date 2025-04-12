@@ -301,7 +301,7 @@ export default function BookingSection() {
         />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 max-w-7xl">
         <Toaster position="top-center" />
         {success ? (
           <motion.div
@@ -340,7 +340,7 @@ export default function BookingSection() {
             </div>
           </motion.div>
         ) : (
-          <div className="max-w-lg mx-auto">
+          <div className="max-w-3xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -360,18 +360,18 @@ export default function BookingSection() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <h2 className="text-3xl font-cormorant font-bold text-white text-center mb-2">
-                    {t("bookingHeading")}
+                <form onSubmit={handleSubmit} className="space-y-6 p-8 rounded-md bg-black/40 w-full mx-auto">
+                  <h2 className="text-5xl font-cormorant font-bold text-white text-center mb-2">
+                    Your Time Is Precious. Start Now.
                   </h2>
                   <p className="text-white/70 text-center mb-8">
-                    {t("bookingSubheading")}
+                    Book your personal concierge for 5 days for just $100. Once booked, we'll contact you directly to confirm your arrival details, preferences, and priorities.
                   </p>
 
-                  <div className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
                     <div className="space-y-2">
                       <Label htmlFor="name" className="text-white">
-                        {t("name")}
+                        Full Name *
                       </Label>
                       <Input
                         id="name"
@@ -379,14 +379,14 @@ export default function BookingSection() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Your name"
-                        className="bg-white/5 border-white/10 text-white placeholder:text-white/50 focus:border-[#D4AF37]"
+                        className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                         required
                       />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="email" className="text-white">
-                        {t("email")}
+                        Email *
                       </Label>
                       <Input
                         id="email"
@@ -395,33 +395,48 @@ export default function BookingSection() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="Your email"
-                        className="bg-white/5 border-white/10 text-white placeholder:text-white/50 focus:border-[#D4AF37]"
+                        className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                         required
                       />
                       <p className="text-xs text-white/60 mt-1">
-                        {t("emailHint")}
+                        You'll use this email to log into your concierge dashboard
                       </p>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="contact" className="text-white">
+                        Phone / WhatsApp *
+                      </Label>
+                      <Input
+                        id="contact"
+                        name="contact"
+                        value={formData.contact}
+                        onChange={handleChange}
+                        placeholder="+971 55 123 4567"
+                        className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
+                        required
+                      />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="language" className="text-white">
-                        {t("languagePreference")}
+                        Language Preference
                       </Label>
                       <div className="grid grid-cols-3 gap-3">
                         {[
-                          { value: "arabic", label: t("arabic") },
-                          { value: "english", label: t("english") },
-                          { value: "russian", label: t("russian") },
+                          { value: "arabic", label: "Arabic" },
+                          { value: "english", label: "English" },
+                          { value: "russian", label: "Russian" },
                         ].map((lang) => (
                           <div
                             key={lang.value}
                             onClick={() =>
                               setFormData({ ...formData, language: lang.value })
                             }
-                            className={`relative cursor-pointer rounded-md px-4 py-3 transition-all duration-300 border ${
+                            className={`relative cursor-pointer px-4 py-3 transition-all duration-300 border ${
                               formData.language === lang.value
-                                ? "border-[#D4AF37] bg-gradient-to-b from-[#D4AF37]/20 to-transparent shadow-[0_0_10px_rgba(212,175,55,0.3)]"
-                                : "border-white/10 bg-white/5 hover:border-white/30"
+                                ? "border-[#D4AF37] bg-gradient-to-b from-[#D4AF37]/20 to-transparent"
+                                : "border-[#D4AF37]/30 bg-black/60 hover:border-[#D4AF37]/60"
                             }`}
                           >
                             <input
@@ -447,9 +462,6 @@ export default function BookingSection() {
                                 {lang.label}
                               </span>
                             </label>
-                            {formData.language === lang.value && (
-                              <div className="absolute -bottom-px left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
-                            )}
                           </div>
                         ))}
                       </div>
@@ -458,7 +470,7 @@ export default function BookingSection() {
 
                   <div className="space-y-2">
                     <Label htmlFor="password" className="text-white">
-                      {t("password") || "Password"}
+                      password
                     </Label>
                     <Input
                       id="password"
@@ -467,19 +479,17 @@ export default function BookingSection() {
                       value={formData.password}
                       onChange={handleChange}
                       placeholder="Enter your password"
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/50 focus:border-[#D4AF37]"
+                      className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                       required
                     />
-                    <p className="text-xs text-white/60 mt-1">
-                      {t("passwordHint") || "Password must be at least 6 characters"}
-                    </p>
                   </div>
 
-                  <div className="flex justify-center my-6">
+                  <div className="flex justify-center my-6 col-span-full">
                     <HCaptcha
-                      sitekey="6ee82a4c-7088-43b0-99de-ec9ed0c8c4e4"
+                      sitekey="6LcbKxMrAAAAABXFe9zsdg5xj1I9thUyYTs7jelJ"
                       onVerify={handleCaptchaVerify}
                       ref={captchaRef}
+                      theme="dark"
                     />
                   </div>
                   
@@ -494,19 +504,20 @@ export default function BookingSection() {
                   <button
                     type="submit"
                     disabled={loading || (emailVerificationSent && !emailVerified)}
-                    className={`w-full py-3 ${emailVerified 
-                      ? "bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]" 
-                      : "bg-white/10 text-white hover:bg-white/20"} font-medium rounded-sm transition-all duration-300 ${
+                    className={`w-full py-3 h-14 ${emailVerified 
+                      ? "bg-black text-white border border-white/20 hover:border-white/50" 
+                      : "bg-black text-white border border-white/20 hover:border-white/50"} font-medium transition-all duration-300 ${
                       loading ? "opacity-70 cursor-not-allowed" : ""
                     }`}
                   >
                     {loading ? "Processing..." : emailVerificationSent && !emailVerified 
                       ? "Email Verification Required" 
-                      : t("reserveButton")}
+                      : "Reserve My Concierge"}
                   </button>
                   
-                  <p className="text-white/60 text-sm text-center">
-                    {t("reserveDisclaimer")}
+                  <p className="text-white/60 text-sm text-center mt-4">
+                    This is a pre-reservation only. You will be contacted within 12 hours to confirm availability and preferences.
+                    No payment is collected on the website.
                   </p>
                 </form>
               )}

@@ -14,12 +14,8 @@ import {
   FaApple,
   FaAndroid,
 } from "react-icons/fa";
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalTrigger,
-} from "@/components/ui/animated-modal";
+import Image from "next/image";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { useLanguage } from "@/lib/LanguageContext";
 
@@ -31,19 +27,26 @@ type Service = {
 
 const GoldenButton = () => {
   const { t } = useLanguage();
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="my-36 relative bg-black/50 border border-white/10 rounded-xl p-10 mb-8">
-      <div className="absolute inset-0 overflow-hidden rounded-xl">
-        <div className="absolute inset-0 bg-[url('/images/city-lights.jpg')] bg-cover bg-center opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
-      </div>
-
+    <div className="my-20 relative p-12 mb-8 bg-black/30 shadow-[0_0_20px_rgba(212,175,55,0.15)] max-w-4xl mx-auto">
+      {/* Simple golden border */}
+      <div className="absolute inset-0 rounded-xl border border-[#D4AF37]" />
       <div className="relative text-center">
-        <span className="inline-block px-4 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/20 text-[#D4AF37] text-sm mb-6">
-          {t("goldLogo")}
-        </span>
+        <div className="flex justify-center mb-8">
+          <div className="relative">
+            {/* Golden shimmer effect */}
+            <div className="absolute -inset-4 bg-gradient-radial from-[#D4AF37]/30 to-transparent rounded-full blur-md animate-pulse" />
+            <div className="absolute -inset-8 bg-gradient-radial from-[#D4AF37]/20 to-transparent rounded-full blur-lg" />
+            <Image 
+              src="/images/app-icon.png" 
+              alt="App Icon" 
+              width={120} 
+              height={120} 
+              className="relative z-10" 
+            />
+          </div>
+        </div>
         <h2 className="text-3xl md:text-4xl font-cormorant font-bold mb-6 text-white">
           {t("goldenButton")}
         </h2>
@@ -52,31 +55,51 @@ const GoldenButton = () => {
         </p>
         <p className="text-white/60 mb-8">{t("goldenButtonInstructions")}</p>
 
-        <Modal open={isModalOpen} onOpenChange={setIsModalOpen}>
-          <ModalTrigger className="inline-block px-6 py-3 bg-black border border-[#D4AF37] rounded-md text-white hover:bg-[#D4AF37]/10 transition-colors">
-            {t("chooseDevice")}
-          </ModalTrigger>
-          <ModalContent className="bg-gray-900 border border-[#D4AF37]/40 rounded-lg p-0 w-full max-w-md">
-            <ModalBody className="p-0">
-              <div className="divide-y divide-[#D4AF37]/10">
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="flex items-center gap-3 w-full p-6 text-left hover:bg-[#D4AF37]/10 transition-colors"
-                >
-                  <FaApple className="text-white/90 w-6 h-6" />
-                  <span className="text-lg text-white">{t("iphone")}</span>
-                </button>
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="flex items-center gap-3 w-full p-6 text-left hover:bg-[#D4AF37]/10 transition-colors"
-                >
-                  <FaAndroid className="text-white/90 w-6 h-6" />
-                  <span className="text-lg text-white">{t("android")}</span>
-                </button>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-8">
+          <Popover>
+            <PopoverTrigger asChild>
+              <button className="relative flex items-center gap-3 px-6 py-4 bg-black text-[#D4AF37] font-medium border border-[#D4AF37] rounded-md hover:shadow-[0_0_20px_rgba(212,175,55,0.6)] hover:bg-[#D4AF37]/10 transition-all duration-300 overflow-hidden group">
+                {/* Inner glow effect on hover */}
+                <span className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/0 via-[#D4AF37]/10 to-[#D4AF37]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                <FaApple className="w-6 h-6 relative z-10" />
+                <span className="relative z-10">{t("iphone")}</span>
+              </button>
+            </PopoverTrigger>
+            <PopoverContent className="bg-black/90 border border-[#D4AF37] text-white">
+              <div className="space-y-2">
+                <h4 className="font-medium text-[#D4AF37] mb-2">iOS Installation Steps</h4>
+                <ol className="text-white/80 list-decimal pl-5 space-y-2">
+                  <li>Open this page in Safari</li>
+                  <li>Tap the Share icon at the bottom of the screen</li>
+                  <li>Scroll down and tap &quot;Add to Home Screen&quot;</li>
+                  <li>Tap &quot;Add&quot; in the top-right corner</li>
+                </ol>
               </div>
-            </ModalBody>
-          </ModalContent>
-        </Modal>
+            </PopoverContent>
+          </Popover>
+          
+          <Popover>
+            <PopoverTrigger asChild>
+              <button className="relative flex items-center gap-3 px-6 py-4 bg-black text-[#D4AF37] font-medium border border-[#D4AF37] rounded-md hover:shadow-[0_0_20px_rgba(212,175,55,0.6)] hover:bg-[#D4AF37]/10 transition-all duration-300 overflow-hidden group">
+                {/* Inner glow effect on hover */}
+                <span className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/0 via-[#D4AF37]/10 to-[#D4AF37]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                <FaAndroid className="w-6 h-6 relative z-10" />
+                <span className="relative z-10">{t("android")}</span>
+              </button>
+            </PopoverTrigger>
+            <PopoverContent className="bg-black/90 border border-[#D4AF37] text-white">
+              <div className="space-y-2">
+                <h4 className="font-medium text-[#D4AF37] mb-2">Android Installation Steps</h4>
+                <ol className="text-white/80 list-decimal pl-5 space-y-2">
+                  <li>Open this page in Chrome</li>
+                  <li>Tap the three dots menu in the top-right</li>
+                  <li>Tap &quot;Add to Home screen&quot;</li>
+                  <li>Confirm by tapping &quot;Add&quot;</li>
+                </ol>
+              </div>
+            </PopoverContent>
+          </Popover>
+        </div>
       </div>
     </div>
   );
@@ -124,7 +147,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-20 bg-black relative overflow-hidden">
+    <section className="pt-20 pb-10 bg-black relative overflow-hidden">
       {/* Background Effect */}
       <div className="absolute inset-0 z-0 opacity-30">
         <div className="absolute inset-0 bg-[url('/images/moscow-4341582_1920.jpg')] bg-cover bg-center opacity-10" />
@@ -198,9 +221,11 @@ export default function ServicesSection() {
           >
             <div className="flex items-center justify-center h-full w-full bg-black text-white p-0">
               <div className="w-full h-full flex flex-col items-center justify-center">
-                <img
+                <Image
                   src="/images/dashboard.png"
                   alt="Dashboard"
+                  width={800}
+                  height={600}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -217,7 +242,7 @@ interface ServiceCardProps {
   index: number;
 }
 
-const ServiceCard = ({ service, index }: ServiceCardProps) => {
+const ServiceCard = ({ service }: ServiceCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const { t } = useLanguage();
 
