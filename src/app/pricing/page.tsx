@@ -12,7 +12,7 @@ export default function PricingPage() {
   const { t } = useLanguage();
   const router = useRouter();
   const [showContent, setShowContent] = useState(false);
-  const [scope, animate] = useAnimate();
+  const [, animate] = useAnimate();
   
   // Handle plan selection
   const handlePlanSelect = (planName: string, planType: string, price: string, days?: number) => {
@@ -28,16 +28,27 @@ export default function PricingPage() {
   useEffect(() => {
     // The intro animation will show for 5 seconds before fading out
     const timer = setTimeout(() => {
-      // After the intro animation is complete, animate content elements with staggered effect
-      animate(
-        ".animate-item",
-        { opacity: 1, y: 0 },
-        { duration: 0.5, delay: stagger(0.1) }
-      );
+      setShowContent(true);
     }, 5000); // 5 seconds for the animation duration
 
     return () => clearTimeout(timer);
-  }, [animate]);
+  }, []);
+  
+  // Only animate the items after the content is actually visible in the DOM
+  useEffect(() => {
+    if (showContent && document.querySelectorAll('.animate-item').length > 0) {
+      // Small delay to ensure DOM is fully rendered
+      const animationTimer = setTimeout(() => {
+        animate(
+          ".animate-item",
+          { opacity: 1, y: 0 },
+          { duration: 0.5, delay: stagger(0.1) }
+        );
+      }, 100);
+      
+      return () => clearTimeout(animationTimer);
+    }
+  }, [showContent, animate]);
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -47,7 +58,7 @@ export default function PricingPage() {
           initial={{ opacity: 1 }}
           animate={{ opacity: 0 }}
           transition={{ duration: 0.8, delay: 4.2 }}
-          onAnimationComplete={() => setShowContent(true)}
+          onAnimationComplete={() => {}}
         >
           {/* Gold accent lines */}
           <motion.div

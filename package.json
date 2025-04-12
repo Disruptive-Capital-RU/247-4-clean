@@ -32,7 +32,7 @@
     "lucide-react": "^0.487.0",
     "mini-svg-data-uri": "^1.4.4",
     "motion": "^12.6.3",
-    "next": "15.2.4",
+    "next": "^15.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-element-to-jsx-string": "^17.0.0",

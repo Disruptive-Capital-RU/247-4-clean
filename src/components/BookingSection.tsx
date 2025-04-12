@@ -45,6 +45,7 @@ export default function BookingSection() {
   const [success, setSuccess] = useState(false);
   const [emailVerificationSent, setEmailVerificationSent] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   
   // Check for email verification status when component mounts
   useEffect(() => {
@@ -150,6 +151,7 @@ export default function BookingSection() {
     }
     
     setLoading(true);
+    setIsSubmitted(true);
     
     try {
       let userId: string;
@@ -224,6 +226,7 @@ export default function BookingSection() {
       
       // Set flag that verification email was sent
       setEmailVerificationSent(true);
+      setIsSubmitted(true);
 
       if (!authUser || !authUser.user) {
         throw new Error("Failed to create user account.");
