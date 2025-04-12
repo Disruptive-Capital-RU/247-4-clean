@@ -14,14 +14,18 @@ import { useRouter } from "next/navigation";
 import { useLanguage } from "@/lib/LanguageContext";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { MultiStepLoader } from "@/components/ui/multi-step-loader";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 type FormData = {
   name: string;
   email: string;
   contact: string;
   language: string;
+  communicationMethod: string;
   password: string;
   captchaToken: string;
+  acceptTerms: boolean;
 };
 
 // Development mode flag to bypass email verification
@@ -35,9 +39,11 @@ export default function BookingSection() {
     name: "",
     email: "",
     contact: "",
-    language: "arabic",
+    language: "english",
+    communicationMethod: "whatsapp",
     password: "",
     captchaToken: "",
+    acceptTerms: false,
   });
   const [loading, setLoading] = useState(false);
   const [showCaptchaMessage, setShowCaptchaMessage] = useState(false);
@@ -147,6 +153,12 @@ export default function BookingSection() {
     // Validate password
     if (formData.password.length < 6) {
       toast.error("Password must be at least 6 characters.");
+      return;
+    }
+    
+    // Validate terms acceptance
+    if (!formData.acceptTerms) {
+      toast.error("You must accept the terms and conditions to continue.");
       return;
     }
     
@@ -422,49 +434,44 @@ export default function BookingSection() {
                       <Label htmlFor="language" className="text-white">
                         Language Preference
                       </Label>
-                      <div className="grid grid-cols-3 gap-3">
-                        {[
-                          { value: "arabic", label: "Arabic" },
-                          { value: "english", label: "English" },
-                          { value: "russian", label: "Russian" },
-                        ].map((lang) => (
-                          <div
-                            key={lang.value}
-                            onClick={() =>
-                              setFormData({ ...formData, language: lang.value })
-                            }
-                            className={`relative cursor-pointer px-4 py-3 transition-all duration-300 border ${
-                              formData.language === lang.value
-                                ? "border-[#D4AF37] bg-gradient-to-b from-[#D4AF37]/20 to-transparent"
-                                : "border-[#D4AF37]/30 bg-black/60 hover:border-[#D4AF37]/60"
-                            }`}
-                          >
-                            <input
-                              type="radio"
-                              id={`language-${lang.value}`}
-                              name="language"
-                              value={lang.value}
-                              checked={formData.language === lang.value}
-                              onChange={handleChange}
-                              className="sr-only"
-                            />
-                            <label
-                              htmlFor={`language-${lang.value}`}
-                              className="flex justify-center items-center cursor-pointer font-medium text-center"
-                            >
-                              <span
-                                className={`${
-                                  formData.language === lang.value
-                                    ? "text-[#D4AF37]"
-                                    : "text-white"
-                                }`}
-                              >
-                                {lang.label}
-                              </span>
-                            </label>
-                          </div>
-                        ))}
-                      </div>
+                      <Select 
+                        value={formData.language}
+                        onValueChange={(value) => setFormData({...formData, language: value})}
+                      >
+                        <SelectTrigger className="w-full h-12 rounded-none bg-black/60 border border-white/20 text-white focus:border-[#D4AF37] hover:border-[#D4AF37]/70">
+                          <SelectValue placeholder="Select language" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-black/90 border border-[#D4AF37]/30 text-white">
+                          <SelectItem value="english" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">English</SelectItem>
+                          <SelectItem value="russian" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Russian</SelectItem>
+                          <SelectItem value="arabic" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Arabic</SelectItem>
+                          <SelectItem value="chinese" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Chinese</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="communicationMethod" className="text-white">
+                        Preferred Communication Method
+                      </Label>
+                      <Select
+                        value={formData.communicationMethod}
+                        onValueChange={(value) => setFormData({...formData, communicationMethod: value})}
+                      >
+                        <SelectTrigger className="w-full h-12 rounded-none bg-black/60 border border-white/20 text-white focus:border-[#D4AF37] hover:border-[#D4AF37]/70">
+                          <SelectValue placeholder="Select communication method" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-black/90 border border-[#D4AF37]/30 text-white">
+                          <SelectItem value="whatsapp" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">WhatsApp</SelectItem>
+                          <SelectItem value="phone" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Phone</SelectItem>
+                          <SelectItem value="email" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Email</SelectItem>
+                          <SelectItem value="telegram" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Telegram</SelectItem>
+                          <SelectItem value="botim" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Botim</SelectItem>
+                          <SelectItem value="wechat" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">WeChat</SelectItem>
+                          <SelectItem value="instagram" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Instagram</SelectItem>
+                          <SelectItem value="facebook" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Facebook</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
                   </div>
 
@@ -482,6 +489,21 @@ export default function BookingSection() {
                       className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                       required
                     />
+                  </div>
+
+                  <div className="flex items-center space-x-2 my-6">
+                    <Checkbox 
+                      id="terms" 
+                      checked={formData.acceptTerms}
+                      onCheckedChange={(checked) => setFormData({...formData, acceptTerms: checked as boolean})}
+                      className="border-[#D4AF37]/70 data-[state=checked]:bg-[#D4AF37] data-[state=checked]:text-black"
+                    />
+                    <label
+                      htmlFor="terms"
+                      className="text-sm text-white leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
+                      I accept the <a href="#" className="text-[#D4AF37] hover:underline">terms and conditions</a> and <a href="#" className="text-[#D4AF37] hover:underline">privacy policy</a>
+                    </label>
                   </div>
 
                   <div className="flex justify-center my-6 col-span-full">
