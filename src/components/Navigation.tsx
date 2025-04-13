@@ -350,7 +350,7 @@ export default function Navigation() {
 
       {/* Login Modal */}
       {showLoginModal && !user && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 h-screen">
           <motion.div
             className="bg-[#111] border border-[#D4AF37]/30 rounded-lg p-6 w-full max-w-md"
             initial={{ scale: 0.9, opacity: 0 }}
