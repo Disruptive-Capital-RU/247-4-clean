@@ -156,94 +156,110 @@ export default function PricingPage() {
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {/* 3 Day Plan */}
-                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group">
+                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
                       <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
-                      <div className="relative z-10">
-                        <h3 className="text-xl font-cormorant font-bold text-white mb-2">3 Day Plan</h3>
-                        <div className="mb-4">
-                          <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$36</p>
-                          <p className="text-sm font-dm-sans text-white/70">($12/day)</p>
+                      <div className="relative z-10 flex flex-col flex-grow">
+                        <div>
+                          <h3 className="text-xl font-cormorant font-bold text-white mb-2">3 Day Plan</h3>
+                          <div className="mb-4">
+                            <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$36</p>
+                            <p className="text-sm font-dm-sans text-white/70">($12/day)</p>
+                          </div>
+                          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
+                          <div className="mb-4">
+                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
+                            <p className="font-dm-sans text-white/90">Weekend escapes, romantic city breaks</p>
+                          </div>
                         </div>
-                        <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
-                        <div className="mb-4">
-                          <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
-                          <p className="font-dm-sans text-white/90">Weekend escapes, romantic city breaks</p>
+                        <div className="mt-auto">
+                          <button 
+                            onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
+                            className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                          >
+                            {t("selectPlan") || "Select Plan"}
+                          </button>
                         </div>
-                        <button 
-                          onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
-                          className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
-                        >
-                          {t("selectPlan") || "Select Plan"}
-                        </button>
                       </div>
                     </div>
 
                     {/* 5 Day Plan */}
-                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group">
+                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
                       <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
-                      <div className="relative z-10">
-                        <h3 className="text-xl font-cormorant font-bold text-white mb-2">5 Day Plan</h3>
-                        <div className="mb-4">
-                          <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$50</p>
-                          <p className="text-sm font-dm-sans text-white/70">($10/day)</p>
+                      <div className="relative z-10 flex flex-col flex-grow">
+                        <div>
+                          <h3 className="text-xl font-cormorant font-bold text-white mb-2">5 Day Plan</h3>
+                          <div className="mb-4">
+                            <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$50</p>
+                            <p className="text-sm font-dm-sans text-white/70">($10/day)</p>
+                          </div>
+                          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
+                          <div className="mb-4">
+                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
+                            <p className="font-dm-sans text-white/90">Leisure travel, business-stay support</p>
+                          </div>
                         </div>
-                        <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
-                        <div className="mb-4">
-                          <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
-                          <p className="font-dm-sans text-white/90">Leisure travel, business-stay support</p>
+                        <div className="mt-auto">
+                          <button 
+                            onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
+                            className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                          >
+                            {t("selectPlan") || "Select Plan"}
+                          </button>
                         </div>
-                        <button 
-                          onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
-                          className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
-                        >
-                          {t("selectPlan") || "Select Plan"}
-                        </button>
                       </div>
                     </div>
 
                     {/* 7 Day Plan */}
-                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group">
+                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
                       <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
-                      <div className="relative z-10">
-                        <h3 className="text-xl font-cormorant font-bold text-white mb-2">7 Day Plan</h3>
-                        <div className="mb-4">
-                          <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$63</p>
-                          <p className="text-sm font-dm-sans text-white/70">($9/day)</p>
+                      <div className="relative z-10 flex flex-col flex-grow">
+                        <div>
+                          <h3 className="text-xl font-cormorant font-bold text-white mb-2">7 Day Plan</h3>
+                          <div className="mb-4">
+                            <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$63</p>
+                            <p className="text-sm font-dm-sans text-white/70">($9/day)</p>
+                          </div>
+                          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
+                          <div className="mb-4">
+                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
+                            <p className="font-dm-sans text-white/90">Long vacations, events, or premium hospitality</p>
+                          </div>
                         </div>
-                        <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
-                        <div className="mb-4">
-                          <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
-                          <p className="font-dm-sans text-white/90">Long vacations, events, or premium hospitality</p>
+                        <div className="mt-auto">
+                          <button 
+                            onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
+                            className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                          >
+                            {t("selectPlan") || "Select Plan"}
+                          </button>
                         </div>
-                        <button 
-                          onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
-                          className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
-                        >
-                          {t("selectPlan") || "Select Plan"}
-                        </button>
                       </div>
                     </div>
 
                     {/* Customizable Plan */}
-                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group">
+                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
                       <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
-                      <div className="relative z-10">
-                        <h3 className="text-xl font-cormorant font-bold text-white mb-2">Customizable Plan</h3>
-                        <div className="mb-4">
-                          <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">Custom</p>
-                          <p className="text-sm font-dm-sans text-white/70">Pricing upon request</p>
+                      <div className="relative z-10 flex flex-col flex-grow">
+                        <div>
+                          <h3 className="text-xl font-cormorant font-bold text-white mb-2">Customizable Plan</h3>
+                          <div className="mb-4">
+                            <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">Custom</p>
+                            <p className="text-sm font-dm-sans text-white/70">Pricing upon request</p>
+                          </div>
+                          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
+                          <div className="mb-4">
+                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
+                            <p className="font-dm-sans text-white/90">High-net-worth individuals, business delegations, VIP events</p>
+                          </div>
                         </div>
-                        <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
-                        <div className="mb-4">
-                          <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
-                          <p className="font-dm-sans text-white/90">High-net-worth individuals, business delegations, VIP events</p>
+                        <div className="mt-auto">
+                          <button 
+                            onClick={() => router.push('/contact')}
+                            className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                          >
+                            {t("contactUs") || "Contact Us"}
+                          </button>
                         </div>
-                        <button 
-                          onClick={() => router.push('/contact')}
-                          className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
-                        >
-                          {t("contactUs") || "Contact Us"}
-                        </button>
                       </div>
                     </div>
                   </div>
@@ -274,102 +290,114 @@ export default function PricingPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
                       {/* Date Plan Card */}
-                      <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group">
+                      <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
                         <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
-                        <div className="relative z-10">
-                          <h3 className="text-xl font-cormorant font-bold text-white mb-2">Date Plan (1 Day)</h3>
-                          <div className="mb-4">
-                            <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$20</p>
+                        <div className="relative z-10 flex flex-col flex-grow">
+                          <div>
+                            <h3 className="text-xl font-cormorant font-bold text-white mb-2">Date Plan (1 Day)</h3>
+                            <div className="mb-4">
+                              <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$20</p>
+                            </div>
+                            <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
+                            
+                            <div className="mb-4">
+                              <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Designed For</h4>
+                              <p className="font-dm-sans text-white/90 text-sm">Romantic escapes, anniversaries, private proposals, or memorable first impressions</p>
+                            </div>
+                            
+                            <div className="mb-4">
+                              <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Key Services</h4>
+                              <ul className="list-disc pl-5 space-y-1 text-sm font-dm-sans text-white/90">
+                                <li>Romantic venue selection</li>
+                                <li>Custom floral arrangements or gifts</li>
+                                <li>Elegant dinner reservation</li>
+                                <li>Travel arrangements (e.g., taxi premium)</li>
+                              </ul>
+                              <p className="mt-2 text-white/70 italic text-xs">Prefer a spa instead of flowers? Simply let us know — every detail is tailorable.</p>
+                            </div>
                           </div>
-                          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
                           
-                          <div className="mb-4">
-                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Designed For</h4>
-                            <p className="font-dm-sans text-white/90 text-sm">Romantic escapes, anniversaries, private proposals, or memorable first impressions</p>
+                          <div className="mt-auto">
+                            <button 
+                              onClick={() => router.push(`/cart?planName=Date Plan&planType=One-Day Premium Plan&price=$20&days=1`)}
+                              className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                            >
+                              {t("selectPlan") || "Select Plan"}
+                            </button>
                           </div>
-                          
-                          <div className="mb-4">
-                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Key Services</h4>
-                            <ul className="list-disc pl-5 space-y-1 text-sm font-dm-sans text-white/90">
-                              <li>Romantic venue selection</li>
-                              <li>Custom floral arrangements or gifts</li>
-                              <li>Elegant dinner reservation</li>
-                              <li>Travel arrangements (e.g., taxi premium)</li>
-                            </ul>
-                            <p className="mt-2 text-white/70 italic text-xs">Prefer a spa instead of flowers? Simply let us know — every detail is tailorable.</p>
-                          </div>
-                          
-                          <button 
-                            onClick={() => router.push(`/cart?planName=Date Plan&planType=One-Day Premium Plan&price=$20&days=1`)}
-                            className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
-                          >
-                            {t("selectPlan") || "Select Plan"}
-                          </button>
                         </div>
                       </div>
 
                       {/* Business Meeting Plan Card */}
-                      <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group">
+                      <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
                         <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
-                        <div className="relative z-10">
-                          <h3 className="text-xl font-cormorant font-bold text-white mb-2">Business Meeting Plan (1 Day)</h3>
-                          <div className="mb-4">
-                            <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$100</p>
+                        <div className="relative z-10 flex flex-col flex-grow">
+                          <div>
+                            <h3 className="text-xl font-cormorant font-bold text-white mb-2">Business Meeting Plan (1 Day)</h3>
+                            <div className="mb-4">
+                              <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$100</p>
+                            </div>
+                            <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
+                            
+                            <div className="mb-4">
+                              <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Designed For</h4>
+                              <p className="font-dm-sans text-white/90 text-sm">High-stakes meetings, investor presentations, product launches, or confidential briefings</p>
+                            </div>
+                            
+                            <div className="mb-4">
+                              <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Key Services</h4>
+                              <ul className="list-disc pl-5 space-y-1 text-sm font-dm-sans text-white/90">
+                                <li>Premium venue booking</li>
+                                <li>Professional tech setup (screens, projectors, high-speed Wi-Fi)</li>
+                                <li>Full catering or Michelin-level restaurant booking</li>
+                                <li>On-site assistant & coordination</li>
+                              </ul>
+                              <p className="mt-2 text-white/70 italic text-xs">Have special dietary needs or a different setup in mind? We're flexible.</p>
+                            </div>
                           </div>
-                          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
                           
-                          <div className="mb-4">
-                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Designed For</h4>
-                            <p className="font-dm-sans text-white/90 text-sm">High-stakes meetings, investor presentations, product launches, or confidential briefings</p>
+                          <div className="mt-auto">
+                            <button 
+                              onClick={() => router.push(`/cart?planName=Date Plan&planType=One-Day Premium Plan&price=$20&days=1`)}
+                              className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                            >
+                              {t("selectPlan") || "Select Plan"}
+                            </button>
                           </div>
-                          
-                          <div className="mb-4">
-                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Key Services</h4>
-                            <ul className="list-disc pl-5 space-y-1 text-sm font-dm-sans text-white/90">
-                              <li>Premium venue booking</li>
-                              <li>Professional tech setup (screens, projectors, high-speed Wi-Fi)</li>
-                              <li>Full catering or Michelin-level restaurant booking</li>
-                              <li>On-site assistant & coordination</li>
-                            </ul>
-                            <p className="mt-2 text-white/70 italic text-xs">Have special dietary needs or a different setup in mind? We're flexible.</p>
-                          </div>
-                          
-                          <button 
-                            onClick={() => router.push(`/cart?planName=Date Plan&planType=One-Day Premium Plan&price=$20&days=1`)}
-                            className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
-                          >
-                            {t("selectPlan") || "Select Plan"}
-                          </button>
                         </div>
                       </div>
 
                       {/* Customizable Plan Card */}
-                      <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group">
+                      <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
                         <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
-                        <div className="relative z-10">
-                          <h3 className="text-xl font-cormorant font-bold text-white mb-2">Customizable Plan</h3>
-                          <div className="mb-4">
-                            <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">Custom</p>
-                            <p className="text-sm font-dm-sans text-white/70">Pricing upon request</p>
+                        <div className="relative z-10 flex flex-col flex-grow">
+                          <div>
+                            <h3 className="text-xl font-cormorant font-bold text-white mb-2">Customizable Plan</h3>
+                            <div className="mb-4">
+                              <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">Custom</p>
+                              <p className="text-sm font-dm-sans text-white/70">Pricing upon request</p>
+                            </div>
+                            <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
+                            
+                            <div className="mb-4">
+                              <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Designed For</h4>
+                              <p className="font-dm-sans text-white/90 text-sm">VIP-level custom events — board meetings, celebrations, press events, protocol visits</p>
+                            </div>
+                            
+                            <div className="mb-4">
+                              <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Key Services</h4>
+                              <p className="font-dm-sans text-white/90 text-sm">All services are fully tailored: from logistics to ambiance, security, cultural protocol, and beyond</p>
+                            </div>
                           </div>
-                          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
                           
-                          <div className="mb-4">
-                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Designed For</h4>
-                            <p className="font-dm-sans text-white/90 text-sm">VIP-level custom events — board meetings, celebrations, press events, protocol visits</p>
+                          <div className="mt-auto">
+                            <button 
+                              onClick={() => router.push('/contact')}
+                              className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                            >
+                              {t("contactUs") || "Contact Us"}
+                            </button>
                           </div>
-                          
-                          <div className="mb-4">
-                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Key Services</h4>
-                            <p className="font-dm-sans text-white/90 text-sm">All services are fully tailored: from logistics to ambiance, security, cultural protocol, and beyond</p>
-                          </div>
-                          
-                          <button 
-                            onClick={() => router.push('/contact')}
-                            className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
-                          >
-                            {t("contactUs") || "Contact Us"}
-                          </button>
                         </div>
                       </div>
                     </div>

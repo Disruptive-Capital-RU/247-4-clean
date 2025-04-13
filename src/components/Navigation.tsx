@@ -224,6 +224,7 @@ export default function Navigation() {
             {user ? (
               <>
                 <NavLink href="/dashboard/services">{t("accessSuite")}</NavLink>
+                <NavLink href="/pricing">{t("pricing")}</NavLink>
                 <NavLink href="/dashboard">{t("dashboard")}</NavLink>
                 <button
                   onClick={handleLogout}
@@ -301,6 +302,9 @@ export default function Navigation() {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t("accessSuite")}
+                </NavLink>
+                <NavLink href="/pricing" onClick={() => setIsMenuOpen(false)}>
+                  {t("pricing")}
                 </NavLink>
                 <NavLink href="/dashboard" onClick={() => setIsMenuOpen(false)}>
                   {t("dashboard")}
