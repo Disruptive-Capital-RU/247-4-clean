@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { Loader2 } from 'lucide-react';
 
-export default function AuthCallbackPage() {
+// This component will be wrapped in Suspense
+function AuthCallbackContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [error, setError] = useState<string | null>(null);
@@ -92,5 +93,22 @@ export default function AuthCallbackPage() {
         )}
       </div>
     </div>
+  );
+}
+
+// Main component with suspense boundary
+export default function AuthCallbackPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex flex-col items-center justify-center p-4">
+        <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">
+          <Loader2 className="h-12 w-12 animate-spin text-gold mx-auto mb-4" />
+          <h2 className="text-2xl font-cormorant font-semibold mb-2">Loading...</h2>
+          <p className="text-gray-600 dark:text-gray-300">Please wait while we prepare your verification.</p>
+        </div>
+      </div>
+    }>
+      <AuthCallbackContent />
+    </Suspense>
   );
 }

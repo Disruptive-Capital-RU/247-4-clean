@@ -7,14 +7,17 @@ import { useAuth } from "@/lib/AuthContext";
 import { Toaster, toast } from "react-hot-toast";
 import { supabase } from "@/lib/supabase";
 
-// Safe way to check for localStorage
+// Safe way to check for browser environment
 const isBrowser = typeof window !== 'undefined';
 import Navigation from "@/components/Navigation";
 
 // Helper for localStorage that works on server and client
 const safeLocalStorage = {
   getItem: (key: string): string | null => {
-    if (!isBrowser) return null;
+    // Early return for server environment, including static generation
+    if (typeof window === 'undefined') return null;
+    if (typeof localStorage === 'undefined') return null;
+    
     try {
       return localStorage.getItem(key);
     } catch (e) {
@@ -23,7 +26,10 @@ const safeLocalStorage = {
     }
   },
   setItem: (key: string, value: string): void => {
-    if (!isBrowser) return;
+    // Early return for server environment, including static generation
+    if (typeof window === 'undefined') return;
+    if (typeof localStorage === 'undefined') return;
+    
     try {
       localStorage.setItem(key, value);
     } catch (e) {
@@ -31,7 +37,10 @@ const safeLocalStorage = {
     }
   },
   removeItem: (key: string): void => {
-    if (!isBrowser) return;
+    // Early return for server environment, including static generation
+    if (typeof window === 'undefined') return;
+    if (typeof localStorage === 'undefined') return;
+    
     try {
       localStorage.removeItem(key);
     } catch (e) {
@@ -154,11 +163,11 @@ export default function ProfilePage() {
             setHasChanges(false);
 
             // Wait a moment before reloading to show the success message
-            setTimeout(() => {
-              if (isBrowser) {
+            if (typeof window !== 'undefined') {
+              setTimeout(() => {
                 window.location.reload();
-              }
-            }, 1500);
+              }, 1500);
+            }
           }
         } else {
           // For other types of errors, try a simpler approach
@@ -182,11 +191,11 @@ export default function ProfilePage() {
             setHasChanges(false);
 
             // Wait a moment before reloading to show the success message
-            setTimeout(() => {
-              if (isBrowser) {
+            if (typeof window !== 'undefined') {
+              setTimeout(() => {
                 window.location.reload();
-              }
-            }, 1500);
+              }, 1500);
+            }
           }
         }
       } else {
