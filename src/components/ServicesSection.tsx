@@ -15,7 +15,11 @@ import {
   FaAndroid,
 } from "react-icons/fa";
 import Image from "next/image";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { useLanguage } from "@/lib/LanguageContext";
 
@@ -38,12 +42,12 @@ const GoldenButton = () => {
             {/* Golden shimmer effect */}
             <div className="absolute -inset-4 bg-gradient-radial from-[#D4AF37]/30 to-transparent rounded-full blur-md animate-pulse" />
             <div className="absolute -inset-8 bg-gradient-radial from-[#D4AF37]/20 to-transparent rounded-full blur-lg" />
-            <Image 
-              src="/images/app-icon.png" 
-              alt="App Icon" 
-              width={120} 
-              height={120} 
-              className="relative z-10" 
+            <Image
+              src="/images/app-icon.png"
+              alt="App Icon"
+              width={120}
+              height={120}
+              className="relative z-10"
             />
           </div>
         </div>
@@ -67,7 +71,9 @@ const GoldenButton = () => {
             </PopoverTrigger>
             <PopoverContent className="bg-black/90 border border-[#D4AF37] text-white">
               <div className="space-y-2">
-                <h4 className="font-medium text-[#D4AF37] mb-2">iOS Installation Steps</h4>
+                <h4 className="font-medium text-[#D4AF37] mb-2">
+                  iOS Installation Steps
+                </h4>
                 <ol className="text-white/80 list-decimal pl-5 space-y-2">
                   <li>Open this page in Safari</li>
                   <li>Tap the Share icon at the bottom of the screen</li>
@@ -77,7 +83,7 @@ const GoldenButton = () => {
               </div>
             </PopoverContent>
           </Popover>
-          
+
           <Popover>
             <PopoverTrigger asChild>
               <button className="relative flex items-center gap-3 px-6 py-4 bg-black text-[#D4AF37] font-medium border border-[#D4AF37] rounded-md hover:shadow-[0_0_20px_rgba(212,175,55,0.6)] hover:bg-[#D4AF37]/10 transition-all duration-300 overflow-hidden group">
@@ -89,7 +95,9 @@ const GoldenButton = () => {
             </PopoverTrigger>
             <PopoverContent className="bg-black/90 border border-[#D4AF37] text-white">
               <div className="space-y-2">
-                <h4 className="font-medium text-[#D4AF37] mb-2">Android Installation Steps</h4>
+                <h4 className="font-medium text-[#D4AF37] mb-2">
+                  Android Installation Steps
+                </h4>
                 <ol className="text-white/80 list-decimal pl-5 space-y-2">
                   <li>Open this page in Chrome</li>
                   <li>Tap the three dots menu in the top-right</li>

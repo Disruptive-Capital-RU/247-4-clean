@@ -17,7 +17,9 @@ export default function Navigation() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginMessage, setLoginMessage] = useState<string | null>(null);
-  const [loginMessageType, setLoginMessageType] = useState<"success" | "error" | null>(null);
+  const [loginMessageType, setLoginMessageType] = useState<
+    "success" | "error" | null
+  >(null);
   const { user, loading, logOut } = useAuth();
   const { t } = useLanguage();
   const router = useRouter();
@@ -101,11 +103,17 @@ export default function Navigation() {
                   email: normalizedEmail,
                   password: password,
                 });
-                
+
                 if (!error && data) {
-                  handleSignInResult({ success: true, message: "Login successful!" });
+                  handleSignInResult({
+                    success: true,
+                    message: "Login successful!",
+                  });
                 } else {
-                  handleSignInResult({ success: false, message: "Invalid credentials. Please try again." });
+                  handleSignInResult({
+                    success: false,
+                    message: "Invalid credentials. Please try again.",
+                  });
                 }
                 return;
               }
@@ -115,7 +123,9 @@ export default function Navigation() {
           }
 
           setLoginMessageType("error");
-          setLoginMessage("We couldn't find a user with that email. Please make sure you entered the correct email when booking your concierge.");
+          setLoginMessage(
+            "We couldn't find a user with that email. Please make sure you entered the correct email when booking your concierge."
+          );
           return;
         } else {
           console.error("Database error checking user:", userError);
@@ -125,24 +135,24 @@ export default function Navigation() {
 
       // Email exists, attempt to sign in
       console.log("User found, attempting to sign in");
-      
+
       // Sign in with email and password
       const { error: authError } = await supabase.auth.signInWithPassword({
         email: normalizedEmail,
         password: password,
       });
-      
+
       if (authError) {
         console.error("Auth error during login:", authError);
         setLoginMessageType("error");
         setLoginMessage("Invalid email or password. Please try again.");
         return;
       }
-      
+
       // If authentication succeeded, proceed with login flow
       setLoginMessageType("success");
       setLoginMessage("Login successful!");
-      
+
       // Redirect to dashboard after a short delay
       setTimeout(() => {
         setShowLoginModal(false);
@@ -406,7 +416,7 @@ export default function Navigation() {
                       required
                     />
                   </div>
-                  
+
                   <div>
                     <input
                       type="password"
@@ -439,7 +449,7 @@ export default function Navigation() {
                 <div className="flex justify-between items-center text-sm text-white/60 mt-2 mb-4">
                   <div>Enter the password you used during registration</div>
                 </div>
-                
+
                 <button
                   type="submit"
                   disabled={loading}
