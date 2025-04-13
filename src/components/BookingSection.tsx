@@ -250,8 +250,8 @@ export default function BookingSection() {
         email: normalizedEmail,
         password: formData.password,
         options: {
-          // Redirect back to the same page on production domain, not directly to dashboard
-          emailRedirectTo: `https://reluxi.ru${window.location.pathname}`,
+          // Redirect to the dashboard after email verification
+          emailRedirectTo: `https://reluxi.ru/dashboard`,
         },
       });
 

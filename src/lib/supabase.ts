@@ -146,6 +146,9 @@ export const demoSignIn = async (email: string) => {
           await supabase.auth.signUp({
             email: normalizedEmail,
             password: normalizedEmail, // Demo only!
+            options: {
+              emailRedirectTo: `https://reluxi.ru/dashboard`,
+            },
           });
 
         if (signUpError) {
@@ -191,7 +194,7 @@ export const signInWithEmail = async (email: string) => {
   // return supabase.auth.signInWithOtp({
   //   email,
   //   options: {
-  //     emailRedirectTo: `${window.location.origin}/dashboard`,
+  //     emailRedirectTo: `https://reluxi.ru/dashboard`,
   //   },
   // });
 };
