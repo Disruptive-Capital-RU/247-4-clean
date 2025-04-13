@@ -117,12 +117,19 @@ export default function Dashboard() {
 
     // Set username from profile
     if (profile) {
-      setUserName(profile.name);
+      // Extract first name from the full name
+      const firstName = profile.name.split(' ')[0];
+      setUserName(firstName);
       setDaysRemaining(getRemainingDays(profile.concierge_end_date));
     } else if (user?.email) {
       // Fallback if profile not loaded yet
+      // Use email prefix as temporary name but only take the first word
       const name = user.email.split("@")[0];
-      setUserName(name.charAt(0).toUpperCase() + name.slice(1));
+      // Format the name (capitalize first letter)
+      const formattedName = name.charAt(0).toUpperCase() + name.slice(1);
+      // In case the email prefix contains multiple words, only use the first one
+      const firstName = formattedName.split(/[_.-]/)[0];
+      setUserName(firstName);
     }
 
     // Fetch previous concierge requests
