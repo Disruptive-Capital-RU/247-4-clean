@@ -6,7 +6,39 @@ import Link from "next/link";
 import { useAuth } from "@/lib/AuthContext";
 import { Toaster, toast } from "react-hot-toast";
 import { supabase } from "@/lib/supabase";
+
+// Safe way to check for localStorage
+const isBrowser = typeof window !== 'undefined';
 import Navigation from "@/components/Navigation";
+
+// Helper for localStorage that works on server and client
+const safeLocalStorage = {
+  getItem: (key: string): string | null => {
+    if (!isBrowser) return null;
+    try {
+      return localStorage.getItem(key);
+    } catch (e) {
+      console.error('Error accessing localStorage:', e);
+      return null;
+    }
+  },
+  setItem: (key: string, value: string): void => {
+    if (!isBrowser) return;
+    try {
+      localStorage.setItem(key, value);
+    } catch (e) {
+      console.error('Error writing to localStorage:', e);
+    }
+  },
+  removeItem: (key: string): void => {
+    if (!isBrowser) return;
+    try {
+      localStorage.removeItem(key);
+    } catch (e) {
+      console.error('Error removing from localStorage:', e);
+    }
+  }
+};
 
 export default function ProfilePage() {
   const { user, profile } = useAuth();
@@ -123,7 +155,9 @@ export default function ProfilePage() {
 
             // Wait a moment before reloading to show the success message
             setTimeout(() => {
-              window.location.reload();
+              if (isBrowser) {
+                window.location.reload();
+              }
             }, 1500);
           }
         } else {
@@ -149,7 +183,9 @@ export default function ProfilePage() {
 
             // Wait a moment before reloading to show the success message
             setTimeout(() => {
-              window.location.reload();
+              if (isBrowser) {
+                window.location.reload();
+              }
             }, 1500);
           }
         }

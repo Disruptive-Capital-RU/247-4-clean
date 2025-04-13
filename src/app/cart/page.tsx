@@ -1,12 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/LanguageContext";
 import { createClient } from "@supabase/supabase-js";
+
+// Safe way to check for browser environment
+const isBrowser = typeof window !== 'undefined';
 
 // Define the Plan type
 interface PlanDetails {
@@ -16,7 +19,8 @@ interface PlanDetails {
   days?: number;
 }
 
-export default function CartPage() {
+// Component that uses search params - will be wrapped in Suspense
+function CartPageContent() {
   // We'll use the language module later when adding translations
   const { } = useLanguage();
   const router = useRouter();
@@ -66,9 +70,13 @@ export default function CartPage() {
       router.push("/checkout");
     } else {
       // If not authenticated, redirect to registration/login
-      // Store the plan details in localStorage or sessionStorage for retrieval after auth
-      if (planDetails) {
-        sessionStorage.setItem("selectedPlan", JSON.stringify(planDetails));
+      // Store the plan details in sessionStorage for retrieval after auth
+      if (planDetails && isBrowser) {
+        try {
+          sessionStorage.setItem("selectedPlan", JSON.stringify(planDetails));
+        } catch (e) {
+          console.error('Error storing plan details:', e);
+        }
       }
       router.push("/book");
     }
@@ -145,7 +153,7 @@ export default function CartPage() {
                     <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-6"></div>
                     
                     <div className="mb-6">
-                      <h4 className="text-lg font-dm-sans font-medium text-white mb-4">What's Included:</h4>
+                      <h4 className="text-lg font-dm-sans font-medium text-white mb-4">What&apos;s Included:</h4>
                       <ul className="space-y-2">
                         <li className="flex items-start">
                           <span className="text-[#D4AF37] mr-2">✓</span>
@@ -224,5 +232,25 @@ export default function CartPage() {
 
       <Footer />
     </main>
+  );
+}
+
+// Main component with Suspense boundary
+export default function CartPage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen bg-black text-white">
+        <Navigation />
+        <div className="container mx-auto px-4 py-20 flex justify-center items-center">
+          <div className="text-center">
+            <div className="h-12 w-12 border-t-2 border-r-2 border-[#D4AF37] rounded-full animate-spin mx-auto mb-4"></div>
+            <p className="text-white/70">Loading your cart...</p>
+          </div>
+        </div>
+        <Footer />
+      </main>
+    }>
+      <CartPageContent />
+    </Suspense>
   );
 }
