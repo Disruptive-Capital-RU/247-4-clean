@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { useAuth } from "@/lib/AuthContext";
+import { useLanguage } from "@/lib/LanguageContext";
 import {
   createConciergeRequest,
   ConciergeRequest,
@@ -42,8 +43,9 @@ type CartItem = Service & {
 
 export default function Dashboard() {
   const { user, profile, loading: authLoading } = useAuth();
+  const { t } = useLanguage();
 
-  const [userName, setUserName] = useState("Valued Client");
+  const [userName, setUserName] = useState(t("valuedClient") || "Valued Client");
   const [daysRemaining, setDaysRemaining] = useState(3);
   const [weatherInfo, setWeatherInfo] = useState({
     temp: "12°C",
@@ -253,10 +255,8 @@ export default function Dashboard() {
     });
   };
 
-  const filteredServices =
-    activeCategory === "all"
-      ? services
-      : services.filter((service) => service.category === activeCategory);
+  // Use the services directly in the ServicesCarousel component
+  // Filter is applied based on active category and search query
 
   const submitOrder = async () => {
     if (!user) {
@@ -276,7 +276,7 @@ export default function Dashboard() {
       }));
 
       // Save to Supabase
-      const { data, error } = await createConciergeRequest(
+      const { error } = await createConciergeRequest(
         user.id,
         serviceRequests
       );
@@ -308,14 +308,14 @@ export default function Dashboard() {
   };
 
   const categories = [
-    { id: "all", name: "All Services" },
-    { id: "Shopping", name: "Shopping" },
-    { id: "Dining", name: "Dining & Culinary" },
-    { id: "Culture", name: "Culture & History" },
-    { id: "Transport", name: "Transport" },
-    { id: "Medical", name: "Medical & Wellness" },
-    { id: "Nightlife", name: "Nightlife & Events" },
-    { id: "Travel", name: "Travel Support" },
+    { id: "all", name: t("allServices") || "All Services" },
+    { id: "Shopping", name: t("shoppingCategory") || "Shopping" },
+    { id: "Dining", name: t("diningCulinaryCategory") || "Dining & Culinary" },
+    { id: "Culture", name: t("cultureHistoryCategory") || "Culture & History" },
+    { id: "Transport", name: t("transportCategory") || "Transport" },
+    { id: "Medical", name: t("medicalWellnessCategory") || "Medical & Wellness" },
+    { id: "Nightlife", name: t("nightlifeEventsCategory") || "Nightlife & Events" },
+    { id: "Travel", name: t("travelSupportCategory") || "Travel Support" },
   ];
 
   // Function to determine which weather icon to display based on condition
@@ -398,25 +398,25 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             <div className="md:col-span-2">
               <h1 className="text-3xl md:text-4xl font-cormorant font-semibold text-white mb-2">
-                Welcome back, <span className="text-[#D4AF37]">{userName}</span>
+                {t("welcomeBack") || "Welcome back"}, <span className="text-[#D4AF37]">{userName}</span>
                 .
               </h1>
               <p className="text-white/80 text-lg">
-                Your personal concierge is at your service.
+                {t("personalConciergeService") || "Your personal concierge is at your service."}
               </p>
               <p className="text-white/60 mt-2">
-                You have{" "}
+                {t("youHave") || "You have"}{" "}
                 <span className="text-[#D4AF37] font-medium">
-                  {daysRemaining} days
+                  {daysRemaining} {t("days") || "days"}
                 </span>{" "}
-                remaining of your concierge booking.
+                {t("remainingConciergeBooking") || "remaining of your concierge booking."}
               </p>
             </div>
             <div className="flex flex-col items-end">
               <div className="bg-[#111] border border-white/10 rounded-lg p-4 w-full max-w-sm">
                 <div className="flex justify-between items-center">
                   <div className="flex flex-col">
-                    <p className="text-sm text-white/60">Moscow Weather</p>
+                    <p className="text-sm text-white/60">{t("moscowWeather") || "Moscow Weather"}</p>
                     <div className="flex items-center mt-1">
                       {getWeatherIcon(weatherInfo.condition)}
                       <p className="text-xl font-medium ml-2">
@@ -433,7 +433,7 @@ export default function Dashboard() {
                       href="/dashboard/profile"
                       className="px-4 py-2 bg-[#111] hover:bg-[#222] text-white/80 hover:text-white rounded-lg transition-colors border border-white/10 text-center"
                     >
-                      Manage Profile
+                      {t("manageProfile") || "Manage Profile"}
                     </Link>
                   </div>
                 </div>
@@ -448,7 +448,7 @@ export default function Dashboard() {
         <section className="py-6 bg-[#0a0a0a]">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-2xl font-cormorant font-semibold mb-6">
-              Your Previous Requests
+              {t("yourPreviousRequests") || "Your Previous Requests"}
             </h2>
 
             <div className="overflow-x-auto">
@@ -456,19 +456,19 @@ export default function Dashboard() {
                 <thead className="border-b border-white/10">
                   <tr>
                     <th className="py-3 px-4 text-white/70 font-medium">
-                      Service
+                      {t("serviceLabel") || "Service"}
                     </th>
                     <th className="py-3 px-4 text-white/70 font-medium">
-                      Category
+                      {t("categoryLabel") || "Category"}
                     </th>
                     <th className="py-3 px-4 text-white/70 font-medium">
-                      Quantity
+                      {t("quantityLabel") || "Quantity"}
                     </th>
                     <th className="py-3 px-4 text-white/70 font-medium">
-                      Status
+                      {t("statusLabel") || "Status"}
                     </th>
                     <th className="py-3 px-4 text-white/70 font-medium">
-                      Date
+                      {t("dateLabel") || "Date"}
                     </th>
                   </tr>
                 </thead>
@@ -520,14 +520,14 @@ export default function Dashboard() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-cormorant font-semibold">
-              Browse & Book Services
+              {t("browseAndBookServices") || "Browse & Book Services"}
             </h2>
             <div className="relative w-full max-w-xs">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search services..."
+                placeholder={t("searchServices") || "Search services..."}
                 className="w-full px-4 py-2 bg-[#222] border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-[#D4AF37] focus:border-[#D4AF37]"
               />
               {searchQuery && (
@@ -573,7 +573,7 @@ export default function Dashboard() {
           <div className="bg-[#111] border border-[#D4AF37]/30 rounded-lg p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-cormorant font-semibold text-white">
-                My Concierge Requests
+                {t("myConciergeRequests") || "My Concierge Requests"}
               </h2>
               <button
                 onClick={() => setShowCart(false)}
@@ -613,12 +613,12 @@ export default function Dashboard() {
                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
-                <p className="text-white/60">Your concierge list is empty</p>
+                <p className="text-white/60">{t("emptyConciergeList") || "Your concierge list is empty"}</p>
                 <button
                   onClick={() => setShowCart(false)}
                   className="mt-4 px-6 py-2 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/30 rounded transition-colors"
                 >
-                  Browse Services
+                  {t("browseServices") || "Browse Services"}
                 </button>
               </div>
             ) : (
@@ -668,8 +668,7 @@ export default function Dashboard() {
 
                 <div className="mt-6">
                   <p className="text-white/70 mb-6">
-                    Your request will be sent to our concierge team, who will
-                    reach out to confirm timing and preferences.
+                    {t("requestConfirmation") || "Your request will be sent to our concierge team, who will reach out to confirm timing and preferences."}
                   </p>
                   <button
                     onClick={submitOrder}
@@ -679,8 +678,8 @@ export default function Dashboard() {
                     }`}
                   >
                     {orderSubmitted
-                      ? "Request Submitted!"
-                      : "Send to Concierge Team"}
+                      ? (t("requestSubmitted") || "Request Submitted!")
+                      : (t("sendToConciergeTeam") || "Send to Concierge Team")}
                   </button>
                 </div>
               </>

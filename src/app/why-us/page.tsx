@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Spotlight } from "@/components/ui/spotlight-new";
 import { MovingBorder } from "@/components/ui/moving-border";
+import { useLanguage } from "@/lib/LanguageContext";
 import {
   FaGem,
   FaUserShield,
@@ -97,6 +98,7 @@ const AdvantageCard = ({ advantage }: AdvantageCardProps) => {
 };
 
 export default function WhyUsPage() {
+  const { t } = useLanguage();
   return (
     <main className="min-h-screen bg-black text-white">
       <Navigation />
@@ -112,21 +114,19 @@ export default function WhyUsPage() {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-cormorant font-bold text-white mb-6">
-              We Don't Just Provide Service.
+              {t("whyUsTitle1") || "We Don't Just Provide Service."}
               <br />
-              We Provide <span className="text-[#D4AF37]">Certainty</span>
+              {t("whyUsTitle2") || "We Provide "}<span className="text-[#D4AF37]">{t("certainty") || "Certainty"}</span>
             </h1>
             <p className="font-dm-sans text-lg md:text-xl text-white/80 mb-8">
-              You don't need a schedule. You need a signal. Your concierge is
-              more than a guide — they are your trusted presence in a foreign
-              land.
+              {t("whyUsDescription") || "You don't need a schedule. You need a signal. Your concierge is more than a guide — they are your trusted presence in a foreign land."}
             </p>
             <div className="flex justify-center">
               <a
                 href="/book"
                 className="font-dm-sans px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded-sm hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all duration-300"
               >
-                Reserve Your Concierge
+                {t("reserveYourConcierge")}
               </a>
             </div>
           </div>
@@ -139,11 +139,11 @@ export default function WhyUsPage() {
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-2xl md:text-3xl font-cormorant italic text-white/90">
               <span className="text-[#D4AF37]">"</span>
-              Even when you're far, you're close to my heart.
+              {t("whyUsQuote") || "Even when you're far, you're close to my heart."}
               <span className="text-[#D4AF37]">"</span>
             </p>
             <p className="mt-4 text-white/50 font-dm-sans">
-              Inspired by Amr Diab's "Tamly Ma'ak"
+              {t("whyUsQuoteSource") || "Inspired by Amr Diab's 'Tamly Ma'ak'"}
             </p>
           </div>
         </div>
@@ -154,11 +154,10 @@ export default function WhyUsPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-4">
-              Why Choose <span className="text-[#D4AF37]">Reluxi</span>
+              {t("whyChooseReluxi") || "Why Choose "}<span className="text-[#D4AF37]">Reluxi</span>
             </h2>
             <p className="font-dm-sans text-lg text-white/80 max-w-3xl mx-auto">
-              We elevate your Moscow experience through a commitment to
-              excellence that goes beyond conventional concierge services.
+              {t("whyChooseReluxiDesc") || "We elevate your Moscow experience through a commitment to excellence that goes beyond conventional concierge services."}
             </p>
           </div>
 
@@ -186,7 +185,7 @@ export default function WhyUsPage() {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-cormorant font-bold text-white mb-8 text-center">
-              Our Service <span className="text-[#D4AF37]">Philosophy</span>
+              {t("ourServicePhilosophy") || "Our Service "}<span className="text-[#D4AF37]">{t("philosophy") || "Philosophy"}</span>
             </h2>
 
             <div className="space-y-8">

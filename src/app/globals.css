@@ -122,6 +122,20 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Language-specific styling without changing direction */
+  .ar-lang,
+  .ltr-lang,
+  .cn-lang {
+    /* All language modes maintain LTR direction */
+    direction: ltr;
+  }
+  
+  /* Add specific styles for Arabic text if needed, but maintaining LTR layout */
+  .ar-lang .arabic-only-content {
+    /* Any Arabic-specific styling that doesn't affect layout direction */
+    font-family: var(--font-dm-sans), 'Noto Sans Arabic', sans-serif;
+  }
 }
 @import "tailwindcss";
 

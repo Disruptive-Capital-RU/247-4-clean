@@ -76,12 +76,14 @@ export default function BookingSection() {
     };
 
     // Listen for auth state changes (like when user confirms email)
-    let subscription: { unsubscribe: () => void } = { unsubscribe: () => {} };
+    // Define a proper type for Supabase subscription
+    type SupabaseSubscription = { data: { subscription: { unsubscribe: () => void } } };
+    let authSubscription: SupabaseSubscription | null = null;
 
     try {
       // Safe access to Supabase client methods
       const client = supabase as ReturnType<typeof createClient>;
-      const authListener = client.auth.onAuthStateChange(
+      authSubscription = client.auth.onAuthStateChange(
         (event: AuthChangeEvent, session: Session | null) => {
           if (event === "SIGNED_IN" && session?.user) {
             setEmailVerified(true);
@@ -105,9 +107,7 @@ export default function BookingSection() {
         }
       );
 
-      if (!formData.captchaToken) {
-        toast.error("Please complete the captcha verification");
-      }
+      // Don't check captcha on initial setup, only when user attempts to submit the form
     } catch (error) {
       console.error("Error setting up auth listener:", error);
     }
@@ -115,17 +115,20 @@ export default function BookingSection() {
     checkEmailVerification();
 
     return () => {
-      subscription.unsubscribe();
+      // Safely unsubscribe if the subscription exists
+      if (authSubscription && authSubscription.data && authSubscription.data.subscription) {
+        authSubscription.data.subscription.unsubscribe();
+      }
     };
-  }, [router, emailVerificationSent]);
+  }, [router, emailVerificationSent, formData.captchaToken, t]);
 
   const loadingStates = [
-    { text: "Matching you with a personal concierge" },
-    { text: "Checking availability of premium experiences" },
-    { text: "Securing your exclusive access" },
-    { text: "Confirming luxury partner services" },
-    { text: "Finalizing your reservation" },
-    { text: "Welcome to the Inner Circle" },
+    { text: t("loadingState1") || "Matching you with a personal concierge" },
+    { text: t("loadingState2") || "Checking availability of premium experiences" },
+    { text: t("loadingState3") || "Securing your exclusive access" },
+    { text: t("loadingState4") || "Confirming luxury partner services" },
+    { text: t("loadingState5") || "Finalizing your reservation" },
+    { text: t("loadingState6") || "Welcome to the Inner Circle" },
   ];
 
   const handleChange = (
@@ -146,25 +149,25 @@ export default function BookingSection() {
     // Show captcha message if not verified
     if (!formData.captchaToken) {
       setShowCaptchaMessage(true);
-      toast.error("Please complete the captcha verification.");
+      toast.error(t("completeCaptcha") || "Please complete the captcha verification.");
       return;
     }
 
     // Validate email format
     if (!validateEmail(formData.email)) {
-      toast.error("Please enter a valid email address.");
+      toast.error(t("validEmailRequired") || "Please enter a valid email address.");
       return;
     }
 
     // Validate password
     if (formData.password.length < 6) {
-      toast.error("Password must be at least 6 characters.");
+      toast.error(t("passwordMinLength") || "Password must be at least 6 characters.");
       return;
     }
 
     // Validate terms acceptance
     if (!formData.acceptTerms) {
-      toast.error("You must accept the terms and conditions to continue.");
+      toast.error(t("acceptTermsRequired") || "You must accept the terms and conditions to continue.");
       return;
     }
 
@@ -271,24 +274,25 @@ export default function BookingSection() {
         throw insertError;
       }
 
-      toast.success("Please check your email to verify your account");
+      toast.success(t("checkEmailVerification") || "Please check your email to verify your account");
 
       // When account is created and the user has verified email,
       // the auth listener will catch the SIGNED_IN event and redirect
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const errorWithMessage = error as { message?: string };
       console.error("Error submitting booking:", error);
 
       // Check if this is an email confirmation error
       if (
-        error.message?.includes("confirmation") ||
-        error.message?.includes("verify")
+        errorWithMessage.message?.includes("confirmation") ||
+        errorWithMessage.message?.includes("verify")
       ) {
         setEmailVerificationSent(true);
         toast.error(
-          "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation."
+          t("verifyEmailPrompt") || "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation."
         );
       } else {
-        toast.error(error.message || "An error occurred. Please try again.");
+        toast.error(errorWithMessage.message || "An error occurred. Please try again.");
       }
     } finally {
       setLoading(false);
@@ -374,12 +378,12 @@ export default function BookingSection() {
               {isSubmitted && emailVerificationSent && !emailVerified ? (
                 <div className="text-center p-8 bg-black/50 rounded-lg border border-[#D4AF37]/30">
                   <h3 className="text-2xl font-cormorant font-semibold text-white mb-4">
-                    {t("verificationEmailSent")}
+                    {t("verificationEmailSent") || "Verification Email Sent"}
                   </h3>
-                  <p className="text-white/80 mb-6">{t("checkInbox")}</p>
+                  <p className="text-white/80 mb-6">{t("checkInbox") || "Please check your inbox and click the verification link we sent to your email address."}</p>
                   <div className="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent mb-6"></div>
                   <p className="text-sm text-white/60">
-                    {t("afterVerification")}
+                    {t("afterVerification") || "After verifying your email, return to this page to complete your booking process."}
                   </p>
                 </div>
               ) : (
@@ -388,13 +392,10 @@ export default function BookingSection() {
                   className="space-y-6 p-8 rounded-md bg-black/40 w-full mx-auto"
                 >
                   <h2 className="text-5xl font-cormorant font-bold text-white text-center mb-2">
-                    Your Time Is{" "}
-                    <span className="text-[#D4AF37]">Precious</span>. Start Now.
+                    {t("bookingHeadline") || "Your Time Is Precious. Start Now."}
                   </h2>
                   <p className="text-white/70 text-center mb-8">
-                    Book your personal concierge for 5 days for just $100. Once
-                    booked, we'll contact you directly to confirm your arrival
-                    details, preferences, and priorities.
+                    {t("bookingSubheading") || "Book your personal concierge for 5 days for just $100. Once booked, we'll contact you directly to confirm your arrival details, preferences, and priorities."}
                   </p>
                   <div className="border border-[#D4AF37] rounded-md p-6 space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
@@ -402,14 +403,14 @@ export default function BookingSection() {
                       <div className="space-y-6">
                         <div className="space-y-2">
                           <Label htmlFor="name" className="text-white">
-                            Full Name *
+                            {t("fullName") || "Full Name"} *
                           </Label>
                           <Input
                             id="name"
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            placeholder="Your name"
+                            placeholder={t("yourName") || "Your name"}
                             className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                             required
                           />
@@ -417,7 +418,7 @@ export default function BookingSection() {
 
                         <div className="space-y-2">
                           <Label htmlFor="email" className="text-white">
-                            Email *
+                            {t("email") || "Email"} *
                           </Label>
                           <Input
                             id="email"
@@ -425,19 +426,18 @@ export default function BookingSection() {
                             type="email"
                             value={formData.email}
                             onChange={handleChange}
-                            placeholder="Your email"
+                            placeholder={t("yourEmail") || "Your email"}
                             className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                             required
                           />
                           <p className="text-xs text-white/60 mt-1">
-                            You'll use this email to log into your concierge
-                            dashboard
+                            {t("emailLoginInfo") || "You'll use this email to log into your concierge dashboard"}
                           </p>
                         </div>
 
                         <div className="space-y-2">
                           <Label htmlFor="password" className="text-white">
-                            Password
+                            {t("password") || "Password"}
                           </Label>
                           <Input
                             id="password"
@@ -445,7 +445,7 @@ export default function BookingSection() {
                             type="password"
                             value={formData.password}
                             onChange={handleChange}
-                            placeholder="Enter your password"
+                            placeholder={t("enterPassword") || "Enter your password"}
                             className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                             required
                           />
@@ -456,14 +456,14 @@ export default function BookingSection() {
                       <div className="space-y-6">
                         <div className="space-y-2">
                           <Label htmlFor="contact" className="text-white">
-                            Phone *
+                            {t("phone") || "Phone"} *
                           </Label>
                           <Input
                             id="contact"
                             name="contact"
                             value={formData.contact}
                             onChange={handleChange}
-                            placeholder="+971 55 123 4567"
+                            placeholder={t("phoneExample") || "+971 55 123 4567"}
                             className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                             required
                           />
@@ -474,7 +474,7 @@ export default function BookingSection() {
                             htmlFor="communicationMethod"
                             className="text-white"
                           >
-                            Preferred Communication Method
+                            {t("preferredCommunication") || "Preferred Communication Method"}
                           </Label>
                           <Select
                             value={formData.communicationMethod}
@@ -486,7 +486,7 @@ export default function BookingSection() {
                             }
                           >
                             <SelectTrigger className="w-full h-12 rounded-none bg-black/60 border border-white/20 text-white focus:border-[#D4AF37] hover:border-[#D4AF37]/70">
-                              <SelectValue placeholder="Select communication method" />
+                              <SelectValue placeholder={t("selectCommunicationMethod") || "Select communication method"} />
                             </SelectTrigger>
                             <SelectContent className="bg-black/90 border border-[#D4AF37]/30 text-white">
                               <SelectItem
@@ -543,7 +543,7 @@ export default function BookingSection() {
 
                         <div className="space-y-2">
                           <Label htmlFor="language" className="text-white">
-                            Language Preference
+                            {t("languagePreference") || "Language Preference"}
                           </Label>
                           <Select
                             value={formData.language}
@@ -552,32 +552,32 @@ export default function BookingSection() {
                             }
                           >
                             <SelectTrigger className="w-full h-12 rounded-none bg-black/60 border border-white/20 text-white focus:border-[#D4AF37] hover:border-[#D4AF37]/70">
-                              <SelectValue placeholder="Select language" />
+                              <SelectValue placeholder={t("selectLanguage") || "Select language"} />
                             </SelectTrigger>
                             <SelectContent className="bg-black/90 border border-[#D4AF37]/30 text-white">
                               <SelectItem
                                 value="english"
                                 className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80"
                               >
-                                English
+                                {t("english") || "English"}
                               </SelectItem>
                               <SelectItem
                                 value="russian"
                                 className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80"
                               >
-                                Russian
+                                {t("russian") || "Russian"}
                               </SelectItem>
                               <SelectItem
                                 value="arabic"
                                 className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80"
                               >
-                                Arabic
+                                {t("arabic") || "Arabic"}
                               </SelectItem>
                               <SelectItem
                                 value="chinese"
                                 className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80"
                               >
-                                Chinese
+                                {t("chinese") || "Chinese"}
                               </SelectItem>
                             </SelectContent>
                           </Select>
@@ -601,13 +601,13 @@ export default function BookingSection() {
                         htmlFor="terms"
                         className="text-sm text-white leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                       >
-                        I accept the{" "}
+                        {t("iAcceptThe") || "I accept the"}{" "}
                         <a href="#" className="text-[#D4AF37] hover:underline">
-                          terms and conditions
+                          {t("termsAndConditions") || "terms and conditions"}
                         </a>{" "}
-                        and{" "}
+                        {t("and") || "and"}{" "}
                         <a href="#" className="text-[#D4AF37] hover:underline">
-                          privacy policy
+                          {t("privacyPolicy") || "privacy policy"}
                         </a>
                       </label>
                     </div>
@@ -646,16 +646,14 @@ export default function BookingSection() {
                         }`}
                       >
                         {loading
-                          ? "Processing..."
+                          ? (t("processing") || "Processing...")
                           : emailVerificationSent && !emailVerified
-                          ? "Email Verification Required"
-                          : "Reserve My Concierge"}
+                          ? (t("emailVerificationRequired") || "Email Verification Required")
+                          : (t("reserveMyConcierge") || "Reserve My Concierge")}
                       </button>
 
                       <p className="text-white/60 text-sm text-center mt-4">
-                        This is a pre-reservation only. You will be contacted
-                        within 12 hours to confirm availability and preferences.
-                        No payment is collected on the website.
+                        {t("preReservationNote") || "This is a pre-reservation only. You will be contacted within 12 hours to confirm availability and preferences. No payment is collected on the website."}
                       </p>
                     </div>
                   </div>

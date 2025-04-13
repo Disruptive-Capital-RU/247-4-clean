@@ -3,7 +3,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import Image from "next/image";
 import {
   FaLock,
   FaUtensils,
@@ -15,8 +15,10 @@ import {
 } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { ServicesTextEffect } from "@/components/ui/services-text-effect";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function ServicesPage() {
+  const { t } = useLanguage();
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
@@ -62,7 +64,7 @@ export default function ServicesPage() {
 
           <div className="text-center px-4 relative z-30 max-w-4xl mx-auto">
             <ServicesTextEffect
-              words="Our Elite Services"
+              words={t("ourEliteServices") || "Our Elite Services"}
               className="mb-8"
               duration={0.8}
             />
@@ -84,7 +86,7 @@ export default function ServicesPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 3.2 }}
             >
-              Luxury concierge services for the elite
+              {t("luxuryServicesForElite") || "Luxury concierge services for the elite"}
             </motion.p>
           </div>
         </motion.div>
@@ -98,8 +100,8 @@ export default function ServicesPage() {
           {/* VIP Shopping */}
           <ServiceDetail
             icon={<FaShoppingBag className="w-8 h-8" />}
-            title="VIP Shopping"
-            description="Private access to Moscow's most prestigious boutiques. Arabic-speaking stylists. Exclusive time slots."
+            title={t("vipShopping")}
+            description={t("vipShoppingDesc")}
             details={[
               "Skip-the-line access to GUM, TSUM, and Vremena Goda luxury galleries",
               "Personal stylist who speaks Arabic fluently",
@@ -114,8 +116,8 @@ export default function ServicesPage() {
           {/* High-End Dining */}
           <ServiceDetail
             icon={<FaUtensils className="w-8 h-8" />}
-            title="High-End Dining"
-            description="Guaranteed tables in Moscow's most in-demand restaurants. Chefs prepared for your preferences."
+            title={t("highEndDining")}
+            description={t("highEndDiningDesc")}
             details={[
               "Priority reservations at Michelin-starred and elite restaurants",
               "Halal dining options at premium establishments",
@@ -130,8 +132,8 @@ export default function ServicesPage() {
           {/* Chauffeured Vehicles */}
           <ServiceDetail
             icon={<FaCar className="w-8 h-8" />}
-            title="Chauffeured Vehicles"
-            description="Black Mercedes, S-Class, Maybach. Professionally trained drivers. Fully discreet. Hourly or daily."
+            title={t("chauffeuredVehicles")}
+            description={t("chauffeuredVehiclesDesc")}
             details={[
               "Luxury fleet of Mercedes S-Class, Maybach, and armored vehicles when required",
               "Professional security-trained drivers who maintain absolute discretion",
@@ -146,8 +148,8 @@ export default function ServicesPage() {
           {/* Private Cultural Tours */}
           <ServiceDetail
             icon={<FaLandmark className="w-8 h-8" />}
-            title="Private Cultural Tours"
-            description="Unlock access to palaces, museums, and Islamic heritage sites with elite guides and interpreters."
+            title={t("privateCulturalTours")}
+            description={t("privateCulturalToursDesc")}
             details={[
               "Private after-hours access to the Kremlin, Bolshoi Theater, and major museums",
               "Expert guides with specialization in Islamic art and architecture",
@@ -162,8 +164,8 @@ export default function ServicesPage() {
           {/* Personal Protection */}
           <ServiceDetail
             icon={<FaLock className="w-8 h-8" />}
-            title="Personal Protection"
-            description="Trained executive protection upon request. For those whose privacy and safety are non-negotiable."
+            title={t("personalProtection")}
+            description={t("personalProtectionDesc")}
             details={[
               "Discreet, professionally trained security personnel",
               "Close protection officers with international experience",
@@ -178,8 +180,8 @@ export default function ServicesPage() {
           {/* Health & Wellness */}
           <ServiceDetail
             icon={<FaHeartbeat className="w-8 h-8" />}
-            title="Health & Wellness"
-            description="Exclusive clinics, VIP access to medical care, cosmetic specialists, and spa recovery — without waiting lists."
+            title={t("healthWellness")}
+            description={t("healthWellnessDesc")}
             details={[
               "Priority access to Moscow's elite medical specialists and facilities",
               "Luxury wellness retreats and premium spa experiences",
@@ -194,8 +196,8 @@ export default function ServicesPage() {
           {/* Nightlife & Events */}
           <ServiceDetail
             icon={<FaGlassMartiniAlt className="w-8 h-8" />}
-            title="Nightlife & Events"
-            description="Entry into closed circles, high society gatherings, and events no tourist can reach."
+            title={t("nightlifeEvents")}
+            description={t("nightlifeEventsDesc")}
             details={[
               "VIP table reservations at Moscow's most exclusive clubs",
               "Access to private parties and invitation-only events",
@@ -257,10 +259,12 @@ function ServiceDetail({
       <div className="w-full md:w-1/2">
         <div className="relative w-full h-[300px] md:h-[400px] overflow-hidden rounded-md">
           <div className="absolute inset-0 bg-black/30 z-10"></div>
-          <img
+          <Image
             src={imageSrc}
             alt={title}
-            className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 hover:scale-110"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover transition-transform duration-700 hover:scale-110"
           />
         </div>
       </div>

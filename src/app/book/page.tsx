@@ -4,8 +4,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import BookingSection from "@/components/BookingSection";
 import { SparklesCore } from "@/components/ui/sparkles";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function BookPage() {
+  const { t } = useLanguage();
   return (
     <main className="min-h-screen bg-black text-white">
       <Navigation />
@@ -27,12 +29,11 @@ export default function BookPage() {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-cormorant font-bold text-white mb-6">
-              Book Your{" "}
-              <span className="text-[#D4AF37]">Personal Concierge</span>
+              {t("bookYour") || "Book Your"}{" "}
+              <span className="text-[#D4AF37]">{t("personalConcierge") || "Personal Concierge"}</span>
             </h1>
             <p className="font-dm-sans text-lg md:text-xl text-white/80 mb-8">
-              Your time is precious. Start now. Book your personal concierge for
-              5 days for just $100.
+              {t("bookingIntro") || "Your time is precious. Start now. Book your personal concierge for 5 days for just $100."}
             </p>
           </div>
         </div>
@@ -46,7 +47,7 @@ export default function BookPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-cormorant font-bold text-white mb-8 text-center">
-              How It <span className="text-[#D4AF37]">Works</span>
+              {t("howIt") || "How It"} <span className="text-[#D4AF37]">{t("works") || "Works"}</span>
             </h2>
 
             <div className="space-y-8 font-dm-sans">
@@ -56,12 +57,10 @@ export default function BookPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-cormorant text-white mb-2">
-                    Book Now
+                    {t("bookNow") || "Book Now"}
                   </h3>
                   <p className="text-white/70">
-                    Complete the booking form with your information, travel
-                    dates, and preferences. This is a pre-reservation only, no
-                    payment is collected at this stage.
+                    {t("bookNowDesc") || "Complete the booking form with your information, travel dates, and preferences. This is a pre-reservation only, no payment is collected at this stage."}
                   </p>
                 </div>
               </div>
@@ -72,12 +71,10 @@ export default function BookPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-cormorant text-white mb-2">
-                    Confirmation
+                    {t("confirmation") || "Confirmation"}
                   </h3>
                   <p className="text-white/70">
-                    Within 12 hours, our team will contact you directly via your
-                    preferred communication method to confirm your reservation,
-                    discuss any specific requirements, and answer any questions.
+                    {t("confirmationDesc") || "Within 12 hours, our team will contact you directly via your preferred communication method to confirm your reservation, discuss any specific requirements, and answer any questions."}
                   </p>
                 </div>
               </div>
@@ -88,12 +85,10 @@ export default function BookPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-cormorant text-white mb-2">
-                    Payment
+                    {t("payment") || "Payment"}
                   </h3>
                   <p className="text-white/70">
-                    Once your reservation is confirmed, you'll receive a secure
-                    payment link. We accept all major credit cards and
-                    international payment methods.
+                    {t("paymentDesc") || "Once your reservation is confirmed, you'll receive a secure payment link. We accept all major credit cards and international payment methods."}
                   </p>
                 </div>
               </div>
@@ -104,12 +99,10 @@ export default function BookPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-cormorant text-white mb-2">
-                    Pre-Arrival Planning
+                    {t("preArrivalPlanning") || "Pre-Arrival Planning"}
                   </h3>
                   <p className="text-white/70">
-                    Your personal concierge will contact you before your arrival
-                    to develop a tailored plan for your visit, ensuring
-                    everything is prepared for your Moscow experience.
+                    {t("preArrivalPlanningDesc") || "Your personal concierge will contact you before your arrival to develop a tailored plan for your visit, ensuring everything is prepared for your Moscow experience."}
                   </p>
                 </div>
               </div>
@@ -120,12 +113,10 @@ export default function BookPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-cormorant text-white mb-2">
-                    Welcome to Moscow
+                    {t("welcomeToMoscow") || "Welcome to Moscow"}
                   </h3>
                   <p className="text-white/70">
-                    Your concierge will meet you upon arrival and be available
-                    24/7 throughout your stay to ensure every aspect of your
-                    Moscow experience exceeds expectations.
+                    {t("welcomeToMoscowDesc") || "Your concierge will meet you upon arrival and be available 24/7 throughout your stay to ensure every aspect of your Moscow experience exceeds expectations."}
                   </p>
                 </div>
               </div>
@@ -139,63 +130,52 @@ export default function BookPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-cormorant font-bold text-white mb-8 text-center">
-              Frequently Asked <span className="text-[#D4AF37]">Questions</span>
+              {t("frequentlyAsked") || "Frequently Asked"} <span className="text-[#D4AF37]">{t("questions") || "Questions"}</span>
             </h2>
 
             <div className="space-y-6">
               <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-md">
                 <h3 className="text-xl font-cormorant text-white mb-2">
-                  What does the $100 fee cover?
+                  {t("feeCoverQuestion") || "What does the $100 fee cover?"}
                 </h3>
                 <p className="font-dm-sans text-white/70">
-                  The $100 fee covers your personal concierge service for 5
-                  days. This includes 24/7 availability, personalized planning,
-                  and on-the-ground assistance. Additional services like
-                  restaurant bills, shopping, tickets, etc. are billed
-                  separately.
+                  {t("feeCoverAnswer") || "The $100 fee covers your personal concierge service for 5 days. This includes 24/7 availability, personalized planning, and on-the-ground assistance. Additional services like restaurant bills, shopping, tickets, etc. are billed separately."}
                 </p>
               </div>
 
               <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-md">
                 <h3 className="text-xl font-cormorant text-white mb-2">
-                  Can I extend my concierge service beyond 5 days?
+                  {t("extendServiceQuestion") || "Can I extend my concierge service beyond 5 days?"}
                 </h3>
                 <p className="font-dm-sans text-white/70">
-                  Yes, you can extend your service at a rate of $20 per
-                  additional day. This can be arranged during your stay through
-                  your personal concierge.
+                  {t("extendServiceAnswer") || "Yes, you can extend your service at a rate of $20 per additional day. This can be arranged during your stay through your personal concierge."}
                 </p>
               </div>
 
               <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-md">
                 <h3 className="text-xl font-cormorant text-white mb-2">
-                  Are all your concierges Arabic speakers?
+                  {t("arabicSpeakersQuestion") || "Are all your concierges Arabic speakers?"}
                 </h3>
                 <p className="font-dm-sans text-white/70">
-                  Yes, all our concierges are fluent in Arabic, English, and
-                  Russian, ensuring seamless communication throughout your stay.
+                  {t("arabicSpeakersAnswer") || "Yes, all our concierges are fluent in Arabic, English, and Russian, ensuring seamless communication throughout your stay."}
                 </p>
               </div>
 
               <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-md">
                 <h3 className="text-xl font-cormorant text-white mb-2">
-                  What is your cancellation policy?
+                  {t("cancellationPolicyQuestion") || "What is your cancellation policy?"}
                 </h3>
                 <p className="font-dm-sans text-white/70">
-                  Cancellations made 72 hours or more before your scheduled
-                  arrival receive a full refund. Cancellations within 72 hours
-                  are subject to a 50% fee.
+                  {t("cancellationPolicyAnswer") || "Cancellations made 72 hours or more before your scheduled arrival receive a full refund. Cancellations within 72 hours are subject to a 50% fee."}
                 </p>
               </div>
 
               <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-md">
                 <h3 className="text-xl font-cormorant text-white mb-2">
-                  How discreet is your service?
+                  {t("discretionQuestion") || "How discreet is your service?"}
                 </h3>
                 <p className="font-dm-sans text-white/70">
-                  Absolute discretion is our priority. Your privacy is sacred,
-                  and we maintain complete confidentiality about your
-                  activities, preferences, and personal information.
+                  {t("discretionAnswer") || "Absolute discretion is our priority. Your privacy is sacred, and we maintain complete confidentiality about your activities, preferences, and personal information."}
                 </p>
               </div>
             </div>

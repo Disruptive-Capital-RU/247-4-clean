@@ -13,6 +13,7 @@ export default function LanguageSelector() {
     { code: "EN", name: "English" },
     { code: "AR", name: "العربية" }, // Arabic
     { code: "CN", name: "中文" }, // Chinese
+    { code: "RU", name: "Русский" }, // Russian
   ];
 
   const handleLanguageChange = (lang: Language) => {

@@ -123,8 +123,8 @@ export default function PricingPage() {
                 transition={{ duration: 0.8 }}
               >
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-cormorant font-bold text-white mb-6">
-                  Concierge Service Plans
-                  <span className="text-[#D4AF37]"> — Freedom, Perfected</span>
+                  {t("planOverview")}
+                  <span className="text-[#D4AF37]"> — {t("freedom")}</span>
                 </h1>
               </motion.div>
             </div>
@@ -142,18 +142,17 @@ export default function PricingPage() {
                 {/* What You Receive Section */}
                 <div className="mb-16">
                   <h2 className="text-2xl md:text-3xl font-cormorant font-semibold text-white mb-6">
-                    What You Receive in Every Plan:
+                    {t("whatYouReceive")}
                   </h2>
                   <p className="font-dm-sans text-lg text-white/80 mb-8">
-                    From the moment your journey begins, we take over every detail — with precision, elegance, and unwavering discretion. 
-                    Each plan unlocks a complete suite of premium services designed to liberate your time, so you can focus entirely on what matters: living fully.
+                    {t("planDescription")}
                   </p>
                 </div>
 
                 {/* Plan Overview */}
                 <div className="mb-16">
                   <h2 className="text-2xl md:text-3xl font-cormorant font-semibold text-white mb-8 text-center">
-                    Plan Overview
+                    {t("planOverview")}
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {/* 3 Day Plan */}
@@ -174,7 +173,7 @@ export default function PricingPage() {
                           onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
                           className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                         >
-                          Select Plan
+                          {t("selectPlan") || "Select Plan"}
                         </button>
                       </div>
                     </div>
@@ -197,7 +196,7 @@ export default function PricingPage() {
                           onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
                           className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                         >
-                          Select Plan
+                          {t("selectPlan") || "Select Plan"}
                         </button>
                       </div>
                     </div>
@@ -220,7 +219,7 @@ export default function PricingPage() {
                           onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
                           className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                         >
-                          Select Plan
+                          {t("selectPlan") || "Select Plan"}
                         </button>
                       </div>
                     </div>
@@ -243,7 +242,7 @@ export default function PricingPage() {
                           onClick={() => router.push('/contact')}
                           className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                         >
-                          Contact Us
+                          {t("contactUs") || "Contact Us"}
                         </button>
                       </div>
                     </div>
@@ -258,8 +257,8 @@ export default function PricingPage() {
                     transition={{ duration: 0.8, delay: 0.6 }}
                   >
                     <h2 className="text-3xl md:text-4xl font-cormorant font-bold text-white mb-6 text-center">
-                      One-Day Premium Plans
-                      <span className="text-[#D4AF37]"> — Every Detail, Masterfully Orchestrated</span>
+                      {t("oneDayPremiumPlans") || "One-Day Premium Plans"}
+                      <span className="text-[#D4AF37]"> — {t("everyDetailMasterfully") || "Every Detail, Masterfully Orchestrated"}</span>
                     </h2>
                     <p className="font-dm-sans text-lg text-white/80 mb-8 text-center max-w-4xl mx-auto">
                       When time is limited but the occasion demands perfection, our One-Day Premium Plans offer a level of care, style, and execution that transforms ordinary moments into flawless experiences. 
@@ -304,7 +303,7 @@ export default function PricingPage() {
                             onClick={() => router.push(`/cart?planName=Date Plan&planType=One-Day Premium Plan&price=$20&days=1`)}
                             className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                           >
-                            Select Plan
+                            {t("selectPlan") || "Select Plan"}
                           </button>
                         </div>
                       </div>
@@ -339,7 +338,7 @@ export default function PricingPage() {
                             onClick={() => router.push(`/cart?planName=Date Plan&planType=One-Day Premium Plan&price=$20&days=1`)}
                             className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                           >
-                            Select Plan
+                            {t("selectPlan") || "Select Plan"}
                           </button>
                         </div>
                       </div>
@@ -369,7 +368,7 @@ export default function PricingPage() {
                             onClick={() => router.push('/contact')}
                             className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                           >
-                            Contact Us
+                            {t("contactUs") || "Contact Us"}
                           </button>
                         </div>
                       </div>
