@@ -58,6 +58,7 @@ export default function BookingSection() {
   const [emailVerificationSent, setEmailVerificationSent] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showEmailConfirmationPage, setShowEmailConfirmationPage] = useState(false);
 
   // Check for email verification status when component mounts
   useEffect(() => {
@@ -69,6 +70,25 @@ export default function BookingSection() {
 
         if (data?.session?.user) {
           setEmailVerified(true);
+          
+          // If user has already verified their email and we're on the confirmation page,
+          // proceed to the loader
+          if (showEmailConfirmationPage) {
+            console.log("Email already verified, proceeding to loader");
+            setShowEmailConfirmationPage(false);
+            setShowLoader(true);
+            
+            // After loader completes, show success animation then redirect
+            setTimeout(() => {
+              setShowLoader(false);
+              setSuccess(true); // Show success animation
+
+              // Finally redirect to dashboard
+              setTimeout(() => {
+                router.push("/dashboard");
+              }, 3000); // Allow 3 seconds for success animation
+            }, 2500); // 2.5 seconds for the loader
+          }
         }
       } catch (error) {
         console.error("Error checking session:", error);
@@ -85,11 +105,17 @@ export default function BookingSection() {
       const client = supabase as ReturnType<typeof createClient>;
       authSubscription = client.auth.onAuthStateChange(
         (event: AuthChangeEvent, session: Session | null) => {
+          console.log("Auth state changed:", event);
+          
           if (event === "SIGNED_IN" && session?.user) {
+            console.log("User signed in with email:", session.user.email);
             setEmailVerified(true);
-            // Don't redirect to dashboard - stay on the same page and show loader
-            if (emailVerificationSent) {
-              // Start the multi-step loader animation
+            
+            // If user just verified email from the confirmation page
+            if (showEmailConfirmationPage) {
+              console.log("Email verified, proceeding from confirmation page to loader");
+              // Hide confirmation page and show loader
+              setShowEmailConfirmationPage(false);
               setShowLoader(true);
 
               // After loader completes, show success animation then redirect
@@ -101,7 +127,7 @@ export default function BookingSection() {
                 setTimeout(() => {
                   router.push("/dashboard");
                 }, 3000); // Allow 3 seconds for success animation
-              }, 15000); // 15 seconds for the loader
+              }, 2500); // 2.5 seconds for the loader
             }
           }
         }
@@ -120,7 +146,7 @@ export default function BookingSection() {
         authSubscription.data.subscription.unsubscribe();
       }
     };
-  }, [router, emailVerificationSent, formData.captchaToken, t]);
+  }, [router, emailVerificationSent, formData.captchaToken, t, showEmailConfirmationPage]);
 
   const loadingStates = [
     { text: t("loadingState1") || "Matching you with a personal concierge" },
@@ -209,21 +235,10 @@ export default function BookingSection() {
         } else {
           userId = authData.user?.id || "";
         }
-
-        // Start loader animation
-        setShowLoader(true);
-
-        // After loader completes, show success animation then redirect
-        setTimeout(() => {
-          setShowLoader(false);
-          setSuccess(true);
-
-          // Finally redirect to dashboard
-          setTimeout(() => {
-            router.push("/dashboard");
-          }, 2000);
-        }, 15000);
-
+        
+        // In dev mode, still show the email confirmation page first
+        setShowEmailConfirmationPage(true);
+        
         return;
       }
 
@@ -245,9 +260,12 @@ export default function BookingSection() {
         throw authError;
       }
 
-      // Set flag that verification email was sent
+      // Set flag that verification email was sent and show email confirmation page
       setEmailVerificationSent(true);
       setIsSubmitted(true);
+      // This should immediately show the email confirmation page
+      setShowEmailConfirmationPage(true);
+      console.log("Email verification sent, showing confirmation page");
 
       if (!authUser || !authUser.user) {
         throw new Error("Failed to create user account.");
@@ -275,6 +293,7 @@ export default function BookingSection() {
       }
 
       toast.success(t("checkEmailVerification") || "Please check your email to verify your account");
+      console.log("Toast shown for email verification");
 
       // When account is created and the user has verified email,
       // the auth listener will catch the SIGNED_IN event and redirect
@@ -316,8 +335,7 @@ export default function BookingSection() {
       <MultiStepLoader
         loadingStates={loadingStates}
         loading={showLoader}
-        duration={2500}
-        loop={false}
+        duration={500}
       />
       {/* Background Effect */}
       <div className="absolute inset-0 z-0 opacity-10">
@@ -334,7 +352,59 @@ export default function BookingSection() {
 
       <div className="container mx-auto px-4 relative z-10 max-w-7xl">
         <Toaster position="top-center" />
-        {success ? (
+        {showEmailConfirmationPage ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-lg mx-auto text-center"
+          >
+            <div className="bg-gradient-to-b from-[#D4AF37]/20 to-transparent p-10 rounded-lg border border-[#D4AF37]/30">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B8860B] flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-black"
+                >
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <h2 className="text-3xl font-cormorant font-bold text-white mb-4">
+                {t("verifyYourEmail") || "Verify Your Email"}
+              </h2>
+              <p className="text-lg text-white/80 mb-6">
+                {t("emailVerificationInstructions") || 
+                  "We've sent a verification link to your email address. Please check your inbox and click the link to verify your account."}
+              </p>
+              <div className="text-white/80 mb-6 p-4 border border-[#D4AF37]/20 rounded-lg bg-[#D4AF37]/5">
+                <p className="text-sm">
+                  <strong>{t("emailSentTo") || "Email sent to"}:</strong> {formData.email}
+                </p>
+                <p className="text-sm mt-2">
+                  {t("clickOnTheLink") || "Click on the link in the email to verify your account and access the dashboard."}
+                </p>
+              </div>
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-6"></div>
+              <p className="text-white/60 text-sm mb-4">
+                {t("didntReceiveEmail") || "Didn't receive the email? Check your spam folder or"}
+              </p>
+              <button 
+                onClick={() => setShowEmailConfirmationPage(false)}
+                className="text-[#D4AF37] hover:underline text-sm"
+              >
+                {t("backToForm") || "Return to the form"}
+              </button>
+            </div>
+          </motion.div>
+        ) : success ? (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
