@@ -147,7 +147,7 @@ export const demoSignIn = async (email: string) => {
             email: normalizedEmail,
             password: normalizedEmail, // Demo only!
             options: {
-              emailRedirectTo: `https://reluxi.ru/dashboard`,
+              emailRedirectTo: `https://reluxi.ru/auth/callback`,
             },
           });
 

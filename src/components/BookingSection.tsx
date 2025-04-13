@@ -250,8 +250,8 @@ export default function BookingSection() {
         email: normalizedEmail,
         password: formData.password,
         options: {
-          // Redirect to the dashboard after email verification
-          emailRedirectTo: `https://reluxi.ru/dashboard`,
+          // Redirect to the auth callback handler which will redirect to dashboard after verification
+          emailRedirectTo: `https://reluxi.ru/auth/callback`,
         },
       });
 
