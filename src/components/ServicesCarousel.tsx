@@ -35,20 +35,59 @@ export default function ServicesCarousel({
   searchQuery = "",
 }: ServicesCarouselProps) {
   const [services, setServices] = React.useState<Service[]>([]);
-  const { user } = useAuth();
+  const { /* user is not used */ } = useAuth();
   const [filteredServices, setFilteredServices] = React.useState<Service[]>([]);
 
-  const handleAddToCart = (service: ServiceType) => {
+  const handleAddToCart = React.useCallback((service: ServiceType) => {
     if (addToCart) {
       addToCart(service);
     } else {
       toast.success(`Added ${service.title} to your concierge list`);
     }
-  };
+  }, [addToCart]);
 
   React.useEffect(() => {
     // Transform the services data to include the content field and use local images
     const servicesData: Service[] = [
+      {
+        id: "s7",
+        title: "Premium Flower Service",
+        description: "Exquisite floral arrangements for any occasion.",
+        image: "/Images/flowers.png",
+        category: "Gifting & Style",
+        duration: "Same-day delivery",
+        src: "/Images/flowers.png",
+        content: (
+          <div className="space-y-4">
+            <p>
+              Our premium flower service provides you with beautiful, fresh arrangements 
+              for any occasion, delivered with elegance and care.
+            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Luxury bouquets and arrangements</li>
+              <li>Hand-selected seasonal blooms</li>
+              <li>Special occasion arrangements</li>
+              <li>Corporate and event floral design</li>
+            </ul>
+            <button
+              onClick={() =>
+                handleAddToCart({
+                  id: "s7",
+                  title: "Premium Flower Service",
+                  description:
+                    "Exquisite floral arrangements for any occasion.",
+                  image: "/Images/flowers.png",
+                  category: "Gifting & Style",
+                  duration: "Same-day delivery",
+                })
+              }
+              className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
+            >
+              Add to My Concierge List
+            </button>
+          </div>
+        ),
+      },
       {
         id: "s1",
         title: "Private Chauffeur Service",
@@ -144,7 +183,7 @@ export default function ServicesCarousel({
             </p>
             <ul className="list-disc pl-5 space-y-2">
               <li>Last-minute bookings at fully-booked venues</li>
-              <li>Special chef's table experiences</li>
+              <li>Special chef&apos;s table experiences</li>
               <li>Dietary requirements handled with care</li>
               <li>Personalized dining recommendations</li>
             </ul>
@@ -288,7 +327,7 @@ export default function ServicesCarousel({
 
     setServices(servicesData);
     setFilteredServices(servicesData);
-  }, []);
+  }, [handleAddToCart]);
 
   // Filter services based on search query
   React.useEffect(() => {
@@ -319,7 +358,7 @@ export default function ServicesCarousel({
       <div className="container mx-auto px-4 md:px-6">
         {filteredServices.length === 0 ? (
           <div className="py-12 text-center text-white/50">
-            No services found matching "{searchQuery}". Try a different search
+            No services found matching &quot;{searchQuery}&quot;. Try a different search
             term.
           </div>
         ) : (
@@ -335,7 +374,7 @@ export default function ServicesCarousel({
                   content: service.content,
                 }}
                 layout={true}
-                className="max-w-[280px] md:max-w-[320px]"
+                // className prop applied via styling in Card component
               />
             ))}
           />
