@@ -374,124 +374,131 @@ export default function BookingSection() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6 p-8 rounded-md bg-black/40 w-full mx-auto">
                   <h2 className="text-5xl font-cormorant font-bold text-white text-center mb-2">
-                    Your Time Is Precious. Start Now.
+                    Your Time Is <span className="text-[#D4AF37]">Precious</span>. Start Now.
                   </h2>
                   <p className="text-white/70 text-center mb-8">
                     Book your personal concierge for 5 days for just $100. Once booked, we'll contact you directly to confirm your arrival details, preferences, and priorities.
                   </p>
+                  <div className="border border-[#D4AF37] rounded-md p-6 space-y-6">
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-white">
-                        Full Name *
-                      </Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Your name"
-                        className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
-                        required
-                      />
-                    </div>
+                    {/* Left Column - Name, Email, Password */}
+                    <div className="space-y-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="name" className="text-white">
+                          Full Name *
+                        </Label>
+                        <Input
+                          id="name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="Your name"
+                          className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
+                          required
+                        />
+                      </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-white">
-                        Email *
-                      </Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Your email"
-                        className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
-                        required
-                      />
-                      <p className="text-xs text-white/60 mt-1">
-                        You'll use this email to log into your concierge dashboard
-                      </p>
+                      <div className="space-y-2">
+                        <Label htmlFor="email" className="text-white">
+                          Email *
+                        </Label>
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="Your email"
+                          className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
+                          required
+                        />
+                        <p className="text-xs text-white/60 mt-1">
+                          You'll use this email to log into your concierge dashboard
+                        </p>
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <Label htmlFor="password" className="text-white">
+                          Password
+                        </Label>
+                        <Input
+                          id="password"
+                          name="password"
+                          type="password"
+                          value={formData.password}
+                          onChange={handleChange}
+                          placeholder="Enter your password"
+                          className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
+                          required
+                        />
+                      </div>
                     </div>
                     
-                    <div className="space-y-2">
-                      <Label htmlFor="contact" className="text-white">
-                        Phone / WhatsApp *
-                      </Label>
-                      <Input
-                        id="contact"
-                        name="contact"
-                        value={formData.contact}
-                        onChange={handleChange}
-                        placeholder="+971 55 123 4567"
-                        className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
-                        required
-                      />
-                    </div>
+                    {/* Right Column - Phone, Communication Method, Language */}
+                    <div className="space-y-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="contact" className="text-white">
+                          Phone *
+                        </Label>
+                        <Input
+                          id="contact"
+                          name="contact"
+                          value={formData.contact}
+                          onChange={handleChange}
+                          placeholder="+971 55 123 4567"
+                          className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
+                          required
+                        />
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <Label htmlFor="communicationMethod" className="text-white">
+                          Preferred Communication Method
+                        </Label>
+                        <Select
+                          value={formData.communicationMethod}
+                          onValueChange={(value) => setFormData({...formData, communicationMethod: value})}
+                        >
+                          <SelectTrigger className="w-full h-12 rounded-none bg-black/60 border border-white/20 text-white focus:border-[#D4AF37] hover:border-[#D4AF37]/70">
+                            <SelectValue placeholder="Select communication method" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-black/90 border border-[#D4AF37]/30 text-white">
+                            <SelectItem value="whatsapp" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">WhatsApp</SelectItem>
+                            <SelectItem value="phone" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Phone</SelectItem>
+                            <SelectItem value="email" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Email</SelectItem>
+                            <SelectItem value="telegram" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Telegram</SelectItem>
+                            <SelectItem value="botim" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Botim</SelectItem>
+                            <SelectItem value="wechat" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">WeChat</SelectItem>
+                            <SelectItem value="instagram" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Instagram</SelectItem>
+                            <SelectItem value="facebook" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Facebook</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="language" className="text-white">
-                        Language Preference
-                      </Label>
-                      <Select 
-                        value={formData.language}
-                        onValueChange={(value) => setFormData({...formData, language: value})}
-                      >
-                        <SelectTrigger className="w-full h-12 rounded-none bg-black/60 border border-white/20 text-white focus:border-[#D4AF37] hover:border-[#D4AF37]/70">
-                          <SelectValue placeholder="Select language" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-black/90 border border-[#D4AF37]/30 text-white">
-                          <SelectItem value="english" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">English</SelectItem>
-                          <SelectItem value="russian" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Russian</SelectItem>
-                          <SelectItem value="arabic" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Arabic</SelectItem>
-                          <SelectItem value="chinese" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Chinese</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="communicationMethod" className="text-white">
-                        Preferred Communication Method
-                      </Label>
-                      <Select
-                        value={formData.communicationMethod}
-                        onValueChange={(value) => setFormData({...formData, communicationMethod: value})}
-                      >
-                        <SelectTrigger className="w-full h-12 rounded-none bg-black/60 border border-white/20 text-white focus:border-[#D4AF37] hover:border-[#D4AF37]/70">
-                          <SelectValue placeholder="Select communication method" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-black/90 border border-[#D4AF37]/30 text-white">
-                          <SelectItem value="whatsapp" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">WhatsApp</SelectItem>
-                          <SelectItem value="phone" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Phone</SelectItem>
-                          <SelectItem value="email" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Email</SelectItem>
-                          <SelectItem value="telegram" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Telegram</SelectItem>
-                          <SelectItem value="botim" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Botim</SelectItem>
-                          <SelectItem value="wechat" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">WeChat</SelectItem>
-                          <SelectItem value="instagram" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Instagram</SelectItem>
-                          <SelectItem value="facebook" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Facebook</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <div className="space-y-2">
+                        <Label htmlFor="language" className="text-white">
+                          Language Preference
+                        </Label>
+                        <Select 
+                          value={formData.language}
+                          onValueChange={(value) => setFormData({...formData, language: value})}
+                        >
+                          <SelectTrigger className="w-full h-12 rounded-none bg-black/60 border border-white/20 text-white focus:border-[#D4AF37] hover:border-[#D4AF37]/70">
+                            <SelectValue placeholder="Select language" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-black/90 border border-[#D4AF37]/30 text-white">
+                            <SelectItem value="english" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">English</SelectItem>
+                            <SelectItem value="russian" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Russian</SelectItem>
+                            <SelectItem value="arabic" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Arabic</SelectItem>
+                            <SelectItem value="chinese" className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80">Chinese</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="password" className="text-white">
-                      password
-                    </Label>
-                    <Input
-                      id="password"
-                      name="password"
-                      type="password"
-                      value={formData.password}
-                      onChange={handleChange}
-                      placeholder="Enter your password"
-                      className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
-                      required
-                    />
-                  </div>
-
-                  <div className="flex items-center space-x-2 my-6">
+                  <div className="flex items-center space-x-2">
                     <Checkbox 
                       id="terms" 
                       checked={formData.acceptTerms}
@@ -523,24 +530,27 @@ export default function BookingSection() {
                     </div>
                   )}
 
-                  <button
-                    type="submit"
-                    disabled={loading || (emailVerificationSent && !emailVerified)}
-                    className={`w-full py-3 h-14 ${emailVerified 
-                      ? "bg-black text-white border border-white/20 hover:border-white/50" 
-                      : "bg-black text-white border border-white/20 hover:border-white/50"} font-medium transition-all duration-300 ${
-                      loading ? "opacity-70 cursor-not-allowed" : ""
-                    }`}
-                  >
-                    {loading ? "Processing..." : emailVerificationSent && !emailVerified 
-                      ? "Email Verification Required" 
-                      : "Reserve My Concierge"}
-                  </button>
-                  
-                  <p className="text-white/60 text-sm text-center mt-4">
+                  <div>
+                    <button
+                      type="submit"
+                      disabled={loading || (emailVerificationSent && !emailVerified)}
+                      className={`w-full py-3 h-14 ${emailVerified 
+                        ? "bg-black text-white border border-white/20 hover:border-white/50" 
+                        : "bg-black text-white border border-white/20 hover:border-white/50"} font-medium transition-all duration-300 ${
+                        loading ? "opacity-70 cursor-not-allowed" : ""
+                      }`}
+                    >
+                      {loading ? "Processing..." : emailVerificationSent && !emailVerified 
+                        ? "Email Verification Required" 
+                        : "Reserve My Concierge"}
+                    </button>
+                    
+                    <p className="text-white/60 text-sm text-center mt-4">
                     This is a pre-reservation only. You will be contacted within 12 hours to confirm availability and preferences.
                     No payment is collected on the website.
                   </p>
+                  </div>
+                  </div>
                 </form>
               )}
             </motion.div>

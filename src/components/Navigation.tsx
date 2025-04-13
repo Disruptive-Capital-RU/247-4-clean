@@ -224,9 +224,9 @@ export default function Navigation() {
               </>
             ) : (
               <>
-                <NavLink href="/pricing">{t("pricing")}</NavLink>
-                <NavLink href="/services">{t("services")}</NavLink>
                 <NavLink href="/why-us">{t("whyUs")}</NavLink>
+                <NavLink href="/services">{t("services")}</NavLink>
+                <NavLink href="/pricing">{t("pricing")}</NavLink>
                 <LanguageSelector />
                 <button
                   onClick={() => setShowLoginModal(true)}
@@ -238,7 +238,7 @@ export default function Navigation() {
                   href="/book"
                   className="px-5 py-2 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded-sm hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300"
                 >
-                  {t("bookNow")}
+                  Sign Up
                 </Link>
               </>
             )}
@@ -307,14 +307,14 @@ export default function Navigation() {
               </>
             ) : (
               <>
-                <NavLink href="/pricing" onClick={() => setIsMenuOpen(false)}>
-                  {t("pricing")}
+                <NavLink href="/why-us" onClick={() => setIsMenuOpen(false)}>
+                  {t("whyUs")}
                 </NavLink>
                 <NavLink href="/services" onClick={() => setIsMenuOpen(false)}>
                   {t("services")}
                 </NavLink>
-                <NavLink href="/why-us" onClick={() => setIsMenuOpen(false)}>
-                  {t("whyUs")}
+                <NavLink href="/pricing" onClick={() => setIsMenuOpen(false)}>
+                  {t("pricing")}
                 </NavLink>
                 <button
                   onClick={() => {
@@ -330,7 +330,7 @@ export default function Navigation() {
                   onClick={() => setIsMenuOpen(false)}
                   className="px-5 py-3 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium text-center rounded-sm"
                 >
-                  {t("bookNow")}
+                  Sign Up
                 </Link>
               </>
             )}

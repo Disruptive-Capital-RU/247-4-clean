@@ -1,10 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Spotlight } from "@/components/ui/spotlight-new";
-import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { MovingBorder } from "@/components/ui/moving-border";
 import {
   FaGem,
   FaUserShield,
@@ -52,6 +53,48 @@ const advantages = [
       "We open doors to experiences unavailable to the general public through our extensive local networks.",
   },
 ];
+
+interface AdvantageCardProps {
+  advantage: typeof advantages[0];
+  index: number;
+}
+
+const AdvantageCard = ({ advantage }: AdvantageCardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      className="relative h-full rounded-xl overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {isHovered && (
+        <div className="absolute inset-0 z-0">
+          <MovingBorder duration={8000} rx="12px" ry="12px">
+            <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
+          </MovingBorder>
+        </div>
+      )}
+      <div
+        className={`
+          relative z-10 h-full bg-black/40 backdrop-blur-sm 
+          border ${isHovered ? "border-[#D4AF37]/30" : "border-white/10"} 
+          p-6 rounded-xl group transition-all duration-300
+        `}
+      >
+        <div className="text-[#D4AF37] mb-4 group-hover:scale-110 transition-transform duration-300">
+          {advantage.icon}
+        </div>
+        <h3 className="text-xl font-cormorant font-semibold text-white mb-3">
+          {advantage.title}
+        </h3>
+        <p className="font-dm-sans text-white/70">
+          {advantage.description}
+        </p>
+      </div>
+    </div>
+  );
+};
 
 export default function WhyUsPage() {
   return (
@@ -128,15 +171,7 @@ export default function WhyUsPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <CardSpotlight className="h-full bg-black/40 backdrop-blur-sm border border-white/10 p-6">
-                  <div className="text-[#D4AF37] mb-4">{advantage.icon}</div>
-                  <h3 className="text-xl font-cormorant font-semibold text-white mb-3">
-                    {advantage.title}
-                  </h3>
-                  <p className="font-dm-sans text-white/70">
-                    {advantage.description}
-                  </p>
-                </CardSpotlight>
+                <AdvantageCard advantage={advantage} index={index} />
               </motion.div>
             ))}
           </div>
