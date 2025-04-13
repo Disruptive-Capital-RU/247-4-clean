@@ -143,79 +143,6 @@ export default function Dashboard() {
 
     loadPreviousRequests();
 
-    // Fetch services - in a real app this would come from an API
-    // setServices([
-    //   {
-    //     id: "s1",
-    //     title: "Black Mercedes with Chauffeur",
-    //     description:
-    //       "Arrive anywhere in Moscow with style, safety, and discretion.",
-    //     image: "/images/luxury-car.jpg",
-    //     category: "Transport",
-    //     duration: "4h or 8h",
-    //   },
-    //   {
-    //     id: "s2",
-    //     title: "Personal Shopper in GUM",
-    //     description:
-    //       "Expert personal shopper guiding you through Moscow's prestigious GUM mall.",
-    //     image: "/images/personal-shopper.jpg",
-    //     category: "Shopping",
-    //     duration: "3h",
-    //   },
-    //   {
-    //     id: "s3",
-    //     title: "Private Table at White Rabbit",
-    //     description:
-    //       "Reserved seating at one of Moscow's most prestigious restaurants with panoramic views.",
-    //     image: "/images/restaurant.jpg",
-    //     category: "Dining & Culinary",
-    //   },
-    //   {
-    //     id: "s4",
-    //     title: "Private Museum Tour",
-    //     description:
-    //       "Exclusive access to Moscow's finest cultural institutions with an expert guide.",
-    //     image: "/images/museum.jpg",
-    //     category: "Culture",
-    //     duration: "2h",
-    //   },
-    //   {
-    //     id: "s5",
-    //     title: "SIM Card Delivery",
-    //     description:
-    //       "High-speed data SIM card delivered directly to your hotel.",
-    //     image: "/images/sim-card.jpg",
-    //     category: "Travel",
-    //   },
-    //   {
-    //     id: "s6",
-    //     title: "Executive Health Check",
-    //     description:
-    //       "Comprehensive health assessment at Moscow's premier private clinic.",
-    //     image: "/images/health.jpg",
-    //     category: "Medical",
-    //     duration: "2h",
-    //   },
-    //   {
-    //     id: "s7",
-    //     title: "VIP Club Table Booking",
-    //     description:
-    //       "Priority access and premium seating at Moscow's exclusive nightlife venues.",
-    //     image: "/images/nightclub.jpg",
-    //     category: "Nightlife",
-    //   },
-    //   {
-    //     id: "s8",
-    //     title: "Private Arabic Chef",
-    //     description:
-    //       "Enjoy authentic Middle Eastern cuisine prepared by a private chef in your accommodation.",
-    //     image: "/images/chef.jpg",
-    //     category: "Dining & Culinary",
-    //     duration: "4h",
-    //   },
-    // ]);
-
     setDataLoaded(true);
     isDataInitialized.current = true;
   }, [user, profile, authLoading, dataLoaded]);
@@ -255,9 +182,6 @@ export default function Dashboard() {
       }
     });
   };
-
-  // Use the services directly in the ServicesCarousel component
-  // Filter is applied based on active category and search query
 
   const submitOrder = async () => {
     if (!user) {
