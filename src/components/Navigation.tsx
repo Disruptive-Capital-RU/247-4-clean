@@ -287,7 +287,7 @@ export default function Navigation() {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <motion.div
-          className="md:hidden bg-black/95 border-t border-white/10"
+          className="md:hidden bg-black/95 border-t border-white/10 overflow-y-auto max-h-[calc(100vh-70px)] fixed left-0 right-0 z-50"
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
@@ -350,9 +350,9 @@ export default function Navigation() {
 
       {/* Login Modal */}
       {showLoginModal && !user && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 h-screen">
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 h-screen overflow-y-auto">
           <motion.div
-            className="bg-[#111] border border-[#D4AF37]/30 rounded-lg p-6 w-full max-w-md"
+            className="bg-[#111] border border-[#D4AF37]/30 rounded-lg p-6 w-full max-w-md mx-auto my-auto sm:my-0"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}

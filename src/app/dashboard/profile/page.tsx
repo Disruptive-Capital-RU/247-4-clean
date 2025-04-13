@@ -7,47 +7,7 @@ import { useAuth } from "@/lib/AuthContext";
 import { Toaster, toast } from "react-hot-toast";
 import { supabase } from "@/lib/supabase";
 
-// Safe way to check for browser environment
-const isBrowser = typeof window !== 'undefined';
 import Navigation from "@/components/Navigation";
-
-// Helper for localStorage that works on server and client
-const safeLocalStorage = {
-  getItem: (key: string): string | null => {
-    // Early return for server environment, including static generation
-    if (typeof window === 'undefined') return null;
-    if (typeof localStorage === 'undefined') return null;
-    
-    try {
-      return localStorage.getItem(key);
-    } catch (e) {
-      console.error('Error accessing localStorage:', e);
-      return null;
-    }
-  },
-  setItem: (key: string, value: string): void => {
-    // Early return for server environment, including static generation
-    if (typeof window === 'undefined') return;
-    if (typeof localStorage === 'undefined') return;
-    
-    try {
-      localStorage.setItem(key, value);
-    } catch (e) {
-      console.error('Error writing to localStorage:', e);
-    }
-  },
-  removeItem: (key: string): void => {
-    // Early return for server environment, including static generation
-    if (typeof window === 'undefined') return;
-    if (typeof localStorage === 'undefined') return;
-    
-    try {
-      localStorage.removeItem(key);
-    } catch (e) {
-      console.error('Error removing from localStorage:', e);
-    }
-  }
-};
 
 export default function ProfilePage() {
   const { user, profile } = useAuth();
@@ -265,11 +225,11 @@ export default function ProfilePage() {
 
       <Navigation />
 
-      <div className="container mx-auto px-4 py-24">
+      <div className="container mx-auto px-4 py-12 sm:py-24">
         <div className="max-w-2xl mx-auto">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-0 mb-8">
             <div>
-              <h1 className="text-3xl font-cormorant font-semibold text-white">
+              <h1 className="text-2xl sm:text-3xl font-cormorant font-semibold text-white">
                 Profile Management
               </h1>
               <p className="text-white/60 mt-1">
@@ -278,7 +238,7 @@ export default function ProfilePage() {
             </div>
             <Link
               href="/dashboard"
-              className="px-4 py-2 bg-[#111] border border-white/10 rounded-lg hover:bg-[#222] transition-colors"
+              className="px-4 py-2 bg-[#111] border border-white/10 rounded-lg hover:bg-[#222] transition-colors text-center sm:text-left w-full sm:w-auto"
             >
               Back to Dashboard
             </Link>
@@ -288,7 +248,7 @@ export default function ProfilePage() {
             <form onSubmit={handleSubmit}>
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-white/80 mb-2">
+                  <label htmlFor="name" className="block text-white/80 mb-2 text-base sm:text-lg">
                     Full Name
                   </label>
                   <input
@@ -297,14 +257,15 @@ export default function ProfilePage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50"
+                    className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 sm:py-4 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50 text-base sm:text-lg"
                     placeholder="Your full name"
                     required
+                    autoComplete="name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-white/80 mb-2">
+                  <label htmlFor="email" className="block text-white/80 mb-2 text-base sm:text-lg">
                     Email Address
                   </label>
                   <input
@@ -313,8 +274,9 @@ export default function ProfilePage() {
                     name="email"
                     value={formData.email}
                     disabled
-                    className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white/60 focus:outline-none cursor-not-allowed"
+                    className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 sm:py-4 text-white/60 focus:outline-none cursor-not-allowed text-base sm:text-lg"
                     placeholder="Your email address"
+                    autoComplete="email"
                   />
                   <p className="text-white/40 text-sm mt-1">
                     Email cannot be changed
@@ -322,7 +284,7 @@ export default function ProfilePage() {
                 </div>
 
                 <div>
-                  <label htmlFor="contact" className="block text-white/80 mb-2">
+                  <label htmlFor="contact" className="block text-white/80 mb-2 text-base sm:text-lg">
                     Phone Number
                   </label>
                   <input
@@ -331,16 +293,17 @@ export default function ProfilePage() {
                     name="contact"
                     value={formData.contact}
                     onChange={handleChange}
-                    className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50"
+                    className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 sm:py-4 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50 text-base sm:text-lg"
                     placeholder="Your phone number"
+                    autoComplete="tel"
                   />
                 </div>
 
-                <div className="pt-4 flex space-x-4">
+                <div className="pt-4 flex flex-col sm:flex-row sm:space-x-4 space-y-3 sm:space-y-0">
                   <button
                     type="submit"
                     disabled={isLoading || !hasChanges}
-                    className="flex-1 bg-[#D4AF37] hover:bg-[#c9a430] text-black font-medium py-3 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex-1 bg-[#D4AF37] hover:bg-[#c9a430] text-black font-medium py-3 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
                   >
                     {isLoading ? "Updating..." : "Update Profile"}
                   </button>
@@ -349,7 +312,7 @@ export default function ProfilePage() {
                     <button
                       type="button"
                       onClick={handleCancel}
-                      className="px-6 py-3 bg-transparent border border-white/20 hover:border-white/40 text-white/80 hover:text-white rounded-lg transition-colors"
+                      className="px-6 py-3 bg-transparent border border-white/20 hover:border-white/40 text-white/80 hover:text-white rounded-lg transition-colors w-full sm:w-auto"
                     >
                       Cancel
                     </button>
@@ -360,16 +323,16 @@ export default function ProfilePage() {
           </div>
 
           <div className="mt-8 bg-[#111] border border-white/10 rounded-lg p-6">
-            <h2 className="text-xl font-cormorant font-semibold mb-4">
+            <h2 className="text-xl sm:text-2xl font-cormorant font-semibold mb-4">
               Account Security
             </h2>
-            <p className="text-white/60 mb-4">
+            <p className="text-white/60 mb-6 text-base sm:text-lg">
               For security purposes, changes to your password and other account
               security settings require verification.
             </p>
             <Link
               href="/dashboard"
-              className="inline-block px-4 py-2 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 text-[#D4AF37] rounded-lg transition-colors"
+              className="block w-full sm:w-auto sm:inline-block px-6 py-3 text-center bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 text-[#D4AF37] rounded-lg transition-colors text-base sm:text-lg font-medium"
             >
               Contact Support
             </Link>
