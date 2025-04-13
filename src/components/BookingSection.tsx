@@ -614,7 +614,7 @@ export default function BookingSection() {
 
                     <div className="flex justify-center my-6 col-span-full">
                       <HCaptcha
-                        sitekey="6LcbKxMrAAAAABXFe9zsdg5xj1I9thUyYTs7jelJ"
+                        sitekey="6ee82a4c-7088-43b0-99de-ec9ed0c8c4e4"
                         onVerify={handleCaptchaVerify}
                         ref={captchaRef}
                         theme="dark"
