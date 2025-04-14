@@ -104,12 +104,28 @@ export default function BookingSection() {
       // Safe access to Supabase client methods
       const client = supabase as ReturnType<typeof createClient>;
       authSubscription = client.auth.onAuthStateChange(
-        (event: AuthChangeEvent, session: Session | null) => {
+        async (event: AuthChangeEvent, session: Session | null) => {
           console.log("Auth state changed:", event);
           
           if (event === "SIGNED_IN" && session?.user) {
             console.log("User signed in with email:", session.user.email);
             setEmailVerified(true);
+            
+            // Update the email_verified status in the database
+            try {
+              const { error } = await client
+                .from("users")
+                .update({ email_verified: true })
+                .eq("id", session.user.id);
+                
+              if (error) {
+                console.error("Error updating email verification status:", error);
+              } else {
+                console.log("Email verification status updated in database");
+              }
+            } catch (error) {
+              console.error("Error updating user verification status:", error);
+            }
             
             // If user just verified email from the confirmation page
             if (showEmailConfirmationPage) {
@@ -281,6 +297,11 @@ export default function BookingSection() {
           id: userId,
           email: normalizedEmail,
           name: formData.name,
+          display_name: formData.name, // Also use as display name
+          phone: formData.contact, // Save the phone number
+          email_verified: false, // Initially set to false until verified
+          communication_method: formData.communicationMethod,
+          language_preference: formData.language,
           concierge_end_date: new Date(
             Date.now() + 5 * 24 * 60 * 60 * 1000
           ).toISOString(),
