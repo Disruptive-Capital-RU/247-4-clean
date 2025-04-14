@@ -111,8 +111,9 @@ export default function BookingSection() {
             console.log("User signed in with email:", session.user.email);
             setEmailVerified(true);
             
-            // Update the email_verified status in the database
+            // Update the email_verified status in both the database and auth metadata
             try {
+              // Update in 'users' table
               const { error } = await client
                 .from("users")
                 .update({ email_verified: true })
@@ -122,6 +123,24 @@ export default function BookingSection() {
                 console.error("Error updating email verification status:", error);
               } else {
                 console.log("Email verification status updated in database");
+              }
+              
+              // Update in auth.users metadata
+              const { data: userData } = await client.auth.getUser();
+              if (userData?.user) {
+                const currentMetadata = userData.user.user_metadata || {};
+                const { error: metadataError } = await client.auth.updateUser({
+                  data: { 
+                    ...currentMetadata,
+                    email_verified: true 
+                  }
+                });
+                
+                if (metadataError) {
+                  console.error("Error updating auth metadata:", metadataError);
+                } else {
+                  console.log("Email verification status updated in auth metadata");
+                }
               }
             } catch (error) {
               console.error("Error updating user verification status:", error);
@@ -241,6 +260,18 @@ export default function BookingSection() {
             await client.auth.signUp({
               email: normalizedEmail,
               password: formData.password,
+              options: {
+                // Store all form data in user_metadata for the auth table
+                data: {
+                  full_name: formData.name,
+                  phone: formData.contact,
+                  language: formData.language,
+                  communication_method: formData.communicationMethod,
+                  accepted_terms: formData.acceptTerms,
+                  captcha_verified: !!formData.captchaToken,
+                  signup_date: new Date().toISOString()
+                }
+              }
             });
 
           if (signUpError) {
@@ -260,12 +291,22 @@ export default function BookingSection() {
 
       // PRODUCTION MODE: Normal flow with email verification
 
-      // Create a new auth user with this email
+      // Create a new auth user with this email and store all form data in user_metadata
       const client = supabase as ReturnType<typeof createClient>;
       const { data: authUser, error: authError } = await client.auth.signUp({
         email: normalizedEmail,
         password: formData.password,
         options: {
+          // Store all form data in user_metadata for the auth table
+          data: {
+            full_name: formData.name,
+            phone: formData.contact,
+            language: formData.language,
+            communication_method: formData.communicationMethod,
+            accepted_terms: formData.acceptTerms,
+            captcha_verified: !!formData.captchaToken,
+            signup_date: new Date().toISOString()
+          },
           // Redirect to the auth callback handler which will redirect to dashboard after verification
           emailRedirectTo: `https://reluxi.ru/auth/callback`,
         },
@@ -304,6 +345,7 @@ export default function BookingSection() {
       ]);
       
       // Also create a record in a separate user_metadata table to store additional info
+      // We'll keep updating both tables for backwards compatibility
       if (!insertError) {
         try {
           // Store additional user data in a metadata table
