@@ -296,17 +296,35 @@ export default function BookingSection() {
         {
           id: userId,
           email: normalizedEmail,
-          name: formData.name,
-          display_name: formData.name, // Also use as display name
-          phone: formData.contact, // Save the phone number
-          email_verified: false, // Initially set to false until verified
-          communication_method: formData.communicationMethod,
-          language_preference: formData.language,
+          name: formData.name, // Using name field as only available field for user's name
           concierge_end_date: new Date(
             Date.now() + 5 * 24 * 60 * 60 * 1000
           ).toISOString(),
         },
       ]);
+      
+      // Also create a record in a separate user_metadata table to store additional info
+      if (!insertError) {
+        try {
+          // Store additional user data in a metadata table
+          const { error: metadataError } = await dbClient.from("user_metadata").insert([
+            {
+              user_id: userId,
+              phone: formData.contact,
+              display_name: formData.name,
+              communication_method: formData.communicationMethod,
+              language: formData.language,
+              email_verified: false
+            },
+          ]);
+          
+          if (metadataError) {
+            console.error("Error storing user metadata:", metadataError);
+          }
+        } catch (metadataErr) {
+          console.error("Exception storing user metadata:", metadataErr);
+        }
+      }
 
       if (insertError) {
         console.error("Error creating user profile:", insertError);
