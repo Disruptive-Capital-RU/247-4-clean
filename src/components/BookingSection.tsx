@@ -58,7 +58,8 @@ export default function BookingSection() {
   const [emailVerificationSent, setEmailVerificationSent] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [showEmailConfirmationPage, setShowEmailConfirmationPage] = useState(false);
+  const [showEmailConfirmationPage, setShowEmailConfirmationPage] =
+    useState(false);
 
   // Check for email verification status when component mounts
   useEffect(() => {
@@ -70,14 +71,14 @@ export default function BookingSection() {
 
         if (data?.session?.user) {
           setEmailVerified(true);
-          
+
           // If user has already verified their email and we're on the confirmation page,
           // proceed to the loader
           if (showEmailConfirmationPage) {
             console.log("Email already verified, proceeding to loader");
             setShowEmailConfirmationPage(false);
             setShowLoader(true);
-            
+
             // After loader completes, show success animation then redirect
             setTimeout(() => {
               setShowLoader(false);
@@ -97,7 +98,9 @@ export default function BookingSection() {
 
     // Listen for auth state changes (like when user confirms email)
     // Define a proper type for Supabase subscription
-    type SupabaseSubscription = { data: { subscription: { unsubscribe: () => void } } };
+    type SupabaseSubscription = {
+      data: { subscription: { unsubscribe: () => void } };
+    };
     let authSubscription: SupabaseSubscription | null = null;
 
     try {
@@ -106,11 +109,11 @@ export default function BookingSection() {
       authSubscription = client.auth.onAuthStateChange(
         async (event: AuthChangeEvent, session: Session | null) => {
           console.log("Auth state changed:", event);
-          
+
           if (event === "SIGNED_IN" && session?.user) {
             console.log("User signed in with email:", session.user.email);
             setEmailVerified(true);
-            
+
             // Update the email_verified status in database only - we'll avoid modifying auth metadata during verification
             try {
               // Update in 'users' table
@@ -118,14 +121,17 @@ export default function BookingSection() {
                 .from("users")
                 .update({ email_verified: true })
                 .eq("id", session.user.id);
-                
+
               if (error) {
-                console.error("Error updating email verification status:", error);
+                console.error(
+                  "Error updating email verification status:",
+                  error
+                );
                 // Don't block the flow on error - user is still verified in Supabase Auth
               } else {
                 console.log("Email verification status updated in database");
               }
-              
+
               // We'll skip updating auth metadata during verification as it might cause issues
               // The important thing is that the user is verified in Supabase Auth
             } catch (error) {
@@ -133,10 +139,12 @@ export default function BookingSection() {
               // Don't block the verification flow on database errors
               // The user is still authenticated via Supabase Auth even if our database update fails
             }
-            
+
             // If user just verified email from the confirmation page
             if (showEmailConfirmationPage) {
-              console.log("Email verified, proceeding from confirmation page to loader");
+              console.log(
+                "Email verified, proceeding from confirmation page to loader"
+              );
               // Hide confirmation page and show loader
               setShowEmailConfirmationPage(false);
               setShowLoader(true);
@@ -165,15 +173,28 @@ export default function BookingSection() {
 
     return () => {
       // Safely unsubscribe if the subscription exists
-      if (authSubscription && authSubscription.data && authSubscription.data.subscription) {
+      if (
+        authSubscription &&
+        authSubscription.data &&
+        authSubscription.data.subscription
+      ) {
         authSubscription.data.subscription.unsubscribe();
       }
     };
-  }, [router, emailVerificationSent, formData.captchaToken, t, showEmailConfirmationPage]);
+  }, [
+    router,
+    emailVerificationSent,
+    formData.captchaToken,
+    t,
+    showEmailConfirmationPage,
+  ]);
 
   const loadingStates = [
     { text: t("loadingState1") || "Matching you with a personal concierge" },
-    { text: t("loadingState2") || "Checking availability of premium experiences" },
+    {
+      text:
+        t("loadingState2") || "Checking availability of premium experiences",
+    },
     { text: t("loadingState3") || "Securing your exclusive access" },
     { text: t("loadingState4") || "Confirming luxury partner services" },
     { text: t("loadingState5") || "Finalizing your reservation" },
@@ -198,25 +219,34 @@ export default function BookingSection() {
     // Show captcha message if not verified
     if (!formData.captchaToken) {
       setShowCaptchaMessage(true);
-      toast.error(t("completeCaptcha") || "Please complete the captcha verification.");
+      toast.error(
+        t("completeCaptcha") || "Please complete the captcha verification."
+      );
       return;
     }
 
     // Validate email format
     if (!validateEmail(formData.email)) {
-      toast.error(t("validEmailRequired") || "Please enter a valid email address.");
+      toast.error(
+        t("validEmailRequired") || "Please enter a valid email address."
+      );
       return;
     }
 
     // Validate password
     if (formData.password.length < 6) {
-      toast.error(t("passwordMinLength") || "Password must be at least 6 characters.");
+      toast.error(
+        t("passwordMinLength") || "Password must be at least 6 characters."
+      );
       return;
     }
 
     // Validate terms acceptance
     if (!formData.acceptTerms) {
-      toast.error(t("acceptTermsRequired") || "You must accept the terms and conditions to continue.");
+      toast.error(
+        t("acceptTermsRequired") ||
+          "You must accept the terms and conditions to continue."
+      );
       return;
     }
 
@@ -224,7 +254,7 @@ export default function BookingSection() {
     setIsSubmitted(true);
 
     try {
-      let userId = '';
+      let userId = "";
       const normalizedEmail = formData.email.toLowerCase().trim();
 
       // DEV MODE: Skip email verification for development
@@ -258,9 +288,9 @@ export default function BookingSection() {
                   communication_method: formData.communicationMethod,
                   accepted_terms: formData.acceptTerms,
                   captcha_verified: !!formData.captchaToken,
-                  signup_date: new Date().toISOString()
-                }
-              }
+                  signup_date: new Date().toISOString(),
+                },
+              },
             });
 
           if (signUpError) {
@@ -271,10 +301,10 @@ export default function BookingSection() {
         } else {
           userId = authData.user?.id || "";
         }
-        
+
         // In dev mode, still show the email confirmation page first
         setShowEmailConfirmationPage(true);
-        
+
         return;
       }
 
@@ -282,7 +312,7 @@ export default function BookingSection() {
 
       // Create a new auth user with this email and store all form data in user_metadata
       const client = supabase as ReturnType<typeof createClient>;
-      
+
       // Create a new auth user with this email and store all form data in user_metadata
       // Following exact Supabase v2 API structure
       const { data: authUser, error: authError } = await client.auth.signUp({
@@ -290,17 +320,18 @@ export default function BookingSection() {
         password: formData.password,
         options: {
           // Redirect to the auth callback handler which will redirect to dashboard after verification
-          emailRedirectTo: `https://reluxi.ru/auth/callback`,
+          // Add timestamp to avoid browser caching issues
+          emailRedirectTo: `https://reluxi.ru/auth/callback?t=${Date.now()}`,
           // Using raw names for metadata to improve visibility in Auth Users table
           data: {
             name: formData.name, // Use 'name' to populate display_name in table
             phone: formData.contact,
             language: formData.language,
             communication_method: formData.communicationMethod,
-            accepted_terms: formData.acceptTerms ? "yes" : "no", 
+            accepted_terms: formData.acceptTerms ? "yes" : "no",
             captcha_verified: formData.captchaToken ? "yes" : "no",
-            signup_date: new Date().toISOString()
-          }
+            signup_date: new Date().toISOString(),
+          },
         },
       });
 
@@ -308,30 +339,33 @@ export default function BookingSection() {
         console.error("Error creating auth user:", authError);
         throw authError;
       }
-      
+
       // Make a separate API call to explicitly set metadata after signup
       // This ensures all form data appears in the Authentication > Users table
       if (authUser && authUser.user) {
         try {
-          console.log("Adding explicit direct metadata update for user:", authUser.user.id);
-          
+          console.log(
+            "Adding explicit direct metadata update for user:",
+            authUser.user.id
+          );
+
           // Try the direct updateUser method which should apply metadata
           // immediately to the Supabase Auth Users table - use raw field names for better display
           const { error: metadataError } = await client.auth.updateUser({
             data: {
-                name: formData.name, // 'name' is displayed better than 'full_name' in Auth table
-                phone: formData.contact,
-                language: formData.language,
-                communication_method: formData.communicationMethod,
-                accepted_terms: formData.acceptTerms ? 'yes' : 'no',
-                captcha_verified: formData.captchaToken ? 'yes' : 'no',
-                signup_date: new Date().toISOString()
-              }
-            });
-          
+              name: formData.name, // 'name' is displayed better than 'full_name' in Auth table
+              phone: formData.contact,
+              language: formData.language,
+              communication_method: formData.communicationMethod,
+              accepted_terms: formData.acceptTerms ? "yes" : "no",
+              captcha_verified: formData.captchaToken ? "yes" : "no",
+              signup_date: new Date().toISOString(),
+            },
+          });
+
           if (metadataError) {
             console.error("Error using updateUser:", metadataError);
-            
+
             // Try directly updating Raw User Metadata via an API call
             try {
               console.log("Attempting direct signup with user_metadata");
@@ -339,13 +373,13 @@ export default function BookingSection() {
               console.log("Attempting to set metadata via REST API");
               // Use direct URL construction instead of accessing protected property
               const adminAuthUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/admin/users/${authUser.user.id}`;
-              
+
               // Make a direct PATCH request to modify the user
               const response = await fetch(adminAuthUrl, {
-                method: 'PATCH',
+                method: "PATCH",
                 headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
                 },
                 body: JSON.stringify({
                   user_metadata: {
@@ -353,20 +387,25 @@ export default function BookingSection() {
                     phone: formData.contact,
                     language: formData.language,
                     communication_method: formData.communicationMethod,
-                    accepted_terms: formData.acceptTerms ? 'yes' : 'no',
-                    captcha_verified: formData.captchaToken ? 'yes' : 'no',
-                    signup_date: new Date().toISOString()
-                  }
-                })
+                    accepted_terms: formData.acceptTerms ? "yes" : "no",
+                    captcha_verified: formData.captchaToken ? "yes" : "no",
+                    signup_date: new Date().toISOString(),
+                  },
+                }),
               });
-              
+
               const fallbackError = !response.ok ? await response.json() : null;
-              
+
               if (fallbackError) {
-                console.error("REST API metadata update failed:", fallbackError);
-                
+                console.error(
+                  "REST API metadata update failed:",
+                  fallbackError
+                );
+
                 // Final approach - try server-side admin API in next.js
-                console.log("All client-side approaches failed. Consider implementing a server-side API endpoint");
+                console.log(
+                  "All client-side approaches failed. Consider implementing a server-side API endpoint"
+                );
               } else {
                 console.log("Metadata successfully set via REST API");
               }
@@ -374,10 +413,15 @@ export default function BookingSection() {
               console.error("Exception in fallback update:", fallbackError);
             }
           } else {
-            console.log("User metadata successfully updated via standard updateUser");
+            console.log(
+              "User metadata successfully updated via standard updateUser"
+            );
           }
         } catch (updateError) {
-          console.error("Exception during explicit metadata update:", updateError);
+          console.error(
+            "Exception during explicit metadata update:",
+            updateError
+          );
           // Continue with the flow even if metadata update fails
         }
       }
@@ -397,16 +441,22 @@ export default function BookingSection() {
       // Update the userId we declared earlier
       // We rely on the database trigger to create the user record
       userId = authUser.user.id;
-      
+
       // Note: We're NOT going to try to create records in the database tables manually.
-      // Instead, we'll rely on your database trigger 'on_auth_user_created' to create 
+      // Instead, we'll rely on your database trigger 'on_auth_user_created' to create
       // the user record in the users table automatically when the auth user is created.
       // This avoids permission issues with RLS.
-      
-      // Skip direct database manipulation and focus on ensuring the auth metadata is correct
-      console.log("Auth user created, database record will be created by trigger for user ID:", userId);
 
-      toast.success(t("checkEmailVerification") || "Please check your email to verify your account");
+      // Skip direct database manipulation and focus on ensuring the auth metadata is correct
+      console.log(
+        "Auth user created, database record will be created by trigger for user ID:",
+        userId
+      );
+
+      toast.success(
+        t("checkEmailVerification") ||
+          "Please check your email to verify your account"
+      );
       console.log("Toast shown for email verification");
 
       // When account is created and the user has verified email,
@@ -422,10 +472,13 @@ export default function BookingSection() {
       ) {
         setEmailVerificationSent(true);
         toast.error(
-          t("verifyEmailPrompt") || "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation."
+          t("verifyEmailPrompt") ||
+            "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation."
         );
       } else {
-        toast.error(errorWithMessage.message || "An error occurred. Please try again.");
+        toast.error(
+          errorWithMessage.message || "An error occurred. Please try again."
+        );
       }
     } finally {
       setLoading(false);
@@ -495,22 +548,25 @@ export default function BookingSection() {
                 {t("verifyYourEmail") || "One Last Step to Exclusive Access"}
               </h2>
               <p className="text-lg text-white/80 mb-6">
-                {t("emailVerificationInstructions") || 
+                {t("emailVerificationInstructions") ||
                   "We've sent a secure verification link to your email address. Please check your inbox and click the link to complete your registration and unlock your premium concierge experience."}
               </p>
               <div className="text-white/80 mb-6 p-4 border border-[#D4AF37]/20 rounded-lg bg-[#D4AF37]/5">
                 <p className="text-sm">
-                  <strong>{t("emailSentTo") || "Verification sent to"}:</strong> {formData.email}
+                  <strong>{t("emailSentTo") || "Verification sent to"}:</strong>{" "}
+                  {formData.email}
                 </p>
                 <p className="text-sm mt-2">
-                  {t("clickOnTheLink") || "Simply click the secure link in your email to activate your account and access your personal concierge dashboard."}
+                  {t("clickOnTheLink") ||
+                    "Simply click the secure link in your email to activate your account and access your personal concierge dashboard."}
                 </p>
               </div>
               <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-6"></div>
               <p className="text-white/60 text-sm mb-4">
-                {t("didntReceiveEmail") || "Haven't received your verification email? Please check your spam or junk folder, or"}
+                {t("didntReceiveEmail") ||
+                  "Haven't received your verification email? Please check your spam or junk folder, or"}
               </p>
-              <button 
+              <button
                 onClick={() => setShowEmailConfirmationPage(false)}
                 className="text-[#D4AF37] hover:underline text-sm"
               >
@@ -564,10 +620,14 @@ export default function BookingSection() {
                   <h3 className="text-2xl font-cormorant font-semibold text-white mb-4">
                     {t("verificationEmailSent") || "Verification Email Sent"}
                   </h3>
-                  <p className="text-white/80 mb-6">{t("checkInbox") || "Please check your inbox and click the verification link we sent to your email address."}</p>
+                  <p className="text-white/80 mb-6">
+                    {t("checkInbox") ||
+                      "Please check your inbox and click the verification link we sent to your email address."}
+                  </p>
                   <div className="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent mb-6"></div>
                   <p className="text-sm text-white/60">
-                    {t("afterVerification") || "After verifying your email, return to this page to complete your booking process."}
+                    {t("afterVerification") ||
+                      "After verifying your email, return to this page to complete your booking process."}
                   </p>
                 </div>
               ) : (
@@ -576,10 +636,12 @@ export default function BookingSection() {
                   className="space-y-6 p-8 rounded-md bg-black/40 w-full mx-auto"
                 >
                   <h2 className="text-5xl font-cormorant font-bold text-white text-center mb-2">
-                    {t("bookingHeadline") || "Your Time Is Precious. Start Now."}
+                    {t("bookingHeadline") ||
+                      "Your Time Is Precious. Start Now."}
                   </h2>
                   <p className="text-white/70 text-center mb-8">
-                    {t("bookingSubheading") || "Book your personal concierge for 5 days for just $100. Once booked, we'll contact you directly to confirm your arrival details, preferences, and priorities."}
+                    {t("bookingSubheading") ||
+                      "Book your personal concierge for 5 days for just $100. Once booked, we'll contact you directly to confirm your arrival details, preferences, and priorities."}
                   </p>
                   <div className="border border-[#D4AF37] rounded-md p-6 space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
@@ -615,7 +677,8 @@ export default function BookingSection() {
                             required
                           />
                           <p className="text-xs text-white/60 mt-1">
-                            {t("emailLoginInfo") || "You'll use this email to log into your concierge dashboard"}
+                            {t("emailLoginInfo") ||
+                              "You'll use this email to log into your concierge dashboard"}
                           </p>
                         </div>
 
@@ -629,7 +692,9 @@ export default function BookingSection() {
                             type="password"
                             value={formData.password}
                             onChange={handleChange}
-                            placeholder={t("enterPassword") || "Enter your password"}
+                            placeholder={
+                              t("enterPassword") || "Enter your password"
+                            }
                             className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                             required
                           />
@@ -647,7 +712,9 @@ export default function BookingSection() {
                             name="contact"
                             value={formData.contact}
                             onChange={handleChange}
-                            placeholder={t("phoneExample") || "+971 55 123 4567"}
+                            placeholder={
+                              t("phoneExample") || "+971 55 123 4567"
+                            }
                             className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                             required
                           />
@@ -658,7 +725,8 @@ export default function BookingSection() {
                             htmlFor="communicationMethod"
                             className="text-white"
                           >
-                            {t("preferredCommunication") || "Preferred Communication Method"}
+                            {t("preferredCommunication") ||
+                              "Preferred Communication Method"}
                           </Label>
                           <Select
                             value={formData.communicationMethod}
@@ -670,7 +738,12 @@ export default function BookingSection() {
                             }
                           >
                             <SelectTrigger className="w-full h-12 rounded-none bg-black/60 border border-white/20 text-white focus:border-[#D4AF37] hover:border-[#D4AF37]/70">
-                              <SelectValue placeholder={t("selectCommunicationMethod") || "Select communication method"} />
+                              <SelectValue
+                                placeholder={
+                                  t("selectCommunicationMethod") ||
+                                  "Select communication method"
+                                }
+                              />
                             </SelectTrigger>
                             <SelectContent className="bg-black/90 border border-[#D4AF37]/30 text-white">
                               <SelectItem
@@ -736,7 +809,11 @@ export default function BookingSection() {
                             }
                           >
                             <SelectTrigger className="w-full h-12 rounded-none bg-black/60 border border-white/20 text-white focus:border-[#D4AF37] hover:border-[#D4AF37]/70">
-                              <SelectValue placeholder={t("selectLanguage") || "Select language"} />
+                              <SelectValue
+                                placeholder={
+                                  t("selectLanguage") || "Select language"
+                                }
+                              />
                             </SelectTrigger>
                             <SelectContent className="bg-black/90 border border-[#D4AF37]/30 text-white">
                               <SelectItem
@@ -830,14 +907,16 @@ export default function BookingSection() {
                         }`}
                       >
                         {loading
-                          ? (t("processing") || "Processing...")
+                          ? t("processing") || "Processing..."
                           : emailVerificationSent && !emailVerified
-                          ? (t("emailVerificationRequired") || "Email Verification Required")
-                          : (t("reserveMyConcierge") || "Reserve My Concierge")}
+                          ? t("emailVerificationRequired") ||
+                            "Email Verification Required"
+                          : t("reserveMyConcierge") || "Reserve My Concierge"}
                       </button>
 
                       <p className="text-white/60 text-sm text-center mt-4">
-                        {t("preReservationNote") || "This is a pre-reservation only. You will be contacted within 12 hours to confirm availability and preferences. No payment is collected on the website."}
+                        {t("preReservationNote") ||
+                          "This is a pre-reservation only. You will be contacted within 12 hours to confirm availability and preferences. No payment is collected on the website."}
                       </p>
                     </div>
                   </div>

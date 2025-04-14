@@ -130,6 +130,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setLoading(true);
       }
 
+      // Special handling for SIGNED_IN event
+      if (event === "SIGNED_IN") {
+        console.log("User signed in event detected");
+        // Store session info
+        if (session?.access_token) {
+          localStorage.setItem("sb-access-token", session.access_token);
+          localStorage.setItem("sb-refresh-token", session.refresh_token || "");
+        }
+      }
+
       if (session?.user) {
         // Store minimal user data in localStorage for quick access
         localStorage.setItem(
@@ -154,6 +164,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
       } else {
         localStorage.removeItem("authUser");
+        localStorage.removeItem("sb-access-token");
+        localStorage.removeItem("sb-refresh-token");
         setUser(null);
         setProfile(null);
       }
