@@ -224,7 +224,7 @@ export default function BookingSection() {
     setIsSubmitted(true);
 
     try {
-      let userId: string;
+      let userId = '';
       const normalizedEmail = formData.email.toLowerCase().trim();
 
       // DEV MODE: Skip email verification for development
@@ -291,14 +291,14 @@ export default function BookingSection() {
         options: {
           // Redirect to the auth callback handler which will redirect to dashboard after verification
           emailRedirectTo: `https://reluxi.ru/auth/callback`,
-          // Store all form data in user_metadata correctly via options.data
+          // Using raw names for metadata to improve visibility in Auth Users table
           data: {
-            full_name: formData.name,
+            name: formData.name, // Use 'name' to populate display_name in table
             phone: formData.contact,
             language: formData.language,
             communication_method: formData.communicationMethod,
-            accepted_terms: formData.acceptTerms,
-            captcha_verified: !!formData.captchaToken,
+            accepted_terms: formData.acceptTerms ? "yes" : "no", 
+            captcha_verified: formData.captchaToken ? "yes" : "no",
             signup_date: new Date().toISOString()
           }
         },
@@ -313,25 +313,68 @@ export default function BookingSection() {
       // This ensures all form data appears in the Authentication > Users table
       if (authUser && authUser.user) {
         try {
-          console.log("Adding explicit metadata update for user:", authUser.user.id);
+          console.log("Adding explicit direct metadata update for user:", authUser.user.id);
           
-          // Using the standard updateUser method to set metadata
+          // Try the direct updateUser method which should apply metadata
+          // immediately to the Supabase Auth Users table - use raw field names for better display
           const { error: metadataError } = await client.auth.updateUser({
             data: {
-              full_name: formData.name,
-              phone: formData.contact,
-              language: formData.language,
-              communication_method: formData.communicationMethod,
-              accepted_terms: formData.acceptTerms,
-              captcha_verified: !!formData.captchaToken,
-              signup_date: new Date().toISOString()
-            }
-          });
+                name: formData.name, // 'name' is displayed better than 'full_name' in Auth table
+                phone: formData.contact,
+                language: formData.language,
+                communication_method: formData.communicationMethod,
+                accepted_terms: formData.acceptTerms ? 'yes' : 'no',
+                captcha_verified: formData.captchaToken ? 'yes' : 'no',
+                signup_date: new Date().toISOString()
+              }
+            });
           
           if (metadataError) {
-            console.error("Error explicitly updating user metadata:", metadataError);
+            console.error("Error using updateUser:", metadataError);
+            
+            // Try directly updating Raw User Metadata via an API call
+            try {
+              console.log("Attempting direct signup with user_metadata");
+              // Try a different approach using Supabase's REST API directly
+              console.log("Attempting to set metadata via REST API");
+              // Use direct URL construction instead of accessing protected property
+              const adminAuthUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/admin/users/${authUser.user.id}`;
+              
+              // Make a direct PATCH request to modify the user
+              const response = await fetch(adminAuthUrl, {
+                method: 'PATCH',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`
+                },
+                body: JSON.stringify({
+                  user_metadata: {
+                    name: formData.name, // Use 'name' instead of 'full_name' for better display
+                    phone: formData.contact,
+                    language: formData.language,
+                    communication_method: formData.communicationMethod,
+                    accepted_terms: formData.acceptTerms ? 'yes' : 'no',
+                    captcha_verified: formData.captchaToken ? 'yes' : 'no',
+                    signup_date: new Date().toISOString()
+                  }
+                })
+              });
+              
+              const fallbackError = !response.ok ? await response.json() : null;
+              
+              if (fallbackError) {
+                console.error("REST API metadata update failed:", fallbackError);
+                
+                // Final approach - try server-side admin API in next.js
+                console.log("All client-side approaches failed. Consider implementing a server-side API endpoint");
+              } else {
+                console.log("Metadata successfully set via REST API");
+              }
+            } catch (fallbackError) {
+              console.error("Exception in fallback update:", fallbackError);
+            }
           } else {
-            console.log("User metadata explicitly updated successfully");
+            console.log("User metadata successfully updated via standard updateUser");
           }
         } catch (updateError) {
           console.error("Exception during explicit metadata update:", updateError);
@@ -351,56 +394,17 @@ export default function BookingSection() {
       }
 
       console.log("Auth user created:", authUser);
+      // Update the userId we declared earlier
+      // We rely on the database trigger to create the user record
       userId = authUser.user.id;
-
-      // Try to create or update a user profile in our database using upsert
-      const dbClient = supabase as ReturnType<typeof createClient>;
       
-      try {
-        // Use upsert to handle the case where user might already exist
-        const { error: upsertError } = await dbClient.from("users").upsert(
-          [
-            {
-              id: userId,
-              email: normalizedEmail,
-              name: formData.name,
-              concierge_end_date: new Date(
-                Date.now() + 5 * 24 * 60 * 60 * 1000
-              ).toISOString(),
-            },
-          ],
-          { onConflict: 'id', ignoreDuplicates: false }
-        );
-        
-        if (upsertError) {
-          console.error("Error upserting user profile:", upsertError);
-          // Don't throw here, continue with the flow
-        }
-        
-        // Also create or update a record in the user_metadata table
-        const { error: metadataError } = await dbClient.from("user_metadata").upsert(
-          [
-            {
-              user_id: userId,
-              phone: formData.contact,
-              display_name: formData.name,
-              communication_method: formData.communicationMethod,
-              language: formData.language,
-              email_verified: false
-            },
-          ],
-          { onConflict: 'user_id', ignoreDuplicates: false }
-        );
-        
-        if (metadataError) {
-          console.error("Error upserting user metadata:", metadataError);
-          // Don't throw here, continue with the flow
-        }
-      } catch (dbError) {
-        console.error("Database operation failed:", dbError);
-        // Don't throw here - the auth account is still created
-        // which is the most important part
-      }
+      // Note: We're NOT going to try to create records in the database tables manually.
+      // Instead, we'll rely on your database trigger 'on_auth_user_created' to create 
+      // the user record in the users table automatically when the auth user is created.
+      // This avoids permission issues with RLS.
+      
+      // Skip direct database manipulation and focus on ensuring the auth metadata is correct
+      console.log("Auth user created, database record will be created by trigger for user ID:", userId);
 
       toast.success(t("checkEmailVerification") || "Please check your email to verify your account");
       console.log("Toast shown for email verification");
@@ -488,29 +492,29 @@ export default function BookingSection() {
                 </svg>
               </div>
               <h2 className="text-3xl font-cormorant font-bold text-white mb-4">
-                {t("verifyYourEmail") || "Verify Your Email"}
+                {t("verifyYourEmail") || "One Last Step to Exclusive Access"}
               </h2>
               <p className="text-lg text-white/80 mb-6">
                 {t("emailVerificationInstructions") || 
-                  "We've sent a verification link to your email address. Please check your inbox and click the link to verify your account."}
+                  "We've sent a secure verification link to your email address. Please check your inbox and click the link to complete your registration and unlock your premium concierge experience."}
               </p>
               <div className="text-white/80 mb-6 p-4 border border-[#D4AF37]/20 rounded-lg bg-[#D4AF37]/5">
                 <p className="text-sm">
-                  <strong>{t("emailSentTo") || "Email sent to"}:</strong> {formData.email}
+                  <strong>{t("emailSentTo") || "Verification sent to"}:</strong> {formData.email}
                 </p>
                 <p className="text-sm mt-2">
-                  {t("clickOnTheLink") || "Click on the link in the email to verify your account and access the dashboard."}
+                  {t("clickOnTheLink") || "Simply click the secure link in your email to activate your account and access your personal concierge dashboard."}
                 </p>
               </div>
               <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-6"></div>
               <p className="text-white/60 text-sm mb-4">
-                {t("didntReceiveEmail") || "Didn't receive the email? Check your spam folder or"}
+                {t("didntReceiveEmail") || "Haven't received your verification email? Please check your spam or junk folder, or"}
               </p>
               <button 
                 onClick={() => setShowEmailConfirmationPage(false)}
                 className="text-[#D4AF37] hover:underline text-sm"
               >
-                {t("backToForm") || "Return to the form"}
+                {t("backToForm") || "Return to registration form"}
               </button>
             </div>
           </motion.div>
