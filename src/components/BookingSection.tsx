@@ -244,12 +244,13 @@ export default function BookingSection() {
 
         if (signInError) {
           // If login fails, try to create account
+          // Use the correct Supabase v2 API structure for signUp
           const { data: signUpData, error: signUpError } =
             await client.auth.signUp({
               email: normalizedEmail,
               password: formData.password,
               options: {
-                // Store all form data in user_metadata for the auth table
+                // Store all form data in metadata
                 data: {
                   full_name: formData.name,
                   phone: formData.contact,
@@ -281,11 +282,16 @@ export default function BookingSection() {
 
       // Create a new auth user with this email and store all form data in user_metadata
       const client = supabase as ReturnType<typeof createClient>;
+      
+      // Create a new auth user with this email and store all form data in user_metadata
+      // Following exact Supabase v2 API structure
       const { data: authUser, error: authError } = await client.auth.signUp({
         email: normalizedEmail,
         password: formData.password,
         options: {
-          // Store all form data in user_metadata for the auth table
+          // Redirect to the auth callback handler which will redirect to dashboard after verification
+          emailRedirectTo: `https://reluxi.ru/auth/callback`,
+          // Store all form data in user_metadata correctly via options.data
           data: {
             full_name: formData.name,
             phone: formData.contact,
@@ -294,15 +300,43 @@ export default function BookingSection() {
             accepted_terms: formData.acceptTerms,
             captcha_verified: !!formData.captchaToken,
             signup_date: new Date().toISOString()
-          },
-          // Redirect to the auth callback handler which will redirect to dashboard after verification
-          emailRedirectTo: `https://reluxi.ru/auth/callback`,
+          }
         },
       });
 
       if (authError) {
         console.error("Error creating auth user:", authError);
         throw authError;
+      }
+      
+      // Make a separate API call to explicitly set metadata after signup
+      // This ensures all form data appears in the Authentication > Users table
+      if (authUser && authUser.user) {
+        try {
+          console.log("Adding explicit metadata update for user:", authUser.user.id);
+          
+          // Using the standard updateUser method to set metadata
+          const { error: metadataError } = await client.auth.updateUser({
+            data: {
+              full_name: formData.name,
+              phone: formData.contact,
+              language: formData.language,
+              communication_method: formData.communicationMethod,
+              accepted_terms: formData.acceptTerms,
+              captcha_verified: !!formData.captchaToken,
+              signup_date: new Date().toISOString()
+            }
+          });
+          
+          if (metadataError) {
+            console.error("Error explicitly updating user metadata:", metadataError);
+          } else {
+            console.log("User metadata explicitly updated successfully");
+          }
+        } catch (updateError) {
+          console.error("Exception during explicit metadata update:", updateError);
+          // Continue with the flow even if metadata update fails
+        }
       }
 
       // Set flag that verification email was sent and show email confirmation page
