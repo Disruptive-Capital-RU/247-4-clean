@@ -48,7 +48,7 @@ export default function MessageConciergeModal() {
           />
         </svg>
       ),
-      action: () => window.open("https://wa.me/+123456789", "_blank"),
+      action: () => window.open("https://wa.me/+79160665133", "_blank"),
     },
     {
       id: "telegram",
@@ -74,7 +74,7 @@ export default function MessageConciergeModal() {
           />
         </svg>
       ),
-      action: () => window.open("https://t.me/executiveassistant", "_blank"),
+      action: () => window.open("https://t.me/+79160665133", "_blank"),
     },
     {
       id: "messenger",
@@ -92,7 +92,7 @@ export default function MessageConciergeModal() {
           <path fill="#FFFFFF" d="M12,28l7-4l3.5,4l7.5-7l-7,4l-3.5-4L12,28z" />
         </svg>
       ),
-      action: () => window.open("https://m.me/executiveassistant", "_blank"),
+      action: () => window.open("https://m.me/reluxi", "_blank"),
     },
     {
       id: "botim",
@@ -115,7 +115,7 @@ export default function MessageConciergeModal() {
           />
         </svg>
       ),
-      action: () => window.open("botim://chat?id=executiveassistant", "_blank"),
+      action: () => window.open("botim://chat?id=+79160665133", "_blank"),
     },
     {
       id: "phone",
@@ -133,7 +133,7 @@ export default function MessageConciergeModal() {
           />
         </svg>
       ),
-      action: () => window.open("tel:+123456789", "_blank"),
+      action: () => window.open("tel:+79160665133", "_blank"),
     },
     {
       id: "email",
@@ -152,7 +152,7 @@ export default function MessageConciergeModal() {
           />
         </svg>
       ),
-      action: () => window.open("mailto:assistant@example.com", "_blank"),
+      action: () => window.open("mailto:my@reluxi.ru", "_blank"),
     },
   ];
 
