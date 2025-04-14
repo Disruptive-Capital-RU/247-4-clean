@@ -193,7 +193,7 @@ export default function Navigation() {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
+    <div className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
       <div className="container mx-auto px-4 md:px-6 py-4 flex items-center">
         {/* Left section */}
         <div className="flex-1 flex justify-start">
@@ -468,7 +468,7 @@ export default function Navigation() {
           </motion.div>
         </div>
       )}
-    </header>
+    </div>
   );
 }
 
