@@ -111,7 +111,7 @@ export default function BookingSection() {
             console.log("User signed in with email:", session.user.email);
             setEmailVerified(true);
             
-            // Update the email_verified status in both the database and auth metadata
+            // Update the email_verified status in database only - we'll avoid modifying auth metadata during verification
             try {
               // Update in 'users' table
               const { error } = await client
@@ -121,29 +121,17 @@ export default function BookingSection() {
                 
               if (error) {
                 console.error("Error updating email verification status:", error);
+                // Don't block the flow on error - user is still verified in Supabase Auth
               } else {
                 console.log("Email verification status updated in database");
               }
               
-              // Update in auth.users metadata
-              const { data: userData } = await client.auth.getUser();
-              if (userData?.user) {
-                const currentMetadata = userData.user.user_metadata || {};
-                const { error: metadataError } = await client.auth.updateUser({
-                  data: { 
-                    ...currentMetadata,
-                    email_verified: true 
-                  }
-                });
-                
-                if (metadataError) {
-                  console.error("Error updating auth metadata:", metadataError);
-                } else {
-                  console.log("Email verification status updated in auth metadata");
-                }
-              }
+              // We'll skip updating auth metadata during verification as it might cause issues
+              // The important thing is that the user is verified in Supabase Auth
             } catch (error) {
               console.error("Error updating user verification status:", error);
+              // Don't block the verification flow on database errors
+              // The user is still authenticated via Supabase Auth even if our database update fails
             }
             
             // If user just verified email from the confirmation page
@@ -331,25 +319,33 @@ export default function BookingSection() {
       console.log("Auth user created:", authUser);
       userId = authUser.user.id;
 
-      // Now create a user profile in our database
+      // Try to create or update a user profile in our database using upsert
       const dbClient = supabase as ReturnType<typeof createClient>;
-      const { error: insertError } = await dbClient.from("users").insert([
-        {
-          id: userId,
-          email: normalizedEmail,
-          name: formData.name, // Using name field as only available field for user's name
-          concierge_end_date: new Date(
-            Date.now() + 5 * 24 * 60 * 60 * 1000
-          ).toISOString(),
-        },
-      ]);
       
-      // Also create a record in a separate user_metadata table to store additional info
-      // We'll keep updating both tables for backwards compatibility
-      if (!insertError) {
-        try {
-          // Store additional user data in a metadata table
-          const { error: metadataError } = await dbClient.from("user_metadata").insert([
+      try {
+        // Use upsert to handle the case where user might already exist
+        const { error: upsertError } = await dbClient.from("users").upsert(
+          [
+            {
+              id: userId,
+              email: normalizedEmail,
+              name: formData.name,
+              concierge_end_date: new Date(
+                Date.now() + 5 * 24 * 60 * 60 * 1000
+              ).toISOString(),
+            },
+          ],
+          { onConflict: 'id', ignoreDuplicates: false }
+        );
+        
+        if (upsertError) {
+          console.error("Error upserting user profile:", upsertError);
+          // Don't throw here, continue with the flow
+        }
+        
+        // Also create or update a record in the user_metadata table
+        const { error: metadataError } = await dbClient.from("user_metadata").upsert(
+          [
             {
               user_id: userId,
               phone: formData.contact,
@@ -358,19 +354,18 @@ export default function BookingSection() {
               language: formData.language,
               email_verified: false
             },
-          ]);
-          
-          if (metadataError) {
-            console.error("Error storing user metadata:", metadataError);
-          }
-        } catch (metadataErr) {
-          console.error("Exception storing user metadata:", metadataErr);
+          ],
+          { onConflict: 'user_id', ignoreDuplicates: false }
+        );
+        
+        if (metadataError) {
+          console.error("Error upserting user metadata:", metadataError);
+          // Don't throw here, continue with the flow
         }
-      }
-
-      if (insertError) {
-        console.error("Error creating user profile:", insertError);
-        throw insertError;
+      } catch (dbError) {
+        console.error("Database operation failed:", dbError);
+        // Don't throw here - the auth account is still created
+        // which is the most important part
       }
 
       toast.success(t("checkEmailVerification") || "Please check your email to verify your account");
