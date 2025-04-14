@@ -19,7 +19,15 @@ export async function POST(request: Request) {
     const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
 
     // Parse the request body
-    const { id, email, name, conciergeEndDate } = await request.json();
+    const {
+      id,
+      email,
+      name,
+      conciergeEndDate,
+      phone,
+      language,
+      communicationMethod,
+    } = await request.json();
 
     if (!id || !email || !name || !conciergeEndDate) {
       return NextResponse.json(
@@ -36,6 +44,9 @@ export async function POST(request: Request) {
         id,
         email,
         name,
+        phone,
+        language: language || "english",
+        communication_method: communicationMethod || "email",
         concierge_end_date: conciergeEndDate,
       },
     ]);

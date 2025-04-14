@@ -80,6 +80,9 @@ export default function Navigation() {
               "User exists in auth but not in users table, attempting to create profile"
             );
 
+            // Get user metadata if available
+            const userMetadata = authUser.user.user_metadata || {};
+
             // User exists in auth but not in users table
             // Try to create a profile for them
             try {
@@ -89,7 +92,14 @@ export default function Navigation() {
                 body: JSON.stringify({
                   id: authUser.user.id,
                   email: normalizedEmail,
-                  name: normalizedEmail.split("@")[0],
+                  name:
+                    userMetadata.name ||
+                    userMetadata.full_name ||
+                    normalizedEmail.split("@")[0],
+                  phone: userMetadata.phone,
+                  language: userMetadata.language || "english",
+                  communicationMethod:
+                    userMetadata.communication_method || "email",
                   conciergeEndDate: new Date(
                     Date.now() + 3 * 24 * 60 * 60 * 1000
                   ).toISOString(), // 3 days from now

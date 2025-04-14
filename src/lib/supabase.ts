@@ -45,6 +45,9 @@ export type User = {
   id: string;
   email: string;
   name: string;
+  phone?: string;
+  language?: string;
+  communication_method?: string;
   concierge_end_date: string;
   created_at: string;
 };
@@ -226,7 +229,10 @@ export const createUserProfile = async (
   userId: string,
   email: string,
   name: string,
-  endDate?: Date
+  endDate?: Date,
+  phone?: string,
+  language?: string,
+  communicationMethod?: string
 ) => {
   // Calculate concierge end date (3 days from now by default)
   const conciergeEndDate = endDate || new Date();
@@ -239,6 +245,9 @@ export const createUserProfile = async (
       id: userId,
       email: email.trim().toLowerCase(), // Always normalize emails
       name,
+      phone,
+      language: language || "english",
+      communication_method: communicationMethod || "email",
       concierge_end_date: conciergeEndDate.toISOString(),
     },
   ]);

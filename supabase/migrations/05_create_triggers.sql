@@ -7,7 +7,12 @@ BEGIN
   VALUES (
     NEW.id,
     NEW.email,
-    split_part(NEW.email, '@', 1),
+    -- Use the name from user_metadata if available, otherwise fall back to email username
+    COALESCE(
+      (NEW.raw_user_meta_data->>'name')::TEXT,
+      (NEW.raw_user_meta_data->>'full_name')::TEXT,
+      split_part(NEW.email, '@', 1)
+    ),
     NOW() + INTERVAL '3 days'
   );
   RETURN NEW;
