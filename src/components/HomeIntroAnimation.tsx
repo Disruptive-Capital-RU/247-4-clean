@@ -270,7 +270,7 @@ export default function HomeIntroAnimation({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 4 }}
         >
-          Always With You
+          Because You Deserve To Travel With Ease
         </motion.p>
       </div>
     </motion.div>
