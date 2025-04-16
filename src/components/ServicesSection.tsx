@@ -13,6 +13,8 @@ import {
   FaLandmark,
   FaApple,
   FaAndroid,
+  FaCalendarAlt,
+  FaGift,
 } from "react-icons/fa";
 import Image from "next/image";
 import {
@@ -57,7 +59,7 @@ const GoldenButton = () => {
         <p className="text-lg text-white/80 max-w-2xl mx-auto mb-8">
           {t("goldenButtonDesc")}
         </p>
-        <p className="text-white/60 mb-8">{t("goldenButtonInstructions")}</p>
+        <p className="text-2xl md:text-3xl font-cormorant font-medium text-[#D4AF37]">{t("yourGoldenButton")}</p>
 
         <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-8">
           <Popover>
@@ -118,29 +120,19 @@ export default function ServicesSection() {
 
   const services: Service[] = [
     {
-      icon: <FaShoppingBag className="w-6 h-6" />,
-      titleKey: "vipShopping",
-      descriptionKey: "vipShoppingDesc",
+      icon: <FaCar className="w-6 h-6" />,
+      titleKey: "privateTransport",
+      descriptionKey: "privateTransportDesc",
     },
     {
       icon: <FaUtensils className="w-6 h-6" />,
-      titleKey: "highEndDining",
-      descriptionKey: "highEndDiningDesc",
+      titleKey: "diningArrangements",
+      descriptionKey: "diningArrangementsDesc",
     },
     {
-      icon: <FaCar className="w-6 h-6" />,
-      titleKey: "chauffeuredVehicles",
-      descriptionKey: "chauffeuredVehiclesDesc",
-    },
-    {
-      icon: <FaLandmark className="w-6 h-6" />,
-      titleKey: "privateCulturalTours",
-      descriptionKey: "privateCulturalToursDesc",
-    },
-    {
-      icon: <FaLock className="w-6 h-6" />,
-      titleKey: "personalProtection",
-      descriptionKey: "personalProtectionDesc",
+      icon: <FaCalendarAlt className="w-6 h-6" />,
+      titleKey: "dayPlanning",
+      descriptionKey: "dayPlanningDesc",
     },
     {
       icon: <FaHeartbeat className="w-6 h-6" />,
@@ -148,9 +140,29 @@ export default function ServicesSection() {
       descriptionKey: "healthWellnessDesc",
     },
     {
+      icon: <FaShoppingBag className="w-6 h-6" />,
+      titleKey: "vipShopping",
+      descriptionKey: "vipShoppingDesc",
+    },
+    {
+      icon: <FaLandmark className="w-6 h-6" />,
+      titleKey: "culturalExperiences",
+      descriptionKey: "culturalExperiencesDesc",
+    },
+    {
       icon: <FaGlassMartiniAlt className="w-6 h-6" />,
-      titleKey: "nightlifeEvents",
-      descriptionKey: "nightlifeEventsDesc",
+      titleKey: "eveningAccess",
+      descriptionKey: "eveningAccessDesc",
+    },
+    {
+      icon: <FaLock className="w-6 h-6" />,
+      titleKey: "security",
+      descriptionKey: "securityDesc",
+    },
+    {
+      icon: <FaGift className="w-6 h-6" />,
+      titleKey: "gifting",
+      descriptionKey: "giftingDesc",
     },
   ];
 
@@ -183,9 +195,7 @@ export default function ServicesSection() {
           </div>
           <div className="relative z-10 container mx-auto flex flex-col items-start text-left min-h-[80vh] py-32">
             <div className="max-w-lg pl-4 md:pl-6">
-              <h3 className="text-xl md:text-2xl font-cormorant text-white/80 mb-2">
-                {t("serviceMainTitle")}
-              </h3>
+
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-6">
                 {t("serviceSubtitle")}
               </h2>
@@ -230,7 +240,7 @@ export default function ServicesSection() {
             <div className="flex items-center justify-center h-full w-full bg-black text-white p-0">
               <div className="w-full h-full flex flex-col items-center justify-center">
                 <Image
-                  src="/images/dashboard.png"
+                  src="/images/dashboard1.png"
                   alt="Dashboard"
                   width={800}
                   height={600}

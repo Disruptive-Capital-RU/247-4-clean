@@ -81,33 +81,39 @@ const translations: Translations = {
     discoverMore: "Discover More",
 
     // Main service intro
-    serviceMainTitle: "In our own words",
-    serviceSubtitle: "A Service of Presence, Power, and Precision",
+
+    serviceSubtitle: "A Service That Books, Plans, and Elevates",
     serviceIntro:
-      "Reluxi is your private gateway to everything Moscow offers — without noise, delay, or compromise. We specialize in anticipating your desires before you express them.",
+      "From dinner plans to last-minute drivers, Reluxi handles the details so you can enjoy Moscow like a local — with none of the stress.",
 
     // Service offerings
-    vipShopping: "VIP Shopping",
-    vipShoppingDesc:
-      "Private access to Moscow's most prestigious boutiques. Arabic-speaking stylists. Exclusive time slots.",
-    highEndDining: "High-End Dining",
-    highEndDiningDesc:
-      "Guaranteed tables in Moscow's most in-demand restaurants. Chefs prepared for your preferences.",
-    chauffeuredVehicles: "Chauffeured Vehicles",
-    chauffeuredVehiclesDesc:
-      "Black Mercedes, S-Class, Maybach. Professionally trained drivers. Fully discreet. Hourly or daily.",
-    privateCulturalTours: "Private Cultural Tours",
-    privateCulturalToursDesc:
-      "Unlock access to palaces, museums, and Islamic heritage sites with elite guides and interpreters.",
-    personalProtection: "Personal Protection",
-    personalProtectionDesc:
-      "Trained executive protection upon request. For those whose privacy and safety are non-negotiable.",
+    privateTransport: "Private Transport",
+    privateTransportDesc:
+      "From luxury cars to trusted taxis, we arrange transportation that suits your pace, comfort, and discretion — day or night.",
+    diningArrangements: "Dining Arrangements",
+    diningArrangementsDesc:
+      "From reservations at the best restaurants to take-in delivered to your hotel— all arranged to match your taste and timing.",
+    dayPlanning: "Day Planning & Personal Scheduling",
+    dayPlanningDesc:
+      "Your day, thoughtfully arranged — from first steps to final plans, with care that makes the city feel like yours.",
     healthWellness: "Health & Wellness",
     healthWellnessDesc:
-      "Exclusive clinics, VIP access to medical care, cosmetic specialists, and spa recovery — without waiting lists.",
-    nightlifeEvents: "Nightlife & Events",
-    nightlifeEventsDesc:
-      "Entry into closed circles, high society gatherings, and events no tourist can reach.",
+      "We connect you to leading spas, clinics, and specialists — with access arranged around your comfort, privacy, and schedule.",
+    vipShopping: "VIP Shopping",
+    vipShoppingDesc:
+      "Curated access to Moscow's top boutiques — with personal support for styling, privacy, and seamless shopping experiences.",
+    culturalExperiences: "Cultural Experiences",
+    culturalExperiencesDesc:
+      "Private tours of Moscow's landmarks and hidden gems — guided by insiders who speak your language.",
+    eveningAccess: "Evening Access & Events",
+    eveningAccessDesc:
+      "From exclusive lounges to refined social gatherings you won't find online.",
+    security: "Security",
+    securityDesc:
+      "Personal protection, arranged when needed — for moments where privacy and peace of mind matter most.",
+    gifting: "Gifting & Gestures",
+    giftingDesc:
+      "Flowers, small gifts, or meaningful touches — delivered perfectly.",
     
     // Services page
     ourEliteServices: "Our Elite Services",
@@ -148,7 +154,7 @@ const translations: Translations = {
     // Booking page
     bookYour: "Book Your",
     personalConcierge: "Personal Concierge",
-    bookingIntro: "Your time is precious. Start now. Book your personal concierge for 5 days for just $100.",
+    bookingIntro: "Your time is precious. Start now. Share a few details with us, and we'll be in touch right away to lift the stress off your stay.",
     howIt: "How It",
     works: "Works",
     bookNow: "Book Now",
@@ -178,7 +184,7 @@ const translations: Translations = {
     yourTimeIs: "Your Time Is",
     precious: "Precious",
     startNow: "Start Now.",
-    bookingFormDesc: "Book your personal concierge for 5 days for just $100. Once booked, we'll contact you directly to confirm your arrival details, preferences, and priorities.",
+    bookingFormDesc: "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
     fullName: "Full Name",
     yourName: "Your name",
     email: "Email",
@@ -208,13 +214,13 @@ const translations: Translations = {
     processing: "Processing...",
     emailVerificationRequired: "Email Verification Required",
     reserveMyConcierge: "Reserve My Concierge",
-    preReservationNote: "This is a pre-reservation only. You will be contacted within 12 hours to confirm availability and preferences. No payment is collected on the website.",
+
     checkEmailVerification: "Please check your email to verify your account",
     verifyEmailPrompt: "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
     loadingState1: "Matching you with a personal concierge",
     loadingState2: "Checking availability of premium experiences",
     bookingHeadline: "Your Time Is Precious. Start Now.",
-    bookingSubheading: "Book your personal concierge for 5 days for just $100. Once booked, we'll contact you directly to confirm your arrival details, preferences, and priorities.",
+    bookingSubheading: "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
     loadingState3: "Securing your exclusive access",
     loadingState4: "Confirming luxury partner services",
     loadingState5: "Finalizing your reservation",
@@ -228,9 +234,10 @@ const translations: Translations = {
 
     // Golden button section
     goldLogo: "24/7 Logo",
-    goldenButton: "Your Golden Button",
+    goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than just a button — it is your direct line to luxury, discretion, and the finest the city has to offer. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
     goldenButtonInstructions: "Press and hold to add it to your home screen.",
     chooseDevice: "Choose your device to continue:",
     iphone: "iPhone",
@@ -245,7 +252,7 @@ const translations: Translations = {
     // Legacy booking form (these can be deleted later)
     bookingHeader: "Your Time Is Precious. Start Now.",
     bookingDesc:
-      "Book your personal concierge for 5 days for just $100. Once booked, we'll contact you directly to confirm your arrival details, preferences, and priorities.",
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
     phoneWhatsapp: "Phone / WhatsApp *",
     emailHint: "You'll use this email to log into your concierge dashboard",
     arrivalDate: "Arrival Date *",
@@ -424,7 +431,7 @@ const translations: Translations = {
     processing: "جاري المعالجة...",
     emailVerificationRequired: "مطلوب التحقق من البريد الإلكتروني",
     reserveMyConcierge: "احجز مساعدي الشخصي",
-    preReservationNote: "هذا حجز مسبق فقط. سيتم الاتصال بك خلال 12 ساعة لتأكيد التوافر والتفضيلات. لا يتم تحصيل أي مدفوعات على الموقع.",
+
     checkEmailVerification: "يرجى التحقق من بريدك الإلكتروني للتحقق من حسابك",
     verifyEmailPrompt: "يرجى التحقق من عنوان بريدك الإلكتروني قبل المتابعة. تحقق من بريدك الوارد للحصول على رابط التأكيد وعد إلى هذه الصفحة بعد التأكيد.",
     loadingState1: "مطابقتك مع مساعد شخصي",
@@ -704,7 +711,7 @@ const translations: Translations = {
     processing: "处理中...",
     emailVerificationRequired: "需要验证电子邮件",
     reserveMyConcierge: "预订我的管家",
-    preReservationNote: "这只是预先预订。将在12小时内联系您，以确认可用性和偏好。网站上不收取任何付款。",
+
     checkEmailVerification: "请检查您的电子邮件以验证您的账户",
     verifyEmailPrompt: "请在继续之前验证您的电子邮件地址。检查您的收件箱以获取确认链接，并在确认后返回此页面。",
     loadingState1: "为您匹配私人管家",
@@ -975,7 +982,7 @@ const translations: Translations = {
     processing: "Обработка...",
     emailVerificationRequired: "Требуется подтверждение email",
     reserveMyConcierge: "Зарезервировать моего консьержа",
-    preReservationNote: "Это только предварительное бронирование. С вами свяжутся в течение 12 часов для подтверждения доступности и предпочтений. Оплата на сайте не взимается.",
+
     checkEmailVerification: "Пожалуйста, проверьте свою электронную почту для подтверждения аккаунта",
     verifyEmailPrompt: "Пожалуйста, подтвердите свой email-адрес, прежде чем продолжить. Проверьте входящие сообщения на наличие ссылки для подтверждения и вернитесь на эту страницу после подтверждения.",
     loadingState1: "Подбираем для вас личного консьержа",

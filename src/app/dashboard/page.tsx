@@ -445,12 +445,12 @@ export default function Dashboard() {
         </section>
       )}
 
-      {/* Service Categories */}
-      <section className="py-6 bg-[#111]">
+      {/* Services Header */}
+      <section className="py-3 bg-[#111]">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex justify-between items-center mb-6">
+          <div className="flex justify-between items-center mb-3">
             <h2 className="text-2xl font-cormorant font-semibold">
-              {t("browseAndBookServices") || "Browse & Book Services"}
+              {t("allServices") || "All Services"}
             </h2>
             <div className="relative w-full max-w-xs">
               <input
@@ -470,26 +470,39 @@ export default function Dashboard() {
               )}
             </div>
           </div>
-
-          <div className="overflow-x-auto pb-4">
-            <div className="flex space-x-4 min-w-max">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
-                  className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
-                    activeCategory === category.id
-                      ? "bg-[#D4AF37] text-black font-medium"
-                      : "bg-[#222] text-white hover:bg-[#333]"
-                  }`}
-                >
-                  {category.name}
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
+
+      {/* Golden Divider with Animation */}
+      <div className="relative py-1 bg-[#111] overflow-hidden">
+        {/* Gradient background effect */}
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-70"></div>
+        </div>
+        {/* Animated line */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div 
+            className="h-px bg-[#D4AF37] shadow-[0_0_8px_#D4AF37,0_0_20px_rgba(212,175,55,0.3)]" 
+            style={{
+              animation: 'expandLine 1.5s ease-out forwards',
+              width: '0%',
+              boxShadow: '0 0 8px #D4AF37, 0 0 20px rgba(212,175,55,0.3)'
+            }}
+          ></div>
+        </div>
+      </div>
+
+      {/* Animation keyframes */}
+      <style jsx>{`
+        @keyframes expandLine {
+          0% {
+            width: 0%;
+          }
+          100% {
+            width: 100%;
+          }
+        }
+      `}</style>
 
       {/* Services Carousel */}
       <ServicesCarousel addToCart={addToCart} searchQuery={searchQuery} />

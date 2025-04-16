@@ -636,12 +636,13 @@ export default function BookingSection() {
                   className="space-y-6 p-8 rounded-md bg-black/40 w-full mx-auto"
                 >
                   <h2 className="text-5xl font-cormorant font-bold text-white text-center mb-2">
-                    {t("bookingHeadline") ||
-                      "Your Time Is Precious. Start Now."}
+                    {t("bookingHeadline") || (
+                      <>Your Time Is <span className="text-[#D4AF37]">Precious</span>. Start Now.</>
+                    )}
                   </h2>
                   <p className="text-white/70 text-center mb-8">
                     {t("bookingSubheading") ||
-                      "Book your personal concierge for 5 days for just $100. Once booked, we'll contact you directly to confirm your arrival details, preferences, and priorities."}
+                      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest."}
                   </p>
                   <div className="border border-[#D4AF37] rounded-md p-6 space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
@@ -649,8 +650,9 @@ export default function BookingSection() {
                       <div className="space-y-6">
                         <div className="space-y-2">
                           <Label htmlFor="name" className="text-white">
-                            {t("fullName") || "Full Name"} *
-                          </Label>
+  {(t("fullName") || "Full Name")}
+  <span className="text-[#D4AF37] ml-1">*</span>
+</Label>
                           <Input
                             id="name"
                             name="name"
@@ -664,8 +666,9 @@ export default function BookingSection() {
 
                         <div className="space-y-2">
                           <Label htmlFor="email" className="text-white">
-                            {t("email") || "Email"} *
-                          </Label>
+  {(t("email") || "Email")}
+  <span className="text-[#D4AF37] ml-1">*</span>
+</Label>
                           <Input
                             id="email"
                             name="email"
@@ -684,8 +687,9 @@ export default function BookingSection() {
 
                         <div className="space-y-2">
                           <Label htmlFor="password" className="text-white">
-                            {t("password") || "Password"}
-                          </Label>
+  {(t("password") || "Password")}
+  <span className="text-[#D4AF37] ml-1">*</span>
+</Label>
                           <Input
                             id="password"
                             name="password"
@@ -705,8 +709,9 @@ export default function BookingSection() {
                       <div className="space-y-6">
                         <div className="space-y-2">
                           <Label htmlFor="contact" className="text-white">
-                            {t("phone") || "Phone"} *
-                          </Label>
+  {(t("phone") || "Phone")}
+  <span className="text-[#D4AF37] ml-1">*</span>
+</Label>
                           <Input
                             id="contact"
                             name="contact"
@@ -782,18 +787,6 @@ export default function BookingSection() {
                               >
                                 WeChat
                               </SelectItem>
-                              <SelectItem
-                                value="instagram"
-                                className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80"
-                              >
-                                Instagram
-                              </SelectItem>
-                              <SelectItem
-                                value="facebook"
-                                className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80"
-                              >
-                                Facebook
-                              </SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
@@ -864,12 +857,19 @@ export default function BookingSection() {
                       >
                         {t("iAcceptThe") || "I accept the"}{" "}
                         <a href="#" className="text-[#D4AF37] hover:underline">
-                          {t("termsAndConditions") || "terms and conditions"}
-                        </a>{" "}
-                        {t("and") || "and"}{" "}
-                        <a href="#" className="text-[#D4AF37] hover:underline">
-                          {t("privacyPolicy") || "privacy policy"}
-                        </a>
+  {(() => {
+    const label = t("termsAndConditions") || "Terms and Conditions";
+    return label.charAt(0).toUpperCase() + label.slice(1).replace(/\b(terms|conditions)\b/g, (word) => word.charAt(0).toUpperCase() + word.slice(1));
+  })()}
+</a>{" "}
+{t("and") || "and"}{" "}
+<a href="#" className="text-[#D4AF37] hover:underline">
+  {(() => {
+    const label = t("privacyPolicy") || "Privacy Policy";
+    return label.charAt(0).toUpperCase() + label.slice(1).replace(/\b(privacy|policy)\b/g, (word) => word.charAt(0).toUpperCase() + word.slice(1));
+  })()}
+  <span className="text-[#D4AF37] ml-0.5">*</span>
+</a>
                       </label>
                     </div>
 
@@ -913,11 +913,6 @@ export default function BookingSection() {
                             "Email Verification Required"
                           : t("reserveMyConcierge") || "Reserve My Concierge"}
                       </button>
-
-                      <p className="text-white/60 text-sm text-center mt-4">
-                        {t("preReservationNote") ||
-                          "This is a pre-reservation only. You will be contacted within 12 hours to confirm availability and preferences. No payment is collected on the website."}
-                      </p>
                     </div>
                   </div>
                 </form>
