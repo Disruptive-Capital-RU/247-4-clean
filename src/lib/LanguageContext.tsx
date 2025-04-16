@@ -70,14 +70,14 @@ const translations: Translations = {
     philosophy: "Philosophy",
 
     // Hero section
-    eliteConciergeService: "Elite Concierge Service",
-    alwaysWithYou: "The Art of Effortless Booking",
+    eliteConciergeService: "",
+    alwaysWithYou: "Your Personal Travel Assistant",
     heroDescription:
       "A premium personal concierge for travelers visiting Moscow.",
     heroDescription2:
-      "Available 24 hours a day, 7 days a week — to arrange, accompany, protect, and serve.",
+      "Available 24 hours a day, 7 days a week.",
     reserveYourConcierge: "Reserve Your Concierge",
-    pricingInfo: "5 days • $100 USD",
+    pricingInfo: "",
     discoverMore: "Discover More",
 
     // Main service intro
@@ -318,14 +318,14 @@ const translations: Translations = {
     philosophy: "خدمتنا",
 
     // Hero section
-    eliteConciergeService: "خدمة كونسيرج النخبة",
-    alwaysWithYou: "دائما معك",
+    eliteConciergeService: "",
+    alwaysWithYou: "مساعد السفر الشخصي الخاص بك",
     heroDescription:
       "خدمة كونسيرج شخصية متميزة للمسافرين العرب الذين يزورون موسكو.",
     heroDescription2:
-      "متاحة على مدار الساعة طوال أيام الأسبوع - للترتيب والمرافقة والحماية والخدمة.",
+      "متاحة على مدار الساعة طوال أيام الأسبوع.",
     reserveYourConcierge: "احجز الكونسيرج الخاص بك",
-    pricingInfo: "5 أيام • 100 دولار أمريكي",
+    pricingInfo: "",
     discoverMore: "اكتشف المزيد",
 
     // Main service intro
@@ -605,12 +605,12 @@ const translations: Translations = {
     philosophy: "理念",
 
     // Hero section
-    eliteConciergeService: "精英礼宾服务",
-    alwaysWithYou: "与您同行",
-    heroDescription: "为访问莫斯科的阿拉伯旅行者提供高级个人礼宾服务。",
-    heroDescription2: "全天候提供服务，全周七天 — 安排、陪同、保护和服务。",
-    reserveYourConcierge: "预订您的礼宾服务",
-    pricingInfo: "5天 • 100美元",
+    eliteConciergeService: "",
+    alwaysWithYou: "您的个人旅行助手",
+    heroDescription: "为访问莫斯科的旅行者提供高级个人礼宾服务。",
+    heroDescription2: "全天候24/7服务。",
+    reserveYourConcierge: "预订您的礼宾",
+    pricingInfo: "",
     discoverMore: "了解更多",
 
     // Main service intro
@@ -863,14 +863,14 @@ const translations: Translations = {
     philosophy: "философия",
 
     // Hero section
-    eliteConciergeService: "Элитный консьерж-сервис",
-    alwaysWithYou: "Искусство легкого бронирования",
+    eliteConciergeService: "",
+    alwaysWithYou: "Ваш Личный Ассистент в Путешествии",
     heroDescription:
       "Премиальный личный консьерж для путешественников, посещающих Москву.",
     heroDescription2:
-      "Доступен 24 часа в сутки, 7 дней в неделю — для организации, сопровождения, защиты и обслуживания.",
+      "Доступен 24 часа в сутки, 7 дней в неделю.",
     reserveYourConcierge: "Забронировать консьержа",
-    pricingInfo: "5 дней • 100$ USD",
+    pricingInfo: "",
     discoverMore: "Узнать больше",
 
     // Main service intro

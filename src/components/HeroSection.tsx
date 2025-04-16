@@ -36,10 +36,7 @@ export default function HeroSection() {
           className="max-w-4xl mx-auto"
         >
           <h1 className="font-cormorant text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 text-white">
-            <span className="block">Reluxi</span>
-            <span className="text-[#D4AF37] block">
-              {t("eliteConciergeService")}
-            </span>
+            <span className="block text-[#D4AF37] text-5xl md:text-7xl lg:text-8xl">Reluxi</span>
             <span className="text-2xl md:text-3xl lg:text-4xl font-normal block mt-4">
               {t("alwaysWithYou")}
             </span>
@@ -59,15 +56,15 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
+            className="mt-16"
           >
             <Link
               href="/book"
-              className="font-dm-sans inline-block px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium text-lg rounded-sm hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all duration-300"
+              className="font-dm-sans inline-block px-7 py-3 border border-[#D4AF37] text-[#D4AF37] bg-black/60 font-medium text-base rounded-sm transition-all duration-300 hover:bg-[#D4AF37] hover:text-black capitalize"
+              style={{ minWidth: '180px' }}
             >
-              {t("reserveYourConcierge")}
-              <span className="block text-sm mt-1 opacity-80">
-                {t("pricingInfo")}
-              </span>
+              <span className="block leading-tight font-dm-sans text-base capitalize">{t("reserve") + " " + t("your")}</span>
+              <span className="block font-dm-sans text-base capitalize">{t("concierge")}</span>
             </Link>
           </motion.div>
         </motion.div>
