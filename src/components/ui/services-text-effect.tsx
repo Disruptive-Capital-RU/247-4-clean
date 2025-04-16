@@ -40,7 +40,7 @@ export const ServicesTextEffect = ({
               key={word + idx}
               className={cn(
                 "opacity-0 inline-block mr-4",
-                idx === 1 ? "text-[#D4AF37]" : "text-white"
+                wordsArray.length === 1 || idx === 1 ? "text-[#D4AF37]" : "text-white"
               )}
               style={{
                 filter: filter ? "blur(10px)" : "none",

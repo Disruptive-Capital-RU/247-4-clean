@@ -248,8 +248,8 @@ export default function HomeIntroAnimation({
 
       <div className="text-center px-4 relative z-30 max-w-4xl mx-auto">
         <ServicesTextEffect
-          words="Reluxi Elite Concierge"
-          className="mb-8"
+          words="Reluxi"
+          className="mb-8 text-[#D4AF37]"
           duration={0.8}
         />
 
@@ -265,12 +265,12 @@ export default function HomeIntroAnimation({
         />
 
         <motion.p
-          className="mt-8 text-xl md:text-2xl text-white/70 max-w-3xl mx-auto font-cormorant tracking-wide"
+          className="mt-8 text-xl md:text-2xl text-white max-w-3xl mx-auto font-cormorant tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 4 }}
         >
-          Because You Deserve To Travel With Ease
+          Your Personal Travel Assistant
         </motion.p>
       </div>
     </motion.div>

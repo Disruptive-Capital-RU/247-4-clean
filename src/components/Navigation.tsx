@@ -209,22 +209,18 @@ export default function Navigation() {
         <div className="flex-1 flex justify-start">
           <Link
             href="/"
-            className="text-xl md:text-2xl font-cormorant tracking-wider text-white"
+            className="flex items-center text-xl md:text-2xl font-cormorant tracking-wider text-white"
           >
+            <Image
+              src={logo}
+              alt="Reluxi Concierge Logo"
+              width={40}
+              height={16}
+              className="object-contain mr-4"
+            />
             <span className="font-bold">Reluxi</span>
             <span className="text-[#D4AF37] ml-2">Concierge</span>
           </Link>
-        </div>
-
-        {/* Center logo */}
-        <div className="flex justify-center items-center absolute left-1/2 transform -translate-x-1/2">
-          <Image
-            src={logo}
-            alt="Reluxi Concierge Logo"
-            width={40}
-            height={16}
-            className="object-contain"
-          />
         </div>
 
         {/* Right section */}
