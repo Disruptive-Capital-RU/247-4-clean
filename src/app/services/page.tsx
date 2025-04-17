@@ -149,7 +149,7 @@ export default function ServicesPage() {
                         <div>
                           <h3 className="text-xl md:text-2xl font-cormorant font-bold text-white mb-2">One-Day Experience</h3>
                           <div className="mb-4">
-                            <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">Starting at $75</p>
+                            <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">$75</p>
                           </div>
                           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
                           
