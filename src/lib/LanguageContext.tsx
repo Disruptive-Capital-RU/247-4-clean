@@ -46,8 +46,8 @@ const translations: Translations = {
       "Discover our range of premium concierge services tailored to your needs and preferences.",
     whatYouReceive: "What You Receive in Every Plan:",
     planDescription:
-      "From the moment your journey begins, we take over every detail — with precision, elegance, and unwavering discretion. Each plan unlocks a complete suite of premium services designed to liberate your time, so you can focus entirely on what matters: living fully.",
-    planOverview: "Plan Overview",
+      "Reluxi offers three ways to experience seamless, personal support — whether you're staying in Moscow for a few days, need help with a single special day, or want ongoing access to someone who understands you. All options come with 24/7 availability, human communication, and thoughtful coordination behind every moment.",
+    planOverview: "Service, On Your Terms",
     readyToExperience: "Ready to Experience True Luxury?",
     bookYourPersonal:
       "Book your personal concierge now and transform your Moscow experience into something extraordinary.",

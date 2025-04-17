@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { motion, stagger, useAnimate } from "framer-motion";
+import { motion, stagger, useAnimate, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/LanguageContext";
 import { ServicesTextEffect } from "@/components/ui/services-text-effect";
 import { useRouter } from "next/navigation";
@@ -13,6 +13,9 @@ export default function ServicesPage() {
   const router = useRouter();
   const [showContent, setShowContent] = useState(false);
   const [scope, animate] = useAnimate();
+  
+  // State to track if sections are expanded (single state for all sections)
+  const [sectionsExpanded, setSectionsExpanded] = useState(false);
 
   // Handle plan selection
   const handlePlanSelect = (planName: string, planType: string, price: string, days?: number) => {
@@ -81,7 +84,7 @@ export default function ServicesPage() {
 
           <div className="text-center px-4 relative z-30 max-w-4xl mx-auto">
             <ServicesTextEffect
-              words="Concierge Service Plans"
+              words="How We Serve You"
               className="mb-8"
               duration={0.8}
             />
@@ -113,25 +116,8 @@ export default function ServicesPage() {
         <div ref={scope} className="flex flex-col pt-24">
           <Navigation />
 
-          {/* Hero Section */}
-          <section className="relative pt-28 pb-16 overflow-hidden">
-            <div className="container mx-auto px-4 md:px-6 relative z-10">
-              <motion.div 
-                className="max-w-4xl mx-auto text-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-cormorant font-bold text-white mb-6">
-                  {t("planOverview")}
-                  <span className="text-[#D4AF37]"> — {t("freedom")}</span>
-                </h1>
-              </motion.div>
-            </div>
-          </section>
-
-          {/* Pricing Content */}
-          <section className="py-12 bg-black">
+          {/* Content Section with reduced spacing */}
+          <section className="pt-8 bg-black">
             <div className="container mx-auto px-4 md:px-6">
               <motion.div 
                 className="max-w-4xl mx-auto"
@@ -139,125 +125,210 @@ export default function ServicesPage() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                {/* What You Receive Section */}
+                {/* Main title */}
+                <div className="mb-8 text-center">
+                  <h1 className="text-4xl md:text-5xl font-cormorant font-bold text-white mb-6">
+                    How We <span className="text-[#D4AF37]">Serve</span> You
+                  </h1>
+                </div>
+                
+                {/* Main content section */}
                 <div className="mb-16">
-                  <h2 className="text-2xl md:text-3xl font-cormorant font-semibold text-white mb-6">
-                    {t("whatYouReceive")}
-                  </h2>
                   <p className="font-dm-sans text-lg text-white/80 mb-8">
                     {t("planDescription")}
                   </p>
                 </div>
 
-                {/* Plan Overview */}
+                {/* Plans Overview */}
                 <div className="mb-16">
-                  <h2 className="text-2xl md:text-3xl font-cormorant font-semibold text-white mb-8 text-center">
-                    {t("planOverview")}
-                  </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {/* 3 Day Plan */}
-                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {/* One-Day Experience */}
+                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-8 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
                       <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
                       <div className="relative z-10 flex flex-col flex-grow">
                         <div>
-                          <h3 className="text-xl font-cormorant font-bold text-white mb-2">3 Day Plan</h3>
+                          <h3 className="text-xl md:text-2xl font-cormorant font-bold text-white mb-2">One-Day Experience</h3>
                           <div className="mb-4">
-                            <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$36</p>
-                            <p className="text-sm font-dm-sans text-white/70">($12/day)</p>
+                            <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">Starting at $75</p>
                           </div>
                           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
+                          
                           <div className="mb-4">
-                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
-                            <p className="font-dm-sans text-white/90">Weekend escapes, romantic city breaks</p>
+                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Designed For</h4>
+                            <p className="font-dm-sans text-white/90 mb-4">Special occasions, business needs, or quality time with family — when one day deserves to be perfectly handled.</p>
+                            
+                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">What You Get</h4>
+                            <p className="font-dm-sans text-white/90 mb-4">A curated one-day experience tailored around your goals — personal or professional. We handle the bookings, timing, and flow so your day feels effortless.</p>
+                            
+                            <div className="mb-4">
+                              <button 
+                                onClick={() => setSectionsExpanded(!sectionsExpanded)}
+                                className="flex items-center justify-between w-full text-left"
+                              >
+                                <h4 className="text-sm font-dm-sans font-medium text-white/80">Examples Include</h4>
+                                <span className="text-[#D4AF37]">
+                                  {sectionsExpanded ? '−' : '+'}
+                                </span>
+                              </button>
+                              
+                              <AnimatePresence>
+                                {sectionsExpanded && (
+                                  <motion.div 
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: "auto", opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                    className="overflow-hidden"
+                                  >
+                                    <div className="mt-2 pl-1 border-l border-[#D4AF37]/30">
+                                      <ul className="font-dm-sans text-white/90 mb-4 list-disc pl-5 space-y-2">
+                                        <li>A romantic evening with private transport, dinner reservations, and a floral surprise</li>
+                                        <li>A family day with thoughtfully planned activities, cultural visits, and group-friendly dining — all arranged to keep the day flowing with ease</li>
+                                        <li>A business day with meeting space bookings, restaurant coordination, and transport between locations</li>
+                                      </ul>
+                                      <p className="font-dm-sans text-white/90">Tell us the kind of day you need — and we'll make it seamless.</p>
+                                    </div>
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </div>
                           </div>
                         </div>
                         <div className="mt-auto">
                           <button 
-                            onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
-                            className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                            onClick={() => handlePlanSelect("One-Day Experience", "One-Day Plan", "$75")}
+                            className="w-full py-3 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                           >
-                            {t("selectPlan") || "Select Plan"}
+                            Request One-Day Plan
                           </button>
                         </div>
                       </div>
                     </div>
 
-                    {/* 5 Day Plan */}
-                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
+                    {/* 3-Day Concierge Plan */}
+                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-8 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
                       <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
                       <div className="relative z-10 flex flex-col flex-grow">
+                        <div className="absolute top-10 right-2 bg-[#D4AF37]/20 px-3 py-1 rounded-full">
+                          <span className="text-xs font-dm-sans text-[#D4AF37] font-medium">Most Popular</span>
+                        </div>
                         <div>
-                          <h3 className="text-xl font-cormorant font-bold text-white mb-2">5 Day Plan</h3>
+                          <h3 className="text-xl md:text-2xl font-cormorant font-bold text-white mb-2">3-Day Concierge Plan</h3>
                           <div className="mb-4">
-                            <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$50</p>
-                            <p className="text-sm font-dm-sans text-white/70">($10/day)</p>
+                            <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">$139</p>
                           </div>
                           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
+                          
                           <div className="mb-4">
-                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
-                            <p className="font-dm-sans text-white/90">Leisure travel, business-stay support</p>
+                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Designed For</h4>
+                            <p className="font-dm-sans text-white/90 mb-4">Short getaways, city breaks, or visitors who want complete support without long-term commitment.</p>
+                            
+                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">What You Get</h4>
+                            <p className="font-dm-sans text-white/90 mb-4">Three full days of unlimited, personalized concierge assistance — available at any hour. Ideal for those who want to experience the best of Moscow without stress or planning.</p>
+                            
+                            <div className="mb-4">
+                              <button 
+                                onClick={() => setSectionsExpanded(!sectionsExpanded)}
+                                className="flex items-center justify-between w-full text-left"
+                              >
+                                <h4 className="text-sm font-dm-sans font-medium text-white/80">Includes</h4>
+                                <span className="text-[#D4AF37]">
+                                  {sectionsExpanded ? '−' : '+'}
+                                </span>
+                              </button>
+                              
+                              <AnimatePresence>
+                                {sectionsExpanded && (
+                                  <motion.div 
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: "auto", opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                    className="overflow-hidden"
+                                  >
+                                    <div className="mt-2 pl-1 border-l border-[#D4AF37]/30">
+                                      <ul className="font-dm-sans text-white/90 mb-4 list-disc pl-5 space-y-2">
+                                        <li>24/7 concierge access via your preferred messaging app</li>
+                                        <li>Booking & coordination across dining, transport, wellness, events, and more</li>
+                                        <li>Option to add additional days for $39/day — same service, same ease</li>
+                                      </ul>
+                                      <p className="font-dm-sans text-white/90">Start your journey with Reluxi — and experience how effortless travel can feel.</p>
+                                    </div>
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </div>
                           </div>
                         </div>
                         <div className="mt-auto">
                           <button 
-                            onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
-                            className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                            onClick={() => handlePlanSelect("3-Day Concierge Plan", "Multi-Day Plan", "$139", 3)}
+                            className="w-full py-3 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                           >
-                            {t("selectPlan") || "Select Plan"}
+                            Start 3-Day Plan
                           </button>
                         </div>
                       </div>
                     </div>
 
-                    {/* 7 Day Plan */}
-                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
+                    {/* Monthly Membership */}
+                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-8 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
                       <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
                       <div className="relative z-10 flex flex-col flex-grow">
                         <div>
-                          <h3 className="text-xl font-cormorant font-bold text-white mb-2">7 Day Plan</h3>
+                          <h3 className="text-xl md:text-2xl font-cormorant font-bold text-white mb-2">Monthly Membership</h3>
                           <div className="mb-4">
-                            <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$63</p>
-                            <p className="text-sm font-dm-sans text-white/70">($9/day)</p>
+                            <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">$339/month</p>
                           </div>
                           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
+                          
                           <div className="mb-4">
-                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
-                            <p className="font-dm-sans text-white/90">Long vacations, events, or premium hospitality</p>
+                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Designed For</h4>
+                            <p className="font-dm-sans text-white/90 mb-4">Frequent travelers, busy professionals, and city residents who want continuous access to Reluxi's full support.</p>
+                            
+                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">What You Get</h4>
+                            <p className="font-dm-sans text-white/90 mb-4">Unlimited monthly concierge access with a dedicated point of contact who learns your preferences and adapts to your rhythm.</p>
+                            
+                            <div className="mb-4">
+                              <button 
+                                onClick={() => setSectionsExpanded(!sectionsExpanded)}
+                                className="flex items-center justify-between w-full text-left"
+                              >
+                                <h4 className="text-sm font-dm-sans font-medium text-white/80">Includes</h4>
+                                <span className="text-[#D4AF37]">
+                                  {sectionsExpanded ? '−' : '+'}
+                                </span>
+                              </button>
+                              
+                              <AnimatePresence>
+                                {sectionsExpanded && (
+                                  <motion.div 
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: "auto", opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                    className="overflow-hidden"
+                                  >
+                                    <div className="mt-2 pl-1 border-l border-[#D4AF37]/30">
+                                      <ul className="font-dm-sans text-white/90 mb-4 list-disc pl-5 space-y-2">
+                                        <li>24/7 availability with no limitations</li>
+                                        <li>Personalized planning across daily life, travel, dining, and more</li>
+                                        <li>Consistent care and service across multiple trips or ongoing needs</li>
+                                      </ul>
+                                      <p className="font-dm-sans text-white/90">Enjoy continuous, elevated support — no matter how often you need us.</p>
+                                    </div>
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </div>
                           </div>
                         </div>
                         <div className="mt-auto">
                           <button 
-                            onClick={() => handlePlanSelect("7 Day Plan", "Multi-Day Plan", "$63", 7)}
-                            className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                            onClick={() => handlePlanSelect("Monthly Membership", "Membership", "$339")}
+                            className="w-full py-3 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                           >
-                            {t("selectPlan") || "Select Plan"}
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Customizable Plan */}
-                    <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
-                      <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
-                      <div className="relative z-10 flex flex-col flex-grow">
-                        <div>
-                          <h3 className="text-xl font-cormorant font-bold text-white mb-2">Customizable Plan</h3>
-                          <div className="mb-4">
-                            <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">Custom</p>
-                            <p className="text-sm font-dm-sans text-white/70">Pricing upon request</p>
-                          </div>
-                          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
-                          <div className="mb-4">
-                            <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Ideal For</h4>
-                            <p className="font-dm-sans text-white/90">High-net-worth individuals, business delegations, VIP events</p>
-                          </div>
-                        </div>
-                        <div className="mt-auto">
-                          <button 
-                            onClick={() => router.push('/contact')}
-                            className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
-                          >
-                            {t("contactUs") || "Contact Us"}
+                            Become a Member
                           </button>
                         </div>
                       </div>
@@ -265,146 +336,7 @@ export default function ServicesPage() {
                   </div>
                 </div>
 
-                {/* One-Day Premium Plans */}
-                <div className="mb-16">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                  >
-                    <h2 className="text-3xl md:text-4xl font-cormorant font-bold text-white mb-6 text-center">
-                      {t("oneDayPremiumPlans") || "One-Day Premium Plans"}
-                      <span className="text-[#D4AF37]"> — {t("everyDetailMasterfully") || "Every Detail, Masterfully Orchestrated"}</span>
-                    </h2>
-                    <p className="font-dm-sans text-lg text-white/80 mb-8 text-center max-w-4xl mx-auto">
-                      When time is limited but the occasion demands perfection, our One-Day Premium Plans offer a level of care, style, and execution that transforms ordinary moments into flawless experiences. 
-                      Whether it's a romantic escape or an important business meeting, we deliver an atmosphere of ease, elegance, and complete control — all in just one day.
-                    </p>
-
-                    <h3 className="text-xl md:text-2xl font-cormorant font-semibold text-white mb-4 text-center">
-                      What's Included in Each Plan:
-                    </h3>
-                    <p className="font-dm-sans text-lg text-white/80 mb-8 text-center max-w-3xl mx-auto">
-                      All plans include personalized coordination, real-time support, and exclusive access — ensuring your day flows effortlessly from start to finish.
-                    </p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-                      {/* Date Plan Card */}
-                      <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
-                        <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
-                        <div className="relative z-10 flex flex-col flex-grow">
-                          <div>
-                            <h3 className="text-xl font-cormorant font-bold text-white mb-2">Date Plan (1 Day)</h3>
-                            <div className="mb-4">
-                              <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$20</p>
-                            </div>
-                            <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
-                            
-                            <div className="mb-4">
-                              <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Designed For</h4>
-                              <p className="font-dm-sans text-white/90 text-sm">Romantic escapes, anniversaries, private proposals, or memorable first impressions</p>
-                            </div>
-                            
-                            <div className="mb-4">
-                              <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Key Services</h4>
-                              <ul className="list-disc pl-5 space-y-1 text-sm font-dm-sans text-white/90">
-                                <li>Romantic venue selection</li>
-                                <li>Custom floral arrangements or gifts</li>
-                                <li>Elegant dinner reservation</li>
-                                <li>Travel arrangements (e.g., taxi premium)</li>
-                              </ul>
-                              <p className="mt-2 text-white/70 italic text-xs">Prefer a spa instead of flowers? Simply let us know — every detail is tailorable.</p>
-                            </div>
-                          </div>
-                          
-                          <div className="mt-auto">
-                            <button 
-                              onClick={() => router.push(`/cart?planName=Date Plan&planType=One-Day Premium Plan&price=$20&days=1`)}
-                              className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
-                            >
-                              {t("selectPlan") || "Select Plan"}
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Business Meeting Plan Card */}
-                      <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
-                        <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
-                        <div className="relative z-10 flex flex-col flex-grow">
-                          <div>
-                            <h3 className="text-xl font-cormorant font-bold text-white mb-2">Business Meeting Plan (1 Day)</h3>
-                            <div className="mb-4">
-                              <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">$100</p>
-                            </div>
-                            <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
-                            
-                            <div className="mb-4">
-                              <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Designed For</h4>
-                              <p className="font-dm-sans text-white/90 text-sm">High-stakes meetings, investor presentations, product launches, or confidential briefings</p>
-                            </div>
-                            
-                            <div className="mb-4">
-                              <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Key Services</h4>
-                              <ul className="list-disc pl-5 space-y-1 text-sm font-dm-sans text-white/90">
-                                <li>Premium venue booking</li>
-                                <li>Professional tech setup (screens, projectors, high-speed Wi-Fi)</li>
-                                <li>Full catering or Michelin-level restaurant booking</li>
-                                <li>On-site assistant & coordination</li>
-                              </ul>
-                              <p className="mt-2 text-white/70 italic text-xs">Have special dietary needs or a different setup in mind? We're flexible.</p>
-                            </div>
-                          </div>
-                          
-                          <div className="mt-auto">
-                            <button 
-                              onClick={() => router.push(`/cart?planName=Date Plan&planType=One-Day Premium Plan&price=$20&days=1`)}
-                              className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
-                            >
-                              {t("selectPlan") || "Select Plan"}
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Customizable Plan Card */}
-                      <div className="animate-item relative bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
-                        <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
-                        <div className="relative z-10 flex flex-col flex-grow">
-                          <div>
-                            <h3 className="text-xl font-cormorant font-bold text-white mb-2">Customizable Plan</h3>
-                            <div className="mb-4">
-                              <p className="text-2xl font-cormorant font-bold text-[#D4AF37] mb-1">Custom</p>
-                              <p className="text-sm font-dm-sans text-white/70">Pricing upon request</p>
-                            </div>
-                            <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
-                            
-                            <div className="mb-4">
-                              <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Designed For</h4>
-                              <p className="font-dm-sans text-white/90 text-sm">VIP-level custom events — board meetings, celebrations, press events, protocol visits</p>
-                            </div>
-                            
-                            <div className="mb-4">
-                              <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">Key Services</h4>
-                              <p className="font-dm-sans text-white/90 text-sm">All services are fully tailored: from logistics to ambiance, security, cultural protocol, and beyond</p>
-                            </div>
-                          </div>
-                          
-                          <div className="mt-auto">
-                            <button 
-                              onClick={() => router.push('/contact')}
-                              className="w-full py-2 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
-                            >
-                              {t("contactUs") || "Contact Us"}
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* À La Carte Services */}
+                {/* Quick Requests */}
                 <div className="mb-16">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -412,12 +344,11 @@ export default function ServicesPage() {
                     transition={{ duration: 0.8, delay: 0.9 }}
                   >
                     <h2 className="text-3xl md:text-4xl font-cormorant font-bold text-white mb-6">
-                      À La Carte Services
-                      <span className="text-[#D4AF37]"> — Spontaneity, Simplified</span>
+                      Quick Requests
+                      <span className="text-[#D4AF37]"> — One Task, Handled Fast</span>
                     </h2>
                     <p className="font-dm-sans text-lg text-white/80 mb-8">
-                      Not ready for a plan? No problem. Whether it's a last-minute dinner reservation, a luxury car, or VIP access — we're here to assist.<br />
-                      <strong>Simply request the service you need — and we'll arrange it for a flat $5 commission.</strong>
+                      Text us your request — we&apos;ll confirm it for a flat $5 commission. Perfect for spontaneous needs or first-time users who want to try Reluxi — one message at a time.
                     </p>
 
                     <div className="overflow-x-auto">
@@ -425,7 +356,7 @@ export default function ServicesPage() {
                         <tbody>
                           <tr className="border-b border-white/10">
                             <td className="py-4 px-2 font-dm-sans font-medium text-white">How It Works</td>
-                            <td className="py-4 px-2 font-dm-sans text-white/90">Pay-per-request concierge service — no plan needed</td>
+                            <td className="py-4 px-2 font-dm-sans text-white/90">Pay-per-request concierge service — no plan required</td>
                           </tr>
                           <tr className="border-b border-white/10">
                             <td className="py-4 px-2 font-dm-sans font-medium text-white">Commission Fee</td>
@@ -433,14 +364,23 @@ export default function ServicesPage() {
                           </tr>
                           <tr className="border-b border-white/10">
                             <td className="py-4 px-2 font-dm-sans font-medium text-white">Ideal For</td>
-                            <td className="py-4 px-2 font-dm-sans text-white/90">One-off bookings (e.g., restaurant, taxi, event ticket, courier)</td>
+                            <td className="py-4 px-2 font-dm-sans text-white/90">One-off bookings (e.g., restaurant, transportation, event tickets, courier)</td>
                           </tr>
                           <tr>
                             <td className="py-4 px-2 font-dm-sans font-medium text-white">Delivery Time</td>
-                            <td className="py-4 px-2 font-dm-sans text-white/90">Fast turnaround & real-time coordination</td>
+                            <td className="py-4 px-2 font-dm-sans text-white/90">Everything arranged within minutes — smooth, fast, and confirmed in real time</td>
                           </tr>
                         </tbody>
                       </table>
+                    </div>
+                    
+                    <div className="mt-8 text-center">
+                      <button 
+                        onClick={() => router.push('/contact')}
+                        className="px-8 py-3 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
+                      >
+                        Request a Booking
+                      </button>
                     </div>
                   </motion.div>
                 </div>
@@ -448,10 +388,10 @@ export default function ServicesPage() {
                 {/* CTA Section */}
                 <div className="text-center py-8 animate-item" style={{ opacity: 0, transform: 'translateY(20px)' }}>
                   <h2 className="text-3xl md:text-4xl font-cormorant font-bold text-white mb-6">
-                    {t("readyToExperience")}
+                    Ready to Actually Enjoy Your Trip — Without Wasting Time or Energy?
                   </h2>
                   <p className="font-dm-sans text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-                    {t("bookYourPersonal")}
+                    Reluxi saves you hours of searching and planning. You focus on the experience — we&apos;ll handle everything else.
                   </p>
                   <motion.a
                     href="/book"

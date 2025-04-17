@@ -15,7 +15,7 @@ export const ServicesTextEffect = ({
   duration?: number;
 }) => {
   const [scope, animate] = useAnimate();
-  let wordsArray = words.split(" ");
+  const wordsArray = words.split(" ");
 
   useEffect(() => {
     animate(
@@ -29,18 +29,23 @@ export const ServicesTextEffect = ({
         delay: stagger(0.3),
       }
     );
-  }, [scope.current, animate, duration, filter]);
+  }, [animate, duration, filter]);
 
   const renderWords = () => {
+    // Split the words into first line and second line
+    const firstLineWords = wordsArray.slice(0, 2); // 'How We'
+    const secondLineWords = wordsArray.slice(2); // 'Serve You'
+
     return (
-      <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => {
-          return (
+      <motion.div ref={scope} className="flex flex-col items-center">
+        {/* First line */}
+        <div className="mb-2">
+          {firstLineWords.map((word, idx) => (
             <motion.span
-              key={word + idx}
+              key={`first-${word}-${idx}`}
               className={cn(
                 "opacity-0 inline-block mr-4",
-                wordsArray.length === 1 || idx === 1 ? "text-[#D4AF37]" : "text-white"
+                "text-white"
               )}
               style={{
                 filter: filter ? "blur(10px)" : "none",
@@ -48,8 +53,26 @@ export const ServicesTextEffect = ({
             >
               {word}
             </motion.span>
-          );
-        })}
+          ))}
+        </div>
+
+        {/* Second line */}
+        <div>
+          {secondLineWords.map((word, idx) => (
+            <motion.span
+              key={`second-${word}-${idx}`}
+              className={cn(
+                "opacity-0 inline-block mr-4",
+                word.toLowerCase().includes("serve") ? "text-[#D4AF37]" : "text-white"
+              )}
+              style={{
+                filter: filter ? "blur(10px)" : "none",
+              }}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </div>
       </motion.div>
     );
   };
