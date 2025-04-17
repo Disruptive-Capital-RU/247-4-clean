@@ -65,7 +65,7 @@ const translations: Translations = {
     whyUsQuote: "Even when you're far, you're close to my heart.",
     whyUsQuoteSource: "Inspired by Amr Diab's 'Tamly Ma'ak'",
     whyChooseReluxi: "Why Choose",
-    whyChooseReluxiDesc: "We elevate your Moscow experience through a commitment to excellence that goes beyond conventional concierge services.",
+    whyChooseReluxiDesc: "Reluxi is more than a concierge — it's your trusted presence in a foreign city. With too many options, not enough time, and no one to filter the noise, we're here to guide, simplify, and support. Our mission is to remove the stress and friction of unfamiliar places, so every moment feels purposeful, cared for, and entirely your own.",
     ourServicePhilosophy: "Our Service",
     philosophy: "Philosophy",
 
