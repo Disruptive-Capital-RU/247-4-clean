@@ -73,7 +73,7 @@ const translations: Translations = {
     eliteConciergeService: "",
     alwaysWithYou: "Your Personal Travel Assistant",
     heroDescription:
-      "A premium personal concierge for travelers visiting Moscow.",
+      "We save you hours of searching and planning.",
     heroDescription2:
       "Available 24 hours a day, 7 days a week.",
     reserveYourConcierge: "Reserve Your Concierge",
@@ -328,7 +328,7 @@ const translations: Translations = {
     eliteConciergeService: "",
     alwaysWithYou: "مساعد السفر الشخصي الخاص بك",
     heroDescription:
-      "خدمة كونسيرج شخصية متميزة للمسافرين العرب الذين يزورون موسكو.",
+      "نوفر لك ساعات من البحث والتخطيط.",
     heroDescription2:
       "متاحة على مدار الساعة طوال أيام الأسبوع.",
     reserveYourConcierge: "احجز الكونسيرج الخاص بك",
@@ -614,7 +614,7 @@ const translations: Translations = {
     // Hero section
     eliteConciergeService: "",
     alwaysWithYou: "您的个人旅行助手",
-    heroDescription: "为访问莫斯科的旅行者提供高级个人礼宾服务。",
+    heroDescription: "我们为您节省数小时的搜索和规划时间。",
     heroDescription2: "全天候24/7服务。",
     reserveYourConcierge: "预订您的礼宾",
     pricingInfo: "",
@@ -873,7 +873,7 @@ const translations: Translations = {
     eliteConciergeService: "",
     alwaysWithYou: "Ваш Личный Ассистент в Путешествии",
     heroDescription:
-      "Премиальный личный консьерж для путешественников, посещающих Москву.",
+      "Мы экономим ваше время на поиск и планирование.",
     heroDescription2:
       "Доступен 24 часа в сутки, 7 дней в неделю.",
     reserveYourConcierge: "Забронировать консьержа",

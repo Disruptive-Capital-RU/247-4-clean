@@ -230,7 +230,7 @@ export default function Navigation() {
             {user ? (
               <>
                 <NavLink href="/dashboard/services">{t("accessSuite")}</NavLink>
-                <NavLink href="/pricing">{t("pricing")}</NavLink>
+                <NavLink href="/services">{t("services")}</NavLink>
                 <NavLink href="/dashboard">{t("dashboard")}</NavLink>
                 <button
                   onClick={handleLogout}
@@ -243,7 +243,6 @@ export default function Navigation() {
               <>
                 <NavLink href="/why-us">{t("whyUs")}</NavLink>
                 <NavLink href="/services">{t("services")}</NavLink>
-                <NavLink href="/pricing">{t("pricing")}</NavLink>
                 <LanguageSelector />
                 <button
                   onClick={() => setShowLoginModal(true)}
@@ -309,8 +308,8 @@ export default function Navigation() {
                 >
                   {t("accessSuite")}
                 </NavLink>
-                <NavLink href="/pricing" onClick={() => setIsMenuOpen(false)}>
-                  {t("pricing")}
+                <NavLink href="/services" onClick={() => setIsMenuOpen(false)}>
+                  {t("services")}
                 </NavLink>
                 <NavLink href="/dashboard" onClick={() => setIsMenuOpen(false)}>
                   {t("dashboard")}
@@ -332,9 +331,6 @@ export default function Navigation() {
                 </NavLink>
                 <NavLink href="/services" onClick={() => setIsMenuOpen(false)}>
                   {t("services")}
-                </NavLink>
-                <NavLink href="/pricing" onClick={() => setIsMenuOpen(false)}>
-                  {t("pricing")}
                 </NavLink>
                 <button
                   onClick={() => {
