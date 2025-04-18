@@ -328,18 +328,11 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             <div className="md:col-span-2">
               <h1 className="text-3xl md:text-4xl font-cormorant font-semibold text-white mb-2">
-                {t("welcomeBack") || "Welcome back"}, <span className="text-[#D4AF37]">{userName}</span>
+                Dear <span className="text-[#D4AF37]">{userName}</span>
                 .
               </h1>
               <p className="text-white/80 text-lg">
-                {t("personalConciergeService") || "Your personal concierge is at your service."}
-              </p>
-              <p className="text-white/60 mt-2">
-                {t("youHave") || "You have"}{" "}
-                <span className="text-[#D4AF37] font-medium">
-                  {daysRemaining} {t("days") || "days"}
-                </span>{" "}
-                {t("remainingConciergeBooking") || "remaining of your concierge booking."}
+                Your trusted concierge, one click away — ready whenever you are.
               </p>
             </div>
             <div className="flex flex-col items-end">
