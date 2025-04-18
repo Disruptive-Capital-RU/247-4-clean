@@ -45,7 +45,9 @@ export default function Dashboard() {
   const { user, profile, loading: authLoading } = useAuth();
   const { t } = useLanguage();
 
-  const [userName, setUserName] = useState(t("valuedClient") || "Valued Client");
+  const [userName, setUserName] = useState(
+    t("valuedClient") || "Valued Client"
+  );
   const [daysRemaining, setDaysRemaining] = useState(3);
   const [weatherInfo, setWeatherInfo] = useState({
     temp: "12°C",
@@ -54,12 +56,15 @@ export default function Dashboard() {
   });
   const [activeCategory, setActiveCategory] = useState("all");
   const [cart, setCart] = useState<CartItem[]>([]);
-  const [previousRequests, setPreviousRequests] = useState<ConciergeRequest[]>([]);
+  const [previousRequests, setPreviousRequests] = useState<ConciergeRequest[]>(
+    []
+  );
   const [showCart, setShowCart] = useState(false);
   const [orderSubmitted, setOrderSubmitted] = useState(false);
   const [dataLoaded, setDataLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isClient, setIsClient] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Skip data loading on window focus if already loaded
   const isDataInitialized = useRef(false);
@@ -118,7 +123,7 @@ export default function Dashboard() {
     // Set username from profile
     if (profile) {
       // Extract first name from the full name
-      const firstName = profile.name.split(' ')[0];
+      const firstName = profile.name.split(" ")[0];
       setUserName(firstName);
       setDaysRemaining(getRemainingDays(profile.concierge_end_date));
     } else if (user?.email) {
@@ -206,10 +211,7 @@ export default function Dashboard() {
       }));
 
       // Save to Supabase
-      const { error } = await createConciergeRequest(
-        user.id,
-        serviceRequests
-      );
+      const { error } = await createConciergeRequest(user.id, serviceRequests);
 
       if (error) throw error;
 
@@ -236,14 +238,10 @@ export default function Dashboard() {
   };
 
   const categories = [
-    { id: "all", name: t("allServices") || "All Services" },
-    { id: "Shopping", name: t("shoppingCategory") || "Shopping" },
-    { id: "Dining", name: t("diningCulinaryCategory") || "Dining & Culinary" },
-    { id: "Culture", name: t("cultureHistoryCategory") || "Culture & History" },
-    { id: "Transport", name: t("transportCategory") || "Transport" },
-    { id: "Medical", name: t("medicalWellnessCategory") || "Medical & Wellness" },
-    { id: "Nightlife", name: t("nightlifeEventsCategory") || "Nightlife & Events" },
-    { id: "Travel", name: t("travelSupportCategory") || "Travel Support" },
+    { id: "all", name: "Core Services" },
+    { id: "Lifestyle", name: "Lifestyle & Romantic" },
+    { id: "Family", name: "Family & Cultural" },
+    { id: "Business", name: "Business & Security" },
   ];
 
   // Function to determine which weather icon to display based on condition
@@ -300,6 +298,24 @@ export default function Dashboard() {
     return <WiDaySunny className="w-8 h-8 text-yellow-300" />;
   };
 
+  const handleCategoryChange = (categoryId: string) => {
+    if (categoryId === activeCategory) return;
+    setIsTransitioning(true);
+
+    // Use requestAnimationFrame for smoother transitions
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        setActiveCategory(categoryId);
+        // Short delay for fade in
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            setIsTransitioning(false);
+          }, 100);
+        });
+      }, 100);
+    });
+  };
+
   return (
     <main className="min-h-screen bg-black text-white">
       {isClient && (
@@ -328,8 +344,7 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             <div className="md:col-span-2">
               <h1 className="text-3xl md:text-4xl font-cormorant font-semibold text-white mb-2">
-                Dear <span className="text-[#D4AF37]">{userName}</span>
-                .
+                Dear <span className="text-[#D4AF37]">{userName}</span>.
               </h1>
               <p className="text-white/80 text-lg">
                 Your trusted concierge, one click away — ready whenever you are.
@@ -339,7 +354,9 @@ export default function Dashboard() {
               <div className="bg-[#111] border border-white/10 rounded-lg p-4 w-full max-w-sm">
                 <div className="flex justify-between items-center">
                   <div className="flex flex-col">
-                    <p className="text-sm text-white/60">{t("moscowWeather") || "Moscow Weather"}</p>
+                    <p className="text-sm text-white/60">
+                      {t("moscowWeather") || "Moscow Weather"}
+                    </p>
                     <div className="flex items-center mt-1">
                       {getWeatherIcon(weatherInfo.condition)}
                       <p className="text-xl font-medium ml-2">
@@ -439,12 +456,28 @@ export default function Dashboard() {
       )}
 
       {/* Services Header */}
-      <section className="py-3 bg-[#111]">
+      <section className="pt-3 pb-6 bg-[#111]">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex justify-between items-center mb-3">
-            <h2 className="text-2xl font-cormorant font-semibold">
-              {t("allServices") || "All Services"}
-            </h2>
+          <div className="flex justify-between items-center">
+            {/* Category Selector */}
+            <div className="overflow-x-auto scrollbar-hide">
+              <div className="flex space-x-4">
+                {categories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => handleCategoryChange(category.id)}
+                    className={`px-4 py-2 rounded-lg whitespace-nowrap transition-all duration-300 ease-in-out border ${
+                      activeCategory === category.id
+                        ? "bg-[#D4AF37] text-black font-medium transform scale-105 shadow-[0_0_10px_rgba(212,175,55,0.3)] border-[#D4AF37]"
+                        : "bg-transparent text-white/70 hover:bg-[#222] hover:text-white border-[#D4AF37]/40"
+                    }`}
+                  >
+                    {category.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className="relative w-full max-w-xs">
               <input
                 type="text"
@@ -474,12 +507,12 @@ export default function Dashboard() {
         </div>
         {/* Animated line */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div 
-            className="h-px bg-[#D4AF37] shadow-[0_0_8px_#D4AF37,0_0_20px_rgba(212,175,55,0.3)]" 
+          <div
+            className="h-px bg-[#D4AF37] shadow-[0_0_8px_#D4AF37,0_0_20px_rgba(212,175,55,0.3)]"
             style={{
-              animation: 'expandLine 1.5s ease-out forwards',
-              width: '0%',
-              boxShadow: '0 0 8px #D4AF37, 0 0 20px rgba(212,175,55,0.3)'
+              animation: "expandLine 1.5s ease-out forwards",
+              width: "0%",
+              boxShadow: "0 0 8px #D4AF37, 0 0 20px rgba(212,175,55,0.3)",
             }}
           ></div>
         </div>
@@ -497,8 +530,19 @@ export default function Dashboard() {
         }
       `}</style>
 
-      {/* Services Carousel */}
-      <ServicesCarousel addToCart={addToCart} searchQuery={searchQuery} />
+      {/* Services Carousel with key for proper re-rendering */}
+      <div
+        key={`carousel-${activeCategory}`}
+        className={`transition-opacity duration-300 ease-in-out ${
+          isTransitioning ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        <ServicesCarousel
+          addToCart={addToCart}
+          searchQuery={searchQuery}
+          activeCategory={activeCategory}
+        />
+      </div>
 
       {/* Floating Message Concierge Button */}
       <MessageConciergeButton />
@@ -549,7 +593,9 @@ export default function Dashboard() {
                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
-                <p className="text-white/60">{t("emptyConciergeList") || "Your concierge list is empty"}</p>
+                <p className="text-white/60">
+                  {t("emptyConciergeList") || "Your concierge list is empty"}
+                </p>
                 <button
                   onClick={() => setShowCart(false)}
                   className="mt-4 px-6 py-2 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/30 rounded transition-colors"
@@ -604,7 +650,8 @@ export default function Dashboard() {
 
                 <div className="mt-6">
                   <p className="text-white/70 mb-6">
-                    {t("requestConfirmation") || "Your request will be sent to our concierge team, who will reach out to confirm timing and preferences."}
+                    {t("requestConfirmation") ||
+                      "Your request will be sent to our concierge team, who will reach out to confirm timing and preferences."}
                   </p>
                   <button
                     onClick={submitOrder}
@@ -614,8 +661,8 @@ export default function Dashboard() {
                     }`}
                   >
                     {orderSubmitted
-                      ? (t("requestSubmitted") || "Request Submitted!")
-                      : (t("sendToConciergeTeam") || "Send to Concierge Team")}
+                      ? t("requestSubmitted") || "Request Submitted!"
+                      : t("sendToConciergeTeam") || "Send to Concierge Team"}
                   </button>
                 </div>
               </>

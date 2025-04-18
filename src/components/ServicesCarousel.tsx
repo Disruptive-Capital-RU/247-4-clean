@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { useAuth } from "@/lib/AuthContext";
 import { toast } from "react-hot-toast";
@@ -28,25 +28,38 @@ type Service = {
 type ServicesCarouselProps = {
   addToCart?: (service: ServiceType) => void;
   searchQuery?: string;
+  activeCategory?: string;
 };
+
+// Create a isomorphic layout effect hook to prevent hydration errors
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 export default function ServicesCarousel({
   addToCart,
   searchQuery = "",
+  activeCategory = "all",
 }: ServicesCarouselProps) {
   const [services, setServices] = React.useState<Service[]>([]);
   const {
     /* user is not used */
   } = useAuth();
   const [filteredServices, setFilteredServices] = React.useState<Service[]>([]);
+  // Add a client-side only state
+  const [isMounted, setIsMounted] = React.useState(false);
+
+  // Use the isomorphic layout effect for client-side initialization
+  useIsomorphicLayoutEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleAddToCart = React.useCallback(
     (service: ServiceType) => {
-      if (addToCart) {
-        addToCart(service);
-      } else {
-        toast.success(`Added ${service.title} to your concierge list`);
-      }
+    if (addToCart) {
+      addToCart(service);
+    } else {
+      toast.success(`Added ${service.title} to your concierge list`);
+    }
     },
     [addToCart]
   );
@@ -59,7 +72,7 @@ export default function ServicesCarousel({
         title: "Premium Flower Service",
         description: "Exquisite floral arrangements for any occasion.",
         image: "/Images/flowers.png",
-        category: "Gifting & Style",
+        category: "Lifestyle & Romantic",
         duration: "Same-day delivery",
         src: "/Images/flowers.png",
         content: (
@@ -82,7 +95,7 @@ export default function ServicesCarousel({
                   description:
                     "Exquisite floral arrangements for any occasion.",
                   image: "/Images/flowers.png",
-                  category: "Gifting & Style",
+                  category: "Lifestyle & Romantic",
                   duration: "Same-day delivery",
                 })
               }
@@ -98,7 +111,7 @@ export default function ServicesCarousel({
         title: "Private Chauffeur Service",
         description: "Arrive anywhere with style, safety, and discretion.",
         image: "/taxi.jpg",
-        category: "Transport",
+        category: "Core Services",
         duration: "4h or 8h",
         src: "/taxi.jpg",
         content: (
@@ -121,7 +134,7 @@ export default function ServicesCarousel({
                   description:
                     "Arrive anywhere with style, safety, and discretion.",
                   image: "/taxi.jpg",
-                  category: "Transport",
+                  category: "Core Services",
                   duration: "4h or 8h",
                 })
               }
@@ -178,7 +191,7 @@ export default function ServicesCarousel({
         description:
           "Reserved seating at the most prestigious restaurants with panoramic views.",
         image: "/restaurant.jpg",
-        category: "Dining & Culinary",
+        category: "Core Services",
         src: "/images/restaurant_service_1.jpg",
         content: (
           <div className="space-y-4">
@@ -200,7 +213,7 @@ export default function ServicesCarousel({
                   description:
                     "Reserved seating at the most prestigious restaurants with panoramic views.",
                   image: "/restaurant.jpg",
-                  category: "Dining & Culinary",
+                  category: "Core Services",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -296,7 +309,7 @@ export default function ServicesCarousel({
         description:
           "Professional security personnel for your safety and peace of mind.",
         image: "/security.jpg",
-        category: "Security",
+        category: "Business & Security",
         src: "/images/security_service_1.jpeg",
         content: (
           <div className="space-y-4">
@@ -318,7 +331,7 @@ export default function ServicesCarousel({
                   description:
                     "Professional security personnel for your safety and peace of mind.",
                   image: "/security.jpg",
-                  category: "Security",
+                  category: "Business & Security",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -334,7 +347,7 @@ export default function ServicesCarousel({
         description:
           "Convenient and reliable taxi services at your fingertips.",
         image: "/images/taxi_2.jpg",
-        category: "Transport",
+        category: "Core Services",
         src: "/images/taxi_2.jpg",
         content: (
           <div className="space-y-4">
@@ -356,7 +369,7 @@ export default function ServicesCarousel({
                   description:
                     "Convenient and reliable taxi services at your fingertips.",
                   image: "/images/taxi_2.jpg",
-                  category: "Transport",
+                  category: "Core Services",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -372,7 +385,7 @@ export default function ServicesCarousel({
         description:
           "Rejuvenating spa treatments and wellness experiences for ultimate relaxation.",
         image: "/images/wellness.jpg",
-        category: "Lifestyle",
+        category: "Lifestyle & Romantic",
         src: "/images/wellness.jpg",
         content: (
           <div className="space-y-4">
@@ -394,7 +407,7 @@ export default function ServicesCarousel({
                   description:
                     "Rejuvenating spa treatments and wellness experiences for ultimate relaxation.",
                   image: "/images/wellness.jpg",
-                  category: "Lifestyle",
+                  category: "Lifestyle & Romantic",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -410,7 +423,7 @@ export default function ServicesCarousel({
         description:
           "Comprehensive event planning services for memorable occasions.",
         image: "/images/event.jpg",
-        category: "Lifestyle",
+        category: "Core Services",
         src: "/images/event.jpg",
         content: (
           <div className="space-y-4">
@@ -432,7 +445,7 @@ export default function ServicesCarousel({
                   description:
                     "Comprehensive event planning services for memorable occasions.",
                   image: "/images/event.jpg",
-                  category: "Lifestyle",
+                  category: "Core Services",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -448,7 +461,7 @@ export default function ServicesCarousel({
         description:
           "Create perfect romantic experiences with our specialized planning service.",
         image: "/images/romantic.jpg",
-        category: "Lifestyle",
+        category: "Lifestyle & Romantic",
         src: "/images/romantic.jpg",
         content: (
           <div className="space-y-4">
@@ -470,7 +483,7 @@ export default function ServicesCarousel({
                   description:
                     "Create perfect romantic experiences with our specialized planning service.",
                   image: "/images/romantic.jpg",
-                  category: "Lifestyle",
+                  category: "Lifestyle & Romantic",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -486,7 +499,7 @@ export default function ServicesCarousel({
         description:
           "Create unforgettable moments for special relationship milestones.",
         image: "/images/anniversary.png",
-        category: "Lifestyle",
+        category: "Lifestyle & Romantic",
         src: "/images/anniversary.png",
         content: (
           <div className="space-y-4">
@@ -508,7 +521,7 @@ export default function ServicesCarousel({
                   description:
                     "Create unforgettable moments for special relationship milestones.",
                   image: "/images/anniversary.png",
-                  category: "Lifestyle",
+                  category: "Lifestyle & Romantic",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -524,7 +537,7 @@ export default function ServicesCarousel({
         description:
           "Enjoy fine restaurant dining in the comfort of your hotel room.",
         image: "/images/food_delivery.jpg",
-        category: "Dining & Culinary",
+        category: "Lifestyle & Romantic",
         src: "/images/food_delivery.jpg",
         content: (
           <div className="space-y-4">
@@ -546,7 +559,7 @@ export default function ServicesCarousel({
                   description:
                     "Enjoy fine restaurant dining in the comfort of your hotel room.",
                   image: "/images/food_delivery.jpg",
-                  category: "Dining & Culinary",
+                  category: "Lifestyle & Romantic",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -562,7 +575,7 @@ export default function ServicesCarousel({
         description:
           "Curated full-day experiences for the whole family to enjoy together.",
         image: "/images/family.jpg",
-        category: "Lifestyle",
+        category: "Family & Cultural",
         src: "/images/family.jpg",
         content: (
           <div className="space-y-4">
@@ -584,7 +597,7 @@ export default function ServicesCarousel({
                   description:
                     "Curated full-day experiences for the whole family to enjoy together.",
                   image: "/images/family.jpg",
-                  category: "Lifestyle",
+                  category: "Family & Cultural",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -600,7 +613,7 @@ export default function ServicesCarousel({
         description:
           "Guided tours to museums, galleries and cultural landmarks with expert commentary.",
         image: "/images/museum.jpg",
-        category: "Culture",
+        category: "Family & Cultural",
         src: "/images/museum.jpg",
         content: (
           <div className="space-y-4">
@@ -622,7 +635,7 @@ export default function ServicesCarousel({
                   description:
                     "Guided tours to museums, galleries and cultural landmarks with expert commentary.",
                   image: "/images/museum.jpg",
-                  category: "Culture",
+                  category: "Family & Cultural",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -638,7 +651,7 @@ export default function ServicesCarousel({
         description:
           "Curated Halal dining experiences at the finest certified restaurants.",
         image: "/images/halal.jpg",
-        category: "Dining & Culinary",
+        category: "Family & Cultural",
         src: "/images/halal.jpg",
         content: (
           <div className="space-y-4">
@@ -660,7 +673,7 @@ export default function ServicesCarousel({
                   description:
                     "Curated Halal dining experiences at the finest certified restaurants.",
                   image: "/images/halal.jpg",
-                  category: "Dining & Culinary",
+                  category: "Family & Cultural",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -676,7 +689,7 @@ export default function ServicesCarousel({
         description:
           "Premium tickets and arrangements for concerts, theater, ballet and other performances.",
         image: "/images/ballet.jpg",
-        category: "Nightlife & Events",
+        category: "Family & Cultural",
         src: "/images/ballet.jpg",
         content: (
           <div className="space-y-4">
@@ -698,7 +711,197 @@ export default function ServicesCarousel({
                   description:
                     "Premium tickets and arrangements for concerts, theater, ballet and other performances.",
                   image: "/images/ballet.jpg",
-                  category: "Nightlife & Events",
+                  category: "Family & Cultural",
+                })
+              }
+              className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
+            >
+              Add to My Concierge List
+            </button>
+          </div>
+        ),
+      },
+      {
+        id: "s18",
+        title: "Meeting Room Booking",
+        description:
+          "Premium meeting spaces for business engagements and professional gatherings.",
+        image: "/images/meeting_room.jpg",
+        category: "Business & Security",
+        src: "/images/meeting_room.jpg",
+        content: (
+          <div className="space-y-4">
+            <p>
+              Secure the perfect meeting space for your business needs with our
+              comprehensive booking service.
+            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Premium locations across the city</li>
+              <li>Full technical setup and support</li>
+              <li>Catering arrangements available</li>
+              <li>Flexible duration and capacity options</li>
+            </ul>
+            <button
+              onClick={() =>
+                handleAddToCart({
+                  id: "s18",
+                  title: "Meeting Room Booking",
+                  description:
+                    "Premium meeting spaces for business engagements and professional gatherings.",
+                  image: "/images/meeting_room.jpg",
+                  category: "Business & Security",
+                })
+              }
+              className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
+            >
+              Add to My Concierge List
+            </button>
+          </div>
+        ),
+      },
+      {
+        id: "s19",
+        title: "Full-Day Business Coordination",
+        description:
+          "Comprehensive support for your business activities throughout the day.",
+        image: "/images/meeting.jpg",
+        category: "Business & Security",
+        src: "/images/meeting.jpg",
+        content: (
+          <div className="space-y-4">
+            <p>
+              Let our team handle all aspects of your business day, from
+              scheduling to logistics and follow-up.
+            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Meeting scheduling and coordination</li>
+              <li>Transportation between appointments</li>
+              <li>Document preparation and printing</li>
+              <li>Translation and interpretation services</li>
+            </ul>
+            <button
+              onClick={() =>
+                handleAddToCart({
+                  id: "s19",
+                  title: "Full-Day Business Coordination",
+                  description:
+                    "Comprehensive support for your business activities throughout the day.",
+                  image: "/images/meeting.jpg",
+                  category: "Business & Security",
+                })
+              }
+              className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
+            >
+              Add to My Concierge List
+            </button>
+          </div>
+        ),
+      },
+      {
+        id: "s20",
+        title: "Charter Private Jet",
+        description:
+          "Exclusive private jet services for seamless luxury travel.",
+        image: "/images/private_jet.jpg",
+        category: "Transport",
+        src: "/images/private_jet.jpg",
+        content: (
+          <div className="space-y-4">
+            <p>
+              Experience the ultimate in travel comfort and privacy with our
+              premium private jet charter service.
+            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Wide selection of private aircraft</li>
+              <li>Personalized itineraries and scheduling</li>
+              <li>Discreet and efficient service</li>
+              <li>Luxury catering and amenities onboard</li>
+            </ul>
+            <button
+              onClick={() =>
+                handleAddToCart({
+                  id: "s20",
+                  title: "Charter Private Jet",
+                  description:
+                    "Exclusive private jet services for seamless luxury travel.",
+                  image: "/images/private_jet.jpg",
+                  category: "Transport",
+                })
+              }
+              className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
+            >
+              Add to My Concierge List
+            </button>
+          </div>
+        ),
+      },
+      {
+        id: "s21",
+        title: "Airport Transfer",
+        description:
+          "Seamless transportation to and from airports with professional drivers.",
+        image: "/images/airport.jpg",
+        category: "Business & Security",
+        src: "/images/airport.jpg",
+        content: (
+          <div className="space-y-4">
+            <p>
+              Enjoy stress-free airport transfers with our premium
+              transportation service.
+            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Meet & greet service at arrivals</li>
+              <li>Luggage assistance</li>
+              <li>Flight monitoring for on-time pickup</li>
+              <li>Luxury vehicles with professional drivers</li>
+            </ul>
+            <button
+              onClick={() =>
+                handleAddToCart({
+                  id: "s21",
+                  title: "Airport Transfer",
+                  description:
+                    "Seamless transportation to and from airports with professional drivers.",
+                  image: "/images/airport.jpg",
+                  category: "Business & Security",
+                })
+              }
+              className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
+            >
+              Add to My Concierge List
+            </button>
+          </div>
+        ),
+      },
+      {
+        id: "s22",
+        title: "Catering Coordination",
+        description:
+          "Premium catering services for events and private gatherings.",
+        image: "/images/banquet.jpg",
+        category: "Business & Security",
+        src: "/images/banquet.jpg",
+        content: (
+          <div className="space-y-4">
+            <p>
+              Our catering coordination service connects you with the finest
+              culinary providers for your events.
+            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Custom menu development</li>
+              <li>Expert staff and service coordination</li>
+              <li>Special dietary accommodations</li>
+              <li>Complete setup and cleanup service</li>
+            </ul>
+            <button
+              onClick={() =>
+                handleAddToCart({
+                  id: "s22",
+                  title: "Catering Coordination",
+                  description:
+                    "Premium catering services for events and private gatherings.",
+                  image: "/images/banquet.jpg",
+                  category: "Business & Security",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -714,23 +917,61 @@ export default function ServicesCarousel({
     setFilteredServices(servicesData);
   }, [handleAddToCart]);
 
-  // Filter services based on search query
-  React.useEffect(() => {
-    if (!searchQuery.trim()) {
-      setFilteredServices(services);
-      return;
+  // Update the filter logic to use the isomorphic layout effect
+  useIsomorphicLayoutEffect(() => {
+    if (!isMounted) return;
+
+    let filtered = services;
+
+    // Filter by category first
+    if (activeCategory !== "all") {
+      // Map category IDs to the actual service categories
+      const categoryMap: { [key: string]: string[] } = {
+        Lifestyle: ["Lifestyle & Romantic"],
+        Family: ["Family & Cultural"],
+        Business: ["Business & Security"],
+      };
+
+      // Get the list of service categories for the selected category filter
+      const serviceCategoriesForFilter = categoryMap[activeCategory] || [];
+
+      if (serviceCategoriesForFilter.length > 0) {
+        filtered = filtered.filter((service) =>
+          serviceCategoriesForFilter.includes(service.category)
+        );
+      }
+    } else {
+      // For "Core Services", only show core services
+      const coreServices = [
+        "Private Chauffeur Service",
+        "Taxi Booking",
+        "Restaurant & Bar Reservations",
+        "Wellness & Spa Bookings",
+        "Event Planning",
+      ];
+      filtered = filtered.filter((service) =>
+        coreServices.includes(service.title)
+      );
     }
 
+    // Then filter by search query
+    if (searchQuery.trim()) {
     const query = searchQuery.toLowerCase();
-    const filtered = services.filter(
+      filtered = filtered.filter(
       (service) =>
         service.title.toLowerCase().includes(query) ||
         service.description.toLowerCase().includes(query) ||
         service.category.toLowerCase().includes(query)
     );
+    }
 
     setFilteredServices(filtered);
-  }, [searchQuery, services]);
+  }, [searchQuery, services, activeCategory, isMounted]);
+
+  // Return a loading state if not mounted yet
+  if (!isMounted) {
+    return null;
+  }
 
   if (services.length === 0) {
     return (
@@ -739,7 +980,7 @@ export default function ServicesCarousel({
   }
 
   return (
-    <section className="pt-0 pb-6 bg-black">
+    <section className="pt-0 pb-6 bg-black will-change-opacity will-change-transform">
       <div className="container mx-auto px-4 md:px-6">
         {filteredServices.length === 0 ? (
           <div className="py-12 text-center text-white/50">
@@ -750,7 +991,7 @@ export default function ServicesCarousel({
           <Carousel
             items={filteredServices.map((service, index) => (
               <Card
-                key={service.id}
+                key={`${service.id}-${activeCategory}`}
                 index={index}
                 card={{
                   src: service.src,

@@ -5,6 +5,7 @@ import React, {
   useState,
   createContext,
   useContext,
+  useLayoutEffect,
 } from "react";
 import {
   IconArrowNarrowLeft,
@@ -160,6 +161,10 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
   );
 };
 
+// Create an isomorphic layout effect for safe client-side initialization
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 export const Card = ({
   card,
   index,
@@ -171,10 +176,19 @@ export const Card = ({
 }) => {
   const [open, setOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { onCardClose, currentIndex } = useContext(CarouselContext);
 
+  // Use isomorphic layout effect for client-side initialization
+  useIsomorphicLayoutEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Use regular effect for event handlers
   useEffect(() => {
+    if (!isMounted) return;
+
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         handleClose();
@@ -189,18 +203,43 @@ export const Card = ({
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open]);
+  }, [open, isMounted]);
 
-  useOutsideClick(containerRef, () => handleClose());
+  useOutsideClick(containerRef, () => isMounted && handleClose());
 
   const handleOpen = () => {
+    if (!isMounted) return;
     setOpen(true);
   };
 
   const handleClose = () => {
+    if (!isMounted) return;
     setOpen(false);
     onCardClose(index);
   };
+
+  // Skip rendering interactive elements during SSR to prevent hydration mismatch
+  if (!isMounted) {
+    return (
+      <div className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-64 w-48 md:h-[30rem] md:w-72 overflow-hidden flex flex-col items-start justify-start relative z-10 border border-[#D4AF37] border-opacity-70">
+        <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
+        <div className="relative z-40 p-8">
+          <p className="text-white text-sm md:text-base font-medium font-sans text-left">
+            {card.category}
+          </p>
+          <p className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2">
+            {card.title}
+          </p>
+        </div>
+        <BlurImage
+          src={card.src}
+          alt={card.title}
+          fill
+          className="object-cover absolute z-10 inset-0"
+        />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -283,7 +322,7 @@ export const Card = ({
         )}
         <motion.button
           layoutId={layout ? `card-${card.title}` : undefined}
-          style={{ willChange: "transform", translateZ: "0" }}
+          style={{ willChange: "transform, opacity", translateZ: "0" }}
           className={`rounded-3xl bg-gray-100 dark:bg-neutral-900 h-64 w-48 md:h-[30rem] md:w-72 overflow-hidden flex flex-col items-start justify-start relative z-10 border border-[#D4AF37] ${
             isHovered ? "border-opacity-5" : "border-opacity-70"
           } transition-all duration-300`}
