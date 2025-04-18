@@ -6,6 +6,13 @@ import Link from "next/link";
 import { useAuth } from "@/lib/AuthContext";
 import { Toaster, toast } from "react-hot-toast";
 import { supabase } from "@/lib/supabase";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 import Navigation from "@/components/Navigation";
 
@@ -17,6 +24,8 @@ export default function ProfilePage() {
     name: "",
     email: "",
     contact: "",
+    language: "english",
+    communicationMethod: "whatsapp",
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -36,6 +45,8 @@ export default function ProfilePage() {
         name: profile.name || "",
         email: profile.email || "",
         contact: profile.contact || "",
+        language: profile.language || "english",
+        communicationMethod: profile.communication_method || "whatsapp",
       });
     }
   }, [profile]);
@@ -45,6 +56,14 @@ export default function ProfilePage() {
     setFormData((prev) => ({
       ...prev,
       [name]: value,
+    }));
+    setHasChanges(true);
+  };
+
+  const handleSelectChange = (field: string, value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
     }));
     setHasChanges(true);
   };
@@ -64,6 +83,8 @@ export default function ProfilePage() {
       console.log("Update data:", {
         name: formData.name,
         contact: formData.contact,
+        language: formData.language,
+        communicationMethod: formData.communicationMethod,
       });
 
       // Create an update object with only the fields we want to update
@@ -72,6 +93,9 @@ export default function ProfilePage() {
       // Only include fields that have values
       if (formData.name) updateData.name = formData.name;
       if (formData.contact) updateData.contact = formData.contact;
+      if (formData.language) updateData.language = formData.language;
+      if (formData.communicationMethod)
+        updateData.communication_method = formData.communicationMethod;
 
       console.log("Final update data:", updateData);
 
@@ -103,6 +127,8 @@ export default function ProfilePage() {
               name: formData.name,
               email: formData.email || user.email,
               contact: formData.contact,
+              language: formData.language,
+              communication_method: formData.communicationMethod,
               // Include the required fields from profile to maintain existing data
               concierge_end_date:
                 profile?.concierge_end_date ||
@@ -123,7 +149,7 @@ export default function ProfilePage() {
             setHasChanges(false);
 
             // Wait a moment before reloading to show the success message
-            if (typeof window !== 'undefined') {
+            if (typeof window !== "undefined") {
               setTimeout(() => {
                 window.location.reload();
               }, 1500);
@@ -140,6 +166,8 @@ export default function ProfilePage() {
               user_id: user.id,
               user_name: formData.name,
               user_contact: formData.contact,
+              user_language: formData.language,
+              user_communication_method: formData.communicationMethod,
             }
           );
 
@@ -151,7 +179,7 @@ export default function ProfilePage() {
             setHasChanges(false);
 
             // Wait a moment before reloading to show the success message
-            if (typeof window !== 'undefined') {
+            if (typeof window !== "undefined") {
               setTimeout(() => {
                 window.location.reload();
               }, 1500);
@@ -191,6 +219,8 @@ export default function ProfilePage() {
         name: profile.name || "",
         email: profile.email || "",
         contact: profile.contact || "",
+        language: profile.language || "english",
+        communicationMethod: profile.communication_method || "whatsapp",
       });
       setHasChanges(false);
     }
@@ -248,7 +278,10 @@ export default function ProfilePage() {
             <form onSubmit={handleSubmit}>
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-white/80 mb-2 text-base sm:text-lg">
+                  <label
+                    htmlFor="name"
+                    className="block text-white/80 mb-2 text-base sm:text-lg"
+                  >
                     Full Name
                   </label>
                   <input
@@ -265,7 +298,10 @@ export default function ProfilePage() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-white/80 mb-2 text-base sm:text-lg">
+                  <label
+                    htmlFor="email"
+                    className="block text-white/80 mb-2 text-base sm:text-lg"
+                  >
                     Email Address
                   </label>
                   <input
@@ -284,7 +320,10 @@ export default function ProfilePage() {
                 </div>
 
                 <div>
-                  <label htmlFor="contact" className="block text-white/80 mb-2 text-base sm:text-lg">
+                  <label
+                    htmlFor="contact"
+                    className="block text-white/80 mb-2 text-base sm:text-lg"
+                  >
                     Phone Number
                   </label>
                   <input
@@ -297,6 +336,58 @@ export default function ProfilePage() {
                     placeholder="Your phone number"
                     autoComplete="tel"
                   />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="communicationMethod"
+                    className="block text-white/80 mb-2 text-base sm:text-lg"
+                  >
+                    Preferred Communication Method
+                  </label>
+                  <Select
+                    value={formData.communicationMethod}
+                    onValueChange={(value) =>
+                      handleSelectChange("communicationMethod", value)
+                    }
+                  >
+                    <SelectTrigger className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 sm:py-4 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50 text-base sm:text-lg">
+                      <SelectValue placeholder="Select communication method" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-[#0a0a0a] border border-white/10 text-white">
+                      <SelectItem value="whatsapp">WhatsApp</SelectItem>
+                      <SelectItem value="phone">Phone</SelectItem>
+                      <SelectItem value="email">Email</SelectItem>
+                      <SelectItem value="telegram">Telegram</SelectItem>
+                      <SelectItem value="botim">Botim</SelectItem>
+                      <SelectItem value="wechat">WeChat</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="language"
+                    className="block text-white/80 mb-2 text-base sm:text-lg"
+                  >
+                    Language Preference
+                  </label>
+                  <Select
+                    value={formData.language}
+                    onValueChange={(value) =>
+                      handleSelectChange("language", value)
+                    }
+                  >
+                    <SelectTrigger className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 sm:py-4 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50 text-base sm:text-lg">
+                      <SelectValue placeholder="Select language" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-[#0a0a0a] border border-white/10 text-white">
+                      <SelectItem value="english">English</SelectItem>
+                      <SelectItem value="russian">Russian</SelectItem>
+                      <SelectItem value="arabic">Arabic</SelectItem>
+                      <SelectItem value="chinese">Chinese</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div className="pt-4 flex flex-col sm:flex-row sm:space-x-4 space-y-3 sm:space-y-0">
@@ -320,22 +411,6 @@ export default function ProfilePage() {
                 </div>
               </div>
             </form>
-          </div>
-
-          <div className="mt-8 bg-[#111] border border-white/10 rounded-lg p-6">
-            <h2 className="text-xl sm:text-2xl font-cormorant font-semibold mb-4">
-              Account Security
-            </h2>
-            <p className="text-white/60 mb-6 text-base sm:text-lg">
-              For security purposes, changes to your password and other account
-              security settings require verification.
-            </p>
-            <Link
-              href="/dashboard"
-              className="block w-full sm:w-auto sm:inline-block px-6 py-3 text-center bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 text-[#D4AF37] rounded-lg transition-colors text-base sm:text-lg font-medium"
-            >
-              Contact Support
-            </Link>
           </div>
         </div>
       </div>

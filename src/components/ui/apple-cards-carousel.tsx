@@ -283,13 +283,12 @@ export const Card = ({
         )}
         <motion.button
           layoutId={layout ? `card-${card.title}` : undefined}
-          onClick={handleOpen}
           style={{ willChange: "transform", translateZ: "0" }}
           className={`rounded-3xl bg-gray-100 dark:bg-neutral-900 h-64 w-48 md:h-[30rem] md:w-72 overflow-hidden flex flex-col items-start justify-start relative z-10 border border-[#D4AF37] ${
             isHovered ? "border-opacity-5" : "border-opacity-70"
           } transition-all duration-300`}
-          aria-label={`Open details for ${card.title}`}
-          title={`Open ${card.title} details`}
+          aria-label={`View ${card.title}`}
+          title={`${card.title}`}
         >
           <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
           <div className="relative z-40 p-8">
