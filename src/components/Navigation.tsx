@@ -229,7 +229,6 @@ export default function Navigation() {
           <nav className="hidden md:flex items-center space-x-5 font-dm-sans">
             {user ? (
               <>
-                <NavLink href="/dashboard/services">{t("accessSuite")}</NavLink>
                 <NavLink href="/services">{t("services")}</NavLink>
                 <NavLink href="/dashboard">{t("dashboard")}</NavLink>
                 <button
@@ -302,12 +301,6 @@ export default function Navigation() {
           <div className="container mx-auto px-4 py-6 flex flex-col space-y-6">
             {user ? (
               <>
-                <NavLink
-                  href="/dashboard/services"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t("accessSuite")}
-                </NavLink>
                 <NavLink href="/services" onClick={() => setIsMenuOpen(false)}>
                   {t("services")}
                 </NavLink>

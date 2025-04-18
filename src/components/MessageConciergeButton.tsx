@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "motion/react";
+import { useSearchParams } from "next/navigation";
 import {
   AlertDialog,
   AlertDialogContent,
@@ -20,6 +21,22 @@ interface ContactOption {
 
 export default function MessageConciergeButton() {
   const [open, setOpen] = useState(false);
+  const searchParams = useSearchParams();
+  
+  // Auto-open chat if openChat parameter is present in URL
+  useEffect(() => {
+    const openChat = searchParams.get('openChat');
+    if (openChat === 'true') {
+      setOpen(true);
+      
+      // Clean up URL parameter after opening
+      if (typeof window !== 'undefined') {
+        const url = new URL(window.location.href);
+        url.searchParams.delete('openChat');
+        window.history.replaceState({}, '', url.toString());
+      }
+    }
+  }, [searchParams]);
 
   const contactOptions: ContactOption[] = [
     {

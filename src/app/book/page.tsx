@@ -1,13 +1,47 @@
 "use client";
 
+import React, { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import BookingSection from "@/components/BookingSection";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { useLanguage } from "@/lib/LanguageContext";
 
+// FAQ Item component for collapsible sections
+interface FAQItemProps {
+  question: string;
+  answer: string;
+  defaultOpen?: boolean;
+}
+
+const FAQItem: React.FC<FAQItemProps> = ({ question, answer, defaultOpen = false }) => {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
+  
+  return (
+    <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-md overflow-hidden">
+      <div 
+        className="flex justify-between items-center cursor-pointer" 
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <h3 className="text-xl font-cormorant text-white">
+          {question}
+        </h3>
+        <span className={`text-[#D4AF37] text-xl font-bold transition-transform duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
+          +
+        </span>
+      </div>
+      <div 
+        className={`font-dm-sans text-white/70 mt-2 transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+      >
+        <p className="pt-2">{answer}</p>
+      </div>
+    </div>
+  );
+};
+
 export default function BookPage() {
   const { t } = useLanguage();
+  const [showAllFAQs, setShowAllFAQs] = useState(false);
   return (
     <main className="min-h-screen bg-black text-white">
       <Navigation />
@@ -57,10 +91,10 @@ export default function BookPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-cormorant text-white mb-2">
-                    {t("bookNow") || "Book Now"}
+                    Reach Out
                   </h3>
                   <p className="text-white/70">
-                    {t("bookNowDesc") || "Complete the booking form with your information, travel dates, and preferences. This is a pre-reservation only, no payment is collected at this stage."}
+                    Send us a quick message with what you need — whether it&apos;s a dinner reservation, transport, or help planning your day.
                   </p>
                 </div>
               </div>
@@ -71,10 +105,10 @@ export default function BookPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-cormorant text-white mb-2">
-                    {t("confirmation") || "Confirmation"}
+                    We Confirm
                   </h3>
                   <p className="text-white/70">
-                    {t("confirmationDesc") || "Within 12 hours, our team will contact you directly via your preferred communication method to confirm your reservation, discuss any specific requirements, and answer any questions."}
+                    You&apos;ll hear from us shortly via your preferred messaging app. We&apos;ll confirm the request, ask any follow-up questions, and begin arranging everything.
                   </p>
                 </div>
               </div>
@@ -85,38 +119,10 @@ export default function BookPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-cormorant text-white mb-2">
-                    {t("payment") || "Payment"}
+                    Secure & Simple Payment
                   </h3>
                   <p className="text-white/70">
-                    {t("paymentDesc") || "Once your reservation is confirmed, you'll receive a secure payment link. We accept all major credit cards and international payment methods."}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#D4AF37] flex items-center justify-center shrink-0 text-black font-bold">
-                  4
-                </div>
-                <div>
-                  <h3 className="text-xl font-cormorant text-white mb-2">
-                    {t("preArrivalPlanning") || "Pre-Arrival Planning"}
-                  </h3>
-                  <p className="text-white/70">
-                    {t("preArrivalPlanningDesc") || "Your personal concierge will contact you before your arrival to develop a tailored plan for your visit, ensuring everything is prepared for your Moscow experience."}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#D4AF37] flex items-center justify-center shrink-0 text-black font-bold">
-                  5
-                </div>
-                <div>
-                  <h3 className="text-xl font-cormorant text-white mb-2">
-                    {t("welcomeToMoscow") || "Welcome to Moscow"}
-                  </h3>
-                  <p className="text-white/70">
-                    {t("welcomeToMoscowDesc") || "Your concierge will meet you upon arrival and be available 24/7 throughout your stay to ensure every aspect of your Moscow experience exceeds expectations."}
+                    Once the details are set, we&apos;ll send you a secure payment link. As soon as your payment is confirmed, your concierge is available 24/7 — ready to assist with that request or anything else you may need.
                   </p>
                 </div>
               </div>
@@ -130,54 +136,93 @@ export default function BookPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-cormorant font-bold text-white mb-8 text-center">
-              {t("frequentlyAsked") || "Frequently Asked"} <span className="text-[#D4AF37]">{t("questions") || "Questions"}</span>
+              Frequently Asked <span className="text-[#D4AF37]">Questions</span>
             </h2>
 
-            <div className="space-y-6">
-              <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-md">
-                <h3 className="text-xl font-cormorant text-white mb-2">
-                  {t("feeCoverQuestion") || "What does the $100 fee cover?"}
-                </h3>
-                <p className="font-dm-sans text-white/70">
-                  {t("feeCoverAnswer") || "The $100 fee covers your personal concierge service for 5 days. This includes 24/7 availability, personalized planning, and on-the-ground assistance. Additional services like restaurant bills, shopping, tickets, etc. are billed separately."}
-                </p>
-              </div>
-
-              <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-md">
-                <h3 className="text-xl font-cormorant text-white mb-2">
-                  {t("extendServiceQuestion") || "Can I extend my concierge service beyond 5 days?"}
-                </h3>
-                <p className="font-dm-sans text-white/70">
-                  {t("extendServiceAnswer") || "Yes, you can extend your service at a rate of $20 per additional day. This can be arranged during your stay through your personal concierge."}
-                </p>
-              </div>
-
-              <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-md">
-                <h3 className="text-xl font-cormorant text-white mb-2">
-                  {t("arabicSpeakersQuestion") || "Are all your concierges Arabic speakers?"}
-                </h3>
-                <p className="font-dm-sans text-white/70">
-                  {t("arabicSpeakersAnswer") || "Yes, all our concierges are fluent in Arabic, English, and Russian, ensuring seamless communication throughout your stay."}
-                </p>
-              </div>
-
-              <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-md">
-                <h3 className="text-xl font-cormorant text-white mb-2">
-                  {t("cancellationPolicyQuestion") || "What is your cancellation policy?"}
-                </h3>
-                <p className="font-dm-sans text-white/70">
-                  {t("cancellationPolicyAnswer") || "Cancellations made 72 hours or more before your scheduled arrival receive a full refund. Cancellations within 72 hours are subject to a 50% fee."}
-                </p>
-              </div>
-
-              <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-md">
-                <h3 className="text-xl font-cormorant text-white mb-2">
-                  {t("discretionQuestion") || "How discreet is your service?"}
-                </h3>
-                <p className="font-dm-sans text-white/70">
-                  {t("discretionAnswer") || "Absolute discretion is our priority. Your privacy is sacred, and we maintain complete confidentiality about your activities, preferences, and personal information."}
-                </p>
-              </div>
+            <div className="space-y-4">
+              {/* First 5 FAQs - Always visible */}
+              <FAQItem 
+                question="What does the concierge fee cover?"
+                answer="Your concierge fee covers unlimited access to a real, dedicated assistant available 24/7. We handle everything — from booking your dinner to securing a driver or sourcing a last-minute gift. Please note: actual service costs (e.g., restaurant bill, transport fare, event tickets) are billed separately and paid directly by you."
+                defaultOpen={true}
+              />
+              
+              <FAQItem 
+                question="Can I extend my concierge service?"
+                answer="Yes. If you started with the 3-Day Plan, you can add extra days at $39/day. Just let your concierge know — no need to fill out anything else."
+              />
+              
+              <FAQItem 
+                question="Do you only work with Arabic-speaking clients?"
+                answer="Not at all. While many of our clients come from Arabic-speaking regions, our concierges are fluent in Arabic, English, Chinese, and Russian, and we welcome anyone looking for thoughtful, personal support."
+              />
+              
+              <FAQItem 
+                question="Can you book things on my behalf, or do I have to pay directly?"
+                answer="We&apos;ll coordinate everything for you — reservations, tickets, gifts, transport. In most cases, you pay the vendor directly. If needed, we can arrange pre-payment or transfers on your behalf."
+              />
+              
+              <FAQItem 
+                question="How do I contact my concierge?"
+                answer="Your concierge is available 24/7 via your preferred messaging app — WhatsApp, Telegram, Botim, or iMessage. Just send a message and we&apos;ll take care of the rest."
+              />
+              
+              {/* Show More button */}
+              {!showAllFAQs && (
+                <div className="text-center mt-8">
+                  <button 
+                    onClick={() => setShowAllFAQs(true)}
+                    className="text-[#D4AF37] hover:text-[#B8860B] underline transition-colors duration-300 font-dm-sans text-lg"
+                  >
+                    Show More
+                  </button>
+                </div>
+              )}
+              
+              {/* Remaining FAQs - Only visible when showAllFAQs is true */}
+              {showAllFAQs && (
+                <>
+                  <FAQItem 
+                    question="Can you arrange luxury or everyday transport?"
+                    answer="Yes. We can arrange anything from luxury car service and chauffeured vehicles to reliable, everyday taxis — all based on your needs, schedule, and preferences."
+                  />
+                  
+                  <FAQItem 
+                    question="What types of things can you book for me?"
+                    answer="From restaurants, drivers, and spas to gifting, cultural events, shopping support, and private tours — we handle it all. If it matters to you, it matters to us."
+                  />
+                  
+                  <FAQItem 
+                    question="I don&apos;t know exactly what I need — can you help me decide?"
+                    answer="Yes. Many clients come to us with a goal or feeling, not a full plan. Just tell us what you&apos;re thinking — romantic, relaxing, exciting, productive — and we&apos;ll curate ideas that fit your mood and time."
+                  />
+                  
+                  <FAQItem 
+                    question="I&apos;m not traveling — can I still use your service?"
+                    answer="Absolutely. Whether you live in Moscow or are just passing through, Reluxi offers on-demand personal assistance for day-to-day needs, local errands, or last-minute planning."
+                  />
+                  
+                  <FAQItem 
+                    question="How fast can you respond to a request?"
+                    answer="We&apos;re available 24/7, and most requests are confirmed within minutes. Whether it&apos;s a last-minute dinner, urgent transport, or a spontaneous idea — we&apos;re ready."
+                  />
+                  
+                  <FAQItem 
+                    question="Can I make multiple requests at once?"
+                    answer="Of course. You can send us as many requests as you&apos;d like — all at once or throughout your stay. We&apos;ll organize, prioritize, and follow up as needed."
+                  />
+                  
+                  <FAQItem 
+                    question="How private is this service?"
+                    answer="Discretion is built into everything we do. Whether you&apos;re planning a surprise, coordinating a business meeting, or simply value privacy — we never share, store, or disclose your personal information, preferences, or schedule."
+                  />
+                  
+                  <FAQItem 
+                    question="What is your refund policy?"
+                    answer="Due to the nature of our personalized and time-sensitive service, all payments are final and non-refundable. We appreciate your understanding and are always here to adjust or reschedule when possible."
+                  />
+                </>
+              )}
             </div>
           </div>
         </div>

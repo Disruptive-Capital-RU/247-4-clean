@@ -7,6 +7,7 @@ import { motion, stagger, useAnimate, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/LanguageContext";
 import { ServicesTextEffect } from "@/components/ui/services-text-effect";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/lib/AuthContext";
 
 export default function ServicesPage() {
   const { t } = useLanguage();
@@ -17,15 +18,30 @@ export default function ServicesPage() {
   // State to track if sections are expanded (single state for all sections)
   const [sectionsExpanded, setSectionsExpanded] = useState(false);
 
-  // Handle plan selection
+  // Import auth hook at the top of the file
+  const { user } = useAuth();
+  
+  // Handle plan selection based on authentication status
   const handlePlanSelect = (planName: string, planType: string, price: string, days?: number) => {
-    const params = new URLSearchParams();
-    params.append('planName', planName);
-    params.append('planType', planType);
-    params.append('price', price);
-    if (days) params.append('days', days.toString());
+    // Check if user is logged in
+    if (!user) {
+      // User is not logged in, redirect to booking menu
+      router.push('/book');
+      return;
+    }
     
-    router.push(`/cart?${params.toString()}`);
+    // User is logged in, redirect to dashboard and automatically trigger message concierge
+    router.push('/dashboard?openChat=true');
+    
+    // Store selected plan info in localStorage for reference
+    const planInfo = {
+      planName,
+      planType,
+      price,
+      days,
+      selectedAt: new Date().toISOString()
+    };
+    localStorage.setItem('selectedPlan', JSON.stringify(planInfo));
   };
 
   useEffect(() => {
@@ -376,7 +392,15 @@ export default function ServicesPage() {
                     
                     <div className="mt-8 text-center">
                       <button 
-                        onClick={() => router.push('/contact')}
+                        onClick={() => {
+                          if (!user) {
+                            // User is not logged in, redirect to booking menu
+                            router.push('/book');
+                          } else {
+                            // User is logged in, redirect to dashboard and trigger message concierge
+                            router.push('/dashboard?openChat=true');
+                          }
+                        }}
                         className="px-8 py-3 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                       >
                         Request a Booking
@@ -393,15 +417,23 @@ export default function ServicesPage() {
                   <p className="font-dm-sans text-lg text-white/80 mb-8 max-w-2xl mx-auto">
                     Reluxi saves you hours of searching and planning. You focus on the experience — we&apos;ll handle everything else.
                   </p>
-                  <motion.a
-                    href="/book"
+                  <motion.button
+                    onClick={() => {
+                      if (!user) {
+                        // User is not logged in, redirect to booking menu
+                        router.push('/book');
+                      } else {
+                        // User is logged in, redirect to dashboard and trigger message concierge
+                        router.push('/dashboard?openChat=true');
+                      }
+                    }}
                     className="inline-block px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium text-lg rounded-sm hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all duration-300"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
                     {t("bookYourConcierge")}
-                  </motion.a>
+                  </motion.button>
                 </div>
               </motion.div>
             </div>
