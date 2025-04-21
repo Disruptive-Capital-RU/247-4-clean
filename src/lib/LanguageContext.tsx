@@ -39,6 +39,7 @@ const translations: Translations = {
     accessSuite: "Access Suite",
     dashboard: "Dashboard",
     logout: "Log Out",
+    offer: "Offer",
 
     // Pricing page
     freedom: "Freedom, Perfected",
@@ -287,6 +288,7 @@ const translations: Translations = {
     home: "الرئيسية",
     pricing: "الأسعار",
     services: "الخدمات",
+    offer: "العرض",
     whyUs: "لماذا نحن",
     login: "تسجيل الدخول",
     bookNow: "احجز الآن",
@@ -540,6 +542,7 @@ const translations: Translations = {
     home: "首页",
     pricing: "价格",
     services: "服务",
+    offer: "优惠",
     whyUs: "为什么选择我们",
     login: "登录",
     bookNow: "立即预订",
@@ -791,6 +794,7 @@ const translations: Translations = {
     home: "Главная",
     pricing: "Цены",
     services: "Услуги",
+    offer: "Оферта",
     whyUs: "Почему мы",
     login: "Войти",
     bookNow: "Забронировать",

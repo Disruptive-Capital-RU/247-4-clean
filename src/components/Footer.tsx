@@ -73,23 +73,15 @@ export default function Footer() {
             <ul className="space-y-2 text-white/70 font-dm-sans">
               <li>
                 <Link
-                  href="/privacy-policy"
+                  href="/oferta_reluxi"
                   className="hover:text-[#D4AF37] transition-colors"
                 >
-                  {t("privacyPolicy")}
+                  {t("offer")}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/terms-of-service"
-                  className="hover:text-[#D4AF37] transition-colors"
-                >
-                  {t("termsOfService")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/faq"
+                  href="/book"
                   className="hover:text-[#D4AF37] transition-colors"
                 >
                   {t("faq")}
