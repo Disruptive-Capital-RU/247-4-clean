@@ -73,7 +73,9 @@ export default function Footer() {
             <ul className="space-y-2 text-white/70 font-dm-sans">
               <li>
                 <Link
-                  href="/oferta_reluxi"
+                  href="/legal/oferta_reluxi1.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-[#D4AF37] transition-colors"
                 >
                   {t("offer")}

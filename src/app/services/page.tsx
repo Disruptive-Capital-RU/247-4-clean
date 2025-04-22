@@ -165,7 +165,7 @@ export default function ServicesPage() {
                         <div>
                           <h3 className="text-xl md:text-2xl font-cormorant font-bold text-white mb-2">One-Day Experience</h3>
                           <div className="mb-4">
-                            <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">$75</p>
+                            <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">7 500₽ ($75)</p>
                           </div>
                           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
                           
@@ -212,7 +212,7 @@ export default function ServicesPage() {
                         </div>
                         <div className="mt-auto">
                           <button 
-                            onClick={() => handlePlanSelect("One-Day Experience", "One-Day Plan", "$75")}
+                            onClick={() => handlePlanSelect("One-Day Experience", "One-Day Plan", "7 500₽ ($75)")}
                             className="w-full py-3 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                           >
                             Request One-Day Plan
@@ -231,7 +231,7 @@ export default function ServicesPage() {
                         <div>
                           <h3 className="text-xl md:text-2xl font-cormorant font-bold text-white mb-2">3-Day Concierge Plan</h3>
                           <div className="mb-4">
-                            <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">$139</p>
+                            <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">13 900₽ ($139)</p>
                           </div>
                           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
                           
@@ -278,7 +278,7 @@ export default function ServicesPage() {
                         </div>
                         <div className="mt-auto">
                           <button 
-                            onClick={() => handlePlanSelect("3-Day Concierge Plan", "Multi-Day Plan", "$139", 3)}
+                            onClick={() => handlePlanSelect("3-Day Concierge Plan", "Multi-Day Plan", "13 900₽ ($139)", 3)}
                             className="w-full py-3 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                           >
                             Start 3-Day Plan
@@ -294,7 +294,7 @@ export default function ServicesPage() {
                         <div>
                           <h3 className="text-xl md:text-2xl font-cormorant font-bold text-white mb-2">Monthly Membership</h3>
                           <div className="mb-4">
-                            <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">$339/month</p>
+                            <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">33 900₽ ($339)/month</p>
                           </div>
                           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
                           
@@ -341,7 +341,7 @@ export default function ServicesPage() {
                         </div>
                         <div className="mt-auto">
                           <button 
-                            onClick={() => handlePlanSelect("Monthly Membership", "Membership", "$339")}
+                            onClick={() => handlePlanSelect("Monthly Membership", "Membership", "33 900₽ ($339)")}
                             className="w-full py-3 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                           >
                             Become a Member
@@ -376,7 +376,7 @@ export default function ServicesPage() {
                           </tr>
                           <tr className="border-b border-white/10">
                             <td className="py-4 px-2 font-dm-sans font-medium text-white">Commission Fee</td>
-                            <td className="py-4 px-2 font-dm-sans text-white/90">$5 per fulfilled request</td>
+                            <td className="py-4 px-2 font-dm-sans text-white/90">500₽ ($5) per fulfilled request</td>
                           </tr>
                           <tr className="border-b border-white/10">
                             <td className="py-4 px-2 font-dm-sans font-medium text-white">Ideal For</td>

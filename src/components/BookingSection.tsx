@@ -637,7 +637,11 @@ export default function BookingSection() {
                 >
                   <h2 className="text-5xl font-cormorant font-bold text-white text-center mb-2">
                     {t("bookingHeadline") || (
-                      <>Your Time Is <span className="text-[#D4AF37]">Precious</span>. Start Now.</>
+                      <>
+                        Your Time Is{" "}
+                        <span className="text-[#D4AF37]">Precious</span>. Start
+                        Now.
+                      </>
                     )}
                   </h2>
                   <p className="text-white/70 text-center mb-8">
@@ -650,9 +654,9 @@ export default function BookingSection() {
                       <div className="space-y-6">
                         <div className="space-y-2">
                           <Label htmlFor="name" className="text-white">
-  {(t("fullName") || "Full Name")}
-  <span className="text-[#D4AF37] ml-1">*</span>
-</Label>
+                            {t("fullName") || "Full Name"}
+                            <span className="text-[#D4AF37] ml-1">*</span>
+                          </Label>
                           <Input
                             id="name"
                             name="name"
@@ -666,9 +670,9 @@ export default function BookingSection() {
 
                         <div className="space-y-2">
                           <Label htmlFor="email" className="text-white">
-  {(t("email") || "Email")}
-  <span className="text-[#D4AF37] ml-1">*</span>
-</Label>
+                            {t("email") || "Email"}
+                            <span className="text-[#D4AF37] ml-1">*</span>
+                          </Label>
                           <Input
                             id="email"
                             name="email"
@@ -687,9 +691,9 @@ export default function BookingSection() {
 
                         <div className="space-y-2">
                           <Label htmlFor="password" className="text-white">
-  {(t("password") || "Password")}
-  <span className="text-[#D4AF37] ml-1">*</span>
-</Label>
+                            {t("password") || "Password"}
+                            <span className="text-[#D4AF37] ml-1">*</span>
+                          </Label>
                           <Input
                             id="password"
                             name="password"
@@ -709,9 +713,9 @@ export default function BookingSection() {
                       <div className="space-y-6">
                         <div className="space-y-2">
                           <Label htmlFor="contact" className="text-white">
-  {(t("phone") || "Phone")}
-  <span className="text-[#D4AF37] ml-1">*</span>
-</Label>
+                            {t("phone") || "Phone"}
+                            <span className="text-[#D4AF37] ml-1">*</span>
+                          </Label>
                           <Input
                             id="contact"
                             name="contact"
@@ -855,21 +859,17 @@ export default function BookingSection() {
                         htmlFor="terms"
                         className="text-sm text-white leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                       >
-                        {t("iAcceptThe") || "I accept the"}{" "}
-                        <a href="#" className="text-[#D4AF37] hover:underline">
-  {(() => {
-    const label = t("termsAndConditions") || "Terms and Conditions";
-    return label.charAt(0).toUpperCase() + label.slice(1).replace(/\b(terms|conditions)\b/g, (word) => word.charAt(0).toUpperCase() + word.slice(1));
-  })()}
-</a>{" "}
-{t("and") || "and"}{" "}
-<a href="#" className="text-[#D4AF37] hover:underline">
-  {(() => {
-    const label = t("privacyPolicy") || "Privacy Policy";
-    return label.charAt(0).toUpperCase() + label.slice(1).replace(/\b(privacy|policy)\b/g, (word) => word.charAt(0).toUpperCase() + word.slice(1));
-  })()}
-  <span className="text-[#D4AF37] ml-0.5">*</span>
-</a>
+                        {t("iHaveReadAgree") ||
+                          "I have read and agree to the terms of the"}{" "}
+                        <a
+                          href="/legal/oferta_reluxi1.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#D4AF37] hover:underline"
+                        >
+                          {t("offer") || "offer"}
+                          <span className="text-[#D4AF37] ml-0.5">*</span>
+                        </a>
                       </label>
                     </div>
 
