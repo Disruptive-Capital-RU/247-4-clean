@@ -238,7 +238,8 @@ export default function Dashboard() {
   };
 
   const categories = [
-    { id: "all", name: "Core Services" },
+    { id: "all", name: "All" },
+    { id: "core", name: "Core Services" },
     { id: "Lifestyle", name: "Lifestyle & Romantic" },
     { id: "Family", name: "Family & Cultural" },
     { id: "Business", name: "Business & Security" },
@@ -458,27 +459,25 @@ export default function Dashboard() {
       {/* Services Header */}
       <section className="pt-3 pb-6 bg-[#111]">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
             {/* Category Selector */}
-            <div className="overflow-x-auto scrollbar-hide">
-              <div className="flex space-x-4">
-                {categories.map((category) => (
-                  <button
-                    key={category.id}
-                    onClick={() => handleCategoryChange(category.id)}
-                    className={`px-4 py-2 rounded-lg whitespace-nowrap transition-all duration-300 ease-in-out border ${
-                      activeCategory === category.id
-                        ? "bg-[#D4AF37] text-black font-medium transform scale-105 shadow-[0_0_10px_rgba(212,175,55,0.3)] border-[#D4AF37]"
-                        : "bg-transparent text-white/70 hover:bg-[#222] hover:text-white border-[#D4AF37]/40"
-                    }`}
-                  >
-                    {category.name}
-                  </button>
-                ))}
-              </div>
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => handleCategoryChange(category.id)}
+                  className={`px-4 py-2 rounded-lg whitespace-nowrap transition-all duration-300 ease-in-out border ${
+                    activeCategory === category.id
+                      ? "bg-[#D4AF37] text-black font-medium transform scale-105 shadow-[0_0_10px_rgba(212,175,55,0.3)] border-[#D4AF37]"
+                      : "bg-transparent text-white/70 hover:bg-[#222] hover:text-white border-[#D4AF37]/40"
+                  }`}
+                >
+                  {category.name}
+                </button>
+              ))}
             </div>
 
-            <div className="relative w-full max-w-xs">
+            <div className="relative w-full md:max-w-xs">
               <input
                 type="text"
                 value={searchQuery}

@@ -230,6 +230,7 @@ export default function Navigation() {
             {user ? (
               <>
                 <NavLink href="/services">{t("services")}</NavLink>
+                <NavLink href="/why-us">{t("whyUs")}</NavLink>
                 <NavLink href="/dashboard">{t("dashboard")}</NavLink>
                 <button
                   onClick={handleLogout}
@@ -240,8 +241,8 @@ export default function Navigation() {
               </>
             ) : (
               <>
-                <NavLink href="/why-us">{t("whyUs")}</NavLink>
                 <NavLink href="/services">{t("services")}</NavLink>
+                <NavLink href="/why-us">{t("whyUs")}</NavLink>
                 <LanguageSelector />
                 <button
                   onClick={() => setShowLoginModal(true)}
@@ -304,6 +305,9 @@ export default function Navigation() {
                 <NavLink href="/services" onClick={() => setIsMenuOpen(false)}>
                   {t("services")}
                 </NavLink>
+                <NavLink href="/why-us" onClick={() => setIsMenuOpen(false)}>
+                  {t("whyUs")}
+                </NavLink>
                 <NavLink href="/dashboard" onClick={() => setIsMenuOpen(false)}>
                   {t("dashboard")}
                 </NavLink>
@@ -319,11 +323,11 @@ export default function Navigation() {
               </>
             ) : (
               <>
-                <NavLink href="/why-us" onClick={() => setIsMenuOpen(false)}>
-                  {t("whyUs")}
-                </NavLink>
                 <NavLink href="/services" onClick={() => setIsMenuOpen(false)}>
                   {t("services")}
+                </NavLink>
+                <NavLink href="/why-us" onClick={() => setIsMenuOpen(false)}>
+                  {t("whyUs")}
                 </NavLink>
                 <button
                   onClick={() => {

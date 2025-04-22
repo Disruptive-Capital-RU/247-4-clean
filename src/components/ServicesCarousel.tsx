@@ -55,11 +55,11 @@ export default function ServicesCarousel({
 
   const handleAddToCart = React.useCallback(
     (service: ServiceType) => {
-    if (addToCart) {
-      addToCart(service);
-    } else {
-      toast.success(`Added ${service.title} to your concierge list`);
-    }
+      if (addToCart) {
+        addToCart(service);
+      } else {
+        toast.success(`Added ${service.title} to your concierge list`);
+      }
     },
     [addToCart]
   );
@@ -650,9 +650,9 @@ export default function ServicesCarousel({
         title: "Halal Dining Arrangements",
         description:
           "Curated Halal dining experiences at the finest certified restaurants.",
-        image: "/images/halal.jpg",
+        image: "/images/halal_1.jpg",
         category: "Family & Cultural",
-        src: "/images/halal.jpg",
+        src: "/images/halal_1.jpg",
         content: (
           <div className="space-y-4">
             <p>
@@ -672,7 +672,7 @@ export default function ServicesCarousel({
                   title: "Halal Dining Arrangements",
                   description:
                     "Curated Halal dining experiences at the finest certified restaurants.",
-                  image: "/images/halal.jpg",
+                  image: "/images/halal_1.jpg",
                   category: "Family & Cultural",
                 })
               }
@@ -911,6 +911,45 @@ export default function ServicesCarousel({
           </div>
         ),
       },
+      {
+        id: "s23",
+        title: "Hotel Selection",
+        description:
+          "Premium hotel selection and booking services for an unforgettable stay.",
+        image: "/images/hotel.jpg",
+        category: "Core Services",
+        src: "/images/hotel.jpg",
+        content: (
+          <div className="space-y-4">
+            <p>
+              Let our expert team assist you in selecting and booking the
+              perfect hotel accommodation tailored to your preferences and
+              requirements.
+            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Access to exclusive luxury hotels and boutique properties</li>
+              <li>Personalized room selection based on your preferences</li>
+              <li>Special amenities and VIP treatment arrangements</li>
+              <li>Flexible booking options with preferred partner rates</li>
+            </ul>
+            <button
+              onClick={() =>
+                handleAddToCart({
+                  id: "s23",
+                  title: "Hotel Selection",
+                  description:
+                    "Premium hotel selection and booking services for an unforgettable stay.",
+                  image: "/images/hotel.jpg",
+                  category: "Core Services",
+                })
+              }
+              className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
+            >
+              Add to My Concierge List
+            </button>
+          </div>
+        ),
+      },
     ];
 
     setServices(servicesData);
@@ -923,8 +962,24 @@ export default function ServicesCarousel({
 
     let filtered = services;
 
-    // Filter by category first
-    if (activeCategory !== "all") {
+    // Filter by category
+    if (activeCategory === "all") {
+      // Show all services
+      filtered = services;
+    } else if (activeCategory === "core") {
+      // For "Core Services", only show core services
+      const coreServices = [
+        "Private Chauffeur Service",
+        "Taxi Booking",
+        "Restaurant & Bar Reservations",
+        "Wellness & Spa Bookings",
+        "Event Planning",
+        "Hotel Selection",
+      ];
+      filtered = filtered.filter((service) =>
+        coreServices.includes(service.title)
+      );
+    } else {
       // Map category IDs to the actual service categories
       const categoryMap: { [key: string]: string[] } = {
         Lifestyle: ["Lifestyle & Romantic"],
@@ -940,29 +995,17 @@ export default function ServicesCarousel({
           serviceCategoriesForFilter.includes(service.category)
         );
       }
-    } else {
-      // For "Core Services", only show core services
-      const coreServices = [
-        "Private Chauffeur Service",
-        "Taxi Booking",
-        "Restaurant & Bar Reservations",
-        "Wellness & Spa Bookings",
-        "Event Planning",
-      ];
-      filtered = filtered.filter((service) =>
-        coreServices.includes(service.title)
-      );
     }
 
     // Then filter by search query
     if (searchQuery.trim()) {
-    const query = searchQuery.toLowerCase();
+      const query = searchQuery.toLowerCase();
       filtered = filtered.filter(
-      (service) =>
-        service.title.toLowerCase().includes(query) ||
-        service.description.toLowerCase().includes(query) ||
-        service.category.toLowerCase().includes(query)
-    );
+        (service) =>
+          service.title.toLowerCase().includes(query) ||
+          service.description.toLowerCase().includes(query) ||
+          service.category.toLowerCase().includes(query)
+      );
     }
 
     setFilteredServices(filtered);
