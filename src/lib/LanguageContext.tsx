@@ -119,6 +119,85 @@ const translations: Translations = {
     // Services page
     ourEliteServices: "Our Elite Services",
     luxuryServicesForElite: "Luxury concierge services for the elite",
+    howWeServeYou: "How We Serve You",
+    howWe: "How We",
+    serve: "Serve",
+    you: "You",
+    oneDayExperience: "One-Day Experience",
+    oneDayPrice: "7 500₽ ($75)",
+    designedFor: "Designed For",
+    oneDayDesignedFor:
+      "Special occasions, business needs, or quality time with family — when one day deserves to be perfectly handled.",
+    whatYouGet: "What You Get",
+    oneDayWhatYouGet:
+      "A curated one-day experience tailored around your goals — personal or professional. We handle the bookings, timing, and flow so your day feels effortless.",
+    examplesInclude: "Examples Include",
+    oneDayExample1:
+      "A romantic evening with private transport, dinner reservations, and a floral surprise",
+    oneDayExample2:
+      "A family day with thoughtfully planned activities, cultural visits, and group-friendly dining — all arranged to keep the day flowing with ease",
+    oneDayExample3:
+      "A business day with meeting space bookings, restaurant coordination, and transport between locations",
+    oneDayExampleFooter:
+      "Tell us the kind of day you need — and we'll make it seamless.",
+    oneDayPlan: "One-Day Plan",
+    requestOneDayPlan: "Request One-Day Plan",
+
+    mostPopular: "Most Popular",
+    threeDayPlan: "3-Day Concierge Plan",
+    threeDayPrice: "13 900₽ ($139)",
+    threeDayDesignedFor:
+      "Short getaways, city breaks, or visitors who want complete support without long-term commitment.",
+    threeDayWhatYouGet:
+      "Three full days of unlimited, personalized concierge assistance — available at any hour. Ideal for those who want to experience the best of Moscow without stress or planning.",
+    includes: "Includes",
+    threeDayInclude1: "24/7 concierge access via your preferred messaging app",
+    threeDayInclude2:
+      "Booking & coordination across dining, transport, wellness, events, and more",
+    threeDayInclude3:
+      "Option to add additional days for $39/day — same service, same ease",
+    threeDayIncludeFooter:
+      "Start your journey with Reluxi — and experience how effortless travel can feel.",
+    multiDayPlan: "Multi-Day Plan",
+    startThreeDayPlan: "Start 3-Day Plan",
+
+    monthlyMembership: "Monthly Membership",
+    monthlyPrice: "33 900₽ ($339)/month",
+    monthlyDesignedFor:
+      "Frequent travelers, busy professionals, and city residents who want continuous access to Reluxi's full support.",
+    monthlyWhatYouGet:
+      "Unlimited monthly concierge access with a dedicated point of contact who learns your preferences and adapts to your rhythm.",
+    monthlyInclude1: "24/7 availability with no limitations",
+    monthlyInclude2:
+      "Personalized planning across daily life, travel, dining, and more",
+    monthlyInclude3:
+      "Consistent care and service across multiple trips or ongoing needs",
+    monthlyIncludeFooter:
+      "Enjoy continuous, elevated support — no matter how often you need us.",
+    membership: "Membership",
+    becomeAMember: "Become a Member",
+
+    quickRequests: "Quick Requests",
+    oneTaskHandledFast: "One Task, Handled Fast",
+    quickRequestsDescription:
+      "Text us your request — we'll confirm it for a flat $5 commission. Perfect for spontaneous needs or first-time users who want to try Reluxi — one message at a time.",
+    howItWorks: "How It Works",
+    quickRequestsHowItWorks:
+      "Pay-per-request concierge service — no plan required",
+    commissionFee: "Commission Fee",
+    quickRequestsFee: "500₽ ($5) per fulfilled request",
+    idealFor: "Ideal For",
+    quickRequestsIdealFor:
+      "One-off bookings (e.g., restaurant, transportation, event tickets, courier)",
+    deliveryTime: "Delivery Time",
+    quickRequestsDeliveryTime:
+      "Everything arranged within minutes — smooth, fast, and confirmed in real time",
+    requestABooking: "Request a Booking",
+
+    readyToEnjoyTrip:
+      "Ready to Actually Enjoy Your Trip — Without Wasting Time or Energy?",
+    reluxiSavesYouHours:
+      "Reluxi saves you hours of searching and planning. You focus on the experience — we'll handle everything else.",
 
     // Dashboard page
     // welcomeBack key is already defined above
@@ -389,104 +468,83 @@ const translations: Translations = {
     // Services page
     ourEliteServices: "خدماتنا المتميزة",
     luxuryServicesForElite: "خدمات كونسيرج فاخرة للنخبة",
+    howWeServeYou: "كيف نخدمك",
+    howWe: "كيف",
+    serve: "نخدم",
+    you: "ك",
+    oneDayExperience: "تجربة ليوم واحد",
+    oneDayPrice: "7 500₽ ($75)",
+    designedFor: "مصممة لـ",
+    oneDayDesignedFor:
+      "المناسبات الخاصة، والاحتياجات التجارية، أو قضاء وقت جيد مع العائلة — عندما يستحق يوم واحد أن يتم التعامل معه بشكل مثالي.",
+    whatYouGet: "ما الذي ستحصل عليه",
+    oneDayWhatYouGet:
+      "تجربة ليوم واحد مخصصة حول أهدافك — شخصية أو مهنية. نتعامل مع الحجوزات والتوقيت والتدفق حتى يشعر يومك بالسهولة.",
+    examplesInclude: "الأمثلة تشمل",
+    oneDayExample1:
+      "أمسية رومانسية مع وسائل نقل خاصة وحجوزات عشاء ومفاجأة زهور",
+    oneDayExample2:
+      "يوم عائلي مع أنشطة مخطط لها بعناية وزيارات ثقافية وتناول طعام مناسب للمجموعات - كل ذلك مرتب للحفاظ على تدفق اليوم بسهولة",
+    oneDayExample3:
+      "يوم عمل مع حجوزات مساحات اجتماعات وتنسيق مطاعم ونقل بين المواقع",
+    oneDayExampleFooter: "أخبرنا بنوع اليوم الذي تحتاجه — وسنجعله سلسًا.",
+    oneDayPlan: "خطة ليوم واحد",
+    requestOneDayPlan: "طلب خطة ليوم واحد",
 
-    // Booking page
-    bookYour: "احجز",
-    personalConcierge: "مساعدك الشخصي",
-    bookingIntro:
-      "وقتك ثمين. ابدأ الآن. احجز مساعدك الشخصي لمدة 5 أيام مقابل 100 دولار فقط.",
-    howIt: "كيف",
-    works: "تعمل",
-    bookNow: "احجز الآن",
-    bookNowDesc:
-      "أكمل نموذج الحجز بمعلوماتك وتواريخ سفرك وتفضيلاتك. هذا حجز مسبق فقط، لا يتم تحصيل أي مدفوعات في هذه المرحلة.",
-    confirmation: "التأكيد",
-    confirmationDesc:
-      "خلال 12 ساعة، سيتواصل فريقنا معك مباشرة عبر وسيلة الاتصال المفضلة لديك لتأكيد حجزك ومناقشة أي متطلبات محددة والإجابة على أي أسئلة.",
-    payment: "الدفع",
-    paymentDesc:
-      "بمجرد تأكيد حجزك، ستتلقى رابط دفع آمن. نقبل جميع بطاقات الائتمان الرئيسية وطرق الدفع الدولية.",
-    preArrivalPlanning: "التخطيط قبل الوصول",
-    preArrivalPlanningDesc:
-      "سيتواصل معك مساعدك الشخصي قبل وصولك لوضع خطة مخصصة لزيارتك، لضمان أن كل شيء جاهز لتجربتك في موسكو.",
-    welcomeToMoscow: "مرحبا بك في موسكو",
-    welcomeToMoscowDesc:
-      "سيستقبلك مساعدك الشخصي عند وصولك وسيكون متاحاً على مدار الساعة طوال مدة إقامتك لضمان أن كل جانب من جوانب تجربتك في موسكو يفوق توقعاتك.",
-    frequentlyAsked: "الأسئلة",
-    questions: "المتكررة",
-    feeCoverQuestion: "ماذا تغطي رسوم 100 دولار؟",
-    feeCoverAnswer:
-      "تغطي رسوم 100 دولار خدمة المساعد الشخصي لمدة 5 أيام. وهذا يشمل التوفر على مدار الساعة طوال أيام الأسبوع، والتخطيط الشخصي، والمساعدة على الأرض. الخدمات الإضافية مثل فواتير المطاعم والتسوق والتذاكر وما إلى ذلك تحسب بشكل منفصل.",
-    extendServiceQuestion:
-      "هل يمكنني تمديد خدمة المساعد الشخصي لأكثر من 5 أيام؟",
-    extendServiceAnswer:
-      "نعم، يمكنك تمديد الخدمة بمعدل 20 دولارًا لكل يوم إضافي. يمكن ترتيب ذلك أثناء إقامتك من خلال مساعدك الشخصي.",
-    arabicSpeakersQuestion: "هل جميع المساعدين الشخصيين يتحدثون العربية؟",
-    arabicSpeakersAnswer:
-      "نعم، جميع مساعدينا الشخصيين يتحدثون العربية والإنجليزية والروسية بطلاقة، مما يضمن التواصل السلس طوال فترة إقامتك.",
-    cancellationPolicyQuestion: "ما هي سياسة الإلغاء الخاصة بكم؟",
-    cancellationPolicyAnswer:
-      "الإلغاءات التي تتم قبل 72 ساعة أو أكثر من موعد الوصول المحدد تحصل على استرداد كامل. الإلغاءات في غضون 72 ساعة تخضع لرسوم بنسبة 50%.",
-    discretionQuestion: "ما مدى سرية خدمتكم؟",
-    discretionAnswer:
-      "السرية المطلقة هي أولويتنا. خصوصيتك مقدسة، ونحافظ على السرية التامة بشأن أنشطتك وتفضيلاتك ومعلوماتك الشخصية.",
+    mostPopular: "الأكثر شعبية",
+    threeDayPlan: "خطة كونسيرج لمدة 3 أيام",
+    threeDayPrice: "13 900₽ ($139)",
+    threeDayDesignedFor:
+      "رحلات قصيرة، استراحات في المدينة، أو زوار يريدون دعمًا كاملًا بدون التزام طويل الأمد.",
+    threeDayWhatYouGet:
+      "ثلاثة أيام كاملة من مساعدة الكونسيرج غير المحدودة والمخصصة — متاحة في أي ساعة. مثالي لأولئك الذين يرغبون في تجربة أفضل ما في موسكو بدون إجهاد أو تخطيط.",
+    includes: "تشمل",
+    threeDayInclude1:
+      "وصول إلى الكونسيرج على مدار الساعة طوال أيام الأسبوع عبر تطبيق المراسلة المفضل لديك",
+    threeDayInclude2:
+      "الحجز والتنسيق عبر تناول الطعام والنقل والعافية والفعاليات والمزيد",
+    threeDayInclude3:
+      "خيار إضافة أيام إضافية مقابل 39 دولارًا في اليوم — نفس الخدمة، نفس السهولة",
+    threeDayIncludeFooter: "ابدأ رحلتك مع ريلوكسي — واختبر مدى سهولة السفر.",
+    multiDayPlan: "خطة متعددة الأيام",
+    startThreeDayPlan: "بدء خطة 3 أيام",
 
-    // Booking form
-    yourTimeIs: "وقتك",
-    precious: "ثمين",
-    startNow: "ابدأ الآن.",
-    bookingFormDesc:
-      "احجز مساعدك الشخصي لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتواصل معك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
-    fullName: "الاسم الكامل",
-    yourName: "اسمك",
-    email: "البريد الإلكتروني",
-    yourEmail: "بريدك الإلكتروني",
-    emailLoginInfo:
-      "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم المساعد الشخصي",
-    password: "كلمة المرور",
-    enterPassword: "أدخل كلمة المرور",
-    phone: "الهاتف",
-    phoneExample: "+971 55 123 4567",
-    preferredCommunication: "طريقة الاتصال المفضلة",
-    selectCommunicationMethod: "اختر طريقة الاتصال",
-    languagePreference: "تفضيل اللغة",
-    selectLanguage: "اختر اللغة",
-    english: "الإنجليزية",
-    russian: "الروسية",
-    arabic: "العربية",
-    chinese: "الصينية",
-    iAcceptThe: "أوافق على",
-    termsAndConditions: "الشروط والأحكام",
-    and: "و",
-    privacyPolicy: "سياسة الخصوصية",
-    completeCaptcha: "يرجى إكمال التحقق من الكابتشا",
-    captchaRequired: "التحقق من الكابتشا مطلوب قبل التقديم",
-    validEmailRequired: "يرجى إدخال عنوان بريد إلكتروني صحيح",
-    passwordMinLength: "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
-    acceptTermsRequired: "يجب أن توافق على الشروط والأحكام للمتابعة",
-    processing: "جاري المعالجة...",
-    emailVerificationRequired: "مطلوب التحقق من البريد الإلكتروني",
-    reserveMyConcierge: "احجز مساعدي الشخصي",
-    iHaveReadAgree: "لقد قرأت ووافقت على شروط",
+    monthlyMembership: "العضوية الشهرية",
+    monthlyPrice: "33 900₽ ($339)/شهر",
+    monthlyDesignedFor:
+      "المسافرون المتكررون والمهنيون المشغولون وسكان المدينة الذين يريدون وصولًا مستمرًا إلى الدعم الكامل من ريلوكسي.",
+    monthlyWhatYouGet:
+      "وصول غير محدود شهريًا إلى خدمة الكونسيرج مع نقطة اتصال مخصصة تتعلم تفضيلاتك وتتكيف مع إيقاعك.",
+    monthlyInclude1: "متوفر على مدار الساعة طوال أيام الأسبوع بدون قيود",
+    monthlyInclude2:
+      "تخطيط مخصص عبر الحياة اليومية والسفر وتناول الطعام والمزيد",
+    monthlyInclude3: "رعاية وخدمة متسقة عبر رحلات متعددة أو احتياجات مستمرة",
+    monthlyIncludeFooter:
+      "استمتع بدعم مستمر ومرتفع — بغض النظر عن عدد المرات التي تحتاجنا فيها.",
+    membership: "العضوية",
+    becomeAMember: "أصبح عضوًا",
 
-    checkEmailVerification: "يرجى التحقق من بريدك الإلكتروني للتحقق من حسابك",
-    verifyEmailPrompt:
-      "يرجى التحقق من عنوان بريدك الإلكتروني قبل المتابعة. تحقق من بريدك الوارد للحصول على رابط التأكيد وعد إلى هذه الصفحة بعد التأكيد.",
-    loadingState1: "مطابقتك مع مساعد شخصي",
-    loadingState2: "التحقق من توفر التجارب المميزة",
-    loadingState3: "تأمين وصولك الحصري",
-    loadingState4: "تأكيد خدمات الشركاء الفاخرة",
-    loadingState5: "إنهاء حجزك",
-    loadingState6: "مرحباً بك في الدائرة الداخلية",
-    successTitle: "تم تقديم الحجز بنجاح",
-    successMessage:
-      "تم استلام حجزك. سيتواصل معك فريق المساعد الشخصي خلال 12 ساعة لتأكيد التفاصيل والاستعداد لوصولك.",
-    redirectMessage: "سيتم توجيهك إلى لوحة التحكم الخاصة بك قريباً",
-    verificationEmailSent: "مطلوب التحقق من البريد الإلكتروني",
-    checkInbox:
-      "يرجى التحقق من بريدك الوارد والنقر على رابط التحقق الذي أرسلناه إلى عنوان بريدك الإلكتروني.",
-    afterVerification:
-      "بعد التحقق من بريدك الإلكتروني، عد إلى هذه الصفحة لإكمال عملية الحجز الخاصة بك.",
+    quickRequests: "طلبات سريعة",
+    oneTaskHandledFast: "مهمة واحدة، تُنجز بسرعة",
+    quickRequestsDescription:
+      "أرسل لنا طلبك عبر الرسائل النصية — سنؤكده مقابل عمولة ثابتة قدرها 5 دولارات. مثالي للاحتياجات العفوية أو المستخدمين لأول مرة الذين يرغبون في تجربة ريلوكسي — رسالة واحدة في كل مرة.",
+    howItWorks: "كيف يعمل",
+    quickRequestsHowItWorks:
+      "خدمة كونسيرج بنظام الدفع لكل طلب — لا تحتاج إلى خطة",
+    commissionFee: "رسوم العمولة",
+    quickRequestsFee: "500₽ ($5) لكل طلب منفذ",
+    idealFor: "مثالي لـ",
+    quickRequestsIdealFor:
+      "حجوزات فردية (مثل المطعم والنقل وتذاكر الفعاليات والبريد السريع)",
+    deliveryTime: "وقت التسليم",
+    quickRequestsDeliveryTime:
+      "كل شيء يتم تنظيمه في غضون دقائق — سلس وسريع ومؤكد في الوقت الفعلي",
+    requestABooking: "طلب حجز",
+
+    readyToEnjoyTrip:
+      "هل أنت مستعد للاستمتاع برحلتك فعلاً - دون إضاعة الوقت أو الطاقة؟",
+    reluxiSavesYouHours:
+      "يوفر لك ريلوكسي ساعات من البحث والتخطيط. أنت تركز على التجربة — ونحن سنتعامل مع كل شيء آخر.",
 
     // Dashboard page
     welcomeUser: "مرحباً بعودتك",
@@ -609,6 +667,73 @@ const translations: Translations = {
     // Services page
     ourEliteServices: "我们的精英服务",
     luxuryServicesForElite: "为精英提供的豪华礼宾服务",
+    howWeServeYou: "我们如何为您服务",
+    howWe: "我们如何",
+    serve: "服务",
+    you: "您",
+    oneDayExperience: "一日体验",
+    oneDayPrice: "7 500₽ ($75)",
+    designedFor: "专为以下人士设计",
+    oneDayDesignedFor:
+      "特殊场合、商务需求或与家人共度美好时光 — 当一天值得完美安排时。",
+    whatYouGet: "您将获得",
+    oneDayWhatYouGet:
+      "围绕您的目标定制的一日体验 — 个人或专业。我们处理预订、时间安排和流程，让您的一天感觉轻松自如。",
+    examplesInclude: "示例包括",
+    oneDayExample1: "浪漫之夜，包括私人交通、晚餐预订和花卉惊喜",
+    oneDayExample2:
+      "家庭日，精心规划的活动、文化访问和适合团体的用餐 — 一切都安排得当，让您的一天流畅无阻",
+    oneDayExample3: "商务日，会议场所预订、餐厅协调和地点之间的交通",
+    oneDayExampleFooter: "告诉我们您需要什么样的一天 — 我们将让它无缝衔接。",
+    oneDayPlan: "一日计划",
+    requestOneDayPlan: "申请一日计划",
+
+    mostPopular: "最受欢迎",
+    threeDayPlan: "3日礼宾计划",
+    threeDayPrice: "13 900₽ ($139)",
+    threeDayDesignedFor:
+      "短期旅行、城市休闲或希望获得全面支持而无需长期承诺的游客。",
+    threeDayWhatYouGet:
+      "三天全方位、个性化的礼宾服务 — 随时可用。适合那些想要体验莫斯科最好的一面而不需要承受压力或规划的人。",
+    includes: "包括",
+    threeDayInclude1: "通过您首选的消息应用程序全天候使用礼宾服务",
+    threeDayInclude2: "在餐饮、交通、健康、活动等方面的预订和协调",
+    threeDayInclude3:
+      "可选择以每天$39的价格添加额外天数 — 相同的服务，相同的便捷",
+    threeDayIncludeFooter: "与Reluxi开始您的旅程 — 体验旅行可以多么轻松。",
+    multiDayPlan: "多日计划",
+    startThreeDayPlan: "开始3日计划",
+
+    monthlyMembership: "月度会员",
+    monthlyPrice: "33 900₽ ($339)/月",
+    monthlyDesignedFor:
+      "经常旅行的人、忙碌的专业人士和希望持续获得Reluxi全面支持的城市居民。",
+    monthlyWhatYouGet:
+      "无限制的月度礼宾服务，专属联系人了解您的偏好并适应您的节奏。",
+    monthlyInclude1: "全天候可用，无限制",
+    monthlyInclude2: "跨日常生活、旅行、餐饮等的个性化规划",
+    monthlyInclude3: "多次旅行或持续需求的一致关怀和服务",
+    monthlyIncludeFooter: "享受持续、高品质的支持 — 无论您需要我们多少次。",
+    membership: "会员",
+    becomeAMember: "成为会员",
+
+    quickRequests: "快速请求",
+    oneTaskHandledFast: "一项任务，快速处理",
+    quickRequestsDescription:
+      "给我们发送您的请求 — 我们将以5美元的固定佣金确认。非常适合自发需求或想要尝试Reluxi的首次用户 — 一次一条消息。",
+    howItWorks: "如何运作",
+    quickRequestsHowItWorks: "按请求付费的礼宾服务 — 无需计划",
+    commissionFee: "佣金费用",
+    quickRequestsFee: "每项完成的请求500₽($5)",
+    idealFor: "适合",
+    quickRequestsIdealFor: "一次性预订（如餐厅、交通、活动门票、快递）",
+    deliveryTime: "交付时间",
+    quickRequestsDeliveryTime: "一切在几分钟内安排 — 顺畅、快速，并实时确认",
+    requestABooking: "申请预订",
+
+    readyToEnjoyTrip: "准备好真正享受您的旅行 — 不浪费时间或精力？",
+    reluxiSavesYouHours:
+      "Reluxi为您节省搜索和规划的时间。您专注于体验 — 我们将处理其他一切。",
 
     // Dashboard page
     welcomeBack: "欢迎回来",
@@ -643,102 +768,24 @@ const translations: Translations = {
     nightlifeEventsCategory: "夜生活与活动",
     travelSupportCategory: "旅行支持",
 
-    // Why Us page
-    whyUsTitle1: "我们不仅提供服务。",
-    whyUsTitle2: "我们提供",
-    certainty: "确定性",
-    whyUsDescription:
-      "您不需要日程安排。您需要的是信号。您的礼宾员不仅仅是导游——他们是您在异国他乡的可信赖存在。",
-    whyUsQuote: "即使距离遥远，你也近在我心。",
-    whyUsQuoteSource: "火从阿姆尔·迪亚布的「Tamly Ma'ak」歌曲中获得灵感",
-    whyChooseReluxi: "为什么选择",
-    whyChooseReluxiDesc:
-      "我们通过对卓越的承诺，提升您在莫斯科的体验，超越了传统礼宾服务。",
-    ourServicePhilosophy: "我们的服务",
-    philosophy: "理念",
+    // Golden button section
+    goldLogo: "24/7标志",
+    goldenButton: "您的金色按钮",
+    goldenButtonDesc:
+      "这不仅仅是一个按钮 — 它是您直通奢华、谨慎和城市最精致服务的直接线路。一触即可连接到您的私人礼宾，全天候可用。",
+    goldenButtonInstructions: "按住添加到您的主屏幕。",
+    chooseDevice: "选择您的设备继续：",
+    iphone: "iPhone",
+    android: "安卓",
 
-    // Hero section
-    eliteConciergeService: "",
-    alwaysWithYou: "您的个人旅行助手",
-    heroDescription: "我们为您节省数小时的搜索和规划时间。",
-    heroDescription2: "全天候24/7服务。",
-    reserveYourConcierge: "预订您的礼宾",
-    pricingInfo: "",
-    discoverMore: "了解更多",
-
-    // Main service intro
-    serviceMainTitle: "用我们自己的话说",
-    serviceSubtitle: "一项具有存在感、力量和精确性的服务",
-    serviceIntro:
-      "Reluxi是您通往莫斯科所有优质体验的私人通道 — 没有噪音、延迟或妥协。我们专注于在您表达之前预测您的愿望。",
-
-    // Service offerings
-    vipShopping: "贵宾购物",
-    vipShoppingDesc:
-      "私人通道进入莫斯科最负盛名的精品店。会说阿拉伯语的造型师。专属时段。",
-    highEndDining: "高端餐饮",
-    highEndDiningDesc:
-      "保证在莫斯科最热门的餐厅预留餐位。厨师为您的喜好做好准备。",
-    chauffeuredVehicles: "专车服务",
-    chauffeuredVehiclesDesc:
-      "黑色奔驰、S级、迈巴赫。专业训练的司机。完全谨慎。按小时或按日计费。",
-    privateCulturalTours: "私人文化之旅",
-    privateCulturalToursDesc:
-      "通过精英导游和翻译开启进入宫殿、博物馆和伊斯兰遗产地的通道。",
-    personalProtection: "个人安保",
-    personalProtectionDesc:
-      "应要求提供训练有素的行政保护。为那些隐私和安全不可协商的人服务。",
-    healthWellness: "健康与养生",
-    healthWellnessDesc:
-      "专属诊所、贵宾医疗通道、美容专家和水疗恢复 — 无需等候名单。",
-    nightlifeEvents: "夜生活与活动",
-    nightlifeEventsDesc: "进入封闭圈子、上流社会聚会和游客无法触及的活动。",
-
-    // Booking page
-    bookYour: "预订您的",
-    personalConcierge: "私人管家",
-    bookingIntro:
-      "您的时间很宝贵。现在开始。将您的私人管家预订5天，仅需100美元。",
-    howIt: "如何",
-    works: "运作",
-    bookNow: "立即预订",
-    bookNowDesc:
-      "填写预订表格，包括您的信息、旅行日期和偏好。这只是预先预订，在此阶段不收取任何付款。",
-    confirmation: "确认",
-    confirmationDesc:
-      "在12小时内，我们的团队将通过您偏好的通信方式直接与您联系，以确认您的预订，讨论任何特定要求，并回答任何问题。",
-    payment: "付款",
-    paymentDesc:
-      "预订确认后，您将收到安全的付款链接。我们接受所有主要信用卡和国际支付方式。",
-    preArrivalPlanning: "到达前规划",
-    preArrivalPlanningDesc:
-      "您的私人管家将在您到达前与您联系，为您的访问制定量身定制的计划，确保您的莫斯科体验做好一切准备。",
-    welcomeToMoscow: "欢迎来到莫斯科",
-    welcomeToMoscowDesc:
-      "您的管家将在您到达时迎接您，并在您整个停留期间全天怙为您服务，确保您在莫斯科的每一面体验都超出预期。",
-    frequentlyAsked: "常见",
-    questions: "问题",
-    feeCoverQuestion: "100美元费用包括哪些服务？",
-    feeCoverAnswer:
-      "100美元费用包括5天的私人管家服务。这包含全天候的可用性、个性化规划和实地协助。餐厅账单、购物、门票等额外服务将另行收费。",
-    extendServiceQuestion: "我可以将管家服务延长超过5天吗？",
-    extendServiceAnswer:
-      "是的，您可以以每天增加20美元的费率来延长您的服务。这可以在您停留期间通过您的私人管家安排。",
-    arabicSpeakersQuestion: "您所有的管家都会说阿拉伯语吗？",
-    arabicSpeakersAnswer:
-      "是的，我们所有的管家都能流利地说阿拉伯语、英语和俄语，确保在您整个停留期间沟通无睹。",
-    cancellationPolicyQuestion: "您的取消政策是什么？",
-    cancellationPolicyAnswer:
-      "在预定到达时间72小时或更长时间前取消的，将获得全额退款。在72小时内取消的将收取50%的费用。",
-    discretionQuestion: "您的服务有多么谨慎？",
-    discretionAnswer:
-      "绝对的谨慎是我们的首要任务。您的隐私是神圣的，我们对您的活动、偏好和个人信息保持完全的保密。",
+    // Dashboard access
+    accessDashboard: "访问您的个人礼宾仪表板",
+    dashboardDesc: "管理服务、探索体验并直接与您的礼宾联系",
+    dashboardButton: "仪表板",
 
     // Booking form
-    yourTimeIs: "您的时间",
-    precious: "很宝贵",
-    startNow: "现在开始。",
-    bookingFormDesc:
+    bookingHeader: "您的时间宝贵。立即开始。",
+    bookingDesc:
       "预订您私人管家五天仅需100美元。预订后，我们将直接与您联系，确认您的到达详情、偏好和优先事项。",
     fullName: "全名",
     yourName: "您的名字",
@@ -809,7 +856,7 @@ const translations: Translations = {
     // Booking form
     bookingHeader: "您的时间宝贵。立即开始。",
     bookingDesc:
-      "预订您的个人礼宾服务5天仅需100美元。一旦预订，我们将直接联系您确认您的到达详情、偏好和优先事项。",
+      "预订您私人管家五天仅需100美元。预订后，我们将直接与您联系，确认您的到达详情、偏好和优先事项。",
     fullName: "全名 *",
     email: "电子邮件 *",
     emailHint: "您将使用此电子邮件登录您的礼宾仪表板",
@@ -885,6 +932,86 @@ const translations: Translations = {
     // Services page
     ourEliteServices: "Наши элитные услуги",
     luxuryServicesForElite: "Роскошные консьерж-услуги для элиты",
+    howWeServeYou: "Как мы служим Вам",
+    howWe: "Как мы",
+    serve: "Служим",
+    you: "Вам",
+    oneDayExperience: "Однодневный опыт",
+    oneDayPrice: "7 500₽ ($75)",
+    designedFor: "Создано для",
+    oneDayDesignedFor:
+      "Особые случаи, деловые потребности или качественное время с семьей — когда один день заслуживает идеального обращения.",
+    whatYouGet: "Что вы получаете",
+    oneDayWhatYouGet:
+      "Индивидуальный однодневный опыт, созданный вокруг ваших целей — личных или профессиональных. Мы занимаемся бронированием, временем и потоком, чтобы ваш день ощущался легко.",
+    examplesInclude: "Примеры включают",
+    oneDayExample1:
+      "Романтический вечер с частным транспортом, бронированием ужина и цветочным сюрпризом",
+    oneDayExample2:
+      "Семейный день с продуманными мероприятиями, культурными визитами и удобными для группы обедами — все организовано так, чтобы день проходил легко",
+    oneDayExample3:
+      "Деловой день с бронированием помещений для встреч, координацией ресторанов и транспортом между местами",
+    oneDayExampleFooter:
+      "Расскажите нам, какой день вам нужен — и мы сделаем его безупречным.",
+    oneDayPlan: "Однодневный план",
+    requestOneDayPlan: "Запросить однодневный план",
+
+    mostPopular: "Самый популярный",
+    threeDayPlan: "3-дневный план консьержа",
+    threeDayPrice: "13 900₽ ($139)",
+    threeDayDesignedFor:
+      "Короткие отпуска, городские перерывы или посетители, которые хотят полной поддержки без долгосрочных обязательств.",
+    threeDayWhatYouGet:
+      "Три полных дня неограниченной, персонализированной помощи консьержа — доступно в любое время. Идеально для тех, кто хочет испытать лучшее из Москвы без стресса или планирования.",
+    includes: "Включает",
+    threeDayInclude1:
+      "Круглосуточный доступ к консьержу через предпочитаемое вами приложение для обмена сообщениями",
+    threeDayInclude2:
+      "Бронирование и координация в области питания, транспорта, оздоровления, мероприятий и многого другого",
+    threeDayInclude3:
+      "Возможность добавить дополнительные дни за $39/день — такой же сервис, такая же легкость",
+    threeDayIncludeFooter:
+      "Начните ваше путешествие с Reluxi — и испытайте, насколько легким может быть путешествие.",
+    multiDayPlan: "Многодневный план",
+    startThreeDayPlan: "Начать 3-дневный план",
+
+    monthlyMembership: "Ежемесячное членство",
+    monthlyPrice: "33 900₽ ($339)/месяц",
+    monthlyDesignedFor:
+      "Частые путешественники, занятые профессионалы и жители города, которые хотят постоянного доступа к полной поддержке Reluxi.",
+    monthlyWhatYouGet:
+      "Неограниченный ежемесячный доступ к услугам консьержа с выделенным контактным лицом, которое изучает ваши предпочтения и адаптируется к вашему ритму.",
+    monthlyInclude1: "Круглосуточная доступность без ограничений",
+    monthlyInclude2:
+      "Персонализированное планирование повседневной жизни, путешествий, питания и многого другого",
+    monthlyInclude3:
+      "Последовательная забота и обслуживание во время нескольких поездок или постоянных потребностей",
+    monthlyIncludeFooter:
+      "Наслаждайтесь непрерывной, высококлассной поддержкой — независимо от того, как часто вы нас нуждаетесь.",
+    membership: "Членство",
+    becomeAMember: "Стать участником",
+
+    quickRequests: "Быстрые запросы",
+    oneTaskHandledFast: "Одна задача, быстро выполненная",
+    quickRequestsDescription:
+      "Отправьте нам свой запрос — мы подтвердим его за фиксированную комиссию в размере $5. Идеально подходит для спонтанных потребностей или пользователей, впервые использующих Reluxi — одно сообщение за раз.",
+    howItWorks: "Как это работает",
+    quickRequestsHowItWorks:
+      "Услуга консьержа с оплатой за запрос — план не требуется",
+    commissionFee: "Комиссионный сбор",
+    quickRequestsFee: "500₽ ($5) за каждый выполненный запрос",
+    idealFor: "Идеально для",
+    quickRequestsIdealFor:
+      "Разовые бронирования (например, ресторан, транспорт, билеты на мероприятия, курьер)",
+    deliveryTime: "Время доставки",
+    quickRequestsDeliveryTime:
+      "Все организовано в течение нескольких минут — гладко, быстро и подтверждено в режиме реального времени",
+    requestABooking: "Запросить бронирование",
+
+    readyToEnjoyTrip:
+      "Готовы ли вы действительно наслаждаться поездкой — без потери времени или энергии?",
+    reluxiSavesYouHours:
+      "Reluxi экономит часы поиска и планирования. Вы сосредотачиваетесь на впечатлениях — мы позаботимся обо всем остальном.",
 
     // Dashboard page
     welcomeUser: "Добро пожаловать",
@@ -923,58 +1050,6 @@ const translations: Translations = {
     medicalWellnessCategory: "Медицина и здоровье",
     nightlifeEventsCategory: "Ночная жизнь и мероприятия",
     travelSupportCategory: "Поддержка в путешествии",
-
-    // Why Us page
-    whyUsTitle1: "Мы не просто предоставляем услуги.",
-    whyUsTitle2: "Мы предоставляем",
-    certainty: "Уверенность",
-    whyUsDescription:
-      "Вам не нужен расписание. Вам нужен сигнал. Ваш консьерж — это больше, чем просто гид, это ваше доверенное присутствие в чужой стране.",
-    whyUsQuote: "Даже когда ты далеко, ты близок к моему сердцу.",
-    whyUsQuoteSource: "Вдохновлено песней Амра Диаба 'Тамли Ма'ак'",
-    whyChooseReluxi: "Почему выбрать",
-    whyChooseReluxiDesc:
-      "Мы повышаем уровень вашего опыта в Москве благодаря нашей приверженности к совершенству, которая выходит за рамки традиционных услуг консьержа.",
-    ourServicePhilosophy: "Наша сервисная",
-    philosophy: "философия",
-
-    // Hero section
-    eliteConciergeService: "",
-    alwaysWithYou: "Ваш Личный Ассистент в Путешествии",
-    heroDescription: "Мы экономим ваше время на поиск и планирование.",
-    heroDescription2: "Доступен 24 часа в сутки, 7 дней в неделю.",
-    reserveYourConcierge: "Забронировать консьержа",
-    pricingInfo: "",
-    discoverMore: "Узнать больше",
-
-    // Main service intro
-    serviceMainTitle: "Нашими словами",
-    serviceSubtitle: "Сервис присутствия, силы и точности",
-    serviceIntro:
-      "Reluxi — ваш личный доступ ко всему, что предлагает Москва — без шума, задержек или компромиссов. Мы специализируемся на предвосхищении ваших желаний, прежде чем вы их выразите.",
-
-    // Service offerings
-    vipShopping: "VIP шоппинг",
-    vipShoppingDesc:
-      "Приватный доступ к самым престижным бутикам Москвы. Русскоговорящие стилисты. Эксклюзивные временные слоты.",
-    highEndDining: "Высокая кухня",
-    highEndDiningDesc:
-      "Гарантированные столики в самых востребованных ресторанах Москвы. Шеф-повара, готовые к вашим предпочтениям.",
-    chauffeuredVehicles: "Автомобили с водителем",
-    chauffeuredVehiclesDesc:
-      "Черный Mercedes, S-класс, Maybach. Профессионально обученные водители. Полная конфиденциальность. Почасовая или ежедневная аренда.",
-    privateCulturalTours: "Частные культурные туры",
-    privateCulturalToursDesc:
-      "Доступ к дворцам, музеям и культурным объектам с элитными гидами и переводчиками.",
-    personalProtection: "Личная охрана",
-    personalProtectionDesc:
-      "Обученная исполнительная защита по запросу. Для тех, чья конфиденциальность и безопасность не подлежат обсуждению.",
-    healthWellness: "Здоровье и Велнес",
-    healthWellnessDesc:
-      "Эксклюзивные клиники, VIP-доступ к медицинской помощи, косметическим специалистам и спа-восстановлению — без листов ожидания.",
-    nightlifeEvents: "Ночная жизнь и мероприятия",
-    nightlifeEventsDesc:
-      "Вход в закрытые круги, светские мероприятия и события, недоступные обычным туристам.",
 
     // Golden button section
     goldLogo: "24/7 Лого",

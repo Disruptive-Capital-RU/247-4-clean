@@ -100,19 +100,19 @@ export default function Footer() {
               <p className="flex items-center gap-2">
                 <FaPhone className="text-[#D4AF37]" />
                 <a
-                  href="tel:+7XXXXXXXXXX"
+                  href="tel:+79160665133"
                   className="hover:text-white transition-colors"
                 >
-                  {t("phoneNumber")}
+                  +7 (916) 066 51 33
                 </a>
               </p>
               <p className="flex items-center gap-2">
                 <FaEnvelope className="text-[#D4AF37]" />
                 <a
-                  href="mailto:service@reluxi.com"
+                  href="mailto:my@reluxi.ru"
                   className="hover:text-white transition-colors"
                 >
-                  {t("email")}
+                  my@reluxi.ru
                 </a>
               </p>
             </div>
