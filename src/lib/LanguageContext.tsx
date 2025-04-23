@@ -22,7 +22,7 @@ interface Translations {
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
+  t: (key: string, vars?: Record<string, string>) => string;
 }
 
 // Initial translations
@@ -231,6 +231,12 @@ const translations: Translations = {
     medicalWellnessCategory: "Medical & Wellness",
     nightlifeEventsCategory: "Nightlife & Events",
     travelSupportCategory: "Travel Support",
+    allCategories: "All",
+    coreServices: "Core Services",
+    lifestyleRomantic: "Lifestyle & Romantic",
+    familyCultural: "Family & Cultural",
+    businessSecurity: "Business & Security",
+    quantity: "Qty:",
 
     // Booking page
     bookYour: "Book Your",
@@ -336,7 +342,7 @@ const translations: Translations = {
     goldLogo: "24/7 Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
-      "This is more than just a button — it is your direct line to luxury, discretion, and the finest the city has to offer. One touch connects you to your personal concierge, available day and night.",
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
     yourGoldenButton: "Your Golden Button",
     goldenButtonInstructions: "Press and hold to add it to your home screen.",
     chooseDevice: "Choose your device to continue:",
@@ -380,6 +386,103 @@ const translations: Translations = {
     phoneNumber: "+7 (XXX) XXX-XXXX",
     emailAddress: "service@reluxi.com",
     copyright: " 2025 Reluxi Concierge. All rights reserved.",
+    personalTravelAssistant: "Your Personal Travel Assistant",
+    footerPoweredBy:
+      "Powered by confidentiality, built on trust, inspired by excellence.",
+
+    reserve: "Reserve",
+    your: "Your",
+    signUp: "Sign Up",
+
+    // Installation steps
+    iosInstallationSteps: "iOS Installation Steps",
+    openInSafari: "Open this page in Safari",
+    tapShareIcon: "Tap the Share icon at the bottom of the screen",
+    scrollAddHomeScreen: 'Scroll down and tap "Add to Home Screen"',
+    tapAdd: 'Tap "Add" in the top-right corner',
+    androidInstallationSteps: "Android Installation Steps",
+    openInChrome: "Open this page in Chrome",
+    tapThreeDots: "Tap the three dots menu in the top-right",
+    tapAddHomeScreen: 'Tap "Add to Home screen"',
+    confirmAdd: 'Confirm by tapping "Add"',
+
+    // Dashboard page
+    moscowWeather: "Moscow Weather",
+    manageProfile: "Manage Profile",
+    yourPreviousRequests: "Your Previous Requests",
+    serviceLabel: "Service",
+    categoryLabel: "Category",
+    quantityLabel: "Quantity",
+    statusLabel: "Status",
+    dateLabel: "Date",
+    searchServices: "Search services...",
+    dearClient: "Dear",
+    trustedConcierge:
+      "Your trusted concierge, one click away — ready whenever you are.",
+    yourConciergeList: "Your concierge list is empty",
+    browseServices: "Browse Services",
+    myConciergeRequests: "My Concierge Requests",
+    requestWillBeSent:
+      "Your request will be sent to our concierge team, who will reach out to confirm timing and preferences.",
+    sendToConciergeTeam: "Send to Concierge Team",
+    requestSubmitted: "Request Submitted!",
+    addedToList: "Added {{service}} to your concierge list",
+    loginRequired: "You must be logged in to submit requests",
+    requestSubmitSuccess: "Your concierge request has been submitted!",
+    requestSubmitFailed: "Failed to submit your request. Please try again.",
+    failedLoadRequests: "Failed to load your previous requests",
+    pending: "Pending",
+    confirmed: "Confirmed",
+    completed: "Completed",
+    cancelled: "Cancelled",
+
+    // Weather conditions
+    sunny: "sunny",
+    clear: "clear",
+    cloudy: "cloud",
+    overcast: "overcast",
+    rain: "rain",
+    drizzle: "drizzle",
+    shower: "shower",
+    snow: "snow",
+    blizzard: "blizzard",
+    ice: "ice",
+    thunder: "thunder",
+    lightning: "lightning",
+    fog: "fog",
+    mist: "mist",
+    wind: "wind",
+
+    // Service cards
+    addToConciergeList: "Add to My Concierge List",
+    noServicesFound: "No services found matching \"{query}\". Try a different search term.",
+    loadingServices: "Loading services...",
+    
+    // Service titles
+    premiumFlowerService: "Premium Flower Service",
+    flowerServiceDesc: "Exquisite floral arrangements for any occasion.",
+    privateChaufferService: "Private Chauffeur Service",
+    chaufferServiceDesc: "Arrive anywhere with style, safety, and discretion.",
+    personalShoppingExperience: "Personal Shopping Experience",
+    shoppingExperienceDesc: "Expert personal shopper guiding you through exclusive shopping venues.",
+    restaurantReservations: "Restaurant & Bar Reservations",
+    restaurantReservationsDesc: "Reserved seating at the most prestigious restaurants with panoramic views.",
+    architecturalIcons: "Timeless Architectural Icons",
+    architecturalIconsDesc: "Exclusive access to religious and cultural landmarks with expert guides.",
+    medicalServices: "Medical Assistance Services",
+    medicalServicesDesc: "Comprehensive health services with top medical professionals.",
+    securityServices: "Security Services",
+    securityServicesDesc: "Professional security personnel for your safety and peace of mind.",
+    taxiBooking: "Taxi Booking",
+    taxiBookingDesc: "Convenient and reliable taxi services at your fingertips.",
+    wellnessBookings: "Wellness & Spa Bookings",
+    wellnessBookingsDesc: "Rejuvenating spa treatments and wellness experiences for ultimate relaxation.",
+    eventPlanning: "Event Planning",
+    eventPlanningDesc: "Comprehensive event planning services for memorable occasions.",
+    romanticEvening: "Romantic Evening Planning",
+    romanticEveningDesc: "Create perfect romantic experiences with our specialized planning service.",
+    hotelSelection: "Hotel Selection",
+    hotelSelectionDesc: "Premium hotel selection and booking services for an unforgettable stay.",
   },
 
   AR: {
@@ -443,6 +546,27 @@ const translations: Translations = {
       "ريلوكسي هي بوابتك الخاصة لكل ما تقدمه موسكو — بدون ضوضاء أو تأخير أو تنازلات. نحن متخصصون في توقع رغباتك قبل أن تعبر عنها.",
 
     // Service offerings
+    privateTransport: "النقل الخاص",
+    privateTransportDesc:
+      "من السيارات الفاخرة إلى سيارات الأجرة الموثوقة، نرتب وسائل النقل التي تناسب سرعتك وراحتك وخصوصيتك — ليلاً أو نهاراً.",
+    diningArrangements: "ترتيبات تناول الطعام",
+    diningArrangementsDesc:
+      "من الحجوزات في أفضل المطاعم إلى توصيل الطعام إلى فندقك — كل ذلك مرتب ليتناسب مع ذوقك وتوقيتك.",
+    dayPlanning: "تخطيط اليوم والجدولة الشخصية",
+    dayPlanningDesc:
+      "يومك، مرتب بعناية — من الخطوات الأولى إلى الخطط النهائية، مع رعاية تجعل المدينة تشعر وكأنها خاصة بك.",
+    culturalExperiences: "التجارب الثقافية",
+    culturalExperiencesDesc:
+      "جولات خاصة لمعالم موسكو وجواهرها المخفية — يرشدك فيها مطلعون يتحدثون لغتك.",
+    eveningAccess: "الوصول المسائي والفعاليات",
+    eveningAccessDesc:
+      "من الصالات الحصرية إلى التجمعات الاجتماعية الراقية التي لن تجدها عبر الإنترنت.",
+    security: "الأمن",
+    securityDesc:
+      "حماية شخصية، يتم ترتيبها عند الحاجة — للحظات التي تهم فيها الخصوصية وراحة البال.",
+    gifting: "الهدايا واللفتات",
+    giftingDesc:
+      "الزهور، والهدايا الصغيرة، أو اللمسات ذات المعنى — يتم تسليمها بشكل مثالي.",
     vipShopping: "تسوق VIP",
     vipShoppingDesc:
       "وصول خاص إلى أرقى المتاجر في موسكو. مصممي أزياء ناطقين باللغة العربية. مواعيد حصرية.",
@@ -578,6 +702,12 @@ const translations: Translations = {
     medicalWellnessCategory: "الطب والعافية",
     nightlifeEventsCategory: "الحياة الليلية والفعاليات",
     travelSupportCategory: "دعم السفر",
+    allCategories: "الكل",
+    coreServices: "الخدمات الأساسية",
+    lifestyleRomantic: "نمط الحياة والرومانسية",
+    familyCultural: "العائلة والثقافة",
+    businessSecurity: "الأعمال والأمن",
+    quantity: "الكمية:",
 
     // Golden button section
     goldLogo: "شعار 24/7",
@@ -633,6 +763,102 @@ const translations: Translations = {
     phoneNumber: "+7 (XXX) XXX-XXXX",
     emailAddress: "service@reluxi.com",
     copyright: " 2025 ريلوكسي كونسيرج. جميع الحقوق محفوظة.",
+    personalTravelAssistant: "مساعدك الشخصي للسفر",
+    footerPoweredBy: "مدعوم بالسرية، مبني على الثقة، مستوحى من التميز.",
+
+    reserve: "احجز",
+    your: "الخاص بك",
+    signUp: "التسجيل",
+
+    // Installation steps
+    iosInstallationSteps: "خطوات التثبيت على iOS",
+    openInSafari: "افتح هذه الصفحة في متصفح Safari",
+    tapShareIcon: "انقر على أيقونة المشاركة في أسفل الشاشة",
+    scrollAddHomeScreen: 'مرر لأسفل وانقر على "إضافة إلى الشاشة الرئيسية"',
+    tapAdd: 'انقر على "إضافة" في الزاوية العلوية اليمنى',
+    androidInstallationSteps: "خطوات التثبيت على Android",
+    openInChrome: "افتح هذه الصفحة في متصفح Chrome",
+    tapThreeDots: "انقر على قائمة النقاط الثلاث في الزاوية العلوية اليمنى",
+    tapAddHomeScreen: 'انقر على "إضافة إلى الشاشة الرئيسية"',
+    confirmAdd: 'قم بالتأكيد بالنقر على "إضافة"',
+
+    // Dashboard page
+    moscowWeather: "طقس موسكو",
+    manageProfile: "إدارة الملف الشخصي",
+    yourPreviousRequests: "طلباتك السابقة",
+    serviceLabel: "الخدمة",
+    categoryLabel: "الفئة",
+    quantityLabel: "الكمية",
+    statusLabel: "الحالة",
+    dateLabel: "التاريخ",
+    searchServices: "البحث عن الخدمات...",
+    dearClient: "عزيزي",
+    trustedConcierge:
+      "الكونسيرج الموثوق به الخاص بك، على بعد نقرة واحدة - جاهز في أي وقت.",
+    yourConciergeList: "قائمة الكونسيرج الخاصة بك فارغة",
+    browseServices: "تصفح الخدمات",
+    myConciergeRequests: "طلبات الكونسيرج الخاصة بي",
+    requestWillBeSent:
+      "سيتم إرسال طلبك إلى فريق الكونسيرج لدينا، الذين سيتواصلون معك لتأكيد التوقيت والتفضيلات.",
+    sendToConciergeTeam: "إرسال إلى فريق الكونسيرج",
+    requestSubmitted: "تم تقديم الطلب!",
+    addedToList: "تمت إضافة {{service}} إلى قائمة الكونسيرج الخاصة بك",
+    loginRequired: "يجب تسجيل الدخول لتقديم الطلبات",
+    requestSubmitSuccess: "تم تقديم طلب الكونسيرج الخاص بك!",
+    requestSubmitFailed: "فشل في تقديم طلبك. يرجى المحاولة مرة أخرى.",
+    failedLoadRequests: "فشل في تحميل طلباتك السابقة",
+    pending: "قيد الانتظار",
+    confirmed: "مؤكد",
+    completed: "مكتمل",
+    cancelled: "ملغى",
+
+    // Weather conditions
+    sunny: "مشمس",
+    clear: "صافي",
+    cloudy: "غائم",
+    overcast: "ملبد بالغيوم",
+    rain: "مطر",
+    drizzle: "رذاذ",
+    shower: "زخات مطر",
+    snow: "ثلج",
+    blizzard: "عاصفة ثلجية",
+    ice: "جليد",
+    thunder: "رعد",
+    lightning: "برق",
+    fog: "ضباب",
+    mist: "ضباب خفيف",
+    wind: "رياح",
+
+    // Service cards
+    addToConciergeList: "أضف إلى قائمة الكونسيرج الخاصة بي",
+    noServicesFound: "لم يتم العثور على خدمات تطابق \"{query}\". جرب مصطلح بحث مختلف.",
+    loadingServices: "جاري تحميل الخدمات...",
+    
+    // Service titles
+    premiumFlowerService: "خدمة الزهور الفاخرة",
+    flowerServiceDesc: "ترتيبات زهور راقية لأي مناسبة.",
+    privateChaufferService: "خدمة السائق الخاص",
+    chaufferServiceDesc: "الوصول إلى أي مكان بأناقة وأمان وخصوصية.",
+    personalShoppingExperience: "تجربة التسوق الشخصية",
+    shoppingExperienceDesc: "مستشار تسوق خبير يرشدك خلال أماكن التسوق الحصرية.",
+    restaurantReservations: "حجوزات المطاعم والبارات",
+    restaurantReservationsDesc: "أماكن محجوزة في أرقى المطاعم مع إطلالات بانورامية.",
+    architecturalIcons: "الرموز المعمارية الخالدة",
+    architecturalIconsDesc: "وصول حصري إلى المعالم الدينية والثقافية مع مرشدين خبراء.",
+    medicalServices: "خدمات المساعدة الطبية",
+    medicalServicesDesc: "خدمات صحية شاملة مع أفضل المهنيين الطبيين.",
+    securityServices: "خدمات الأمن",
+    securityServicesDesc: "أفراد أمن محترفون لسلامتك وراحة بالك.",
+    taxiBooking: "حجز سيارات الأجرة",
+    taxiBookingDesc: "خدمات سيارات أجرة موثوقة ومريحة في متناول يدك.",
+    wellnessBookings: "حجوزات السبا والعافية",
+    wellnessBookingsDesc: "علاجات سبا منعشة وتجارب عافية للاسترخاء التام.",
+    eventPlanning: "تخطيط الفعاليات",
+    eventPlanningDesc: "خدمات شاملة لتخطيط الفعاليات للمناسبات التي لا تُنسى.",
+    romanticEvening: "تخطيط أمسية رومانسية",
+    romanticEveningDesc: "أنشئ تجارب رومانسية مثالية مع خدمة التخطيط المتخصصة لدينا.",
+    hotelSelection: "اختيار الفنادق",
+    hotelSelectionDesc: "خدمات اختيار وحجز الفنادق الفاخرة لإقامة لا تُنسى.",
   },
 
   CN: {
@@ -767,6 +993,12 @@ const translations: Translations = {
     medicalWellnessCategory: "医疗与健康",
     nightlifeEventsCategory: "夜生活与活动",
     travelSupportCategory: "旅行支持",
+    allCategories: "全部",
+    coreServices: "核心服务",
+    lifestyleRomantic: "生活方式与浪漫",
+    familyCultural: "家庭与文化",
+    businessSecurity: "商务与安全",
+    quantity: "数量:",
 
     // Golden button section
     goldLogo: "24/7标志",
@@ -834,9 +1066,9 @@ const translations: Translations = {
     bookingHeadline: "您的时间很宝贵。立即开始。",
     bookingSubheading:
       "仅需100美元即可预订您的私人礼宾服务5天。预订后，我们将直接与您联系，确认您的到达详情、偏好和优先事项。",
-    verificationEmailSent: "需要电子邮件验证",
-    checkInbox: "请检查您的收件箱并点击我们发送给您电子邮件地址的验证链接。",
-    afterVerification: "验证电子邮件后，返回此页面完成您的预订过程。",
+    verificationEmailSent: "验证邮件已发送",
+    checkInbox: "请检查您的收件箱并点击验证链接",
+    afterVerification: "验证后，您将被重定向到您的仪表板",
 
     // Golden button section
     goldLogo: "24/7标志",
@@ -890,9 +1122,133 @@ const translations: Translations = {
     phoneNumber: "+7 (XXX) XXX-XXXX",
     emailAddress: "service@reluxi.com",
     copyright: " 2025 Reluxi礼宾服务。保留所有权利。",
-    verificationEmailSent: "验证邮件已发送",
-    checkInbox: "请检查您的收件箱并点击验证链接",
-    afterVerification: "验证后，您将被重定向到您的仪表板",
+    personalTravelAssistant: "您的个人旅行助理",
+    footerPoweredBy: "以保密为动力，以信任为基础，以卓越为灵感。",
+
+    // Main service intro
+    serviceSubtitle: "一项预订、规划和提升的服务",
+    serviceIntro:
+      "从晚餐计划到临时司机，Reluxi处理各种细节，让您能像当地人一样享受莫斯科 — 没有任何压力。",
+
+    // Service offerings
+    privateTransport: "私人交通",
+    privateTransportDesc:
+      "从豪华轿车到可信赖的出租车，我们安排符合您节奏、舒适度和谨慎需求的交通工具 — 无论白天还是黑夜。",
+    diningArrangements: "餐饮安排",
+    diningArrangementsDesc:
+      "从最佳餐厅的预订到送餐到您的酒店 — 一切都按照您的口味和时间安排。",
+    dayPlanning: "日程规划与个人安排",
+    dayPlanningDesc:
+      "您的一天，经过周到安排 — 从第一步到最终计划，用心让这座城市感觉像是您自己的。",
+    healthWellness: "健康与养生",
+    healthWellnessDesc:
+      "我们为您连接顶级水疗中心、诊所和专家 — 根据您的舒适度、隐私需求和日程安排访问。",
+    vipShopping: "VIP购物",
+    vipShoppingDesc:
+      "专为您筛选莫斯科顶级精品店的专享通道 — 提供个人造型、私密和无缝购物体验。",
+    culturalExperiences: "文化体验",
+    culturalExperiencesDesc:
+      "莫斯科地标和隐藏瑰宝的私人导览 — 由会说您语言的内部人士引导。",
+    eveningAccess: "夜生活通道与活动",
+    eveningAccessDesc:
+      "从独家休息室到精致的社交聚会，这些都是您在网上找不到的。",
+    security: "安保服务",
+    securityDesc: "在需要时安排个人保护 — 为那些隐私和安心至关重要的时刻。",
+    gifting: "礼品与关怀",
+    giftingDesc: "鲜花、小礼品或有意义的贴心细节 — 完美送达。",
+
+    reserve: "预订",
+    your: "您的",
+    signUp: "注册",
+
+    // Installation steps
+    iosInstallationSteps: "iOS 安装步骤",
+    openInSafari: "在 Safari 中打开此页面",
+    tapShareIcon: "点击屏幕底部的分享图标",
+    scrollAddHomeScreen: '向下滚动并点击"添加到主屏幕"',
+    tapAdd: '点击右上角的"添加"',
+    androidInstallationSteps: "Android 安装步骤",
+    openInChrome: "在 Chrome 中打开此页面",
+    tapThreeDots: "点击右上角的三点菜单",
+    tapAddHomeScreen: '点击"添加到主屏幕"',
+    confirmAdd: '通过点击"添加"确认',
+
+    // Dashboard page
+    moscowWeather: "莫斯科天气",
+    manageProfile: "管理个人资料",
+    yourPreviousRequests: "您的以往请求",
+    serviceLabel: "服务",
+    categoryLabel: "类别",
+    quantityLabel: "数量",
+    statusLabel: "状态",
+    dateLabel: "日期",
+    searchServices: "搜索服务...",
+    dearClient: "尊敬的",
+    trustedConcierge: "您值得信赖的礼宾服务，一键即可获取 — 随时准备为您服务。",
+    yourConciergeList: "您的礼宾服务列表为空",
+    browseServices: "浏览服务",
+    myConciergeRequests: "我的礼宾服务请求",
+    requestWillBeSent:
+      "您的请求将发送给我们的礼宾团队，他们将与您联系以确认时间和偏好。",
+    sendToConciergeTeam: "发送至礼宾团队",
+    requestSubmitted: "请求已提交！",
+    addedToList: "已将 {{service}} 添加到您的礼宾服务列表",
+    loginRequired: "您必须登录才能提交请求",
+    requestSubmitSuccess: "您的礼宾请求已提交！",
+    requestSubmitFailed: "提交请求失败。请重试。",
+    failedLoadRequests: "加载您的以往请求失败",
+    pending: "待处理",
+    confirmed: "已确认",
+    completed: "已完成",
+    cancelled: "已取消",
+
+    // Weather conditions
+    sunny: "晴朗",
+    clear: "晴天",
+    cloudy: "多云",
+    overcast: "阴天",
+    rain: "雨",
+    drizzle: "毛毛雨",
+    shower: "阵雨",
+    snow: "雪",
+    blizzard: "暴风雪",
+    ice: "冰",
+    thunder: "雷",
+    lightning: "闪电",
+    fog: "雾",
+    mist: "薄雾",
+    wind: "风",
+
+    // Service cards
+    addToConciergeList: "添加到我的礼宾清单",
+    noServicesFound: "未找到与\"{query}\"匹配的服务。请尝试不同的搜索词。",
+    loadingServices: "正在加载服务...",
+    
+    // Service titles
+    premiumFlowerService: "高级鲜花服务",
+    flowerServiceDesc: "为任何场合提供精美的花卉安排。",
+    privateChaufferService: "私人司机服务",
+    chaufferServiceDesc: "以时尚、安全和谨慎的方式抵达任何地方。",
+    personalShoppingExperience: "个人购物体验",
+    shoppingExperienceDesc: "专业个人购物顾问带您游览独家购物场所。",
+    restaurantReservations: "餐厅和酒吧预订",
+    restaurantReservationsDesc: "在最负盛名的餐厅预留座位，享受全景视野。",
+    architecturalIcons: "永恒的建筑图标",
+    architecturalIconsDesc: "在专业向导的带领下，独家参观宗教和文化地标。",
+    medicalServices: "医疗协助服务",
+    medicalServicesDesc: "顶级医疗专业人士提供的综合健康服务。",
+    securityServices: "安保服务",
+    securityServicesDesc: "专业安保人员确保您的安全和安心。",
+    taxiBooking: "出租车预订",
+    taxiBookingDesc: "便捷可靠的出租车服务触手可及。",
+    wellnessBookings: "健康与水疗预订",
+    wellnessBookingsDesc: "焕然一新的水疗护理和健康体验，带来极致放松。",
+    eventPlanning: "活动策划",
+    eventPlanningDesc: "为难忘场合提供全面的活动策划服务。",
+    romanticEvening: "浪漫晚宴策划",
+    romanticEveningDesc: "通过我们专业的策划服务，创造完美的浪漫体验。",
+    hotelSelection: "酒店选择",
+    hotelSelectionDesc: "高级酒店选择和预订服务，带来难忘的住宿体验。",
   },
 
   RU: {
@@ -1050,6 +1406,12 @@ const translations: Translations = {
     medicalWellnessCategory: "Медицина и здоровье",
     nightlifeEventsCategory: "Ночная жизнь и мероприятия",
     travelSupportCategory: "Поддержка в путешествии",
+    allCategories: "Все",
+    coreServices: "Основные услуги",
+    lifestyleRomantic: "Образ жизни и романтика",
+    familyCultural: "Семья и культура",
+    businessSecurity: "Бизнес и безопасность",
+    quantity: "Кол-во:",
 
     // Golden button section
     goldLogo: "24/7 Лого",
@@ -1206,6 +1568,139 @@ const translations: Translations = {
     phoneNumber: "+7 (XXX) XXX-XXXX",
     emailAddress: "service@reluxi.com",
     copyright: " 2025 Reluxi Консьерж. Все права защищены.",
+    personalTravelAssistant: "Ваш личный помощник в путешествии",
+    footerPoweredBy:
+      "Основано на конфиденциальности, построено на доверии, вдохновлено превосходством.",
+
+    // Main service intro
+    serviceSubtitle: "Сервис, который бронирует, планирует и улучшает",
+    serviceIntro:
+      "От планов на ужин до водителей в последнюю минуту, Reluxi берет на себя все детали, чтобы вы могли наслаждаться Москвой как местный житель — без стресса.",
+
+    // Service offerings
+    privateTransport: "Частный транспорт",
+    privateTransportDesc:
+      "От роскошных автомобилей до надежных такси, мы организуем транспорт, соответствующий вашему темпу, комфорту и конфиденциальности — днем или ночью.",
+    diningArrangements: "Организация питания",
+    diningArrangementsDesc:
+      "От резервирования столиков в лучших ресторанах до доставки еды в ваш отель — все организовано в соответствии с вашим вкусом и расписанием.",
+    dayPlanning: "Планирование дня и личное расписание",
+    dayPlanningDesc:
+      "Ваш день, тщательно спланированный — от первых шагов до финальных планов, с заботой, которая делает город по-настоящему вашим.",
+    healthWellness: "Здоровье и велнес",
+    healthWellnessDesc:
+      "Мы связываем вас с ведущими спа-салонами, клиниками и специалистами — с доступом, организованным с учетом вашего комфорта, приватности и расписания.",
+    vipShopping: "VIP-шоппинг",
+    vipShoppingDesc:
+      "Эксклюзивный доступ к лучшим бутикам Москвы — с персональной поддержкой для стиля, приватности и безупречного шоппинга.",
+    culturalExperiences: "Культурные впечатления",
+    culturalExperiencesDesc:
+      "Частные туры по достопримечательностям Москвы и скрытым жемчужинам — с гидами-инсайдерами, говорящими на вашем языке.",
+    eveningAccess: "Вечерний доступ и мероприятия",
+    eveningAccessDesc:
+      "От эксклюзивных лаунжей до изысканных светских мероприятий, которые вы не найдете онлайн.",
+    security: "Безопасность",
+    securityDesc:
+      "Персональная защита, организованная при необходимости — для моментов, когда конфиденциальность и спокойствие имеют наибольшее значение.",
+    gifting: "Подарки и жесты внимания",
+    giftingDesc:
+      "Цветы, небольшие подарки или значимые знаки внимания — доставленные идеально.",
+
+    reserve: "Забронировать",
+    your: "Ваш",
+    signUp: "Зарегистрироваться",
+
+    // Installation steps
+    iosInstallationSteps: "Шаги установки для iOS",
+    openInSafari: "Откройте эту страницу в Safari",
+    tapShareIcon: "Нажмите на значок «Поделиться» внизу экрана",
+    scrollAddHomeScreen:
+      "Прокрутите вниз и нажмите «Добавить на главный экран»",
+    tapAdd: "Нажмите «Добавить» в правом верхнем углу",
+    androidInstallationSteps: "Шаги установки для Android",
+    openInChrome: "Откройте эту страницу в Chrome",
+    tapThreeDots: "Нажмите на три точки в правом верхнем углу",
+    tapAddHomeScreen: "Нажмите «Добавить на главный экран»",
+    confirmAdd: "Подтвердите, нажав «Добавить»",
+
+    // Dashboard page
+    moscowWeather: "Погода в Москве",
+    manageProfile: "Управление профилем",
+    yourPreviousRequests: "Ваши предыдущие запросы",
+    serviceLabel: "Услуга",
+    categoryLabel: "Категория",
+    quantityLabel: "Количество",
+    statusLabel: "Статус",
+    dateLabel: "Дата",
+    searchServices: "Поиск услуг...",
+    dearClient: "Уважаемый",
+    trustedConcierge:
+      "Ваш надежный консьерж в одном клике — готов, когда вы готовы.",
+    yourConciergeList: "Ваш список консьерж-услуг пуст",
+    browseServices: "Просмотр услуг",
+    myConciergeRequests: "Мои запросы консьержу",
+    requestWillBeSent:
+      "Ваш запрос будет отправлен нашей команде консьержей, которые свяжутся с вами для подтверждения времени и предпочтений.",
+    sendToConciergeTeam: "Отправить команде консьержей",
+    requestSubmitted: "Запрос отправлен!",
+    addedToList: "{{service}} добавлен в ваш список консьерж-услуг",
+    loginRequired: "Вы должны войти в систему, чтобы отправлять запросы",
+    requestSubmitSuccess: "Ваш запрос консьержу отправлен!",
+    requestSubmitFailed:
+      "Не удалось отправить ваш запрос. Пожалуйста, попробуйте снова.",
+    failedLoadRequests: "Не удалось загрузить ваши предыдущие запросы",
+    pending: "В ожидании",
+    confirmed: "Подтверждено",
+    completed: "Выполнено",
+    cancelled: "Отменено",
+
+    // Weather conditions
+    sunny: "солнечно",
+    clear: "ясно",
+    cloudy: "облачно",
+    overcast: "пасмурно",
+    rain: "дождь",
+    drizzle: "морось",
+    shower: "ливень",
+    snow: "снег",
+    blizzard: "метель",
+    ice: "лёд",
+    thunder: "гром",
+    lightning: "молния",
+    fog: "туман",
+    mist: "дымка",
+    wind: "ветер",
+
+    // Service cards
+    addToConciergeList: "Добавить в мой список консьержа",
+    noServicesFound: "Не найдено услуг, соответствующих \"{query}\". Попробуйте другой поисковый запрос.",
+    loadingServices: "Загрузка услуг...",
+    
+    // Service titles
+    premiumFlowerService: "Премиальная служба доставки цветов",
+    flowerServiceDesc: "Изысканные цветочные композиции для любого случая.",
+    privateChaufferService: "Услуги личного водителя",
+    chaufferServiceDesc: "Прибытие в любое место со стилем, безопасностью и конфиденциальностью.",
+    personalShoppingExperience: "Персональный шоппинг",
+    shoppingExperienceDesc: "Эксперт по шоппингу, сопровождающий вас по эксклюзивным торговым площадкам.",
+    restaurantReservations: "Бронирование ресторанов и баров",
+    restaurantReservationsDesc: "Забронированные места в самых престижных ресторанах с панорамным видом.",
+    architecturalIcons: "Архитектурные достопримечательности",
+    architecturalIconsDesc: "Эксклюзивный доступ к религиозным и культурным достопримечательностям с опытными гидами.",
+    medicalServices: "Медицинская помощь",
+    medicalServicesDesc: "Комплексные медицинские услуги с лучшими медицинскими специалистами.",
+    securityServices: "Услуги безопасности",
+    securityServicesDesc: "Профессиональная охрана для вашей безопасности и спокойствия.",
+    taxiBooking: "Заказ такси",
+    taxiBookingDesc: "Удобные и надежные услуги такси на кончиках ваших пальцев.",
+    wellnessBookings: "Бронирование спа и оздоровительных услуг",
+    wellnessBookingsDesc: "Омолаживающие спа-процедуры и оздоровительные программы для полного расслабления.",
+    eventPlanning: "Планирование мероприятий",
+    eventPlanningDesc: "Комплексные услуги по планированию мероприятий для незабываемых событий.",
+    romanticEvening: "Планирование романтического вечера",
+    romanticEveningDesc: "Создайте идеальные романтические впечатления с нашей специализированной услугой планирования.",
+    hotelSelection: "Подбор отелей",
+    hotelSelectionDesc: "Премиальные услуги по выбору и бронированию отелей для незабываемого пребывания.",
   },
 };
 
@@ -1265,8 +1760,17 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, [language]);
 
   // Translation function
-  const t = (key: string): string => {
-    return translations[language]?.[key] || translations["EN"][key] || key;
+  const t = (key: string, vars?: Record<string, string>): string => {
+    let text = translations[language]?.[key] || translations["EN"][key] || key;
+
+    // Replace variables if provided
+    if (vars) {
+      Object.entries(vars).forEach(([varKey, value]) => {
+        text = text.replace(`{{${varKey}}}`, value);
+      });
+    }
+
+    return text;
   };
 
   return (

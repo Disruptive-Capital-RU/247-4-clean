@@ -13,7 +13,9 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-cormorant mb-4">Reluxi Concierge</h3>
+            <h3 className="text-xl font-cormorant mb-4">
+              <span className="text-[#D4AF37]">Reluxi</span> Concierge
+            </h3>
             <p className="font-dm-sans text-white/70 italic mb-4">
               {t("footerTagline")}
             </p>
@@ -122,7 +124,7 @@ export default function Footer() {
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/50 text-sm">{t("copyright")}</p>
           <p className="text-white/50 text-sm mt-2 md:mt-0">
-            Powered by confidentiality, built on trust, inspired by excellence.
+            {t("footerPoweredBy")}
           </p>
         </div>
       </div>

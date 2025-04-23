@@ -45,9 +45,7 @@ export default function Dashboard() {
   const { user, profile, loading: authLoading } = useAuth();
   const { t } = useLanguage();
 
-  const [userName, setUserName] = useState(
-    t("valuedClient") || "Valued Client"
-  );
+  const [userName, setUserName] = useState("Valued Client");
   const [daysRemaining, setDaysRemaining] = useState(3);
   const [weatherInfo, setWeatherInfo] = useState({
     temp: "12°C",
@@ -148,7 +146,7 @@ export default function Dashboard() {
           }
         } catch (error) {
           console.error("Error fetching previous requests:", error);
-          toast.error("Failed to load your previous requests");
+          toast.error(t("failedLoadRequests"));
         }
       }
     };
@@ -177,7 +175,7 @@ export default function Dashboard() {
       }
     });
 
-    toast.success(`Added ${service.title} to your concierge list`);
+    toast.success(t("addedToList", { service: service.title }));
   };
 
   const removeFromCart = (serviceId: string) => {
@@ -197,7 +195,7 @@ export default function Dashboard() {
 
   const submitOrder = async () => {
     if (!user) {
-      toast.error("You must be logged in to submit requests");
+      toast.error(t("loginRequired"));
       return;
     }
 
@@ -217,7 +215,7 @@ export default function Dashboard() {
 
       // Show success message
       setOrderSubmitted(true);
-      toast.success("Your concierge request has been submitted!");
+      toast.success(t("requestSubmitSuccess"));
 
       // Fetch updated requests
       const { data: updatedRequests } = await getConciergeRequests(user.id);
@@ -233,16 +231,16 @@ export default function Dashboard() {
       }, 3000);
     } catch (error) {
       console.error("Error submitting request:", error);
-      toast.error("Failed to submit your request. Please try again.");
+      toast.error(t("requestSubmitFailed"));
     }
   };
 
   const categories = [
-    { id: "all", name: "All" },
-    { id: "core", name: "Core Services" },
-    { id: "Lifestyle", name: "Lifestyle & Romantic" },
-    { id: "Family", name: "Family & Cultural" },
-    { id: "Business", name: "Business & Security" },
+    { id: "all", name: t("allCategories") },
+    { id: "core", name: t("coreServices") },
+    { id: "Lifestyle", name: t("lifestyleRomantic") },
+    { id: "Family", name: t("familyCultural") },
+    { id: "Business", name: t("businessSecurity") },
   ];
 
   // Function to determine which weather icon to display based on condition
@@ -254,15 +252,18 @@ export default function Dashboard() {
     const isDay = weatherInfo.isDay;
 
     // Map condition to appropriate icon
-    if (conditionLower.includes("sunny") || conditionLower.includes("clear")) {
+    if (
+      conditionLower.includes(t("sunny").toLowerCase()) ||
+      conditionLower.includes(t("clear").toLowerCase())
+    ) {
       return isDay ? (
         <WiDaySunny className="w-8 h-8 text-yellow-300" />
       ) : (
         <WiNightClear className="w-8 h-8 text-blue-200" />
       );
     } else if (
-      conditionLower.includes("cloud") ||
-      conditionLower.includes("overcast")
+      conditionLower.includes(t("cloudy").toLowerCase()) ||
+      conditionLower.includes(t("overcast").toLowerCase())
     ) {
       return isDay ? (
         <WiCloudy className="w-8 h-8 text-gray-300" />
@@ -270,28 +271,28 @@ export default function Dashboard() {
         <WiNightAltCloudy className="w-8 h-8 text-gray-400" />
       );
     } else if (
-      conditionLower.includes("rain") ||
-      conditionLower.includes("drizzle") ||
-      conditionLower.includes("shower")
+      conditionLower.includes(t("rain").toLowerCase()) ||
+      conditionLower.includes(t("drizzle").toLowerCase()) ||
+      conditionLower.includes(t("shower").toLowerCase())
     ) {
       return <WiRain className="w-8 h-8 text-blue-300" />;
     } else if (
-      conditionLower.includes("snow") ||
-      conditionLower.includes("blizzard") ||
-      conditionLower.includes("ice")
+      conditionLower.includes(t("snow").toLowerCase()) ||
+      conditionLower.includes(t("blizzard").toLowerCase()) ||
+      conditionLower.includes(t("ice").toLowerCase())
     ) {
       return <WiSnow className="w-8 h-8 text-white" />;
     } else if (
-      conditionLower.includes("thunder") ||
-      conditionLower.includes("lightning")
+      conditionLower.includes(t("thunder").toLowerCase()) ||
+      conditionLower.includes(t("lightning").toLowerCase())
     ) {
       return <WiThunderstorm className="w-8 h-8 text-yellow-400" />;
     } else if (
-      conditionLower.includes("fog") ||
-      conditionLower.includes("mist")
+      conditionLower.includes(t("fog").toLowerCase()) ||
+      conditionLower.includes(t("mist").toLowerCase())
     ) {
       return <WiFog className="w-8 h-8 text-gray-400" />;
-    } else if (conditionLower.includes("wind")) {
+    } else if (conditionLower.includes(t("wind").toLowerCase())) {
       return <WiWindy className="w-8 h-8 text-blue-200" />;
     }
 
@@ -345,18 +346,17 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             <div className="md:col-span-2">
               <h1 className="text-3xl md:text-4xl font-cormorant font-semibold text-white mb-2">
-                Dear <span className="text-[#D4AF37]">{userName}</span>.
+                {t("dearClient")}{" "}
+                <span className="text-[#D4AF37]">{userName}</span>.
               </h1>
-              <p className="text-white/80 text-lg">
-                Your trusted concierge, one click away — ready whenever you are.
-              </p>
+              <p className="text-white/80 text-lg">{t("trustedConcierge")}</p>
             </div>
             <div className="flex flex-col items-end">
               <div className="bg-[#111] border border-white/10 rounded-lg p-4 w-full max-w-sm">
                 <div className="flex justify-between items-center">
                   <div className="flex flex-col">
                     <p className="text-sm text-white/60">
-                      {t("moscowWeather") || "Moscow Weather"}
+                      {t("moscowWeather")}
                     </p>
                     <div className="flex items-center mt-1">
                       {getWeatherIcon(weatherInfo.condition)}
@@ -374,7 +374,7 @@ export default function Dashboard() {
                       href="/dashboard/profile"
                       className="px-4 py-2 bg-[#111] hover:bg-[#222] text-white/80 hover:text-white rounded-lg transition-colors border border-white/10 text-center"
                     >
-                      {t("manageProfile") || "Manage Profile"}
+                      {t("manageProfile")}
                     </Link>
                   </div>
                 </div>
@@ -389,7 +389,7 @@ export default function Dashboard() {
         <section className="py-6 bg-[#0a0a0a]">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-2xl font-cormorant font-semibold mb-6">
-              {t("yourPreviousRequests") || "Your Previous Requests"}
+              {t("yourPreviousRequests")}
             </h2>
 
             <div className="overflow-x-auto">
@@ -397,19 +397,19 @@ export default function Dashboard() {
                 <thead className="border-b border-white/10">
                   <tr>
                     <th className="py-3 px-4 text-white/70 font-medium">
-                      {t("serviceLabel") || "Service"}
+                      {t("serviceLabel")}
                     </th>
                     <th className="py-3 px-4 text-white/70 font-medium">
-                      {t("categoryLabel") || "Category"}
+                      {t("categoryLabel")}
                     </th>
                     <th className="py-3 px-4 text-white/70 font-medium">
-                      {t("quantityLabel") || "Quantity"}
+                      {t("quantityLabel")}
                     </th>
                     <th className="py-3 px-4 text-white/70 font-medium">
-                      {t("statusLabel") || "Status"}
+                      {t("statusLabel")}
                     </th>
                     <th className="py-3 px-4 text-white/70 font-medium">
-                      {t("dateLabel") || "Date"}
+                      {t("dateLabel")}
                     </th>
                   </tr>
                 </thead>
@@ -433,13 +433,12 @@ export default function Dashboard() {
                               : "bg-red-900/30 text-red-300"
                           }`}
                         >
-                          {request.status.charAt(0).toUpperCase() +
-                            request.status.slice(1)}
+                          {t(request.status)}
                         </span>
                       </td>
                       <td className="py-3 px-4">
                         {new Date(request.submitted_at).toLocaleDateString(
-                          "en-US",
+                          undefined,
                           {
                             month: "short",
                             day: "numeric",
@@ -482,7 +481,7 @@ export default function Dashboard() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={t("searchServices") || "Search services..."}
+                placeholder={t("searchServices")}
                 className="w-full px-4 py-2 bg-[#222] border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-[#D4AF37] focus:border-[#D4AF37]"
               />
               {searchQuery && (
@@ -552,7 +551,7 @@ export default function Dashboard() {
           <div className="bg-[#111] border border-[#D4AF37]/30 rounded-lg p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-cormorant font-semibold text-white">
-                {t("myConciergeRequests") || "My Concierge Requests"}
+                {t("myConciergeRequests")}
               </h2>
               <button
                 onClick={() => setShowCart(false)}
@@ -592,14 +591,12 @@ export default function Dashboard() {
                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
-                <p className="text-white/60">
-                  {t("emptyConciergeList") || "Your concierge list is empty"}
-                </p>
+                <p className="text-white/60">{t("yourConciergeList")}</p>
                 <button
                   onClick={() => setShowCart(false)}
                   className="mt-4 px-6 py-2 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/30 rounded transition-colors"
                 >
-                  {t("browseServices") || "Browse Services"}
+                  {t("browseServices")}
                 </button>
               </div>
             ) : (
@@ -640,7 +637,7 @@ export default function Dashboard() {
                           </svg>
                         </button>
                         <span className="text-white/80 text-sm">
-                          Qty: {item.quantity}
+                          {t("quantity")} {item.quantity}
                         </span>
                       </div>
                     </div>
@@ -648,10 +645,7 @@ export default function Dashboard() {
                 </div>
 
                 <div className="mt-6">
-                  <p className="text-white/70 mb-6">
-                    {t("requestConfirmation") ||
-                      "Your request will be sent to our concierge team, who will reach out to confirm timing and preferences."}
-                  </p>
+                  <p className="text-white/70 mb-6">{t("requestWillBeSent")}</p>
                   <button
                     onClick={submitOrder}
                     disabled={orderSubmitted}
@@ -660,8 +654,8 @@ export default function Dashboard() {
                     }`}
                   >
                     {orderSubmitted
-                      ? t("requestSubmitted") || "Request Submitted!"
-                      : t("sendToConciergeTeam") || "Send to Concierge Team"}
+                      ? t("requestSubmitted")
+                      : t("sendToConciergeTeam")}
                   </button>
                 </div>
               </>

@@ -59,7 +59,9 @@ const GoldenButton = () => {
         <p className="text-lg text-white/80 max-w-2xl mx-auto mb-8">
           {t("goldenButtonDesc")}
         </p>
-        <p className="text-2xl md:text-3xl font-cormorant font-medium text-[#D4AF37]">{t("yourGoldenButton")}</p>
+        <p className="text-2xl md:text-3xl font-cormorant font-medium text-[#D4AF37]">
+          {t("yourGoldenButton")}
+        </p>
 
         <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-8">
           <Popover>
@@ -74,13 +76,13 @@ const GoldenButton = () => {
             <PopoverContent className="bg-black/90 border border-[#D4AF37] text-white">
               <div className="space-y-2">
                 <h4 className="font-medium text-[#D4AF37] mb-2">
-                  iOS Installation Steps
+                  {t("iosInstallationSteps")}
                 </h4>
                 <ol className="text-white/80 list-decimal pl-5 space-y-2">
-                  <li>Open this page in Safari</li>
-                  <li>Tap the Share icon at the bottom of the screen</li>
-                  <li>Scroll down and tap &quot;Add to Home Screen&quot;</li>
-                  <li>Tap &quot;Add&quot; in the top-right corner</li>
+                  <li>{t("openInSafari")}</li>
+                  <li>{t("tapShareIcon")}</li>
+                  <li>{t("scrollAddHomeScreen")}</li>
+                  <li>{t("tapAdd")}</li>
                 </ol>
               </div>
             </PopoverContent>
@@ -98,13 +100,13 @@ const GoldenButton = () => {
             <PopoverContent className="bg-black/90 border border-[#D4AF37] text-white">
               <div className="space-y-2">
                 <h4 className="font-medium text-[#D4AF37] mb-2">
-                  Android Installation Steps
+                  {t("androidInstallationSteps")}
                 </h4>
                 <ol className="text-white/80 list-decimal pl-5 space-y-2">
-                  <li>Open this page in Chrome</li>
-                  <li>Tap the three dots menu in the top-right</li>
-                  <li>Tap &quot;Add to Home screen&quot;</li>
-                  <li>Confirm by tapping &quot;Add&quot;</li>
+                  <li>{t("openInChrome")}</li>
+                  <li>{t("tapThreeDots")}</li>
+                  <li>{t("tapAddHomeScreen")}</li>
+                  <li>{t("confirmAdd")}</li>
                 </ol>
               </div>
             </PopoverContent>
@@ -187,7 +189,7 @@ export default function ServicesSection() {
             <div className="absolute inset-0 bg-black" />{" "}
             {/* Black base background */}
             <div className="absolute top-0 right-0 bottom-0 w-3/5 md:w-2/3 lg:w-4/5">
-              <div className="absolute inset-0 bg-[url('/images/castle.jpg')] bg-cover bg-[position:75%_top] right-0" />{" "}
+              <div className="absolute inset-0 bg-[url('/images/castle.jpg')] bg-cover bg-[position:30%_top] md:bg-[position:75%_top] right-0" />{" "}
               {/* Image positioned further right */}
               <div className="absolute inset-0 bg-gradient-to-r from-black via-black/20 to-transparent" />{" "}
               {/* Even lighter gradient */}
@@ -195,11 +197,10 @@ export default function ServicesSection() {
           </div>
           <div className="relative z-10 container mx-auto flex flex-col items-start text-left min-h-[80vh] py-32">
             <div className="max-w-lg pl-4 md:pl-6">
-
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-6" style={{ textShadow: "0 1px 2px rgba(0, 0, 0, 0.6)" }}>
                 {t("serviceSubtitle")}
               </h2>
-              <p className="font-dm-sans text-lg text-white/90">
+              <p className="font-dm-sans text-lg text-white/90" style={{ textShadow: "0 1px 2px rgba(0, 0, 0, 0.6)" }}>
                 {t("serviceIntro")}
               </p>
             </div>

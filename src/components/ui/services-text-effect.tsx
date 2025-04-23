@@ -6,11 +6,13 @@ import { cn } from "@/lib/utils";
 export const ServicesTextEffect = ({
   words,
   className,
+  textClassName,
   filter = true,
   duration = 0.5,
 }: {
   words: string;
   className?: string;
+  textClassName?: string;
   filter?: boolean;
   duration?: number;
 }) => {
@@ -45,7 +47,7 @@ export const ServicesTextEffect = ({
               key={`first-${word}-${idx}`}
               className={cn(
                 "opacity-0 inline-block mr-4",
-                "text-white"
+                textClassName || "text-white"
               )}
               style={{
                 filter: filter ? "blur(10px)" : "none",
@@ -63,7 +65,9 @@ export const ServicesTextEffect = ({
               key={`second-${word}-${idx}`}
               className={cn(
                 "opacity-0 inline-block mr-4",
-                word.toLowerCase().includes("serve") ? "text-[#D4AF37]" : "text-white"
+                word.toLowerCase().includes("serve")
+                  ? "text-[#D4AF37]"
+                  : textClassName || "text-white"
               )}
               style={{
                 filter: filter ? "blur(10px)" : "none",

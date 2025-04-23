@@ -218,8 +218,8 @@ export default function Navigation() {
               height={16}
               className="object-contain mr-4"
             />
-            <span className="font-bold">Reluxi</span>
-            <span className="text-[#D4AF37] ml-2">Concierge</span>
+            <span className="font-bold text-[#D4AF37]">Reluxi</span>
+            <span className="text-white ml-2">Concierge</span>
           </Link>
         </div>
 
@@ -232,6 +232,7 @@ export default function Navigation() {
                 <NavLink href="/services">{t("services")}</NavLink>
                 <NavLink href="/why-us">{t("whyUs")}</NavLink>
                 <NavLink href="/dashboard">{t("dashboard")}</NavLink>
+                <LanguageSelector />
                 <button
                   onClick={handleLogout}
                   className="px-5 py-2 text-white border border-[#D4AF37] font-medium rounded-sm hover:bg-[#D4AF37]/10 transition-all duration-300"
@@ -254,7 +255,7 @@ export default function Navigation() {
                   href="/book"
                   className="px-5 py-2 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium rounded-sm hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300"
                 >
-                  Sign Up
+                  {t("signUp")}
                 </Link>
               </>
             )}
@@ -262,7 +263,6 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
-            <LanguageSelector />
             <button
               className="flex items-center ml-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -311,6 +311,9 @@ export default function Navigation() {
                 <NavLink href="/dashboard" onClick={() => setIsMenuOpen(false)}>
                   {t("dashboard")}
                 </NavLink>
+                <div className="py-2">
+                  <LanguageSelector />
+                </div>
                 <button
                   onClick={() => {
                     setIsMenuOpen(false);
@@ -329,6 +332,9 @@ export default function Navigation() {
                 <NavLink href="/why-us" onClick={() => setIsMenuOpen(false)}>
                   {t("whyUs")}
                 </NavLink>
+                <div className="py-2">
+                  <LanguageSelector />
+                </div>
                 <button
                   onClick={() => {
                     setIsMenuOpen(false);
@@ -343,7 +349,7 @@ export default function Navigation() {
                   onClick={() => setIsMenuOpen(false)}
                   className="px-5 py-3 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-black font-medium text-center rounded-sm"
                 >
-                  Sign Up
+                  {t("signUp")}
                 </Link>
               </>
             )}

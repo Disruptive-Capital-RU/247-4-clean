@@ -149,15 +149,14 @@ export default function ServicesPage() {
                 {/* Main title */}
                 <div className="mb-8 text-center">
                   <h1 className="text-4xl md:text-5xl font-cormorant font-bold text-white mb-6">
-                    {t("howWe")}{" "}
-                    <span className="text-[#D4AF37]">{t("serve")}</span>{" "}
-                    {t("you")}
+                    {t("howWe")} {t("serve")}{" "}
+                    <span className="text-[#D4AF37]">{t("you")}</span>
                   </h1>
                 </div>
 
                 {/* Main content section */}
                 <div className="mb-16">
-                  <p className="font-dm-sans text-lg text-white/80 mb-8">
+                  <p className="font-dm-sans text-lg text-white/80 mb-8 text-center">
                     {t("planDescription")}
                   </p>
                 </div>

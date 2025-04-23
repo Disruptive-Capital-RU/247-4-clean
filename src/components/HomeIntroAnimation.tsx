@@ -3,12 +3,15 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ServicesTextEffect } from "@/components/ui/services-text-effect";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function HomeIntroAnimation({
   onComplete,
 }: {
   onComplete: () => void;
 }) {
+  const { t } = useLanguage();
+
   return (
     <motion.div
       className="fixed inset-0 flex items-center justify-center bg-black z-50"
@@ -270,7 +273,7 @@ export default function HomeIntroAnimation({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 4 }}
         >
-          Your Personal Travel Assistant
+          {t("personalTravelAssistant")}
         </motion.p>
       </div>
     </motion.div>

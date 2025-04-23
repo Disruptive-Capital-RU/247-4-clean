@@ -3,6 +3,7 @@
 import React, { useEffect, useLayoutEffect } from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { useAuth } from "@/lib/AuthContext";
+import { useLanguage } from "@/lib/LanguageContext";
 import { toast } from "react-hot-toast";
 
 type ServiceType = {
@@ -44,6 +45,7 @@ export default function ServicesCarousel({
   const {
     /* user is not used */
   } = useAuth();
+  const { t } = useLanguage();
   const [filteredServices, setFilteredServices] = React.useState<Service[]>([]);
   // Add a client-side only state
   const [isMounted, setIsMounted] = React.useState(false);
@@ -69,8 +71,8 @@ export default function ServicesCarousel({
     const servicesData: Service[] = [
       {
         id: "s7",
-        title: "Premium Flower Service",
-        description: "Exquisite floral arrangements for any occasion.",
+        title: t("premiumFlowerService"),
+        description: t("flowerServiceDesc"),
         image: "/Images/flowers.png",
         category: "Lifestyle & Romantic",
         duration: "Same-day delivery",
@@ -91,9 +93,8 @@ export default function ServicesCarousel({
               onClick={() =>
                 handleAddToCart({
                   id: "s7",
-                  title: "Premium Flower Service",
-                  description:
-                    "Exquisite floral arrangements for any occasion.",
+                  title: t("premiumFlowerService"),
+                  description: t("flowerServiceDesc"),
                   image: "/Images/flowers.png",
                   category: "Lifestyle & Romantic",
                   duration: "Same-day delivery",
@@ -101,15 +102,15 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
       },
       {
         id: "s1",
-        title: "Private Chauffeur Service",
-        description: "Arrive anywhere with style, safety, and discretion.",
+        title: t("privateChaufferService"),
+        description: t("chaufferServiceDesc"),
         image: "/taxi.jpg",
         category: "Core Services",
         duration: "4h or 8h",
@@ -130,9 +131,8 @@ export default function ServicesCarousel({
               onClick={() =>
                 handleAddToCart({
                   id: "s1",
-                  title: "Private Chauffeur Service",
-                  description:
-                    "Arrive anywhere with style, safety, and discretion.",
+                  title: t("privateChaufferService"),
+                  description: t("chaufferServiceDesc"),
                   image: "/taxi.jpg",
                   category: "Core Services",
                   duration: "4h or 8h",
@@ -140,16 +140,15 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
       },
       {
         id: "s2",
-        title: "Personal Shopping Experience",
-        description:
-          "Expert personal shopper guiding you through exclusive shopping venues.",
+        title: t("personalShoppingExperience"),
+        description: t("shoppingExperienceDesc"),
         image: "/shopping.jpg",
         category: "Shopping",
         duration: "3h",
@@ -170,9 +169,8 @@ export default function ServicesCarousel({
               onClick={() =>
                 handleAddToCart({
                   id: "s2",
-                  title: "Personal Shopping Experience",
-                  description:
-                    "Expert personal shopper guiding you through exclusive shopping venues.",
+                  title: t("personalShoppingExperience"),
+                  description: t("shoppingExperienceDesc"),
                   image: "/shopping.jpg",
                   category: "Shopping",
                   duration: "3h",
@@ -180,16 +178,15 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
       },
       {
         id: "s3",
-        title: "Restaurant & Bar Reservations",
-        description:
-          "Reserved seating at the most prestigious restaurants with panoramic views.",
+        title: t("restaurantReservations"),
+        description: t("restaurantReservationsDesc"),
         image: "/restaurant.jpg",
         category: "Core Services",
         src: "/images/restaurant_service_1.jpg",
@@ -209,25 +206,23 @@ export default function ServicesCarousel({
               onClick={() =>
                 handleAddToCart({
                   id: "s3",
-                  title: "Restaurant & Bar Reservations",
-                  description:
-                    "Reserved seating at the most prestigious restaurants with panoramic views.",
+                  title: t("restaurantReservations"),
+                  description: t("restaurantReservationsDesc"),
                   image: "/restaurant.jpg",
                   category: "Core Services",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
       },
       {
         id: "s4",
-        title: "Timeless Architectural Icons",
-        description:
-          "Exclusive access to religious and cultural landmarks with expert guides.",
+        title: t("architecturalIcons"),
+        description: t("architecturalIconsDesc"),
         image: "/church.jpg",
         category: "Culture",
         duration: "2h",
@@ -250,9 +245,8 @@ export default function ServicesCarousel({
               onClick={() =>
                 handleAddToCart({
                   id: "s4",
-                  title: "Timeless Architectural Icons",
-                  description:
-                    "Exclusive access to religious and cultural landmarks with expert guides.",
+                  title: t("architecturalIcons"),
+                  description: t("architecturalIconsDesc"),
                   image: "/church.jpg",
                   category: "Culture",
                   duration: "2h",
@@ -260,16 +254,15 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
       },
       {
         id: "s5",
-        title: "Medical Assistance Services",
-        description:
-          "Comprehensive health services with top medical professionals.",
+        title: t("medicalServices"),
+        description: t("medicalServicesDesc"),
         image: "/medical.jpg",
         category: "Medical",
         src: "/images/medical_service_1.jpg",
@@ -289,25 +282,23 @@ export default function ServicesCarousel({
               onClick={() =>
                 handleAddToCart({
                   id: "s5",
-                  title: "Medical Assistance Services",
-                  description:
-                    "Comprehensive health services with top medical professionals.",
+                  title: t("medicalServices"),
+                  description: t("medicalServicesDesc"),
                   image: "/medical.jpg",
                   category: "Medical",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
       },
       {
         id: "s6",
-        title: "Security Services",
-        description:
-          "Professional security personnel for your safety and peace of mind.",
+        title: t("securityServices"),
+        description: t("securityServicesDesc"),
         image: "/security.jpg",
         category: "Business & Security",
         src: "/images/security_service_1.jpeg",
@@ -327,25 +318,23 @@ export default function ServicesCarousel({
               onClick={() =>
                 handleAddToCart({
                   id: "s6",
-                  title: "Security Services",
-                  description:
-                    "Professional security personnel for your safety and peace of mind.",
+                  title: t("securityServices"),
+                  description: t("securityServicesDesc"),
                   image: "/security.jpg",
                   category: "Business & Security",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
       },
       {
         id: "s8",
-        title: "Taxi Booking",
-        description:
-          "Convenient and reliable taxi services at your fingertips.",
+        title: t("taxiBooking"),
+        description: t("taxiBookingDesc"),
         image: "/images/taxi_2.jpg",
         category: "Core Services",
         src: "/images/taxi_2.jpg",
@@ -365,25 +354,23 @@ export default function ServicesCarousel({
               onClick={() =>
                 handleAddToCart({
                   id: "s8",
-                  title: "Taxi Booking",
-                  description:
-                    "Convenient and reliable taxi services at your fingertips.",
+                  title: t("taxiBooking"),
+                  description: t("taxiBookingDesc"),
                   image: "/images/taxi_2.jpg",
                   category: "Core Services",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
       },
       {
         id: "s9",
-        title: "Wellness & Spa Bookings",
-        description:
-          "Rejuvenating spa treatments and wellness experiences for ultimate relaxation.",
+        title: t("wellnessBookings"),
+        description: t("wellnessBookingsDesc"),
         image: "/images/wellness.jpg",
         category: "Lifestyle & Romantic",
         src: "/images/wellness.jpg",
@@ -403,25 +390,23 @@ export default function ServicesCarousel({
               onClick={() =>
                 handleAddToCart({
                   id: "s9",
-                  title: "Wellness & Spa Bookings",
-                  description:
-                    "Rejuvenating spa treatments and wellness experiences for ultimate relaxation.",
+                  title: t("wellnessBookings"),
+                  description: t("wellnessBookingsDesc"),
                   image: "/images/wellness.jpg",
                   category: "Lifestyle & Romantic",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
       },
       {
         id: "s10",
-        title: "Event Planning",
-        description:
-          "Comprehensive event planning services for memorable occasions.",
+        title: t("eventPlanning"),
+        description: t("eventPlanningDesc"),
         image: "/images/event.jpg",
         category: "Core Services",
         src: "/images/event.jpg",
@@ -441,25 +426,23 @@ export default function ServicesCarousel({
               onClick={() =>
                 handleAddToCart({
                   id: "s10",
-                  title: "Event Planning",
-                  description:
-                    "Comprehensive event planning services for memorable occasions.",
+                  title: t("eventPlanning"),
+                  description: t("eventPlanningDesc"),
                   image: "/images/event.jpg",
                   category: "Core Services",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
       },
       {
         id: "s11",
-        title: "Romantic Evening Planning",
-        description:
-          "Create perfect romantic experiences with our specialized planning service.",
+        title: t("romanticEvening"),
+        description: t("romanticEveningDesc"),
         image: "/images/romantic.jpg",
         category: "Lifestyle & Romantic",
         src: "/images/romantic.jpg",
@@ -479,16 +462,15 @@ export default function ServicesCarousel({
               onClick={() =>
                 handleAddToCart({
                   id: "s11",
-                  title: "Romantic Evening Planning",
-                  description:
-                    "Create perfect romantic experiences with our specialized planning service.",
+                  title: t("romanticEvening"),
+                  description: t("romanticEveningDesc"),
                   image: "/images/romantic.jpg",
                   category: "Lifestyle & Romantic",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
@@ -526,7 +508,7 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
@@ -564,7 +546,7 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
@@ -602,7 +584,7 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
@@ -640,7 +622,7 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
@@ -678,7 +660,7 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
@@ -716,7 +698,7 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
@@ -754,7 +736,7 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
@@ -792,7 +774,7 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
@@ -830,7 +812,7 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
@@ -868,7 +850,7 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
@@ -906,16 +888,15 @@ export default function ServicesCarousel({
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
       },
       {
         id: "s23",
-        title: "Hotel Selection",
-        description:
-          "Premium hotel selection and booking services for an unforgettable stay.",
+        title: t("hotelSelection"),
+        description: t("hotelSelectionDesc"),
         image: "/images/hotel.jpg",
         category: "Core Services",
         src: "/images/hotel.jpg",
@@ -936,16 +917,15 @@ export default function ServicesCarousel({
               onClick={() =>
                 handleAddToCart({
                   id: "s23",
-                  title: "Hotel Selection",
-                  description:
-                    "Premium hotel selection and booking services for an unforgettable stay.",
+                  title: t("hotelSelection"),
+                  description: t("hotelSelectionDesc"),
                   image: "/images/hotel.jpg",
                   category: "Core Services",
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
             >
-              Add to My Concierge List
+              {t("addToConciergeList")}
             </button>
           </div>
         ),
@@ -954,7 +934,7 @@ export default function ServicesCarousel({
 
     setServices(servicesData);
     setFilteredServices(servicesData);
-  }, [handleAddToCart]);
+  }, [handleAddToCart, t]);
 
   // Update the filter logic to use the isomorphic layout effect
   useIsomorphicLayoutEffect(() => {
@@ -969,12 +949,12 @@ export default function ServicesCarousel({
     } else if (activeCategory === "core") {
       // For "Core Services", only show core services
       const coreServices = [
-        "Private Chauffeur Service",
-        "Taxi Booking",
-        "Restaurant & Bar Reservations",
-        "Wellness & Spa Bookings",
-        "Event Planning",
-        "Hotel Selection",
+        t("privateChaufferService"),
+        t("taxiBooking"),
+        t("restaurantReservations"),
+        t("wellnessBookings"),
+        t("eventPlanning"),
+        t("hotelSelection"),
       ];
       filtered = filtered.filter((service) =>
         coreServices.includes(service.title)
@@ -1018,7 +998,9 @@ export default function ServicesCarousel({
 
   if (services.length === 0) {
     return (
-      <div className="py-12 text-center text-white/50">Loading services...</div>
+      <div className="py-12 text-center text-white/50">
+        {t("loadingServices")}
+      </div>
     );
   }
 
@@ -1027,8 +1009,7 @@ export default function ServicesCarousel({
       <div className="container mx-auto px-4 md:px-6">
         {filteredServices.length === 0 ? (
           <div className="py-12 text-center text-white/50">
-            No services found matching &quot;{searchQuery}&quot;. Try a
-            different search term.
+            {t("noServicesFound", { query: searchQuery })}
           </div>
         ) : (
           <Carousel
@@ -1040,10 +1021,29 @@ export default function ServicesCarousel({
                   src: service.src,
                   title: service.title,
                   category: service.category,
-                  content: service.content,
+                  content: (
+                    <div className="space-y-4">
+                      <p>{service.content.props.children[0].props.children}</p>
+                      {service.content.props.children[1]}
+                      <button
+                        onClick={() =>
+                          handleAddToCart({
+                            id: service.id,
+                            title: service.title,
+                            description: service.description,
+                            image: service.image,
+                            category: service.category,
+                            duration: service.duration,
+                          })
+                        }
+                        className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
+                      >
+                        {t("addToConciergeList")}
+                      </button>
+                    </div>
+                  ),
                 }}
                 layout={true}
-                // className prop applied via styling in Card component
               />
             ))}
           />
