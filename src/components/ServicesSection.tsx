@@ -197,10 +197,16 @@ export default function ServicesSection() {
           </div>
           <div className="relative z-10 container mx-auto flex flex-col items-start text-left min-h-[80vh] py-32">
             <div className="max-w-lg pl-4 md:pl-6">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-6" style={{ textShadow: "0 1px 2px rgba(0, 0, 0, 0.6)" }}>
+              <h2
+                className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-6"
+                style={{ textShadow: "0 1px 2px rgba(0, 0, 0, 0.6)" }}
+              >
                 {t("serviceSubtitle")}
               </h2>
-              <p className="font-dm-sans text-lg text-white/90" style={{ textShadow: "0 1px 2px rgba(0, 0, 0, 0.6)" }}>
+              <p
+                className="font-dm-sans text-lg text-white/90"
+                style={{ textShadow: "0 1px 2px rgba(0, 0, 0, 0.6)" }}
+              >
                 {t("serviceIntro")}
               </p>
             </div>
@@ -245,7 +251,7 @@ export default function ServicesSection() {
                   alt="Dashboard"
                   width={800}
                   height={600}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-fill md:object-cover" style={{height: "calc(100% + 10px)"}} priority
                 />
               </div>
             </div>
