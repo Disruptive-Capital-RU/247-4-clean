@@ -124,7 +124,7 @@ const translations: Translations = {
     serve: "Serve",
     you: "You",
     oneDayExperience: "One-Day Experience",
-    oneDayPrice: "7 500₽ ($75)",
+    oneDayPrice: "6 500₽ ($75)",
     designedFor: "Designed For",
     oneDayDesignedFor:
       "Special occasions, business needs, or quality time with family — when one day deserves to be perfectly handled.",
@@ -145,7 +145,7 @@ const translations: Translations = {
 
     mostPopular: "Most Popular",
     threeDayPlan: "3-Day Concierge Plan",
-    threeDayPrice: "13 900₽ ($139)",
+    threeDayPrice: "11 500₽ ($139)",
     threeDayDesignedFor:
       "Short getaways, city breaks, or visitors who want complete support without long-term commitment.",
     threeDayWhatYouGet:
@@ -162,7 +162,7 @@ const translations: Translations = {
     startThreeDayPlan: "Start 3-Day Plan",
 
     monthlyMembership: "Monthly Membership",
-    monthlyPrice: "33 900₽ ($339)/month",
+    monthlyPrice: "28 500₽ ($339)/month",
     monthlyDesignedFor:
       "Frequent travelers, busy professionals, and city residents who want continuous access to Reluxi's full support.",
     monthlyWhatYouGet:
@@ -455,34 +455,45 @@ const translations: Translations = {
 
     // Service cards
     addToConciergeList: "Add to My Concierge List",
-    noServicesFound: "No services found matching \"{query}\". Try a different search term.",
+    noServicesFound:
+      'No services found matching "{query}". Try a different search term.',
     loadingServices: "Loading services...",
-    
+
     // Service titles
     premiumFlowerService: "Premium Flower Service",
     flowerServiceDesc: "Exquisite floral arrangements for any occasion.",
     privateChaufferService: "Private Chauffeur Service",
     chaufferServiceDesc: "Arrive anywhere with style, safety, and discretion.",
     personalShoppingExperience: "Personal Shopping Experience",
-    shoppingExperienceDesc: "Expert personal shopper guiding you through exclusive shopping venues.",
+    shoppingExperienceDesc:
+      "Expert personal shopper guiding you through exclusive shopping venues.",
     restaurantReservations: "Restaurant & Bar Reservations",
-    restaurantReservationsDesc: "Reserved seating at the most prestigious restaurants with panoramic views.",
+    restaurantReservationsDesc:
+      "Reserved seating at the most prestigious restaurants with panoramic views.",
     architecturalIcons: "Timeless Architectural Icons",
-    architecturalIconsDesc: "Exclusive access to religious and cultural landmarks with expert guides.",
+    architecturalIconsDesc:
+      "Exclusive access to religious and cultural landmarks with expert guides.",
     medicalServices: "Medical Assistance Services",
-    medicalServicesDesc: "Comprehensive health services with top medical professionals.",
+    medicalServicesDesc:
+      "Comprehensive health services with top medical professionals.",
     securityServices: "Security Services",
-    securityServicesDesc: "Professional security personnel for your safety and peace of mind.",
+    securityServicesDesc:
+      "Professional security personnel for your safety and peace of mind.",
     taxiBooking: "Taxi Booking",
-    taxiBookingDesc: "Convenient and reliable taxi services at your fingertips.",
+    taxiBookingDesc:
+      "Convenient and reliable taxi services at your fingertips.",
     wellnessBookings: "Wellness & Spa Bookings",
-    wellnessBookingsDesc: "Rejuvenating spa treatments and wellness experiences for ultimate relaxation.",
+    wellnessBookingsDesc:
+      "Rejuvenating spa treatments and wellness experiences for ultimate relaxation.",
     eventPlanning: "Event Planning",
-    eventPlanningDesc: "Comprehensive event planning services for memorable occasions.",
+    eventPlanningDesc:
+      "Comprehensive event planning services for memorable occasions.",
     romanticEvening: "Romantic Evening Planning",
-    romanticEveningDesc: "Create perfect romantic experiences with our specialized planning service.",
+    romanticEveningDesc:
+      "Create perfect romantic experiences with our specialized planning service.",
     hotelSelection: "Hotel Selection",
-    hotelSelectionDesc: "Premium hotel selection and booking services for an unforgettable stay.",
+    hotelSelectionDesc:
+      "Premium hotel selection and booking services for an unforgettable stay.",
   },
 
   AR: {
@@ -597,7 +608,7 @@ const translations: Translations = {
     serve: "نخدم",
     you: "ك",
     oneDayExperience: "تجربة ليوم واحد",
-    oneDayPrice: "7 500₽ ($75)",
+    oneDayPrice: "6 500₽ ($75)",
     designedFor: "مصممة لـ",
     oneDayDesignedFor:
       "المناسبات الخاصة، والاحتياجات التجارية، أو قضاء وقت جيد مع العائلة — عندما يستحق يوم واحد أن يتم التعامل معه بشكل مثالي.",
@@ -617,7 +628,7 @@ const translations: Translations = {
 
     mostPopular: "الأكثر شعبية",
     threeDayPlan: "خطة كونسيرج لمدة 3 أيام",
-    threeDayPrice: "13 900₽ ($139)",
+    threeDayPrice: "11 500₽ ($139)",
     threeDayDesignedFor:
       "رحلات قصيرة، استراحات في المدينة، أو زوار يريدون دعمًا كاملًا بدون التزام طويل الأمد.",
     threeDayWhatYouGet:
@@ -634,7 +645,7 @@ const translations: Translations = {
     startThreeDayPlan: "بدء خطة 3 أيام",
 
     monthlyMembership: "العضوية الشهرية",
-    monthlyPrice: "33 900₽ ($339)/شهر",
+    monthlyPrice: "28 500₽ ($339)/شهر",
     monthlyDesignedFor:
       "المسافرون المتكررون والمهنيون المشغولون وسكان المدينة الذين يريدون وصولًا مستمرًا إلى الدعم الكامل من ريلوكسي.",
     monthlyWhatYouGet:
@@ -831,9 +842,10 @@ const translations: Translations = {
 
     // Service cards
     addToConciergeList: "أضف إلى قائمة الكونسيرج الخاصة بي",
-    noServicesFound: "لم يتم العثور على خدمات تطابق \"{query}\". جرب مصطلح بحث مختلف.",
+    noServicesFound:
+      'لم يتم العثور على خدمات تطابق "{query}". جرب مصطلح بحث مختلف.',
     loadingServices: "جاري تحميل الخدمات...",
-    
+
     // Service titles
     premiumFlowerService: "خدمة الزهور الفاخرة",
     flowerServiceDesc: "ترتيبات زهور راقية لأي مناسبة.",
@@ -842,9 +854,11 @@ const translations: Translations = {
     personalShoppingExperience: "تجربة التسوق الشخصية",
     shoppingExperienceDesc: "مستشار تسوق خبير يرشدك خلال أماكن التسوق الحصرية.",
     restaurantReservations: "حجوزات المطاعم والبارات",
-    restaurantReservationsDesc: "أماكن محجوزة في أرقى المطاعم مع إطلالات بانورامية.",
+    restaurantReservationsDesc:
+      "أماكن محجوزة في أرقى المطاعم مع إطلالات بانورامية.",
     architecturalIcons: "الرموز المعمارية الخالدة",
-    architecturalIconsDesc: "وصول حصري إلى المعالم الدينية والثقافية مع مرشدين خبراء.",
+    architecturalIconsDesc:
+      "وصول حصري إلى المعالم الدينية والثقافية مع مرشدين خبراء.",
     medicalServices: "خدمات المساعدة الطبية",
     medicalServicesDesc: "خدمات صحية شاملة مع أفضل المهنيين الطبيين.",
     securityServices: "خدمات الأمن",
@@ -856,7 +870,8 @@ const translations: Translations = {
     eventPlanning: "تخطيط الفعاليات",
     eventPlanningDesc: "خدمات شاملة لتخطيط الفعاليات للمناسبات التي لا تُنسى.",
     romanticEvening: "تخطيط أمسية رومانسية",
-    romanticEveningDesc: "أنشئ تجارب رومانسية مثالية مع خدمة التخطيط المتخصصة لدينا.",
+    romanticEveningDesc:
+      "أنشئ تجارب رومانسية مثالية مع خدمة التخطيط المتخصصة لدينا.",
     hotelSelection: "اختيار الفنادق",
     hotelSelectionDesc: "خدمات اختيار وحجز الفنادق الفاخرة لإقامة لا تُنسى.",
   },
@@ -898,7 +913,7 @@ const translations: Translations = {
     serve: "服务",
     you: "您",
     oneDayExperience: "一日体验",
-    oneDayPrice: "7 500₽ ($75)",
+    oneDayPrice: "6 500₽ ($75)",
     designedFor: "专为以下人士设计",
     oneDayDesignedFor:
       "特殊场合、商务需求或与家人共度美好时光 — 当一天值得完美安排时。",
@@ -916,7 +931,7 @@ const translations: Translations = {
 
     mostPopular: "最受欢迎",
     threeDayPlan: "3日礼宾计划",
-    threeDayPrice: "13 900₽ ($139)",
+    threeDayPrice: "11 500₽ ($139)",
     threeDayDesignedFor:
       "短期旅行、城市休闲或希望获得全面支持而无需长期承诺的游客。",
     threeDayWhatYouGet:
@@ -931,7 +946,7 @@ const translations: Translations = {
     startThreeDayPlan: "开始3日计划",
 
     monthlyMembership: "月度会员",
-    monthlyPrice: "33 900₽ ($339)/月",
+    monthlyPrice: "28 500₽ ($339)/月",
     monthlyDesignedFor:
       "经常旅行的人、忙碌的专业人士和希望持续获得Reluxi全面支持的城市居民。",
     monthlyWhatYouGet:
@@ -1221,9 +1236,9 @@ const translations: Translations = {
 
     // Service cards
     addToConciergeList: "添加到我的礼宾清单",
-    noServicesFound: "未找到与\"{query}\"匹配的服务。请尝试不同的搜索词。",
+    noServicesFound: '未找到与"{query}"匹配的服务。请尝试不同的搜索词。',
     loadingServices: "正在加载服务...",
-    
+
     // Service titles
     premiumFlowerService: "高级鲜花服务",
     flowerServiceDesc: "为任何场合提供精美的花卉安排。",
@@ -1293,7 +1308,7 @@ const translations: Translations = {
     serve: "Служим",
     you: "Вам",
     oneDayExperience: "Однодневный опыт",
-    oneDayPrice: "7 500₽ ($75)",
+    oneDayPrice: "6 500₽ ($75)",
     designedFor: "Создано для",
     oneDayDesignedFor:
       "Особые случаи, деловые потребности или качественное время с семьей — когда один день заслуживает идеального обращения.",
@@ -1314,7 +1329,7 @@ const translations: Translations = {
 
     mostPopular: "Самый популярный",
     threeDayPlan: "3-дневный план консьержа",
-    threeDayPrice: "13 900₽ ($139)",
+    threeDayPrice: "11 500₽ ($139)",
     threeDayDesignedFor:
       "Короткие отпуска, городские перерывы или посетители, которые хотят полной поддержки без долгосрочных обязательств.",
     threeDayWhatYouGet:
@@ -1332,7 +1347,7 @@ const translations: Translations = {
     startThreeDayPlan: "Начать 3-дневный план",
 
     monthlyMembership: "Ежемесячное членство",
-    monthlyPrice: "33 900₽ ($339)/месяц",
+    monthlyPrice: "28 500₽ ($339)/месяц",
     monthlyDesignedFor:
       "Частые путешественники, занятые профессионалы и жители города, которые хотят постоянного доступа к полной поддержке Reluxi.",
     monthlyWhatYouGet:
@@ -1673,34 +1688,46 @@ const translations: Translations = {
 
     // Service cards
     addToConciergeList: "Добавить в мой список консьержа",
-    noServicesFound: "Не найдено услуг, соответствующих \"{query}\". Попробуйте другой поисковый запрос.",
+    noServicesFound:
+      'Не найдено услуг, соответствующих "{query}". Попробуйте другой поисковый запрос.',
     loadingServices: "Загрузка услуг...",
-    
+
     // Service titles
     premiumFlowerService: "Премиальная служба доставки цветов",
     flowerServiceDesc: "Изысканные цветочные композиции для любого случая.",
     privateChaufferService: "Услуги личного водителя",
-    chaufferServiceDesc: "Прибытие в любое место со стилем, безопасностью и конфиденциальностью.",
+    chaufferServiceDesc:
+      "Прибытие в любое место со стилем, безопасностью и конфиденциальностью.",
     personalShoppingExperience: "Персональный шоппинг",
-    shoppingExperienceDesc: "Эксперт по шоппингу, сопровождающий вас по эксклюзивным торговым площадкам.",
+    shoppingExperienceDesc:
+      "Эксперт по шоппингу, сопровождающий вас по эксклюзивным торговым площадкам.",
     restaurantReservations: "Бронирование ресторанов и баров",
-    restaurantReservationsDesc: "Забронированные места в самых престижных ресторанах с панорамным видом.",
+    restaurantReservationsDesc:
+      "Забронированные места в самых престижных ресторанах с панорамным видом.",
     architecturalIcons: "Архитектурные достопримечательности",
-    architecturalIconsDesc: "Эксклюзивный доступ к религиозным и культурным достопримечательностям с опытными гидами.",
+    architecturalIconsDesc:
+      "Эксклюзивный доступ к религиозным и культурным достопримечательностям с опытными гидами.",
     medicalServices: "Медицинская помощь",
-    medicalServicesDesc: "Комплексные медицинские услуги с лучшими медицинскими специалистами.",
+    medicalServicesDesc:
+      "Комплексные медицинские услуги с лучшими медицинскими специалистами.",
     securityServices: "Услуги безопасности",
-    securityServicesDesc: "Профессиональная охрана для вашей безопасности и спокойствия.",
+    securityServicesDesc:
+      "Профессиональная охрана для вашей безопасности и спокойствия.",
     taxiBooking: "Заказ такси",
-    taxiBookingDesc: "Удобные и надежные услуги такси на кончиках ваших пальцев.",
+    taxiBookingDesc:
+      "Удобные и надежные услуги такси на кончиках ваших пальцев.",
     wellnessBookings: "Бронирование спа и оздоровительных услуг",
-    wellnessBookingsDesc: "Омолаживающие спа-процедуры и оздоровительные программы для полного расслабления.",
+    wellnessBookingsDesc:
+      "Омолаживающие спа-процедуры и оздоровительные программы для полного расслабления.",
     eventPlanning: "Планирование мероприятий",
-    eventPlanningDesc: "Комплексные услуги по планированию мероприятий для незабываемых событий.",
+    eventPlanningDesc:
+      "Комплексные услуги по планированию мероприятий для незабываемых событий.",
     romanticEvening: "Планирование романтического вечера",
-    romanticEveningDesc: "Создайте идеальные романтические впечатления с нашей специализированной услугой планирования.",
+    romanticEveningDesc:
+      "Создайте идеальные романтические впечатления с нашей специализированной услугой планирования.",
     hotelSelection: "Подбор отелей",
-    hotelSelectionDesc: "Премиальные услуги по выбору и бронированию отелей для незабываемого пребывания.",
+    hotelSelectionDesc:
+      "Премиальные услуги по выбору и бронированию отелей для незабываемого пребывания.",
   },
 };
 
