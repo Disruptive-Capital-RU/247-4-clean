@@ -199,13 +199,20 @@ export default function ServicesSection() {
             <div className="max-w-lg pl-4 md:pl-6">
               <h2
                 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-6"
-                style={{ textShadow: "0 1px 2px rgba(0, 0, 0, 0.6)" }}
+                style={{
+                  textShadow:
+                    "0 5px 15px #000, 0 0 20px #000, 0 0 40px #000, 0 0 60px #000, 0 0 80px #000, 0 0 100px #000, 0 0 120px #000, 0 0 140px #000",
+                }}
               >
                 {t("serviceSubtitle")}
               </h2>
               <p
-                className="font-dm-sans text-lg text-white/90"
-                style={{ textShadow: "0 1px 2px rgba(0, 0, 0, 0.6)" }}
+                className="font-dm-sans text-lg font-semibold"
+                style={{
+                  color: "#ffffff",
+                  textShadow:
+                    "0 5px 10px #000, 0 0 25px #000, 0 0 35px #000, 0 0 45px #000, 0 0 55px #000, 0 0 65px #000, 0 0 75px #000",
+                }}
               >
                 {t("serviceIntro")}
               </p>
@@ -251,7 +258,9 @@ export default function ServicesSection() {
                   alt="Dashboard"
                   width={800}
                   height={600}
-                  className="w-full h-full object-fill md:object-cover" style={{height: "calc(100% + 10px)"}} priority
+                  className="w-full h-full object-fill md:object-cover"
+                  style={{ height: "calc(100% + 10px)" }}
+                  priority
                 />
               </div>
             </div>
