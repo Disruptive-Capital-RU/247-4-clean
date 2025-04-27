@@ -98,8 +98,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="apple-touch-icon" href="/images/logo_2.png" />
-        <link rel="icon" type="image/png" href="/images/logo_2.png" />
+        <link rel="apple-touch-icon" href="/images/app-icon.png" />
+        <link rel="icon" type="image/png" href="/images/app-icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
