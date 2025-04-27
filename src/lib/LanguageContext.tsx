@@ -74,7 +74,7 @@ const translations: Translations = {
 
     // Hero section
     eliteConciergeService: "",
-    alwaysWithYou: "Your Personal Travel Assistant",
+    alwaysWithYou: "The Modern Way to Experience Moscow",
     heroDescription: "We save you hours of searching and planning.",
     heroDescription2: "Available 24 hours a day, 7 days a week.",
     reserveYourConcierge: "Reserve Your Concierge",
@@ -85,7 +85,7 @@ const translations: Translations = {
 
     serviceSubtitle: "A Service That Books, Plans, and Elevates",
     serviceIntro:
-      "From dinner plans to last-minute drivers, Reluxi handles the details so you can enjoy Moscow like a local — with none of the stress.",
+      "From trusted drivers and curated dining to personal flower deliveries, Reluxi is your private assistant in Moscow — handling every detail so you can move through the city with ease and none of the stress. All it takes is one message.",
 
     // Service offerings
     privateTransport: "Private Transport",
@@ -386,7 +386,7 @@ const translations: Translations = {
     phoneNumber: "+7 (XXX) XXX-XXXX",
     emailAddress: "service@reluxi.com",
     copyright: " 2025 Reluxi Concierge. All rights reserved.",
-    personalTravelAssistant: "Your Personal Travel Assistant",
+    personalTravelAssistant: "The Modern Way to Experience Moscow",
     footerPoweredBy:
       "Powered by confidentiality, built on trust, inspired by excellence.",
 
