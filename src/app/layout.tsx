@@ -20,8 +20,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Reluxi — Elite Concierge Service",
-  description: "Premium concierge services for Arab tourists visiting Moscow",
+  title: "Reluxi — Your Private Assistant in Moscow",
+  description:
+    "Reluxi — The Modern Way to Experience Moscow. Private Transport • Dining Arrangements • Day Planning & Personal Scheduling • Health & Wellness • VIP Shopping • Cultural Experiences • Evening Access & Events • Security • Gifting & Gestures",
   appleWebApp: {
     capable: true,
     title: "24/7 Golden Service",
