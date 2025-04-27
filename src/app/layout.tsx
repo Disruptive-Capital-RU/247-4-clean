@@ -25,10 +25,10 @@ export const metadata: Metadata = {
     "Reluxi — The Modern Way to Experience Moscow. Private Transport • Dining Arrangements • Day Planning & Personal Scheduling • Health & Wellness • VIP Shopping • Cultural Experiences • Evening Access & Events • Security • Gifting & Gestures",
   appleWebApp: {
     capable: true,
-    title: "24/7 Golden Service",
+    title: "Reluxi",
     statusBarStyle: "black-translucent",
   },
-  applicationName: "24/7 Golden Service",
+  applicationName: "Reluxi",
   manifest: "/manifest.json",
 };
 
@@ -62,7 +62,7 @@ export default function RootLayout({
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
         />
-        <meta name="apple-mobile-web-app-title" content="24/7 Golden Service" />
+        <meta name="apple-mobile-web-app-title" content="Reluxi" />
         <style
           dangerouslySetInnerHTML={{
             __html: `
