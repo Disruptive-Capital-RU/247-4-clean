@@ -357,7 +357,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -805,7 +805,7 @@ const translations: Translations = {
     quantity: "الكمية:",
 
     // Golden button section
-    goldLogo: "شعار 24/7",
+    goldLogo: "شعار Reluxi",
     goldenButton: "أضف ريلوكسي إلى شاشتك الرئيسية",
     goldenButtonDesc:
       "هذا أكثر من مجرد زر — إنه خطك المباشر للفخامة والتميز وأرقى ما تقدمه المدينة. لمسة واحدة تربطك بالكونسيرج الشخصي الخاص بك، المتاح ليلاً ونهاراً.",
@@ -873,7 +873,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -940,7 +940,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1007,7 +1007,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1074,7 +1074,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1141,7 +1141,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1208,7 +1208,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1275,7 +1275,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1342,7 +1342,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1409,7 +1409,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1476,7 +1476,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1543,7 +1543,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1610,7 +1610,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1677,7 +1677,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1744,7 +1744,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1811,7 +1811,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1878,7 +1878,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -1945,7 +1945,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -2318,7 +2318,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -2766,7 +2766,7 @@ const translations: Translations = {
     quantity: "الكمية:",
 
     // Golden button section
-    goldLogo: "شعار 24/7",
+    goldLogo: "شعار Reluxi",
     goldenButton: "أضف ريلوكسي إلى شاشتك الرئيسية",
     goldenButtonDesc:
       "هذا أكثر من مجرد زر — إنه خطك المباشر للفخامة والتميز وأرقى ما تقدمه المدينة. لمسة واحدة تربطك بالكونسيرج الشخصي الخاص بك، المتاح ليلاً ونهاراً.",
@@ -2834,7 +2834,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -2901,7 +2901,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -2968,7 +2968,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3035,7 +3035,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3102,7 +3102,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3169,7 +3169,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3236,7 +3236,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3303,7 +3303,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3370,7 +3370,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3437,7 +3437,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3504,7 +3504,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3571,7 +3571,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3638,7 +3638,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3705,7 +3705,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3772,7 +3772,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3839,7 +3839,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3906,7 +3906,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -3973,7 +3973,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4040,7 +4040,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4107,7 +4107,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4174,7 +4174,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4241,7 +4241,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4308,7 +4308,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4375,7 +4375,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4442,7 +4442,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4509,7 +4509,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4576,7 +4576,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4643,7 +4643,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4710,7 +4710,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4777,7 +4777,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4844,7 +4844,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4911,7 +4911,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -4978,7 +4978,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -5045,7 +5045,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -5112,7 +5112,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -5179,7 +5179,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -5246,7 +5246,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -5313,7 +5313,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -5380,7 +5380,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -5447,7 +5447,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -5794,7 +5794,7 @@ const translations: Translations = {
       "After verifying your email, return to this page to complete your booking process.",
 
     // Golden button section
-    goldLogo: "24/7 Logo",
+    goldLogo: "Reluxi Logo",
     goldenButton: "Add Reluxi To Your Homescreen",
     goldenButtonDesc:
       "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
@@ -6242,7 +6242,7 @@ const translations: Translations = {
     quantity: "الكمية:",
 
     // Golden button section
-    goldLogo: "شعار 24/7",
+    goldLogo: "شعار Reluxi",
     goldenButton: "أضف ريلوكسي إلى شاشتك الرئيسية",
     goldenButtonDesc:
       "هذا أكثر من مجرد زر — إنه خطك المباشر للفخامة والتميز وأرقى ما تقدمه المدينة. لمسة واحدة تربطك بالكونسيرج الشخصي الخاص بك، المتاح ليلاً ونهاراً.",
@@ -6589,7 +6589,7 @@ const translations: Translations = {
     quantity: "数量:",
 
     // Golden button section
-    goldLogo: "24/7标志",
+    goldLogo: "Reluxi标志",
     goldenButton: "您的金色按钮",
     goldenButtonDesc:
       "这不仅仅是一个按钮 — 它是您直通奢华、谨慎和城市最精致服务的直接线路。一触即可连接到您的私人礼宾，全天候可用。",
@@ -6659,7 +6659,7 @@ const translations: Translations = {
     afterVerification: "验证后，您将被重定向到您的仪表板",
 
     // Golden button section
-    goldLogo: "24/7标志",
+    goldLogo: "Reluxi标志",
     goldenButton: "将Reluxi添加到您的主屏幕",
     goldenButtonDesc:
       "这不仅仅是一个按钮 — 它是您直通奢华、谨慎和城市最精致服务的直接线路。一触即可连接到您的私人礼宾，全天候可用。",
@@ -7111,7 +7111,7 @@ const translations: Translations = {
     quantity: "Кол-во:",
 
     // Golden button section
-    goldLogo: "24/7 Лого",
+    goldLogo: "Reluxi Лого",
     goldenButton: "Ваша золотая кнопка",
     goldenButtonDesc:
       "Это больше, чем просто кнопка — это ваша прямая линия к роскоши, конфиденциальности и лучшему, что может предложить город. Одно касание соединяет вас с вашим личным консьержем, доступным днем и ночью.",
@@ -7443,7 +7443,7 @@ const translations: Translations = {
       "Выберите предпочтительный способ связи с вашим персональным ассистентом",
 
     // Golden button section
-    goldLogo: "24/7 Лого",
+    goldLogo: "Reluxi Лого",
     goldenButton: "Добавьте Reluxi на Ваш домашний экран",
     goldenButtonDesc:
       "Это больше, чем просто кнопка — это ваша прямая линия к роскоши, конфиденциальности и лучшему, что может предложить город. Одно касание соединяет вас с вашим личным консьержем, доступным днем и ночью.",
