@@ -24,11 +24,22 @@ export const metadata: Metadata = {
   description:
     "Reluxi — The Modern Way to Experience Moscow. Private Transport • Dining Arrangements • Day Planning & Personal Scheduling • Health & Wellness • VIP Shopping • Cultural Experiences • Evening Access & Events • Security • Gifting & Gestures",
   keywords:
-    "concierge in Moscow, бواب في موسكو, консьерж в москве, 莫斯科礼宾部, Moscow concierge, private assistant Moscow, VIP services Moscow, luxury concierge, personal assistant",
+    "concierge in Moscow, بواب في موسكو, консьерж в москве, 莫斯科礼宾部, Moscow concierge, private assistant Moscow, VIP services Moscow, luxury concierge, personal assistant",
   appleWebApp: {
     capable: true,
     title: "Reluxi",
     statusBarStyle: "black-translucent",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/images/app-icon-large.png", sizes: "16x16" },
+      { url: "/images/app-icon-large.png", sizes: "32x32" },
+      { url: "/images/app-icon-large.png", sizes: "192x192" },
+      { url: "/images/app-icon-large.png", sizes: "512x512" },
+    ],
+    shortcut: "/images/app-icon-large.png",
+    apple: "/apple-touch-icon.png",
   },
   applicationName: "Reluxi",
   manifest: "/manifest.json",
@@ -50,7 +61,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://reluxi.com/images/app-icon.png",
+        url: "https://reluxi.com/images/app-icon-large.png",
         width: 1200,
         height: 1200,
         alt: "Reluxi Concierge Services in Moscow",
@@ -62,7 +73,7 @@ export const metadata: Metadata = {
     title: "Reluxi — Premium Concierge Service in Moscow",
     description:
       "Concierge in Moscow | консьерж в москве | بواب في موسكو | 莫斯科礼宾部",
-    images: ["https://reluxi.com/images/app-icon.png"],
+    images: ["https://reluxi.com/images/app-icon-large.png"],
   },
   verification: {
     google: "SyGqLxg2JWzx7PPO-Xoi7WyhTnI4vGUlJ8cSaScysLE",
@@ -98,8 +109,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="apple-touch-icon" href="/images/app-icon.png" />
-        <link rel="icon" type="image/png" href="/images/app-icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -136,7 +145,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "Reluxi",
               description: "Premium concierge services in Moscow",
-              image: "https://reluxi.com/images/app-icon.png",
+              image: "https://reluxi.com/images/app-icon-large.png",
               url: "https://reluxi.com",
               telephone: "+79160665133",
               address: {

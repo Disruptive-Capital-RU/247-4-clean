@@ -7,31 +7,39 @@ import BookingSection from "@/components/BookingSection";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { useLanguage } from "@/lib/LanguageContext";
 
-// FAQ Item component for collapsible sections
+// Simple version of the FAQ item component
 interface FAQItemProps {
   question: string;
   answer: string;
   defaultOpen?: boolean;
 }
 
-const FAQItem: React.FC<FAQItemProps> = ({ question, answer, defaultOpen = false }) => {
+const FAQItem: React.FC<FAQItemProps> = ({
+  question,
+  answer,
+  defaultOpen = false,
+}) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
-  
+
   return (
     <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-md overflow-hidden">
-      <div 
-        className="flex justify-between items-center cursor-pointer" 
+      <div
+        className="flex justify-between items-center cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <h3 className="text-xl font-cormorant text-white">
-          {question}
-        </h3>
-        <span className={`text-[#D4AF37] text-xl font-bold transition-transform duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
+        <h3 className="text-xl font-cormorant text-white">{question}</h3>
+        <span
+          className={`text-[#D4AF37] text-xl font-bold transition-transform duration-300 ${
+            isOpen ? "rotate-45" : "rotate-0"
+          }`}
+        >
           +
         </span>
       </div>
-      <div 
-        className={`font-dm-sans text-white/70 mt-2 transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+      <div
+        className={`font-dm-sans text-white/70 mt-2 transition-all duration-300 overflow-hidden ${
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
         <p className="pt-2">{answer}</p>
       </div>
@@ -39,14 +47,37 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, defaultOpen = false
   );
 };
 
+// Function to safely get translation with fallback
+const safeTranslate = (
+  t: (key: string) => string,
+  key: string,
+  fallback: string
+): string => {
+  try {
+    const translation = t(key);
+    return translation === key ? fallback : translation;
+  } catch (error) {
+    console.error(`Translation error for key: ${key}`, error);
+    return fallback;
+  }
+};
+
 export default function BookPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [showAllFAQs, setShowAllFAQs] = useState(false);
+
+  // Helper function to check if the language is Arabic
+  const isArabic = () =>
+    language === "AR" || language === "ar" || language === "arabic";
+
+  // Adding console logs for debugging
+  console.log("Current language:", language);
+
   return (
     <main className="min-h-screen bg-black text-white">
       <Navigation />
 
-      {/* Hero Section with Sparkles instead of Lamp */}
+      {/* Hero Section */}
       <section className="relative pt-28 pb-16 overflow-hidden">
         <div className="absolute inset-0 w-full h-full">
           <SparklesCore
@@ -63,11 +94,17 @@ export default function BookPage() {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-cormorant font-bold text-white mb-6">
-              {t("bookYour") || "Book Your"}{" "}
-              <span className="text-[#D4AF37]">{t("personalConcierge") || "Personal Concierge"}</span>
+              {safeTranslate(t, "bookYour", "Book Your")}{" "}
+              <span className="text-[#D4AF37]">
+                {safeTranslate(t, "personalConcierge", "Personal Concierge")}
+              </span>
             </h1>
             <p className="font-dm-sans text-lg md:text-xl text-white/80 mb-8">
-              {t("bookingIntro") || "Your time is precious. Start now. Book your personal concierge for 5 days for just $100."}
+              {safeTranslate(
+                t,
+                "bookingIntro",
+                "Your time is precious. Start now. Book your personal concierge for 5 days for just $100."
+              )}
             </p>
           </div>
         </div>
@@ -81,7 +118,10 @@ export default function BookPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-cormorant font-bold text-white mb-8 text-center">
-              {t("howIt") || "How It"} <span className="text-[#D4AF37]">{t("works") || "Works"}</span>
+              {safeTranslate(t, "howIt", "How It")}{" "}
+              <span className="text-[#D4AF37]">
+                {safeTranslate(t, "works", "Works")}
+              </span>
             </h2>
 
             <div className="space-y-8 font-dm-sans">
@@ -91,10 +131,14 @@ export default function BookPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-cormorant text-white mb-2">
-                    Reach Out
+                    {safeTranslate(t, "reachOut", "Reach Out")}
                   </h3>
                   <p className="text-white/70">
-                    Send us a quick message with what you need — whether it&apos;s a dinner reservation, transport, or help planning your day.
+                    {safeTranslate(
+                      t,
+                      "reachOutDesc",
+                      "Send us a quick message with what you need — whether it's a dinner reservation, transport, or help planning your day."
+                    )}
                   </p>
                 </div>
               </div>
@@ -105,10 +149,14 @@ export default function BookPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-cormorant text-white mb-2">
-                    We Confirm
+                    {safeTranslate(t, "weConfirm", "We Confirm")}
                   </h3>
                   <p className="text-white/70">
-                    You&apos;ll hear from us shortly via your preferred messaging app. We&apos;ll confirm the request, ask any follow-up questions, and begin arranging everything.
+                    {safeTranslate(
+                      t,
+                      "weConfirmDesc",
+                      "You'll hear from us shortly via your preferred messaging app. We'll confirm the request, ask any follow-up questions, and begin arranging everything."
+                    )}
                   </p>
                 </div>
               </div>
@@ -119,10 +167,18 @@ export default function BookPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-cormorant text-white mb-2">
-                    Secure & Simple Payment
+                    {safeTranslate(
+                      t,
+                      "secureSimplePayment",
+                      "Secure & Simple Payment"
+                    )}
                   </h3>
                   <p className="text-white/70">
-                    Once the details are set, we&apos;ll send you a secure payment link. As soon as your payment is confirmed, your concierge is available 24/7 — ready to assist with that request or anything else you may need.
+                    {safeTranslate(
+                      t,
+                      "secureSimplePaymentDesc",
+                      "Once the details are set, we'll send you a secure payment link. As soon as your payment is confirmed, your concierge is available 24/7 — ready to assist with that request or anything else you may need."
+                    )}
                   </p>
                 </div>
               </div>
@@ -136,90 +192,93 @@ export default function BookPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-cormorant font-bold text-white mb-8 text-center">
-              Frequently Asked <span className="text-[#D4AF37]">Questions</span>
+              {safeTranslate(t, "frequentlyAsked", "Frequently Asked")}{" "}
+              <span className="text-[#D4AF37]">
+                {safeTranslate(t, "questions", "Questions")}
+              </span>
             </h2>
 
             <div className="space-y-4">
-              {/* First 5 FAQs - Always visible */}
-              <FAQItem 
-                question="What does the concierge fee cover?"
-                answer="Your concierge fee covers unlimited access to a real, dedicated assistant available 24/7. We handle everything — from booking your dinner to securing a driver or sourcing a last-minute gift. Please note: actual service costs (e.g., restaurant bill, transport fare, event tickets) are billed separately and paid directly by you."
+              {/* First 3 FAQs - Always visible */}
+              <FAQItem
+                question={safeTranslate(
+                  t,
+                  "feeCoverQuestion",
+                  "What does the concierge fee cover?"
+                )}
+                answer={safeTranslate(
+                  t,
+                  "feeCoverAnswer",
+                  "Your concierge fee covers unlimited access to a real, dedicated assistant available 24/7. We handle everything — from booking your dinner to securing a driver or sourcing a last-minute gift. Please note: actual service costs (e.g., restaurant bill, transport fare, event tickets) are billed separately and paid directly by you."
+                )}
                 defaultOpen={true}
               />
-              
-              <FAQItem 
-                question="Can I extend my concierge service?"
-                answer="Yes. If you started with the 3-Day Plan, you can add extra days at $39/day. Just let your concierge know — no need to fill out anything else."
+
+              <FAQItem
+                question={safeTranslate(
+                  t,
+                  "extendServiceQuestion",
+                  "Can I extend my concierge service?"
+                )}
+                answer={safeTranslate(
+                  t,
+                  "extendServiceAnswer",
+                  "Yes. If you started with the 3-Day Plan, you can add extra days at $39/day. Just let your concierge know — no need to fill out anything else."
+                )}
               />
-              
-              <FAQItem 
-                question="Do you only work with Arabic-speaking clients?"
-                answer="Not at all. While many of our clients come from Arabic-speaking regions, our concierges are fluent in Arabic, English, Chinese, and Russian, and we welcome anyone looking for thoughtful, personal support."
+
+              <FAQItem
+                question={safeTranslate(
+                  t,
+                  "arabicClientsQuestion",
+                  "Do you only work with Arabic-speaking clients?"
+                )}
+                answer={safeTranslate(
+                  t,
+                  "arabicClientsAnswer",
+                  "Not at all. While many of our clients come from Arabic-speaking regions, our concierges are fluent in Arabic, English, Chinese, and Russian, and we welcome anyone looking for thoughtful, personal support."
+                )}
               />
-              
-              <FAQItem 
-                question="Can you book things on my behalf, or do I have to pay directly?"
-                answer="We&apos;ll coordinate everything for you — reservations, tickets, gifts, transport. In most cases, you pay the vendor directly. If needed, we can arrange pre-payment or transfers on your behalf."
-              />
-              
-              <FAQItem 
-                question="How do I contact my concierge?"
-                answer="Your concierge is available 24/7 via your preferred messaging app — WhatsApp, Telegram, Botim, or iMessage. Just send a message and we&apos;ll take care of the rest."
-              />
-              
+
               {/* Show More button */}
               {!showAllFAQs && (
                 <div className="text-center mt-8">
-                  <button 
+                  <button
                     onClick={() => setShowAllFAQs(true)}
                     className="text-[#D4AF37] hover:text-[#B8860B] underline transition-colors duration-300 font-dm-sans text-lg"
                   >
-                    Show More
+                    {safeTranslate(t, "showMore", "Show More")}
                   </button>
                 </div>
               )}
-              
+
               {/* Remaining FAQs - Only visible when showAllFAQs is true */}
               {showAllFAQs && (
                 <>
-                  <FAQItem 
-                    question="Can you arrange luxury or everyday transport?"
-                    answer="Yes. We can arrange anything from luxury car service and chauffeured vehicles to reliable, everyday taxis — all based on your needs, schedule, and preferences."
+                  <FAQItem
+                    question={safeTranslate(
+                      t,
+                      "bookOnBehalfQuestion",
+                      "Can you book things on my behalf, or do I have to pay directly?"
+                    )}
+                    answer={safeTranslate(
+                      t,
+                      "bookOnBehalfAnswer",
+                      "We'll coordinate everything for you — reservations, tickets, gifts, transport. In most cases, you pay the vendor directly. If needed, we can arrange pre-payment or transfers on your behalf."
+                    )}
                   />
-                  
-                  <FAQItem 
-                    question="What types of things can you book for me?"
-                    answer="From restaurants, drivers, and spas to gifting, cultural events, shopping support, and private tours — we handle it all. If it matters to you, it matters to us."
-                  />
-                  
-                  <FAQItem 
-                    question="I don&apos;t know exactly what I need — can you help me decide?"
-                    answer="Yes. Many clients come to us with a goal or feeling, not a full plan. Just tell us what you&apos;re thinking — romantic, relaxing, exciting, productive — and we&apos;ll curate ideas that fit your mood and time."
-                  />
-                  
-                  <FAQItem 
-                    question="I&apos;m not traveling — can I still use your service?"
-                    answer="Absolutely. Whether you live in Moscow or are just passing through, Reluxi offers on-demand personal assistance for day-to-day needs, local errands, or last-minute planning."
-                  />
-                  
-                  <FAQItem 
-                    question="How fast can you respond to a request?"
-                    answer="We&apos;re available 24/7, and most requests are confirmed within minutes. Whether it&apos;s a last-minute dinner, urgent transport, or a spontaneous idea — we&apos;re ready."
-                  />
-                  
-                  <FAQItem 
-                    question="Can I make multiple requests at once?"
-                    answer="Of course. You can send us as many requests as you&apos;d like — all at once or throughout your stay. We&apos;ll organize, prioritize, and follow up as needed."
-                  />
-                  
-                  <FAQItem 
-                    question="How private is this service?"
-                    answer="Discretion is built into everything we do. Whether you&apos;re planning a surprise, coordinating a business meeting, or simply value privacy — we never share, store, or disclose your personal information, preferences, or schedule."
-                  />
-                  
-                  <FAQItem 
-                    question="What is your refund policy?"
-                    answer="Due to the nature of our personalized and time-sensitive service, all payments are final and non-refundable. We appreciate your understanding and are always here to adjust or reschedule when possible."
+
+                  <FAQItem
+                    question={safeTranslate(
+                      t,
+                      "contactConciergeQuestion",
+                      "How do I contact my concierge?"
+                    )}
+                    answer={safeTranslate(
+                      t,
+                      "contactConciergeAnswer",
+                      "Your concierge is available 24/7 via your preferred messaging app — WhatsApp, Telegram, Botim, or iMessage. Just send a message and we'll take care of the rest."
+                    )}
                   />
                 </>
               )}

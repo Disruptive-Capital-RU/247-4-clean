@@ -39,7 +39,26 @@ const isDev = process.env.NODE_ENV !== "production";
 
 export default function BookingSection() {
   const router = useRouter();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  // Add RTL detection for Arabic language
+  const isRTL = language === "ar" || language === "arabic";
+
+  // Add a safety wrapper for translations
+  const safeTranslate = (key: string, fallback: string): string => {
+    try {
+      const translation = t(key);
+      // If the key is returned instead of a translation, use the fallback
+      return translation === key ? fallback : translation;
+    } catch (error) {
+      console.error(`Translation error for key: ${key}`, error);
+      return fallback;
+    }
+  };
+
+  // Debug log for current language
+  console.log("BookingSection language:", language);
+
   const captchaRef = useRef(null);
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -525,6 +544,7 @@ export default function BookingSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="max-w-lg mx-auto text-center"
+            dir={isRTL ? "rtl" : "ltr"}
           >
             <div className="bg-gradient-to-b from-[#D4AF37]/20 to-transparent p-10 rounded-lg border border-[#D4AF37]/30">
               <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B8860B] flex items-center justify-center">
@@ -634,19 +654,19 @@ export default function BookingSection() {
                 <form
                   onSubmit={handleSubmit}
                   className="space-y-6 p-8 rounded-md bg-black/40 w-full mx-auto"
+                  dir={isRTL ? "rtl" : "ltr"}
                 >
                   <h2 className="text-5xl font-cormorant font-bold text-white text-center mb-2">
-                    {t("bookingHeadline") || (
-                      <>
-                        Your Time Is{" "}
-                        <span className="text-[#D4AF37]">Precious</span>. Start
-                        Now.
-                      </>
+                    {safeTranslate(
+                      "bookingHeadline",
+                      "Your Time Is Precious. Start Now."
                     )}
                   </h2>
                   <p className="text-white/70 text-center mb-8">
-                    {t("bookingSubheading") ||
-                      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest."}
+                    {safeTranslate(
+                      "bookingSubheading",
+                      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest."
+                    )}
                   </p>
                   <div className="border border-[#D4AF37] rounded-md p-6 space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
@@ -654,38 +674,70 @@ export default function BookingSection() {
                       <div className="space-y-6">
                         <div className="space-y-2">
                           <Label htmlFor="name" className="text-white">
-                            {t("fullName") || "Full Name"}
+                            {safeTranslate("fullName", "Full Name")}
                             <span className="text-[#D4AF37] ml-1">*</span>
                           </Label>
-                          <Input
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            placeholder={t("yourName") || "Your name"}
-                            className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
-                            required
-                          />
+                          <div
+                            className="group/input rounded-lg p-[2px] transition duration-300"
+                            style={{
+                              background: `radial-gradient(
+          0px circle at 0px 0px,
+          #D4AF37,
+          transparent 80%
+        )`,
+                            }}
+                          >
+                            <Input
+                              id="name"
+                              placeholder={safeTranslate(
+                                "yourName",
+                                "Your name"
+                              )}
+                              required
+                              name="name"
+                              value={formData.name}
+                              onChange={handleChange}
+                              className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
+                              dir={isRTL ? "rtl" : "ltr"}
+                            />
+                          </div>
                         </div>
 
                         <div className="space-y-2">
                           <Label htmlFor="email" className="text-white">
-                            {t("email") || "Email"}
+                            {safeTranslate("email", "Email")}
                             <span className="text-[#D4AF37] ml-1">*</span>
                           </Label>
-                          <Input
-                            id="email"
-                            name="email"
-                            type="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            placeholder={t("yourEmail") || "Your email"}
-                            className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
-                            required
-                          />
+                          <div
+                            className="group/input rounded-lg p-[2px] transition duration-300"
+                            style={{
+                              background: `radial-gradient(
+          0px circle at 0px 0px,
+          #D4AF37,
+          transparent 80%
+        )`,
+                            }}
+                          >
+                            <Input
+                              type="email"
+                              id="email"
+                              placeholder={safeTranslate(
+                                "yourEmail",
+                                "Your email"
+                              )}
+                              required
+                              name="email"
+                              value={formData.email}
+                              onChange={handleChange}
+                              className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
+                              dir={isRTL ? "rtl" : "ltr"}
+                            />
+                          </div>
                           <p className="text-xs text-white/60 mt-1">
-                            {t("emailLoginInfo") ||
-                              "You'll use this email to log into your concierge dashboard"}
+                            {safeTranslate(
+                              "emailLoginInfo",
+                              "You'll use this email to log into your concierge dashboard"
+                            )}
                           </p>
                         </div>
 
@@ -705,6 +757,7 @@ export default function BookingSection() {
                             }
                             className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                             required
+                            dir={isRTL ? "rtl" : "ltr"}
                           />
                         </div>
                       </div>
@@ -726,6 +779,7 @@ export default function BookingSection() {
                             }
                             className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                             required
+                            dir={isRTL ? "rtl" : "ltr"}
                           />
                         </div>
 
@@ -746,7 +800,10 @@ export default function BookingSection() {
                               })
                             }
                           >
-                            <SelectTrigger className="w-full h-12 rounded-none bg-black/60 border border-white/20 text-white focus:border-[#D4AF37] hover:border-[#D4AF37]/70">
+                            <SelectTrigger
+                              className="w-full h-12 rounded-none bg-black/60 border border-white/20 text-white focus:border-[#D4AF37] hover:border-[#D4AF37]/70"
+                              dir={isRTL ? "rtl" : "ltr"}
+                            >
                               <SelectValue
                                 placeholder={
                                   t("selectCommunicationMethod") ||
@@ -754,7 +811,10 @@ export default function BookingSection() {
                                 }
                               />
                             </SelectTrigger>
-                            <SelectContent className="bg-black/90 border border-[#D4AF37]/30 text-white">
+                            <SelectContent
+                              className="bg-black/90 border border-[#D4AF37]/30 text-white"
+                              dir={isRTL ? "rtl" : "ltr"}
+                            >
                               <SelectItem
                                 value="whatsapp"
                                 className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80"
@@ -805,14 +865,20 @@ export default function BookingSection() {
                               setFormData({ ...formData, language: value })
                             }
                           >
-                            <SelectTrigger className="w-full h-12 rounded-none bg-black/60 border border-white/20 text-white focus:border-[#D4AF37] hover:border-[#D4AF37]/70">
+                            <SelectTrigger
+                              className="w-full h-12 rounded-none bg-black/60 border border-white/20 text-white focus:border-[#D4AF37] hover:border-[#D4AF37]/70"
+                              dir={isRTL ? "rtl" : "ltr"}
+                            >
                               <SelectValue
                                 placeholder={
                                   t("selectLanguage") || "Select language"
                                 }
                               />
                             </SelectTrigger>
-                            <SelectContent className="bg-black/90 border border-[#D4AF37]/30 text-white">
+                            <SelectContent
+                              className="bg-black/90 border border-[#D4AF37]/30 text-white"
+                              dir={isRTL ? "rtl" : "ltr"}
+                            >
                               <SelectItem
                                 value="english"
                                 className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80"
@@ -895,23 +961,17 @@ export default function BookingSection() {
                     <div>
                       <button
                         type="submit"
-                        disabled={
-                          loading || (emailVerificationSent && !emailVerified)
-                        }
-                        className={`w-full py-3 h-14 ${
-                          emailVerified
-                            ? "bg-black text-white border border-white/20 hover:border-white/50"
-                            : "bg-black text-white border border-white/20 hover:border-white/50"
-                        } font-medium transition-all duration-300 ${
-                          loading ? "opacity-70 cursor-not-allowed" : ""
-                        }`}
+                        className="w-full py-3 h-14 bg-black text-white border border-white/20 hover:border-white/50 font-medium transition-all duration-300 "
+                        dir={isRTL ? "rtl" : "ltr"}
                       >
                         {loading
-                          ? t("processing") || "Processing..."
+                          ? "Processing..."
                           : emailVerificationSent && !emailVerified
-                          ? t("emailVerificationRequired") ||
-                            "Email Verification Required"
-                          : t("reserveMyConcierge") || "Reserve My Concierge"}
+                          ? "Email Verification Required"
+                          : safeTranslate(
+                              "reserveMyConcierge",
+                              "Reserve My Concierge"
+                            )}
                       </button>
                     </div>
                   </div>

@@ -21,8 +21,12 @@ export default function Navigation() {
     "success" | "error" | null
   >(null);
   const { user, loading, logOut } = useAuth();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const router = useRouter();
+
+  // Check if language is Arabic to handle RTL, but keep navigation LTR
+  const isArabic =
+    language === "ar" || language === "AR" || language === "arabic";
 
   // Effect to close the login modal when user is authenticated
   useEffect(() => {
@@ -203,7 +207,10 @@ export default function Navigation() {
   };
 
   return (
-    <div className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
+    <div
+      className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm border-b border-white/10"
+      dir="ltr"
+    >
       <div className="container mx-auto px-4 md:px-6 py-4 flex items-center">
         {/* Left section */}
         <div className="flex-1 flex justify-start">
@@ -298,6 +305,7 @@ export default function Navigation() {
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3 }}
+          dir="ltr"
         >
           <div className="container mx-auto px-4 py-6 flex flex-col space-y-6">
             {user ? (
@@ -365,6 +373,7 @@ export default function Navigation() {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}
+            dir={isArabic ? "rtl" : "ltr"}
           >
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-cormorant font-semibold text-white">
@@ -398,8 +407,14 @@ export default function Navigation() {
               </button>
             </div>
             <p className="text-white/70 mb-6 font-dm-sans">
-              Please enter the email you used when booking your concierge
-              service.
+              {language === "RU"
+                ? "Пожалуйста, введите электронную почту, которую вы использовали при бронировании услуги консьержа."
+                : language === "AR"
+                ? "الرجاء إدخال البريد الإلكتروني الذي استخدمته عند حجز خدمة الكونسيرج."
+                : language === "CN"
+                ? "请输入您在预订礼宾服务时使用的电子邮件。"
+                : t("emailLoginPrompt") ||
+                  "Please enter the email you used when booking your concierge service."}
             </p>
 
             {loginMessage ? (
@@ -410,7 +425,7 @@ export default function Navigation() {
                     : "bg-red-900/30 text-red-300 border border-red-700"
                 }`}
               >
-                {loginMessage}
+                {getTranslatedMessage(loginMessage, language)}
               </div>
             ) : (
               <form onSubmit={handleLogin} className="mb-2">
@@ -418,28 +433,46 @@ export default function Navigation() {
                   <div>
                     <input
                       type="email"
-                      placeholder="Your Email Address"
+                      placeholder={
+                        language === "RU"
+                          ? "Ваш адрес электронной почты"
+                          : language === "AR"
+                          ? "عنوان بريدك الإلكتروني"
+                          : language === "CN"
+                          ? "您的电子邮件地址"
+                          : t("yourEmailAddress") || "Your Email Address"
+                      }
                       className="w-full p-3 bg-black/50 border border-[#D4AF37]/30 rounded text-white focus:outline-none focus:border-[#D4AF37] transition-colors font-dm-sans"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
+                      dir={isArabic ? "rtl" : "ltr"}
                     />
                   </div>
 
                   <div>
                     <input
                       type="password"
-                      placeholder="Your Password"
+                      placeholder={
+                        language === "RU"
+                          ? "Ваш пароль"
+                          : language === "AR"
+                          ? "كلمة المرور الخاصة بك"
+                          : language === "CN"
+                          ? "您的密码"
+                          : t("yourPassword") || "Your Password"
+                      }
                       className="w-full p-3 bg-black/50 border border-[#D4AF37]/30 rounded text-white focus:outline-none focus:border-[#D4AF37] transition-colors font-dm-sans"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
+                      dir={isArabic ? "rtl" : "ltr"}
                     />
                   </div>
 
                   {loginMessage && loginMessageType === "error" && (
                     <div className="p-3 mt-2 rounded text-red-300 bg-red-900/30 border border-red-700/50 text-sm">
-                      {loginMessage}
+                      {getTranslatedMessage(loginMessage, language)}
                       {loginMessage.includes("couldn't find a user") && (
                         <p className="mt-2">
                           <Link
@@ -447,16 +480,37 @@ export default function Navigation() {
                             className="text-[#D4AF37] underline"
                             onClick={() => setShowLoginModal(false)}
                           >
-                            Book a concierge
+                            {language === "RU"
+                              ? "Забронировать консьержа"
+                              : language === "AR"
+                              ? "احجز كونسيرج"
+                              : language === "CN"
+                              ? "预订礼宾服务"
+                              : "Book a concierge"}
                           </Link>{" "}
-                          first to create your account.
+                          {language === "RU"
+                            ? "сначала для создания учетной записи."
+                            : language === "AR"
+                            ? "أولاً لإنشاء حسابك."
+                            : language === "CN"
+                            ? "首先创建您的账户。"
+                            : "first to create your account."}
                         </p>
                       )}
                     </div>
                   )}
                 </div>
                 <div className="flex justify-between items-center text-sm text-white/60 mt-2 mb-4">
-                  <div>Enter the password you used during registration</div>
+                  <div>
+                    {language === "RU"
+                      ? "Введите пароль, который вы использовали при регистрации"
+                      : language === "AR"
+                      ? "أدخل كلمة المرور التي استخدمتها أثناء التسجيل"
+                      : language === "CN"
+                      ? "输入您在注册时使用的密码"
+                      : t("enterPassword") ||
+                        "Enter the password you used during registration"}
+                  </div>
                 </div>
 
                 <button
@@ -466,7 +520,21 @@ export default function Navigation() {
                     loading ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
-                  {loading ? "Processing..." : "Continue"}
+                  {loading
+                    ? language === "RU"
+                      ? "Обработка..."
+                      : language === "AR"
+                      ? "جاري المعالجة..."
+                      : language === "CN"
+                      ? "处理中..."
+                      : t("processing")
+                    : language === "RU"
+                    ? "Продолжить"
+                    : language === "AR"
+                    ? "متابعة"
+                    : language === "CN"
+                    ? "继续"
+                    : t("continue")}
                 </button>
               </form>
             )}
@@ -495,4 +563,52 @@ function NavLink({
       {children}
     </Link>
   );
+}
+
+function getTranslatedMessage(message: string, language: string): string {
+  if (language === "RU") {
+    if (message === "Login successful!") {
+      return "Вход выполнен успешно!";
+    } else if (message === "Invalid email or password. Please try again.") {
+      return "Неверный адрес электронной почты или пароль. Пожалуйста, попробуйте снова.";
+    } else if (message === "An unexpected error occurred. Please try again.") {
+      return "Произошла непредвиденная ошибка. Пожалуйста, попробуйте снова.";
+    } else if (message === "Please enter both email and password.") {
+      return "Пожалуйста, введите и электронную почту, и пароль.";
+    } else if (message.includes("We couldn't find a user")) {
+      return "Мы не нашли пользователя с такой электронной почтой. Пожалуйста, убедитесь, что вы ввели правильную электронную почту при бронировании услуги консьержа.";
+    } else if (message === "Invalid credentials. Please try again.") {
+      return "Неверные учетные данные. Пожалуйста, попробуйте снова.";
+    }
+  } else if (language === "AR") {
+    if (message === "Login successful!") {
+      return "تم تسجيل الدخول بنجاح!";
+    } else if (message === "Invalid email or password. Please try again.") {
+      return "البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى.";
+    } else if (message === "An unexpected error occurred. Please try again.") {
+      return "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.";
+    } else if (message === "Please enter both email and password.") {
+      return "الرجاء إدخال البريد الإلكتروني وكلمة المرور معًا.";
+    } else if (message.includes("We couldn't find a user")) {
+      return "لم نتمكن من العثور على مستخدم بهذا البريد الإلكتروني. يرجى التأكد من إدخال البريد الإلكتروني الصحيح الذي استخدمته عند حجز خدمة الكونسيرج.";
+    } else if (message === "Invalid credentials. Please try again.") {
+      return "بيانات الاعتماد غير صالحة. يرجى المحاولة مرة أخرى.";
+    }
+  } else if (language === "CN") {
+    if (message === "Login successful!") {
+      return "登录成功！";
+    } else if (message === "Invalid email or password. Please try again.") {
+      return "电子邮件或密码无效。请重试。";
+    } else if (message === "An unexpected error occurred. Please try again.") {
+      return "发生意外错误。请重试。";
+    } else if (message === "Please enter both email and password.") {
+      return "请输入电子邮件和密码。";
+    } else if (message.includes("We couldn't find a user")) {
+      return "我们找不到使用此电子邮件的用户。请确保输入了您在预订礼宾服务时使用的正确电子邮件。";
+    } else if (message === "Invalid credentials. Please try again.") {
+      return "凭据无效。请重试。";
+    }
+  }
+
+  return message;
 }
