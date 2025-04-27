@@ -34,9 +34,30 @@ export const ServicesTextEffect = ({
   }, [animate, duration, filter]);
 
   const renderWords = () => {
+    // If there's only one word, handle it differently
+    if (wordsArray.length === 1) {
+      return (
+        <motion.div ref={scope} className="flex flex-col items-center">
+          <motion.span
+            className={cn(
+              "opacity-0 inline-block",
+              textClassName || className?.includes("text-[#D4AF37]")
+                ? "text-[#D4AF37]"
+                : "text-white"
+            )}
+            style={{
+              filter: filter ? "blur(10px)" : "none",
+            }}
+          >
+            {wordsArray[0]}
+          </motion.span>
+        </motion.div>
+      );
+    }
+
     // Split the words into first line and second line
     const firstLineWords = wordsArray.slice(0, 2); // 'How We'
-    const secondLineWords = wordsArray.slice(2); // 'Serve You'
+    const secondLineWords = wordsArray.slice(2);
 
     return (
       <motion.div ref={scope} className="flex flex-col items-center">

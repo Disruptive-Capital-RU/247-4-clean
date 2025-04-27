@@ -542,6 +542,25 @@ const translations: Translations = {
     contactYourExecutiveAssistant: "Contact Your Executive Assistant",
     selectPreferredMethod:
       "Select your preferred method to reach your personal executive assistant",
+
+    // Profile management page
+    profileManagement: "Profile Management",
+    updatePersonalInfo: "Update your personal information",
+    backToDashboard: "Back to Dashboard",
+    emailCannotBeChanged: "Email cannot be changed",
+    updateProfile: "Update Profile",
+    updating: "Updating...",
+    cancel: "Cancel",
+    profileUpdateSuccess: "Profile updated successfully",
+    profileUpdateFailed: "Failed to update profile",
+    unknownError: "Unknown error",
+    redirectingToLogin: "Redirecting to login...",
+
+    // Communication methods and apps
+    whatsapp: "WhatsApp",
+    telegram: "Telegram",
+    botim: "Botim",
+    wechat: "WeChat",
   },
 
   AR: {
@@ -787,9 +806,5447 @@ const translations: Translations = {
 
     // Golden button section
     goldLogo: "شعار 24/7",
-    goldenButton: "زرك الذهبي",
+    goldenButton: "أضف ريلوكسي إلى شاشتك الرئيسية",
     goldenButtonDesc:
       "هذا أكثر من مجرد زر — إنه خطك المباشر للفخامة والتميز وأرقى ما تقدمه المدينة. لمسة واحدة تربطك بالكونسيرج الشخصي الخاص بك، المتاح ليلاً ونهاراً.",
+    yourGoldenButton: "زرك الذهبي",
+    goldenButtonInstructions: "اضغط مع الاستمرار لإضافته إلى شاشتك الرئيسية.",
+    chooseDevice: "اختر جهازك للمتابعة:",
+    iphone: "آيفون",
+    android: "أندرويد",
+
+    // Dashboard access
+    accessDashboard: "الوصول إلى لوحة تحكم الكونسيرج الشخصية",
+    dashboardDesc:
+      "إدارة الخدمات واستكشاف التجارب والتواصل المباشر مع الكونسيرج الخاص بك",
+    dashboardButton: "لوحة التحكم",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    emailLabel: "البريد الإلكتروني *",
+    emailHint:
+      "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    home: "Home",
+    pricing: "Pricing",
+    services: "Services",
+    whyUs: "Why Us",
+    login: "Log In",
+    bookNow: "Book Now",
+    welcomeBack: "Welcome Back",
+    accessSuite: "Access Suite",
+    dashboard: "Dashboard",
+    logout: "Log Out",
+    offer: "Offer",
+
+    // Pricing page
+    freedom: "Freedom, Perfected",
+    pricingDescription:
+      "Discover our range of premium concierge services tailored to your needs and preferences.",
+    whatYouReceive: "What You Receive in Every Plan:",
+    planDescription:
+      "Reluxi offers three ways to experience seamless, personal support — whether you're staying in Moscow for a few days, need help with a single special day, or want ongoing access to someone who understands you. All options come with 24/7 availability, human communication, and thoughtful coordination behind every moment.",
+    planOverview: "Service, On Your Terms",
+    readyToExperience: "Ready to Experience True Luxury?",
+    bookYourPersonal:
+      "Book your personal concierge now and transform your Moscow experience into something extraordinary.",
+    bookYourConcierge: "Book Your Concierge",
+    selectPlan: "Select Plan",
+    contactUs: "Contact Us",
+    oneDayPremiumPlans: "One-Day Premium Plans",
+    everyDetailMasterfully: "Every Detail, Masterfully Orchestrated",
+
+    // Why Us page
+    whyUsTitle1: "We Don't Just Provide Service.",
+    whyUsTitle2: "We Provide",
+    certainty: "Certainty",
+    whyUsDescription:
+      "You don't need a schedule. You need a signal. Your concierge is more than a guide — they are your trusted presence in a foreign land.",
+    whyUsQuote: "Even when you're far, you're close to my heart.",
+    whyUsQuoteSource: "Inspired by Amr Diab's 'Tamly Ma'ak'",
+    whyChooseReluxi: "Why Choose",
+    whyChooseReluxiDesc:
+      "Reluxi is more than a concierge — it's your trusted presence in a foreign city. With too many options, not enough time, and no one to filter the noise, we're here to guide, simplify, and support. Our mission is to remove the stress and friction of unfamiliar places, so every moment feels purposeful, cared for, and entirely your own.",
+    ourServicePhilosophy: "Our Service",
+    philosophy: "Philosophy",
+
+    // Why Us advantages
+    alwaysOnSupport: "Always-On Support",
+    alwaysOnSupportDesc:
+      "We handle your plans with speed, care, and quiet consistency — 24/7. Most of our clients never travel without us again.",
+    effortlessCommunication: "Effortless Communication",
+    effortlessCommunicationDesc:
+      "Most clients send one message — we take it from there. No apps, no calls, no back-and-forth. Just smooth, immediate support when you need it.",
+    tailoredAccess: "Tailored Access",
+    tailoredAccessDesc:
+      "We don't just book what's available. We arrange what brings the trip you've been wishing for to life — thoughtfully and precisely.",
+    trustedByThoseWhoDeserveMore: "Trusted by Those Who Deserve More",
+    trustedByDesc1:
+      "From international travelers and public figures to entrepreneurs, diplomats, and creatives — Reluxi is the quiet constant behind their time in Moscow.",
+    trustedByDesc2:
+      "They come for the reputation, stay for the peace of mind, and return because no one understands them quite like we do.",
+    trustedByDesc3:
+      "This isn't just a service you try — it's one you come to rely on.",
+
+    // Hero section
+    eliteConciergeService: "",
+    alwaysWithYou: "The Modern Way to Experience Moscow",
+    heroDescription: "We save you hours of searching and planning.",
+    heroDescription2: "Available 24 hours a day, 7 days a week.",
+    reserveYourConcierge: "Reserve Your Concierge",
+    pricingInfo: "",
+    discoverMore: "Discover More",
+
+    // Main service intro
+
+    serviceSubtitle: "A Service That Books, Plans, and Elevates",
+    serviceIntro:
+      "From trusted drivers and curated dining to personal flower deliveries, Reluxi is your private assistant in Moscow — handling every detail so you can move through the city with ease and none of the stress. All it takes is one message.",
+
+    // Service offerings
+    privateTransport: "Private Transport",
+    privateTransportDesc:
+      "From luxury cars to trusted taxis, we arrange transportation that suits your pace, comfort, and discretion — day or night.",
+    diningArrangements: "Dining Arrangements",
+    diningArrangementsDesc:
+      "From reservations at the best restaurants to take-in delivered to your hotel— all arranged to match your taste and timing.",
+    dayPlanning: "Day Planning & Personal Scheduling",
+    dayPlanningDesc:
+      "Your day, thoughtfully arranged — from first steps to final plans, with care that makes the city feel like yours.",
+    healthWellness: "Health & Wellness",
+    healthWellnessDesc:
+      "We connect you to leading spas, clinics, and specialists — with access arranged around your comfort, privacy, and schedule.",
+    vipShopping: "VIP Shopping",
+    vipShoppingDesc:
+      "Curated access to Moscow's top boutiques — with personal support for styling, privacy, and seamless shopping experiences.",
+    culturalExperiences: "Cultural Experiences",
+    culturalExperiencesDesc:
+      "Private tours of Moscow's landmarks and hidden gems — guided by insiders who speak your language.",
+    eveningAccess: "Evening Access & Events",
+    eveningAccessDesc:
+      "From exclusive lounges to refined social gatherings you won't find online.",
+    security: "Security",
+    securityDesc:
+      "Personal protection, arranged when needed — for moments where privacy and peace of mind matter most.",
+    gifting: "Gifting & Gestures",
+    giftingDesc:
+      "Flowers, small gifts, or meaningful touches — delivered perfectly.",
+
+    // Services page
+    ourEliteServices: "Our Elite Services",
+    luxuryServicesForElite: "Luxury concierge services for the elite",
+    howWeServeYou: "How We Serve You",
+    howWe: "How We",
+    serve: "Serve",
+    you: "You",
+    oneDayExperience: "One-Day Experience",
+    oneDayPrice: "6 500₽ ($75)",
+    designedFor: "Designed For",
+    oneDayDesignedFor:
+      "Special occasions, business needs, or quality time with family — when one day deserves to be perfectly handled.",
+    whatYouGet: "What You Get",
+    oneDayWhatYouGet:
+      "A curated one-day experience tailored around your goals — personal or professional. We handle the bookings, timing, and flow so your day feels effortless.",
+    examplesInclude: "Examples Include",
+    oneDayExample1:
+      "A romantic evening with private transport, dinner reservations, and a floral surprise",
+    oneDayExample2:
+      "A family day with thoughtfully planned activities, cultural visits, and group-friendly dining — all arranged to keep the day flowing with ease",
+    oneDayExample3:
+      "A business day with meeting space bookings, restaurant coordination, and transport between locations",
+    oneDayExampleFooter:
+      "Tell us the kind of day you need — and we'll make it seamless.",
+    oneDayPlan: "One-Day Plan",
+    requestOneDayPlan: "Request One-Day Plan",
+
+    mostPopular: "Most Popular",
+    threeDayPlan: "3-Day Concierge Plan",
+    threeDayPrice: "11 500₽ ($139)",
+    threeDayDesignedFor:
+      "Short getaways, city breaks, or visitors who want complete support without long-term commitment.",
+    threeDayWhatYouGet:
+      "Three full days of unlimited, personalized concierge assistance — available at any hour. Ideal for those who want to experience the best of Moscow without stress or planning.",
+    includes: "Includes",
+    threeDayInclude1: "24/7 concierge access via your preferred messaging app",
+    threeDayInclude2:
+      "Booking & coordination across dining, transport, wellness, events, and more",
+    threeDayInclude3:
+      "Option to add additional days for $39/day — same service, same ease",
+    threeDayIncludeFooter:
+      "Start your journey with Reluxi — and experience how effortless travel can feel.",
+    multiDayPlan: "Multi-Day Plan",
+    startThreeDayPlan: "Start 3-Day Plan",
+
+    monthlyMembership: "Monthly Membership",
+    monthlyPrice: "28 500₽ ($339)/month",
+    monthlyDesignedFor:
+      "Frequent travelers, busy professionals, and city residents who want continuous access to Reluxi's full support.",
+    monthlyWhatYouGet:
+      "Unlimited monthly concierge access with a dedicated point of contact who learns your preferences and adapts to your rhythm.",
+    monthlyInclude1: "24/7 availability with no limitations",
+    monthlyInclude2:
+      "Personalized planning across daily life, travel, dining, and more",
+    monthlyInclude3:
+      "Consistent care and service across multiple trips or ongoing needs",
+    monthlyIncludeFooter:
+      "Enjoy continuous, elevated support — no matter how often you need us.",
+    membership: "Membership",
+    becomeAMember: "Become a Member",
+
+    quickRequests: "Quick Requests",
+    oneTaskHandledFast: "One Task, Handled Fast",
+    quickRequestsDescription:
+      "Text us your request — we'll confirm it for a flat $5 commission. Perfect for spontaneous needs or first-time users who want to try Reluxi — one message at a time.",
+    howItWorks: "How It Works",
+    quickRequestsHowItWorks:
+      "Pay-per-request concierge service — no plan required",
+    commissionFee: "Commission Fee",
+    quickRequestsFee: "500₽ ($5) per fulfilled request",
+    idealFor: "Ideal For",
+    quickRequestsIdealFor:
+      "One-off bookings (e.g., restaurant, transportation, event tickets, courier)",
+    deliveryTime: "Delivery Time",
+    quickRequestsDeliveryTime:
+      "Everything arranged within minutes — smooth, fast, and confirmed in real time",
+    requestABooking: "Request a Booking",
+
+    readyToEnjoyTrip:
+      "Ready to Actually Enjoy Your Trip — Without Wasting Time or Energy?",
+    reluxiSavesYouHours:
+      "Reluxi saves you hours of searching and planning. You focus on the experience — we'll handle everything else.",
+
+    // Dashboard page
+    // welcomeBack key is already defined above
+    valuedClient: "Valued Client",
+    personalConciergeService: "Your personal concierge is at your service.",
+    youHave: "You have",
+    days: "days",
+    remainingConciergeBooking: "remaining of your concierge booking.",
+    moscowWeather: "Moscow Weather",
+    manageProfile: "Manage Profile",
+    yourPreviousRequests: "Your Previous Requests",
+    serviceLabel: "Service",
+    categoryLabel: "Category",
+    quantityLabel: "Quantity",
+    statusLabel: "Status",
+    dateLabel: "Date",
+    browseAndBookServices: "Browse & Book Services",
+    searchServices: "Search services...",
+    myConciergeRequests: "My Concierge Requests",
+    emptyConciergeList: "Your concierge list is empty",
+    browseServices: "Browse Services",
+    requestConfirmation:
+      "Your request will be sent to our concierge team, who will reach out to confirm timing and preferences.",
+    requestSubmitted: "Request Submitted!",
+    sendToConciergeTeam: "Send to Concierge Team",
+    allServices: "All Services",
+    shoppingCategory: "Shopping",
+    diningCulinaryCategory: "Dining & Culinary",
+    cultureHistoryCategory: "Culture & History",
+    transportCategory: "Transport",
+    medicalWellnessCategory: "Medical & Wellness",
+    nightlifeEventsCategory: "Nightlife & Events",
+    travelSupportCategory: "Travel Support",
+    allCategories: "All",
+    coreServices: "Core Services",
+    lifestyleRomantic: "Lifestyle & Romantic",
+    familyCultural: "Family & Cultural",
+    businessSecurity: "Business & Security",
+    quantity: "Qty:",
+
+    // Booking page
+    bookYour: "Book Your",
+    personalConcierge: "Personal Concierge",
+    bookingIntro:
+      "Your time is precious. Start now. Share a few details with us, and we'll be in touch right away to lift the stress off your stay.",
+    howIt: "How It",
+    works: "Works",
+    bookNow: "Book Now",
+    bookNowDesc:
+      "Complete the booking form with your information, travel dates, and preferences. This is a pre-reservation only, no payment is collected at this stage.",
+    confirmation: "Confirmation",
+    confirmationDesc:
+      "Within 12 hours, our team will contact you directly via your preferred communication method to confirm your reservation, discuss any specific requirements, and answer any questions.",
+    payment: "Payment",
+    paymentDesc:
+      "Once your reservation is confirmed, you'll receive a secure payment link. We accept all major credit cards and international payment methods.",
+    preArrivalPlanning: "Pre-Arrival Planning",
+    preArrivalPlanningDesc:
+      "Your personal concierge will contact you before your arrival to develop a tailored plan for your visit, ensuring everything is prepared for your Moscow experience.",
+    welcomeToMoscow: "Welcome to Moscow",
+    welcomeToMoscowDesc:
+      "Your concierge will meet you upon arrival and be available 24/7 throughout your stay to ensure every aspect of your Moscow experience exceeds expectations.",
+    frequentlyAsked: "Frequently Asked",
+    questions: "Questions",
+    feeCoverQuestion: "What does the $100 fee cover?",
+    feeCoverAnswer:
+      "The $100 fee covers your personal concierge service for 5 days. This includes 24/7 availability, personalized planning, and on-the-ground assistance. Additional services like restaurant bills, shopping, tickets, etc. are billed separately.",
+    extendServiceQuestion: "Can I extend my concierge service beyond 5 days?",
+    extendServiceAnswer:
+      "Yes, you can extend your service at a rate of $20 per additional day. This can be arranged during your stay through your personal concierge.",
+    arabicSpeakersQuestion: "Are all your concierges Arabic speakers?",
+    arabicSpeakersAnswer:
+      "Yes, all our concierges are fluent in Arabic, English, and Russian, ensuring seamless communication throughout your stay.",
+    cancellationPolicyQuestion: "What is your cancellation policy?",
+    cancellationPolicyAnswer:
+      "Cancellations made 72 hours or more before your scheduled arrival receive a full refund. Cancellations within 72 hours are subject to a 50% fee.",
+    discretionQuestion: "How discreet is your service?",
+    discretionAnswer:
+      "Absolute discretion is our priority. Your privacy is sacred, and we maintain complete confidentiality about your activities, preferences, and personal information.",
+
+    // Booking form
+    yourTimeIs: "Your Time Is",
+    precious: "Precious",
+    startNow: "Start Now.",
+    bookingFormDesc:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    fullName: "Full Name",
+    yourName: "Your name",
+    email: "Email",
+    yourEmail: "Your email",
+    emailLoginInfo:
+      "You'll use this email to log into your concierge dashboard",
+    password: "Password",
+    enterPassword: "Enter your password",
+    phone: "Phone",
+    phoneExample: "+971 55 123 4567",
+    preferredCommunication: "Preferred Communication Method",
+    selectCommunicationMethod: "Select communication method",
+    languagePreference: "Language Preference",
+    selectLanguage: "Select language",
+    english: "English",
+    russian: "Russian",
+    arabic: "Arabic",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Legacy booking form (these can be deleted later)
+    bookingHeader: "Your Time Is Precious. Start Now.",
+    bookingDesc:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    phoneWhatsapp: "Phone / WhatsApp *",
+    emailHint: "You'll use this email to log into your concierge dashboard",
+    arrivalDate: "Arrival Date *",
+    departureDate: "Departure Date *",
+    interests: "Interests",
+    shopping: "Shopping",
+    diningCulinary: "Dining & Culinary",
+    protection: "Protection",
+    medical: "Medical",
+    culture: "Culture",
+    events: "Events",
+    specialInstructions: "Special Instructions",
+    reserveButton: "Reserve My Concierge",
+    reserveDisclaimer:
+      "This is a pre-reservation only. You will be contacted within 12 hours to confirm availability and preferences. No payment is collected on the website.",
+
+    // Footer
+    footerTagline: '"Always with you. Even when the world is not."',
+    footerNavigation: "Navigation",
+    footerLegal: "Legal",
+    footerPrivacyPolicy: "Privacy Policy",
+    termsOfService: "Terms of Service",
+    faq: "FAQ",
+    footerContact: "Contact",
+    phoneNumber: "+7 (XXX) XXX-XXXX",
+    emailAddress: "service@reluxi.com",
+    copyright: " 2025 Reluxi Concierge. All rights reserved.",
+    personalTravelAssistant: "The Modern Way to Experience Moscow",
+    footerPoweredBy:
+      "Powered by confidentiality, built on trust, inspired by excellence.",
+
+    reserve: "Reserve",
+    your: "Your",
+    signUp: "Sign Up",
+
+    // Installation steps
+    iosInstallationSteps: "iOS Installation Steps",
+    openInSafari: "Open this page in Safari",
+    tapShareIcon: "Tap the Share icon at the bottom of the screen",
+    scrollAddHomeScreen: 'Scroll down and tap "Add to Home Screen"',
+    tapAdd: 'Tap "Add" in the top-right corner',
+    androidInstallationSteps: "Android Installation Steps",
+    openInChrome: "Open this page in Chrome",
+    tapThreeDots: "Tap the three dots menu in the top-right",
+    tapAddHomeScreen: 'Tap "Add to Home screen"',
+    confirmAdd: 'Confirm by tapping "Add"',
+
+    // Dashboard page
+    moscowWeather: "Moscow Weather",
+    manageProfile: "Manage Profile",
+    yourPreviousRequests: "Your Previous Requests",
+    serviceLabel: "Service",
+    categoryLabel: "Category",
+    quantityLabel: "Quantity",
+    statusLabel: "Status",
+    dateLabel: "Date",
+    searchServices: "Search services...",
+    dearClient: "Dear",
+    trustedConcierge:
+      "Your trusted concierge, one click away — ready whenever you are.",
+    yourConciergeList: "Your concierge list is empty",
+    browseServices: "Browse Services",
+    myConciergeRequests: "My Concierge Requests",
+    requestWillBeSent:
+      "Your request will be sent to our concierge team, who will reach out to confirm timing and preferences.",
+    sendToConciergeTeam: "Send to Concierge Team",
+    requestSubmitted: "Request Submitted!",
+    addedToList: "Added {{service}} to your concierge list",
+    loginRequired: "You must be logged in to submit requests",
+    requestSubmitSuccess: "Your concierge request has been submitted!",
+    requestSubmitFailed: "Failed to submit your request. Please try again.",
+    failedLoadRequests: "Failed to load your previous requests",
+    pending: "Pending",
+    confirmed: "Confirmed",
+    completed: "Completed",
+    cancelled: "Cancelled",
+
+    // Weather conditions
+    sunny: "sunny",
+    clear: "clear",
+    cloudy: "cloud",
+    overcast: "overcast",
+    rain: "rain",
+    drizzle: "drizzle",
+    shower: "shower",
+    snow: "snow",
+    blizzard: "blizzard",
+    ice: "ice",
+    thunder: "thunder",
+    lightning: "lightning",
+    fog: "fog",
+    mist: "mist",
+    wind: "wind",
+
+    // Service cards
+    addToConciergeList: "Add to My Concierge List",
+    noServicesFound:
+      'No services found matching "{query}". Try a different search term.',
+    loadingServices: "Loading services...",
+
+    // Service titles
+    premiumFlowerService: "Premium Flower Service",
+    flowerServiceDesc: "Exquisite floral arrangements for any occasion.",
+    privateChaufferService: "Private Chauffeur Service",
+    chaufferServiceDesc: "Arrive anywhere with style, safety, and discretion.",
+    personalShoppingExperience: "Personal Shopping Experience",
+    shoppingExperienceDesc:
+      "Expert personal shopper guiding you through exclusive shopping venues.",
+    restaurantReservations: "Restaurant & Bar Reservations",
+    restaurantReservationsDesc:
+      "Reserved seating at the most prestigious restaurants with panoramic views.",
+    architecturalIcons: "Timeless Architectural Icons",
+    architecturalIconsDesc:
+      "Exclusive access to religious and cultural landmarks with expert guides.",
+    medicalServices: "Medical Assistance Services",
+    medicalServicesDesc:
+      "Comprehensive health services with top medical professionals.",
+    securityServices: "Security Services",
+    securityServicesDesc:
+      "Professional security personnel for your safety and peace of mind.",
+    taxiBooking: "Taxi Booking",
+    taxiBookingDesc:
+      "Convenient and reliable taxi services at your fingertips.",
+    wellnessBookings: "Wellness & Spa Bookings",
+    wellnessBookingsDesc:
+      "Rejuvenating spa treatments and wellness experiences for ultimate relaxation.",
+    eventPlanning: "Event Planning",
+    eventPlanningDesc:
+      "Comprehensive event planning services for memorable occasions.",
+    romanticEvening: "Romantic Evening Planning",
+    romanticEveningDesc:
+      "Create perfect romantic experiences with our specialized planning service.",
+    hotelSelection: "Hotel Selection",
+    hotelSelectionDesc:
+      "Premium hotel selection and booking services for an unforgettable stay.",
+
+    // Service Category Headings
+    shoppingCategory: "Shopping",
+    diningCulinaryCategory: "Dining & Culinary",
+    cultureHistoryCategory: "Culture & History",
+    transportCategory: "Transport",
+    medicalWellnessCategory: "Medical & Wellness",
+    nightlifeEventsCategory: "Nightlife & Events",
+    travelSupportCategory: "Travel Support",
+    allCategories: "All",
+    coreServices: "Core Services",
+    lifestyleRomantic: "Lifestyle & Romantic",
+    familyCultural: "Family & Cultural",
+    businessSecurity: "Business & Security",
+
+    // Categories for service cards - these need to be translated
+    coreCategory: "Core Services",
+    shoppingCategory2: "Shopping",
+    cultureCategory: "Culture",
+    medicalCategory: "Medical",
+    transportCategory2: "Transport",
+    businessSecurityCategory: "Business & Security",
+    lifestyleRomanticCategory: "Lifestyle & Romantic",
+    familyCulturalCategory: "Family & Cultural",
+
+    // Message concierge
+    messageConcierge: "Message Concierge",
+    contactYourExecutiveAssistant: "Contact Your Executive Assistant",
+    selectPreferredMethod:
+      "Select your preferred method to reach your personal executive assistant",
+
+    // Profile management page
+    profileManagement: "Profile Management",
+    updatePersonalInfo: "Update your personal information",
+    backToDashboard: "Back to Dashboard",
+    emailCannotBeChanged: "Email cannot be changed",
+    updateProfile: "Update Profile",
+    updating: "Updating...",
+    cancel: "Cancel",
+    profileUpdateSuccess: "Profile updated successfully",
+    profileUpdateFailed: "Failed to update profile",
+    unknownError: "Unknown error",
+    redirectingToLogin: "Redirecting to login...",
+
+    // Communication methods and apps
+    whatsapp: "WhatsApp",
+    telegram: "Telegram",
+    botim: "Botim",
+    wechat: "WeChat",
+  },
+
+  AR: {
+    // Navigation
+    home: "الرئيسية",
+    pricing: "الأسعار",
+    services: "الخدمات",
+    offer: "العرض",
+    whyUs: "لماذا نحن",
+    login: "تسجيل الدخول",
+    bookNow: "احجز الآن",
+    welcomeBack: "مرحبًا بعودتك",
+    accessSuite: "الوصول إلى المجموعة",
+    dashboard: "لوحة التحكم",
+    logout: "تسجيل الخروج",
+
+    // Pricing page
+    freedom: "الحرية المثالية",
+    pricingDescription:
+      "اكتشف مجموعتنا من خدمات الكونسيرج المتميزة المصممة خصيصًا لتلبية احتياجاتك وتفضيلاتك.",
+    whatYouReceive: "ما تحصل عليه في كل خطة:",
+    planDescription:
+      "من لحظة بدء رحلتك، نتولى كل التفاصيل — بدقة وأناقة وتقدير مطلق. كل خطة تفتح مجموعة كاملة من الخدمات المتميزة المصممة لتحرير وقتك، حتى تتمكن من التركيز تمامًا على ما يهم: العيش بشكل كامل.",
+    planOverview: "نظرة عامة على الخطة",
+    readyToExperience: "هل أنت مستعد لتجربة الرفاهية الحقيقية؟",
+    bookYourPersonal:
+      "احجز الكونسيرج الشخصي الخاص بك الآن وحول تجربتك في موسكو إلى شيء استثنائي.",
+    bookYourConcierge: "احجز الكونسيرج الخاص بك",
+    selectPlan: "اختر الخطة",
+    contactUs: "اتصل بنا",
+    oneDayPremiumPlans: "خطط بريميوم ليوم واحد",
+    everyDetailMasterfully: "كل التفاصيل ببراعة",
+
+    // Why Us page
+    whyUsTitle1: "نحن لا نقدم الخدمة فقط.",
+    whyUsTitle2: "نحن نقدم",
+    certainty: "اليقين",
+    whyUsDescription:
+      "أنت لا تحتاج إلى جدول. أنت تحتاج إلى إشارة. المسؤول الخاص بك هو أكثر من مجرد مرشد — إنه حضورك الموثوق في أرض أجنبية.",
+    whyUsQuote: "حتى عندما تكون بعيدًا، فأنت قريب من قلبي.",
+    whyUsQuoteSource: "مستوحى من أغنية عمرو دياب 'تملي معاك'",
+    whyChooseReluxi: "لماذا تختار",
+    whyChooseReluxiDesc:
+      "Reluxi هي أكثر من مجرد خدمة استقبال - إنها وجودك الموثوق في مدينة أجنبية. مع الكثير من الخيارات، وعدم وجود وقت كافٍ، ولا أحد يصفي الضوضاء، نحن هنا للإرشاد والتبسيط والدعم. مهمتنا هي إزالة التوتر والاحتكاك في الأماكن غير المألوفة، بحيث تشعر كل لحظة بالهدف والرعاية والخصوصية التامة.",
+    ourServicePhilosophy: "خدمتنا",
+    philosophy: "فلسفة",
+
+    // Why Us advantages
+    alwaysOnSupport: "دعم متواصل",
+    alwaysOnSupportDesc:
+      "نتعامل مع خططك بسرعة واهتمام واتساق هادئ - على مدار الساعة. معظم عملائنا لا يسافرون أبدًا بدوننا مرة أخرى.",
+    effortlessCommunication: "تواصل سلس",
+    effortlessCommunicationDesc:
+      "معظم العملاء يرسلون رسالة واحدة - ونحن نتولى الأمر من هناك. لا تطبيقات، لا مكالمات، لا ذهاب وإياب. مجرد دعم سلس وفوري عندما تحتاجه.",
+    tailoredAccess: "وصول مخصص",
+    tailoredAccessDesc:
+      "نحن لا نحجز ما هو متاح فقط. نحن نرتب ما يجعل الرحلة التي كنت تتمناها تأتي إلى الحياة - بتفكير ودقة.",
+    trustedByThoseWhoDeserveMore: "موثوق به من قبل أولئك الذين يستحقون المزيد",
+    trustedByDesc1:
+      "من المسافرين الدوليين والشخصيات العامة إلى رجال الأعمال والدبلوماسيين والمبدعين - Reluxi هي الثابت الهادئ وراء وقتهم في موسكو.",
+    trustedByDesc2:
+      "يأتون للسمعة، ويبقون لراحة البال، ويعودون لأن لا أحد يفهمهم تمامًا مثلنا.",
+    trustedByDesc3: "هذه ليست مجرد خدمة تجربها - بل هي خدمة تعتمد عليها.",
+
+    // Hero section
+    eliteConciergeService: "",
+    alwaysWithYou: "مساعد السفر الشخصي الخاص بك",
+    heroDescription: "نوفر لك ساعات من البحث والتخطيط.",
+    heroDescription2: "متاحة على مدار الساعة طوال أيام الأسبوع.",
+    reserveYourConcierge: "احجز الكونسيرج الخاص بك",
+    pricingInfo: "",
+    discoverMore: "اكتشف المزيد",
+
+    // Main service intro
+    serviceMainTitle: "بكلماتنا الخاصة",
+    serviceSubtitle: "خدمة ذات حضور وقوة ودقة",
+    serviceIntro:
+      "ريلوكسي هي بوابتك الخاصة لكل ما تقدمه موسكو — بدون ضوضاء أو تأخير أو تنازلات. نحن متخصصون في توقع رغباتك قبل أن تعبر عنها.",
+
+    // Service offerings
+    privateTransport: "النقل الخاص",
+    privateTransportDesc:
+      "من السيارات الفاخرة إلى سيارات الأجرة الموثوقة، نرتب وسائل النقل التي تناسب سرعتك وراحتك وخصوصيتك — ليلاً أو نهاراً.",
+    diningArrangements: "ترتيبات تناول الطعام",
+    diningArrangementsDesc:
+      "من الحجوزات في أفضل المطاعم إلى توصيل الطعام إلى فندقك — كل ذلك مرتب ليتناسب مع ذوقك وتوقيتك.",
+    dayPlanning: "تخطيط اليوم والجدولة الشخصية",
+    dayPlanningDesc:
+      "يومك، مرتب بعناية — من الخطوات الأولى إلى الخطط النهائية، مع رعاية تجعل المدينة تشعر وكأنها خاصة بك.",
+    culturalExperiences: "التجارب الثقافية",
+    culturalExperiencesDesc:
+      "جولات خاصة لمعالم موسكو وجواهرها المخفية — يرشدك فيها مطلعون يتحدثون لغتك.",
+    eveningAccess: "الوصول المسائي والفعاليات",
+    eveningAccessDesc:
+      "من الصالات الحصرية إلى التجمعات الاجتماعية الراقية التي لن تجدها عبر الإنترنت.",
+    security: "الأمن",
+    securityDesc:
+      "حماية شخصية، يتم ترتيبها عند الحاجة — للحظات التي تهم فيها الخصوصية وراحة البال.",
+    gifting: "الهدايا واللفتات",
+    giftingDesc:
+      "الزهور، والهدايا الصغيرة، أو اللمسات ذات المعنى — يتم تسليمها بشكل مثالي.",
+    vipShopping: "تسوق VIP",
+    vipShoppingDesc:
+      "وصول خاص إلى أرقى المتاجر في موسكو. مصممي أزياء ناطقين باللغة العربية. مواعيد حصرية.",
+    highEndDining: "تناول الطعام الفاخر",
+    highEndDiningDesc:
+      "طاولات مضمونة في أكثر مطاعم موسكو طلباً. طهاة مستعدون لتلبية تفضيلاتك.",
+    chauffeuredVehicles: "سيارات مع سائق",
+    chauffeuredVehiclesDesc:
+      "مرسيدس سوداء، الفئة S، مايباخ. سائقون مدربون احترافياً. سرية تامة. بالساعة أو اليومي.",
+    privateCulturalTours: "جولات ثقافية خاصة",
+    privateCulturalToursDesc:
+      "افتح الوصول إلى القصور والمتاحف والمواقع التراثية الإسلامية مع مرشدين ومترجمين نخبة.",
+    personalProtection: "حماية شخصية",
+    personalProtectionDesc:
+      "حماية تنفيذية مدربة عند الطلب. لأولئك الذين لا يمكن التفاوض على خصوصيتهم وسلامتهم.",
+    healthWellness: "الصحة والعافية",
+    healthWellnessDesc:
+      "عيادات حصرية، وصول VIP إلى الرعاية الطبية، وأخصائيي التجميل، واستعادة السبا — بدون قوائم انتظار.",
+    nightlifeEvents: "الحياة الليلية والفعاليات",
+    nightlifeEventsDesc:
+      "الدخول إلى الدوائر المغلقة، وتجمعات المجتمع الراقي، والفعاليات التي لا يمكن لأي سائح الوصول إليها.",
+
+    // Services page
+    ourEliteServices: "خدماتنا المتميزة",
+    luxuryServicesForElite: "خدمات كونسيرج فاخرة للنخبة",
+    howWeServeYou: "كيف نخدمك",
+    howWe: "كيف",
+    serve: "نخدم",
+    you: "ك",
+    oneDayExperience: "تجربة ليوم واحد",
+    oneDayPrice: "6 500₽ ($75)",
+    designedFor: "مصممة لـ",
+    oneDayDesignedFor:
+      "المناسبات الخاصة، والاحتياجات التجارية، أو قضاء وقت جيد مع العائلة — عندما يستحق يوم واحد أن يتم التعامل معه بشكل مثالي.",
+    whatYouGet: "ما الذي ستحصل عليه",
+    oneDayWhatYouGet:
+      "تجربة ليوم واحد مخصصة حول أهدافك — شخصية أو مهنية. نتعامل مع الحجوزات والتوقيت والتدفق حتى يشعر يومك بالسهولة.",
+    examplesInclude: "الأمثلة تشمل",
+    oneDayExample1:
+      "أمسية رومانسية مع وسائل نقل خاصة وحجوزات عشاء ومفاجأة زهور",
+    oneDayExample2:
+      "يوم عائلي مع أنشطة مخطط لها بعناية وزيارات ثقافية وتناول طعام مناسب للمجموعات - كل ذلك مرتب للحفاظ على تدفق اليوم بسهولة",
+    oneDayExample3:
+      "يوم عمل مع حجوزات مساحات اجتماعات وتنسيق مطاعم ونقل بين المواقع",
+    oneDayExampleFooter: "أخبرنا بنوع اليوم الذي تحتاجه — وسنجعله سلسًا.",
+    oneDayPlan: "خطة ليوم واحد",
+    requestOneDayPlan: "طلب خطة ليوم واحد",
+
+    mostPopular: "الأكثر شعبية",
+    threeDayPlan: "خطة كونسيرج لمدة 3 أيام",
+    threeDayPrice: "11 500₽ ($139)",
+    threeDayDesignedFor:
+      "رحلات قصيرة، استراحات في المدينة، أو زوار يريدون دعمًا كاملًا بدون التزام طويل الأمد.",
+    threeDayWhatYouGet:
+      "ثلاثة أيام كاملة من مساعدة الكونسيرج غير المحدودة والمخصصة — متاحة في أي ساعة. مثالي لأولئك الذين يرغبون في تجربة أفضل ما في موسكو بدون إجهاد أو تخطيط.",
+    includes: "تشمل",
+    threeDayInclude1:
+      "وصول إلى الكونسيرج على مدار الساعة طوال أيام الأسبوع عبر تطبيق المراسلة المفضل لديك",
+    threeDayInclude2:
+      "الحجز والتنسيق عبر تناول الطعام والنقل والعافية والفعاليات والمزيد",
+    threeDayInclude3:
+      "خيار إضافة أيام إضافية مقابل 39 دولارًا في اليوم — نفس الخدمة، نفس السهولة",
+    threeDayIncludeFooter: "ابدأ رحلتك مع ريلوكسي — واختبر مدى سهولة السفر.",
+    multiDayPlan: "خطة متعددة الأيام",
+    startThreeDayPlan: "بدء خطة 3 أيام",
+
+    monthlyMembership: "العضوية الشهرية",
+    monthlyPrice: "28 500₽ ($339)/شهر",
+    monthlyDesignedFor:
+      "المسافرون المتكررون والمهنيون المشغولون وسكان المدينة الذين يريدون وصولًا مستمرًا إلى الدعم الكامل من ريلوكسي.",
+    monthlyWhatYouGet:
+      "وصول غير محدود شهريًا إلى خدمة الكونسيرج مع نقطة اتصال مخصصة تتعلم تفضيلاتك وتتكيف مع إيقاعك.",
+    monthlyInclude1: "متوفر على مدار الساعة طوال أيام الأسبوع بدون قيود",
+    monthlyInclude2:
+      "تخطيط مخصص عبر الحياة اليومية والسفر وتناول الطعام والمزيد",
+    monthlyInclude3: "رعاية وخدمة متسقة عبر رحلات متعددة أو احتياجات مستمرة",
+    monthlyIncludeFooter:
+      "استمتع بدعم مستمر ومرتفع — بغض النظر عن عدد المرات التي تحتاجنا فيها.",
+    membership: "العضوية",
+    becomeAMember: "أصبح عضوًا",
+
+    quickRequests: "طلبات سريعة",
+    oneTaskHandledFast: "مهمة واحدة، تُنجز بسرعة",
+    quickRequestsDescription:
+      "أرسل لنا طلبك عبر الرسائل النصية — سنؤكده مقابل عمولة ثابتة قدرها 5 دولارات. مثالي للاحتياجات العفوية أو المستخدمين لأول مرة الذين يرغبون في تجربة ريلوكسي — رسالة واحدة في كل مرة.",
+    howItWorks: "كيف يعمل",
+    quickRequestsHowItWorks:
+      "خدمة كونسيرج بنظام الدفع لكل طلب — لا تحتاج إلى خطة",
+    commissionFee: "رسوم العمولة",
+    quickRequestsFee: "500₽ ($5) لكل طلب منفذ",
+    idealFor: "مثالي لـ",
+    quickRequestsIdealFor:
+      "حجوزات فردية (مثل المطعم والنقل وتذاكر الفعاليات والبريد السريع)",
+    deliveryTime: "وقت التسليم",
+    quickRequestsDeliveryTime:
+      "كل شيء يتم تنظيمه في غضون دقائق — سلس وسريع ومؤكد في الوقت الفعلي",
+    requestABooking: "طلب حجز",
+
+    readyToEnjoyTrip:
+      "هل أنت مستعد للاستمتاع برحلتك فعلاً - دون إضاعة الوقت أو الطاقة؟",
+    reluxiSavesYouHours:
+      "يوفر لك ريلوكسي ساعات من البحث والتخطيط. أنت تركز على التجربة — ونحن سنتعامل مع كل شيء آخر.",
+
+    // Dashboard page
+    welcomeUser: "مرحباً بعودتك",
+    valuedClient: "عميل مقدر",
+    personalConciergeService: "مساعدك الشخصي في خدمتك.",
+    youHave: "لديك",
+    days: "أيام",
+    remainingConciergeBooking: "متبقية من حجز المساعد الشخصي الخاص بك.",
+    moscowWeather: "طقس موسكو",
+    manageProfile: "إدارة الملف الشخصي",
+    yourPreviousRequests: "طلباتك السابقة",
+    serviceLabel: "الخدمة",
+    categoryLabel: "الفئة",
+    quantityLabel: "الكمية",
+    statusLabel: "الحالة",
+    dateLabel: "التاريخ",
+    browseAndBookServices: "تصفح وحجز الخدمات",
+    searchServices: "البحث عن الخدمات...",
+    myConciergeRequests: "طلبات المساعد الشخصي الخاصة بي",
+    emptyConciergeList: "قائمة المساعد الشخصي فارغة",
+    browseServices: "تصفح الخدمات",
+    requestConfirmation:
+      "سيتم إرسال طلبك إلى فريق المساعد الشخصي، الذي سيتواصل معك لتأكيد التوقيت والتفضيلات.",
+    requestSubmitted: "تم تقديم الطلب!",
+    sendToConciergeTeam: "إرسال إلى فريق المساعد الشخصي",
+    allServices: "جميع الخدمات",
+    shoppingCategory: "التسوق",
+    diningCulinaryCategory: "المطاعم والطهي",
+    cultureHistoryCategory: "الثقافة والتاريخ",
+    transportCategory: "النقل",
+    medicalWellnessCategory: "الطب والعافية",
+    nightlifeEventsCategory: "الحياة الليلية والفعاليات",
+    travelSupportCategory: "دعم السفر",
+    allCategories: "الكل",
+    coreServices: "الخدمات الأساسية",
+    lifestyleRomantic: "نمط الحياة والرومانسية",
+    familyCultural: "العائلة والثقافة",
+    businessSecurity: "الأعمال والأمن",
+    quantity: "الكمية:",
+
+    // Golden button section
+    goldLogo: "شعار 24/7",
+    goldenButton: "أضف ريلوكسي إلى شاشتك الرئيسية",
+    goldenButtonDesc:
+      "هذا أكثر من مجرد زر — إنه خطك المباشر للفخامة والتميز وأرقى ما تقدمه المدينة. لمسة واحدة تربطك بالكونسيرج الشخصي الخاص بك، المتاح ليلاً ونهاراً.",
+    yourGoldenButton: "زرك الذهبي",
+    goldenButtonInstructions: "اضغط مع الاستمرار لإضافته إلى شاشتك الرئيسية.",
+    chooseDevice: "اختر جهازك للمتابعة:",
+    iphone: "آيفون",
+    android: "أندرويد",
+
+    // Dashboard access
+    accessDashboard: "الوصول إلى لوحة تحكم الكونسيرج الشخصية",
+    dashboardDesc:
+      "إدارة الخدمات واستكشاف التجارب والتواصل المباشر مع الكونسيرج الخاص بك",
+    dashboardButton: "لوحة التحكم",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    emailLabel: "البريد الإلكتروني *",
+    emailHint:
+      "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc:
+      "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    fullName: "الاسم الكامل *",
+    email: "البريد الإلكتروني *",
+    emailHint: "ستستخدم هذا البريد الإلكتروني لتسجيل الدخول إلى لوحة تحكم الكونسيرج الخاصة بك",
+    phoneWhatsapp: "الهاتف / واتساب *",
+    languagePreference: "تفضيلات اللغة",
+    selectLanguage: "اختر اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    russian: "الروسية",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Booking form
+    bookingHeader: "وقتك ثمين. ابدأ الآن.",
+    bookingDesc: "احجز الكونسيرج الشخصي الخاص بك لمدة 5 أيام مقابل 100 دولار فقط. بمجرد الحجز، سنتصل بك مباشرة لتأكيد تفاصيل وصولك وتفضيلاتك وأولوياتك.",
+    home: "Home",
+    pricing: "Pricing",
+    services: "Services",
+    whyUs: "Why Us",
+    login: "Log In",
+    bookNow: "Book Now",
+    welcomeBack: "Welcome Back",
+    accessSuite: "Access Suite",
+    dashboard: "Dashboard",
+    logout: "Log Out",
+    offer: "Offer",
+
+    // Pricing page
+    freedom: "Freedom, Perfected",
+    pricingDescription:
+      "Discover our range of premium concierge services tailored to your needs and preferences.",
+    whatYouReceive: "What You Receive in Every Plan:",
+    planDescription:
+      "Reluxi offers three ways to experience seamless, personal support — whether you're staying in Moscow for a few days, need help with a single special day, or want ongoing access to someone who understands you. All options come with 24/7 availability, human communication, and thoughtful coordination behind every moment.",
+    planOverview: "Service, On Your Terms",
+    readyToExperience: "Ready to Experience True Luxury?",
+    bookYourPersonal:
+      "Book your personal concierge now and transform your Moscow experience into something extraordinary.",
+    bookYourConcierge: "Book Your Concierge",
+    selectPlan: "Select Plan",
+    contactUs: "Contact Us",
+    oneDayPremiumPlans: "One-Day Premium Plans",
+    everyDetailMasterfully: "Every Detail, Masterfully Orchestrated",
+
+    // Why Us page
+    whyUsTitle1: "We Don't Just Provide Service.",
+    whyUsTitle2: "We Provide",
+    certainty: "Certainty",
+    whyUsDescription:
+      "You don't need a schedule. You need a signal. Your concierge is more than a guide — they are your trusted presence in a foreign land.",
+    whyUsQuote: "Even when you're far, you're close to my heart.",
+    whyUsQuoteSource: "Inspired by Amr Diab's 'Tamly Ma'ak'",
+    whyChooseReluxi: "Why Choose",
+    whyChooseReluxiDesc:
+      "Reluxi is more than a concierge — it's your trusted presence in a foreign city. With too many options, not enough time, and no one to filter the noise, we're here to guide, simplify, and support. Our mission is to remove the stress and friction of unfamiliar places, so every moment feels purposeful, cared for, and entirely your own.",
+    ourServicePhilosophy: "Our Service",
+    philosophy: "Philosophy",
+
+    // Why Us advantages
+    alwaysOnSupport: "Always-On Support",
+    alwaysOnSupportDesc:
+      "We handle your plans with speed, care, and quiet consistency — 24/7. Most of our clients never travel without us again.",
+    effortlessCommunication: "Effortless Communication",
+    effortlessCommunicationDesc:
+      "Most clients send one message — we take it from there. No apps, no calls, no back-and-forth. Just smooth, immediate support when you need it.",
+    tailoredAccess: "Tailored Access",
+    tailoredAccessDesc:
+      "We don't just book what's available. We arrange what brings the trip you've been wishing for to life — thoughtfully and precisely.",
+    trustedByThoseWhoDeserveMore: "Trusted by Those Who Deserve More",
+    trustedByDesc1:
+      "From international travelers and public figures to entrepreneurs, diplomats, and creatives — Reluxi is the quiet constant behind their time in Moscow.",
+    trustedByDesc2:
+      "They come for the reputation, stay for the peace of mind, and return because no one understands them quite like we do.",
+    trustedByDesc3:
+      "This isn't just a service you try — it's one you come to rely on.",
+
+    // Hero section
+    eliteConciergeService: "",
+    alwaysWithYou: "The Modern Way to Experience Moscow",
+    heroDescription: "We save you hours of searching and planning.",
+    heroDescription2: "Available 24 hours a day, 7 days a week.",
+    reserveYourConcierge: "Reserve Your Concierge",
+    pricingInfo: "",
+    discoverMore: "Discover More",
+
+    // Main service intro
+
+    serviceSubtitle: "A Service That Books, Plans, and Elevates",
+    serviceIntro:
+      "From trusted drivers and curated dining to personal flower deliveries, Reluxi is your private assistant in Moscow — handling every detail so you can move through the city with ease and none of the stress. All it takes is one message.",
+
+    // Service offerings
+    privateTransport: "Private Transport",
+    privateTransportDesc:
+      "From luxury cars to trusted taxis, we arrange transportation that suits your pace, comfort, and discretion — day or night.",
+    diningArrangements: "Dining Arrangements",
+    diningArrangementsDesc:
+      "From reservations at the best restaurants to take-in delivered to your hotel— all arranged to match your taste and timing.",
+    dayPlanning: "Day Planning & Personal Scheduling",
+    dayPlanningDesc:
+      "Your day, thoughtfully arranged — from first steps to final plans, with care that makes the city feel like yours.",
+    healthWellness: "Health & Wellness",
+    healthWellnessDesc:
+      "We connect you to leading spas, clinics, and specialists — with access arranged around your comfort, privacy, and schedule.",
+    vipShopping: "VIP Shopping",
+    vipShoppingDesc:
+      "Curated access to Moscow's top boutiques — with personal support for styling, privacy, and seamless shopping experiences.",
+    culturalExperiences: "Cultural Experiences",
+    culturalExperiencesDesc:
+      "Private tours of Moscow's landmarks and hidden gems — guided by insiders who speak your language.",
+    eveningAccess: "Evening Access & Events",
+    eveningAccessDesc:
+      "From exclusive lounges to refined social gatherings you won't find online.",
+    security: "Security",
+    securityDesc:
+      "Personal protection, arranged when needed — for moments where privacy and peace of mind matter most.",
+    gifting: "Gifting & Gestures",
+    giftingDesc:
+      "Flowers, small gifts, or meaningful touches — delivered perfectly.",
+
+    // Services page
+    ourEliteServices: "Our Elite Services",
+    luxuryServicesForElite: "Luxury concierge services for the elite",
+    howWeServeYou: "How We Serve You",
+    howWe: "How We",
+    serve: "Serve",
+    you: "You",
+    oneDayExperience: "One-Day Experience",
+    oneDayPrice: "6 500₽ ($75)",
+    designedFor: "Designed For",
+    oneDayDesignedFor:
+      "Special occasions, business needs, or quality time with family — when one day deserves to be perfectly handled.",
+    whatYouGet: "What You Get",
+    oneDayWhatYouGet:
+      "A curated one-day experience tailored around your goals — personal or professional. We handle the bookings, timing, and flow so your day feels effortless.",
+    examplesInclude: "Examples Include",
+    oneDayExample1:
+      "A romantic evening with private transport, dinner reservations, and a floral surprise",
+    oneDayExample2:
+      "A family day with thoughtfully planned activities, cultural visits, and group-friendly dining — all arranged to keep the day flowing with ease",
+    oneDayExample3:
+      "A business day with meeting space bookings, restaurant coordination, and transport between locations",
+    oneDayExampleFooter:
+      "Tell us the kind of day you need — and we'll make it seamless.",
+    oneDayPlan: "One-Day Plan",
+    requestOneDayPlan: "Request One-Day Plan",
+
+    mostPopular: "Most Popular",
+    threeDayPlan: "3-Day Concierge Plan",
+    threeDayPrice: "11 500₽ ($139)",
+    threeDayDesignedFor:
+      "Short getaways, city breaks, or visitors who want complete support without long-term commitment.",
+    threeDayWhatYouGet:
+      "Three full days of unlimited, personalized concierge assistance — available at any hour. Ideal for those who want to experience the best of Moscow without stress or planning.",
+    includes: "Includes",
+    threeDayInclude1: "24/7 concierge access via your preferred messaging app",
+    threeDayInclude2:
+      "Booking & coordination across dining, transport, wellness, events, and more",
+    threeDayInclude3:
+      "Option to add additional days for $39/day — same service, same ease",
+    threeDayIncludeFooter:
+      "Start your journey with Reluxi — and experience how effortless travel can feel.",
+    multiDayPlan: "Multi-Day Plan",
+    startThreeDayPlan: "Start 3-Day Plan",
+
+    monthlyMembership: "Monthly Membership",
+    monthlyPrice: "28 500₽ ($339)/month",
+    monthlyDesignedFor:
+      "Frequent travelers, busy professionals, and city residents who want continuous access to Reluxi's full support.",
+    monthlyWhatYouGet:
+      "Unlimited monthly concierge access with a dedicated point of contact who learns your preferences and adapts to your rhythm.",
+    monthlyInclude1: "24/7 availability with no limitations",
+    monthlyInclude2:
+      "Personalized planning across daily life, travel, dining, and more",
+    monthlyInclude3:
+      "Consistent care and service across multiple trips or ongoing needs",
+    monthlyIncludeFooter:
+      "Enjoy continuous, elevated support — no matter how often you need us.",
+    membership: "Membership",
+    becomeAMember: "Become a Member",
+
+    quickRequests: "Quick Requests",
+    oneTaskHandledFast: "One Task, Handled Fast",
+    quickRequestsDescription:
+      "Text us your request — we'll confirm it for a flat $5 commission. Perfect for spontaneous needs or first-time users who want to try Reluxi — one message at a time.",
+    howItWorks: "How It Works",
+    quickRequestsHowItWorks:
+      "Pay-per-request concierge service — no plan required",
+    commissionFee: "Commission Fee",
+    quickRequestsFee: "500₽ ($5) per fulfilled request",
+    idealFor: "Ideal For",
+    quickRequestsIdealFor:
+      "One-off bookings (e.g., restaurant, transportation, event tickets, courier)",
+    deliveryTime: "Delivery Time",
+    quickRequestsDeliveryTime:
+      "Everything arranged within minutes — smooth, fast, and confirmed in real time",
+    requestABooking: "Request a Booking",
+
+    readyToEnjoyTrip:
+      "Ready to Actually Enjoy Your Trip — Without Wasting Time or Energy?",
+    reluxiSavesYouHours:
+      "Reluxi saves you hours of searching and planning. You focus on the experience — we'll handle everything else.",
+
+    // Dashboard page
+    // welcomeBack key is already defined above
+    valuedClient: "Valued Client",
+    personalConciergeService: "Your personal concierge is at your service.",
+    youHave: "You have",
+    days: "days",
+    remainingConciergeBooking: "remaining of your concierge booking.",
+    moscowWeather: "Moscow Weather",
+    manageProfile: "Manage Profile",
+    yourPreviousRequests: "Your Previous Requests",
+    serviceLabel: "Service",
+    categoryLabel: "Category",
+    quantityLabel: "Quantity",
+    statusLabel: "Status",
+    dateLabel: "Date",
+    browseAndBookServices: "Browse & Book Services",
+    searchServices: "Search services...",
+    myConciergeRequests: "My Concierge Requests",
+    emptyConciergeList: "Your concierge list is empty",
+    browseServices: "Browse Services",
+    requestConfirmation:
+      "Your request will be sent to our concierge team, who will reach out to confirm timing and preferences.",
+    requestSubmitted: "Request Submitted!",
+    sendToConciergeTeam: "Send to Concierge Team",
+    allServices: "All Services",
+    shoppingCategory: "Shopping",
+    diningCulinaryCategory: "Dining & Culinary",
+    cultureHistoryCategory: "Culture & History",
+    transportCategory: "Transport",
+    medicalWellnessCategory: "Medical & Wellness",
+    nightlifeEventsCategory: "Nightlife & Events",
+    travelSupportCategory: "Travel Support",
+    allCategories: "All",
+    coreServices: "Core Services",
+    lifestyleRomantic: "Lifestyle & Romantic",
+    familyCultural: "Family & Cultural",
+    businessSecurity: "Business & Security",
+    quantity: "Qty:",
+
+    // Booking page
+    bookYour: "Book Your",
+    personalConcierge: "Personal Concierge",
+    bookingIntro:
+      "Your time is precious. Start now. Share a few details with us, and we'll be in touch right away to lift the stress off your stay.",
+    howIt: "How It",
+    works: "Works",
+    bookNow: "Book Now",
+    bookNowDesc:
+      "Complete the booking form with your information, travel dates, and preferences. This is a pre-reservation only, no payment is collected at this stage.",
+    confirmation: "Confirmation",
+    confirmationDesc:
+      "Within 12 hours, our team will contact you directly via your preferred communication method to confirm your reservation, discuss any specific requirements, and answer any questions.",
+    payment: "Payment",
+    paymentDesc:
+      "Once your reservation is confirmed, you'll receive a secure payment link. We accept all major credit cards and international payment methods.",
+    preArrivalPlanning: "Pre-Arrival Planning",
+    preArrivalPlanningDesc:
+      "Your personal concierge will contact you before your arrival to develop a tailored plan for your visit, ensuring everything is prepared for your Moscow experience.",
+    welcomeToMoscow: "Welcome to Moscow",
+    welcomeToMoscowDesc:
+      "Your concierge will meet you upon arrival and be available 24/7 throughout your stay to ensure every aspect of your Moscow experience exceeds expectations.",
+    frequentlyAsked: "Frequently Asked",
+    questions: "Questions",
+    feeCoverQuestion: "What does the $100 fee cover?",
+    feeCoverAnswer:
+      "The $100 fee covers your personal concierge service for 5 days. This includes 24/7 availability, personalized planning, and on-the-ground assistance. Additional services like restaurant bills, shopping, tickets, etc. are billed separately.",
+    extendServiceQuestion: "Can I extend my concierge service beyond 5 days?",
+    extendServiceAnswer:
+      "Yes, you can extend your service at a rate of $20 per additional day. This can be arranged during your stay through your personal concierge.",
+    arabicSpeakersQuestion: "Are all your concierges Arabic speakers?",
+    arabicSpeakersAnswer:
+      "Yes, all our concierges are fluent in Arabic, English, and Russian, ensuring seamless communication throughout your stay.",
+    cancellationPolicyQuestion: "What is your cancellation policy?",
+    cancellationPolicyAnswer:
+      "Cancellations made 72 hours or more before your scheduled arrival receive a full refund. Cancellations within 72 hours are subject to a 50% fee.",
+    discretionQuestion: "How discreet is your service?",
+    discretionAnswer:
+      "Absolute discretion is our priority. Your privacy is sacred, and we maintain complete confidentiality about your activities, preferences, and personal information.",
+
+    // Booking form
+    yourTimeIs: "Your Time Is",
+    precious: "Precious",
+    startNow: "Start Now.",
+    bookingFormDesc:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    fullName: "Full Name",
+    yourName: "Your name",
+    email: "Email",
+    yourEmail: "Your email",
+    emailLoginInfo:
+      "You'll use this email to log into your concierge dashboard",
+    password: "Password",
+    enterPassword: "Enter your password",
+    phone: "Phone",
+    phoneExample: "+971 55 123 4567",
+    preferredCommunication: "Preferred Communication Method",
+    selectCommunicationMethod: "Select communication method",
+    languagePreference: "Language Preference",
+    selectLanguage: "Select language",
+    english: "English",
+    russian: "Russian",
+    arabic: "Arabic",
+    chinese: "Chinese",
+    iAcceptThe: "I accept the",
+    termsAndConditions: "terms and conditions",
+    and: "and",
+    privacyPolicy: "privacy policy",
+    completeCaptcha: "Please complete the captcha verification",
+    captchaRequired: "Captcha verification is required before submitting",
+    validEmailRequired: "Please enter a valid email address",
+    passwordMinLength: "Password must be at least 6 characters",
+    acceptTermsRequired: "You must accept the terms and conditions to continue",
+    processing: "Processing...",
+    emailVerificationRequired: "Email Verification Required",
+    reserveMyConcierge: "Reserve My Concierge",
+    iHaveReadAgree: "I have read and agree to the terms of the",
+
+    checkEmailVerification: "Please check your email to verify your account",
+    verifyEmailPrompt:
+      "Please verify your email address before continuing. Check your inbox for a confirmation link and return to this page after confirmation.",
+    loadingState1: "Matching you with a personal concierge",
+    loadingState2: "Checking availability of premium experiences",
+    bookingHeadline: "Your Time Is Precious. Start Now.",
+    bookingSubheading:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    loadingState3: "Securing your exclusive access",
+    loadingState4: "Confirming luxury partner services",
+    loadingState5: "Finalizing your reservation",
+    loadingState6: "Welcome to the Inner Circle",
+    successTitle: "Booking Successfully Submitted",
+    successMessage:
+      "Your booking has been received. Our concierge team will contact you within 12 hours to confirm details and prepare for your arrival.",
+    redirectMessage: "You will be redirected to your dashboard shortly",
+    verificationEmailSent: "Email Verification Required",
+    checkInbox:
+      "Please check your inbox and click the verification link we sent to your email address.",
+    afterVerification:
+      "After verifying your email, return to this page to complete your booking process.",
+
+    // Golden button section
+    goldLogo: "24/7 Logo",
+    goldenButton: "Add Reluxi To Your Homescreen",
+    goldenButtonDesc:
+      "This is more than a button — it's your direct line to luxury, discretion, and the finest offerings of the city. One touch connects you to your personal concierge, available day and night.",
+    yourGoldenButton: "Your Golden Button",
+    goldenButtonInstructions: "Press and hold to add it to your home screen.",
+    chooseDevice: "Choose your device to continue:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Dashboard access
+    accessDashboard: "Access Your Personal Concierge Dashboard",
+    dashboardDesc:
+      "Manage services, explore experiences, and connect directly with your concierge",
+    dashboardButton: "Dashboard",
+
+    // Legacy booking form (these can be deleted later)
+    bookingHeader: "Your Time Is Precious. Start Now.",
+    bookingDesc:
+      "Share a few details with us, and we'll be in touch right away to lift the stress off your stay — so you can focus on what matters, while we take care of the rest.",
+    phoneWhatsapp: "Phone / WhatsApp *",
+    emailHint: "You'll use this email to log into your concierge dashboard",
+    arrivalDate: "Arrival Date *",
+    departureDate: "Departure Date *",
+    interests: "Interests",
+    shopping: "Shopping",
+    diningCulinary: "Dining & Culinary",
+    protection: "Protection",
+    medical: "Medical",
+    culture: "Culture",
+    events: "Events",
+    specialInstructions: "Special Instructions",
+    reserveButton: "Reserve My Concierge",
+    reserveDisclaimer:
+      "This is a pre-reservation only. You will be contacted within 12 hours to confirm availability and preferences. No payment is collected on the website.",
+
+    // Footer
+    footerTagline: '"Always with you. Even when the world is not."',
+    footerNavigation: "Navigation",
+    footerLegal: "Legal",
+    footerPrivacyPolicy: "Privacy Policy",
+    termsOfService: "Terms of Service",
+    faq: "FAQ",
+    footerContact: "Contact",
+    phoneNumber: "+7 (XXX) XXX-XXXX",
+    emailAddress: "service@reluxi.com",
+    copyright: " 2025 Reluxi Concierge. All rights reserved.",
+    personalTravelAssistant: "The Modern Way to Experience Moscow",
+    footerPoweredBy:
+      "Powered by confidentiality, built on trust, inspired by excellence.",
+
+    reserve: "Reserve",
+    your: "Your",
+    signUp: "Sign Up",
+
+    // Installation steps
+    iosInstallationSteps: "iOS Installation Steps",
+    openInSafari: "Open this page in Safari",
+    tapShareIcon: "Tap the Share icon at the bottom of the screen",
+    scrollAddHomeScreen: 'Scroll down and tap "Add to Home Screen"',
+    tapAdd: 'Tap "Add" in the top-right corner',
+    androidInstallationSteps: "Android Installation Steps",
+    openInChrome: "Open this page in Chrome",
+    tapThreeDots: "Tap the three dots menu in the top-right",
+    tapAddHomeScreen: 'Tap "Add to Home screen"',
+    confirmAdd: 'Confirm by tapping "Add"',
+
+    // Dashboard page
+    moscowWeather: "Moscow Weather",
+    manageProfile: "Manage Profile",
+    yourPreviousRequests: "Your Previous Requests",
+    serviceLabel: "Service",
+    categoryLabel: "Category",
+    quantityLabel: "Quantity",
+    statusLabel: "Status",
+    dateLabel: "Date",
+    searchServices: "Search services...",
+    dearClient: "Dear",
+    trustedConcierge:
+      "Your trusted concierge, one click away — ready whenever you are.",
+    yourConciergeList: "Your concierge list is empty",
+    browseServices: "Browse Services",
+    myConciergeRequests: "My Concierge Requests",
+    requestWillBeSent:
+      "Your request will be sent to our concierge team, who will reach out to confirm timing and preferences.",
+    sendToConciergeTeam: "Send to Concierge Team",
+    requestSubmitted: "Request Submitted!",
+    addedToList: "Added {{service}} to your concierge list",
+    loginRequired: "You must be logged in to submit requests",
+    requestSubmitSuccess: "Your concierge request has been submitted!",
+    requestSubmitFailed: "Failed to submit your request. Please try again.",
+    failedLoadRequests: "Failed to load your previous requests",
+    pending: "Pending",
+    confirmed: "Confirmed",
+    completed: "Completed",
+    cancelled: "Cancelled",
+
+    // Weather conditions
+    sunny: "sunny",
+    clear: "clear",
+    cloudy: "cloud",
+    overcast: "overcast",
+    rain: "rain",
+    drizzle: "drizzle",
+    shower: "shower",
+    snow: "snow",
+    blizzard: "blizzard",
+    ice: "ice",
+    thunder: "thunder",
+    lightning: "lightning",
+    fog: "fog",
+    mist: "mist",
+    wind: "wind",
+
+    // Service cards
+    addToConciergeList: "Add to My Concierge List",
+    noServicesFound:
+      'No services found matching "{query}". Try a different search term.',
+    loadingServices: "Loading services...",
+
+    // Service titles
+    premiumFlowerService: "Premium Flower Service",
+    flowerServiceDesc: "Exquisite floral arrangements for any occasion.",
+    privateChaufferService: "Private Chauffeur Service",
+    chaufferServiceDesc: "Arrive anywhere with style, safety, and discretion.",
+    personalShoppingExperience: "Personal Shopping Experience",
+    shoppingExperienceDesc:
+      "Expert personal shopper guiding you through exclusive shopping venues.",
+    restaurantReservations: "Restaurant & Bar Reservations",
+    restaurantReservationsDesc:
+      "Reserved seating at the most prestigious restaurants with panoramic views.",
+    architecturalIcons: "Timeless Architectural Icons",
+    architecturalIconsDesc:
+      "Exclusive access to religious and cultural landmarks with expert guides.",
+    medicalServices: "Medical Assistance Services",
+    medicalServicesDesc:
+      "Comprehensive health services with top medical professionals.",
+    securityServices: "Security Services",
+    securityServicesDesc:
+      "Professional security personnel for your safety and peace of mind.",
+    taxiBooking: "Taxi Booking",
+    taxiBookingDesc:
+      "Convenient and reliable taxi services at your fingertips.",
+    wellnessBookings: "Wellness & Spa Bookings",
+    wellnessBookingsDesc:
+      "Rejuvenating spa treatments and wellness experiences for ultimate relaxation.",
+    eventPlanning: "Event Planning",
+    eventPlanningDesc:
+      "Comprehensive event planning services for memorable occasions.",
+    romanticEvening: "Romantic Evening Planning",
+    romanticEveningDesc:
+      "Create perfect romantic experiences with our specialized planning service.",
+    hotelSelection: "Hotel Selection",
+    hotelSelectionDesc:
+      "Premium hotel selection and booking services for an unforgettable stay.",
+
+    // Service Category Headings
+    shoppingCategory: "Shopping",
+    diningCulinaryCategory: "Dining & Culinary",
+    cultureHistoryCategory: "Culture & History",
+    transportCategory: "Transport",
+    medicalWellnessCategory: "Medical & Wellness",
+    nightlifeEventsCategory: "Nightlife & Events",
+    travelSupportCategory: "Travel Support",
+    allCategories: "All",
+    coreServices: "Core Services",
+    lifestyleRomantic: "Lifestyle & Romantic",
+    familyCultural: "Family & Cultural",
+    businessSecurity: "Business & Security",
+
+    // Categories for service cards - these need to be translated
+    coreCategory: "Core Services",
+    shoppingCategory2: "Shopping",
+    cultureCategory: "Culture",
+    medicalCategory: "Medical",
+    transportCategory2: "Transport",
+    businessSecurityCategory: "Business & Security",
+    lifestyleRomanticCategory: "Lifestyle & Romantic",
+    familyCulturalCategory: "Family & Cultural",
+
+    // Message concierge
+    messageConcierge: "Message Concierge",
+    contactYourExecutiveAssistant: "Contact Your Executive Assistant",
+    selectPreferredMethod:
+      "Select your preferred method to reach your personal executive assistant",
+
+    // Profile management page
+    profileManagement: "Profile Management",
+    updatePersonalInfo: "Update your personal information",
+    backToDashboard: "Back to Dashboard",
+    emailCannotBeChanged: "Email cannot be changed",
+    updateProfile: "Update Profile",
+    updating: "Updating...",
+    cancel: "Cancel",
+    profileUpdateSuccess: "Profile updated successfully",
+    profileUpdateFailed: "Failed to update profile",
+    unknownError: "Unknown error",
+    redirectingToLogin: "Redirecting to login...",
+
+    // Communication methods and apps
+    whatsapp: "WhatsApp",
+    telegram: "Telegram",
+    botim: "Botim",
+    wechat: "WeChat",
+  },
+
+  AR: {
+    // Navigation
+    home: "الرئيسية",
+    pricing: "الأسعار",
+    services: "الخدمات",
+    offer: "العرض",
+    whyUs: "لماذا نحن",
+    login: "تسجيل الدخول",
+    bookNow: "احجز الآن",
+    welcomeBack: "مرحبًا بعودتك",
+    accessSuite: "الوصول إلى المجموعة",
+    dashboard: "لوحة التحكم",
+    logout: "تسجيل الخروج",
+
+    // Pricing page
+    freedom: "الحرية المثالية",
+    pricingDescription:
+      "اكتشف مجموعتنا من خدمات الكونسيرج المتميزة المصممة خصيصًا لتلبية احتياجاتك وتفضيلاتك.",
+    whatYouReceive: "ما تحصل عليه في كل خطة:",
+    planDescription:
+      "من لحظة بدء رحلتك، نتولى كل التفاصيل — بدقة وأناقة وتقدير مطلق. كل خطة تفتح مجموعة كاملة من الخدمات المتميزة المصممة لتحرير وقتك، حتى تتمكن من التركيز تمامًا على ما يهم: العيش بشكل كامل.",
+    planOverview: "نظرة عامة على الخطة",
+    readyToExperience: "هل أنت مستعد لتجربة الرفاهية الحقيقية؟",
+    bookYourPersonal:
+      "احجز الكونسيرج الشخصي الخاص بك الآن وحول تجربتك في موسكو إلى شيء استثنائي.",
+    bookYourConcierge: "احجز الكونسيرج الخاص بك",
+    selectPlan: "اختر الخطة",
+    contactUs: "اتصل بنا",
+    oneDayPremiumPlans: "خطط بريميوم ليوم واحد",
+    everyDetailMasterfully: "كل التفاصيل ببراعة",
+
+    // Why Us page
+    whyUsTitle1: "نحن لا نقدم الخدمة فقط.",
+    whyUsTitle2: "نحن نقدم",
+    certainty: "اليقين",
+    whyUsDescription:
+      "أنت لا تحتاج إلى جدول. أنت تحتاج إلى إشارة. المسؤول الخاص بك هو أكثر من مجرد مرشد — إنه حضورك الموثوق في أرض أجنبية.",
+    whyUsQuote: "حتى عندما تكون بعيدًا، فأنت قريب من قلبي.",
+    whyUsQuoteSource: "مستوحى من أغنية عمرو دياب 'تملي معاك'",
+    whyChooseReluxi: "لماذا تختار",
+    whyChooseReluxiDesc:
+      "Reluxi هي أكثر من مجرد خدمة استقبال - إنها وجودك الموثوق في مدينة أجنبية. مع الكثير من الخيارات، وعدم وجود وقت كافٍ، ولا أحد يصفي الضوضاء، نحن هنا للإرشاد والتبسيط والدعم. مهمتنا هي إزالة التوتر والاحتكاك في الأماكن غير المألوفة، بحيث تشعر كل لحظة بالهدف والرعاية والخصوصية التامة.",
+    ourServicePhilosophy: "خدمتنا",
+    philosophy: "فلسفة",
+
+    // Why Us advantages
+    alwaysOnSupport: "دعم متواصل",
+    alwaysOnSupportDesc:
+      "نتعامل مع خططك بسرعة واهتمام واتساق هادئ - على مدار الساعة. معظم عملائنا لا يسافرون أبدًا بدوننا مرة أخرى.",
+    effortlessCommunication: "تواصل سلس",
+    effortlessCommunicationDesc:
+      "معظم العملاء يرسلون رسالة واحدة - ونحن نتولى الأمر من هناك. لا تطبيقات، لا مكالمات، لا ذهاب وإياب. مجرد دعم سلس وفوري عندما تحتاجه.",
+    tailoredAccess: "وصول مخصص",
+    tailoredAccessDesc:
+      "نحن لا نحجز ما هو متاح فقط. نحن نرتب ما يجعل الرحلة التي كنت تتمناها تأتي إلى الحياة - بتفكير ودقة.",
+    trustedByThoseWhoDeserveMore: "موثوق به من قبل أولئك الذين يستحقون المزيد",
+    trustedByDesc1:
+      "من المسافرين الدوليين والشخصيات العامة إلى رجال الأعمال والدبلوماسيين والمبدعين - Reluxi هي الثابت الهادئ وراء وقتهم في موسكو.",
+    trustedByDesc2:
+      "يأتون للسمعة، ويبقون لراحة البال، ويعودون لأن لا أحد يفهمهم تمامًا مثلنا.",
+    trustedByDesc3: "هذه ليست مجرد خدمة تجربها - بل هي خدمة تعتمد عليها.",
+
+    // Hero section
+    eliteConciergeService: "",
+    alwaysWithYou: "مساعد السفر الشخصي الخاص بك",
+    heroDescription: "نوفر لك ساعات من البحث والتخطيط.",
+    heroDescription2: "متاحة على مدار الساعة طوال أيام الأسبوع.",
+    reserveYourConcierge: "احجز الكونسيرج الخاص بك",
+    pricingInfo: "",
+    discoverMore: "اكتشف المزيد",
+
+    // Main service intro
+    serviceMainTitle: "بكلماتنا الخاصة",
+    serviceSubtitle: "خدمة ذات حضور وقوة ودقة",
+    serviceIntro:
+      "ريلوكسي هي بوابتك الخاصة لكل ما تقدمه موسكو — بدون ضوضاء أو تأخير أو تنازلات. نحن متخصصون في توقع رغباتك قبل أن تعبر عنها.",
+
+    // Service offerings
+    privateTransport: "النقل الخاص",
+    privateTransportDesc:
+      "من السيارات الفاخرة إلى سيارات الأجرة الموثوقة، نرتب وسائل النقل التي تناسب سرعتك وراحتك وخصوصيتك — ليلاً أو نهاراً.",
+    diningArrangements: "ترتيبات تناول الطعام",
+    diningArrangementsDesc:
+      "من الحجوزات في أفضل المطاعم إلى توصيل الطعام إلى فندقك — كل ذلك مرتب ليتناسب مع ذوقك وتوقيتك.",
+    dayPlanning: "تخطيط اليوم والجدولة الشخصية",
+    dayPlanningDesc:
+      "يومك، مرتب بعناية — من الخطوات الأولى إلى الخطط النهائية، مع رعاية تجعل المدينة تشعر وكأنها خاصة بك.",
+    culturalExperiences: "التجارب الثقافية",
+    culturalExperiencesDesc:
+      "جولات خاصة لمعالم موسكو وجواهرها المخفية — يرشدك فيها مطلعون يتحدثون لغتك.",
+    eveningAccess: "الوصول المسائي والفعاليات",
+    eveningAccessDesc:
+      "من الصالات الحصرية إلى التجمعات الاجتماعية الراقية التي لن تجدها عبر الإنترنت.",
+    security: "الأمن",
+    securityDesc:
+      "حماية شخصية، يتم ترتيبها عند الحاجة — للحظات التي تهم فيها الخصوصية وراحة البال.",
+    gifting: "الهدايا واللفتات",
+    giftingDesc:
+      "الزهور، والهدايا الصغيرة، أو اللمسات ذات المعنى — يتم تسليمها بشكل مثالي.",
+    vipShopping: "تسوق VIP",
+    vipShoppingDesc:
+      "وصول خاص إلى أرقى المتاجر في موسكو. مصممي أزياء ناطقين باللغة العربية. مواعيد حصرية.",
+    highEndDining: "تناول الطعام الفاخر",
+    highEndDiningDesc:
+      "طاولات مضمونة في أكثر مطاعم موسكو طلباً. طهاة مستعدون لتلبية تفضيلاتك.",
+    chauffeuredVehicles: "سيارات مع سائق",
+    chauffeuredVehiclesDesc:
+      "مرسيدس سوداء، الفئة S، مايباخ. سائقون مدربون احترافياً. سرية تامة. بالساعة أو اليومي.",
+    privateCulturalTours: "جولات ثقافية خاصة",
+    privateCulturalToursDesc:
+      "افتح الوصول إلى القصور والمتاحف والمواقع التراثية الإسلامية مع مرشدين ومترجمين نخبة.",
+    personalProtection: "حماية شخصية",
+    personalProtectionDesc:
+      "حماية تنفيذية مدربة عند الطلب. لأولئك الذين لا يمكن التفاوض على خصوصيتهم وسلامتهم.",
+    healthWellness: "الصحة والعافية",
+    healthWellnessDesc:
+      "عيادات حصرية، وصول VIP إلى الرعاية الطبية، وأخصائيي التجميل، واستعادة السبا — بدون قوائم انتظار.",
+    nightlifeEvents: "الحياة الليلية والفعاليات",
+    nightlifeEventsDesc:
+      "الدخول إلى الدوائر المغلقة، وتجمعات المجتمع الراقي، والفعاليات التي لا يمكن لأي سائح الوصول إليها.",
+
+    // Services page
+    ourEliteServices: "خدماتنا المتميزة",
+    luxuryServicesForElite: "خدمات كونسيرج فاخرة للنخبة",
+    howWeServeYou: "كيف نخدمك",
+    howWe: "كيف",
+    serve: "نخدم",
+    you: "ك",
+    oneDayExperience: "تجربة ليوم واحد",
+    oneDayPrice: "6 500₽ ($75)",
+    designedFor: "مصممة لـ",
+    oneDayDesignedFor:
+      "المناسبات الخاصة، والاحتياجات التجارية، أو قضاء وقت جيد مع العائلة — عندما يستحق يوم واحد أن يتم التعامل معه بشكل مثالي.",
+    whatYouGet: "ما الذي ستحصل عليه",
+    oneDayWhatYouGet:
+      "تجربة ليوم واحد مخصصة حول أهدافك — شخصية أو مهنية. نتعامل مع الحجوزات والتوقيت والتدفق حتى يشعر يومك بالسهولة.",
+    examplesInclude: "الأمثلة تشمل",
+    oneDayExample1:
+      "أمسية رومانسية مع وسائل نقل خاصة وحجوزات عشاء ومفاجأة زهور",
+    oneDayExample2:
+      "يوم عائلي مع أنشطة مخطط لها بعناية وزيارات ثقافية وتناول طعام مناسب للمجموعات - كل ذلك مرتب للحفاظ على تدفق اليوم بسهولة",
+    oneDayExample3:
+      "يوم عمل مع حجوزات مساحات اجتماعات وتنسيق مطاعم ونقل بين المواقع",
+    oneDayExampleFooter: "أخبرنا بنوع اليوم الذي تحتاجه — وسنجعله سلسًا.",
+    oneDayPlan: "خطة ليوم واحد",
+    requestOneDayPlan: "طلب خطة ليوم واحد",
+
+    mostPopular: "الأكثر شعبية",
+    threeDayPlan: "خطة كونسيرج لمدة 3 أيام",
+    threeDayPrice: "11 500₽ ($139)",
+    threeDayDesignedFor:
+      "رحلات قصيرة، استراحات في المدينة، أو زوار يريدون دعمًا كاملًا بدون التزام طويل الأمد.",
+    threeDayWhatYouGet:
+      "ثلاثة أيام كاملة من مساعدة الكونسيرج غير المحدودة والمخصصة — متاحة في أي ساعة. مثالي لأولئك الذين يرغبون في تجربة أفضل ما في موسكو بدون إجهاد أو تخطيط.",
+    includes: "تشمل",
+    threeDayInclude1:
+      "وصول إلى الكونسيرج على مدار الساعة طوال أيام الأسبوع عبر تطبيق المراسلة المفضل لديك",
+    threeDayInclude2:
+      "الحجز والتنسيق عبر تناول الطعام والنقل والعافية والفعاليات والمزيد",
+    threeDayInclude3:
+      "خيار إضافة أيام إضافية مقابل 39 دولارًا في اليوم — نفس الخدمة، نفس السهولة",
+    threeDayIncludeFooter: "ابدأ رحلتك مع ريلوكسي — واختبر مدى سهولة السفر.",
+    multiDayPlan: "خطة متعددة الأيام",
+    startThreeDayPlan: "بدء خطة 3 أيام",
+
+    monthlyMembership: "العضوية الشهرية",
+    monthlyPrice: "28 500₽ ($339)/شهر",
+    monthlyDesignedFor:
+      "المسافرون المتكررون والمهنيون المشغولون وسكان المدينة الذين يريدون وصولًا مستمرًا إلى الدعم الكامل من ريلوكسي.",
+    monthlyWhatYouGet:
+      "وصول غير محدود شهريًا إلى خدمة الكونسيرج مع نقطة اتصال مخصصة تتعلم تفضيلاتك وتتكيف مع إيقاعك.",
+    monthlyInclude1: "متوفر على مدار الساعة طوال أيام الأسبوع بدون قيود",
+    monthlyInclude2:
+      "تخطيط مخصص عبر الحياة اليومية والسفر وتناول الطعام والمزيد",
+    monthlyInclude3: "رعاية وخدمة متسقة عبر رحلات متعددة أو احتياجات مستمرة",
+    monthlyIncludeFooter:
+      "استمتع بدعم مستمر ومرتفع — بغض النظر عن عدد المرات التي تحتاجنا فيها.",
+    membership: "العضوية",
+    becomeAMember: "أصبح عضوًا",
+
+    quickRequests: "طلبات سريعة",
+    oneTaskHandledFast: "مهمة واحدة، تُنجز بسرعة",
+    quickRequestsDescription:
+      "أرسل لنا طلبك عبر الرسائل النصية — سنؤكده مقابل عمولة ثابتة قدرها 5 دولارات. مثالي للاحتياجات العفوية أو المستخدمين لأول مرة الذين يرغبون في تجربة ريلوكسي — رسالة واحدة في كل مرة.",
+    howItWorks: "كيف يعمل",
+    quickRequestsHowItWorks:
+      "خدمة كونسيرج بنظام الدفع لكل طلب — لا تحتاج إلى خطة",
+    commissionFee: "رسوم العمولة",
+    quickRequestsFee: "500₽ ($5) لكل طلب منفذ",
+    idealFor: "مثالي لـ",
+    quickRequestsIdealFor:
+      "حجوزات فردية (مثل المطعم والنقل وتذاكر الفعاليات والبريد السريع)",
+    deliveryTime: "وقت التسليم",
+    quickRequestsDeliveryTime:
+      "كل شيء يتم تنظيمه في غضون دقائق — سلس وسريع ومؤكد في الوقت الفعلي",
+    requestABooking: "طلب حجز",
+
+    readyToEnjoyTrip:
+      "هل أنت مستعد للاستمتاع برحلتك فعلاً - دون إضاعة الوقت أو الطاقة؟",
+    reluxiSavesYouHours:
+      "يوفر لك ريلوكسي ساعات من البحث والتخطيط. أنت تركز على التجربة — ونحن سنتعامل مع كل شيء آخر.",
+
+    // Dashboard page
+    welcomeUser: "مرحباً بعودتك",
+    valuedClient: "عميل مقدر",
+    personalConciergeService: "مساعدك الشخصي في خدمتك.",
+    youHave: "لديك",
+    days: "أيام",
+    remainingConciergeBooking: "متبقية من حجز المساعد الشخصي الخاص بك.",
+    moscowWeather: "طقس موسكو",
+    manageProfile: "إدارة الملف الشخصي",
+    yourPreviousRequests: "طلباتك السابقة",
+    serviceLabel: "الخدمة",
+    categoryLabel: "الفئة",
+    quantityLabel: "الكمية",
+    statusLabel: "الحالة",
+    dateLabel: "التاريخ",
+    browseAndBookServices: "تصفح وحجز الخدمات",
+    searchServices: "البحث عن الخدمات...",
+    myConciergeRequests: "طلبات المساعد الشخصي الخاصة بي",
+    emptyConciergeList: "قائمة المساعد الشخصي فارغة",
+    browseServices: "تصفح الخدمات",
+    requestConfirmation:
+      "سيتم إرسال طلبك إلى فريق المساعد الشخصي، الذي سيتواصل معك لتأكيد التوقيت والتفضيلات.",
+    requestSubmitted: "تم تقديم الطلب!",
+    sendToConciergeTeam: "إرسال إلى فريق المساعد الشخصي",
+    allServices: "جميع الخدمات",
+    shoppingCategory: "التسوق",
+    diningCulinaryCategory: "المطاعم والطهي",
+    cultureHistoryCategory: "الثقافة والتاريخ",
+    transportCategory: "النقل",
+    medicalWellnessCategory: "الطب والعافية",
+    nightlifeEventsCategory: "الحياة الليلية والفعاليات",
+    travelSupportCategory: "دعم السفر",
+    allCategories: "الكل",
+    coreServices: "الخدمات الأساسية",
+    lifestyleRomantic: "نمط الحياة والرومانسية",
+    familyCultural: "العائلة والثقافة",
+    businessSecurity: "الأعمال والأمن",
+    quantity: "الكمية:",
+
+    // Golden button section
+    goldLogo: "شعار 24/7",
+    goldenButton: "أضف ريلوكسي إلى شاشتك الرئيسية",
+    goldenButtonDesc:
+      "هذا أكثر من مجرد زر — إنه خطك المباشر للفخامة والتميز وأرقى ما تقدمه المدينة. لمسة واحدة تربطك بالكونسيرج الشخصي الخاص بك، المتاح ليلاً ونهاراً.",
+    yourGoldenButton: "زرك الذهبي",
     goldenButtonInstructions: "اضغط مع الاستمرار لإضافته إلى شاشتك الرئيسية.",
     chooseDevice: "اختر جهازك للمتابعة:",
     iphone: "آيفون",
@@ -844,6 +6301,7 @@ const translations: Translations = {
 
     reserve: "احجز",
     your: "الخاص بك",
+    concierge: "الكونسيرج",
     signUp: "التسجيل",
 
     // Installation steps
@@ -969,6 +6427,26 @@ const translations: Translations = {
     contactYourExecutiveAssistant: "تواصل مع مساعدك التنفيذي",
     selectPreferredMethod:
       "اختر طريقتك المفضلة للوصول إلى مساعدك التنفيذي الشخصي",
+
+    // Profile management page
+    profileManagement: "إدارة الملف الشخصي",
+    updatePersonalInfo: "تحديث معلوماتك الشخصية",
+    backToDashboard: "العودة إلى لوحة التحكم",
+    emailCannotBeChanged: "لا يمكن تغيير البريد الإلكتروني",
+    updateProfile: "تحديث الملف الشخصي",
+    updating: "جارِ التحديث...",
+    cancel: "إلغاء",
+    profileUpdateSuccess: "تم تحديث الملف الشخصي بنجاح",
+    profileUpdateFailed: "فشل تحديث الملف الشخصي",
+    unknownError: "خطأ غير معروف",
+    redirectingToLogin: "جارِ إعادة التوجيه إلى صفحة تسجيل الدخول...",
+
+    // Communication methods and apps
+    whatsapp: "واتساب",
+    telegram: "تليجرام",
+    botim: "بوتيم",
+    wechat: "وي شات",
+    email: "البريد الإلكتروني",
   },
 
   CN: {
@@ -1182,9 +6660,10 @@ const translations: Translations = {
 
     // Golden button section
     goldLogo: "24/7标志",
-    goldenButton: "您的金色按钮",
+    goldenButton: "将Reluxi添加到您的主屏幕",
     goldenButtonDesc:
       "这不仅仅是一个按钮 — 它是您直通奢华、谨慎和城市最精致服务的直接线路。一触即可连接到您的私人礼宾，全天候可用。",
+    yourGoldenButton: "您的金色按钮",
     goldenButtonInstructions: "按住添加到您的主屏幕。",
     chooseDevice: "选择您的设备继续：",
     iphone: "iPhone",
@@ -1269,6 +6748,7 @@ const translations: Translations = {
 
     reserve: "预订",
     your: "您的",
+    concierge: "礼宾服务",
     signUp: "注册",
 
     // Installation steps
@@ -1415,6 +6895,25 @@ const translations: Translations = {
     messageConcierge: "联系礼宾",
     contactYourExecutiveAssistant: "联系您的行政助理",
     selectPreferredMethod: "选择您联系个人行政助理的首选方式",
+
+    // Profile management page
+    profileManagement: "个人资料管理",
+    updatePersonalInfo: "更新您的个人信息",
+    backToDashboard: "返回仪表板",
+    emailCannotBeChanged: "电子邮件无法更改",
+    updateProfile: "更新个人资料",
+    updating: "更新中...",
+    cancel: "取消",
+    profileUpdateSuccess: "个人资料更新成功",
+    profileUpdateFailed: "个人资料更新失败",
+    unknownError: "未知错误",
+    redirectingToLogin: "正在重定向到登录页面...",
+
+    // Communication methods and apps
+    whatsapp: "WhatsApp",
+    telegram: "Telegram",
+    botim: "Botim",
+    wechat: "微信",
   },
 
   RU: {
@@ -1806,6 +7305,7 @@ const translations: Translations = {
 
     reserve: "Забронировать",
     your: "Ваш",
+    concierge: "Консьерж",
     signUp: "Зарегистрироваться",
 
     // Installation steps
@@ -1941,6 +7441,43 @@ const translations: Translations = {
     contactYourExecutiveAssistant: "Свяжитесь с вашим личным ассистентом",
     selectPreferredMethod:
       "Выберите предпочтительный способ связи с вашим персональным ассистентом",
+
+    // Golden button section
+    goldLogo: "24/7 Лого",
+    goldenButton: "Добавьте Reluxi на Ваш домашний экран",
+    goldenButtonDesc:
+      "Это больше, чем просто кнопка — это ваша прямая линия к роскоши, конфиденциальности и лучшему, что может предложить город. Одно касание соединяет вас с вашим личным консьержем, доступным днем и ночью.",
+    yourGoldenButton: "Ваша золотая кнопка",
+    goldenButtonInstructions:
+      "Нажмите и удерживайте, чтобы добавить на домашний экран.",
+    chooseDevice: "Выберите ваше устройство для продолжения:",
+    iphone: "iPhone",
+    android: "Android",
+
+    // Basic words
+    reserve: "Забронировать",
+    your: "Ваш",
+    concierge: "Консьерж",
+    signUp: "Зарегистрироваться",
+
+    // Profile management page
+    profileManagement: "Управление профилем",
+    updatePersonalInfo: "Обновите вашу личную информацию",
+    backToDashboard: "Вернуться к панели управления",
+    emailCannotBeChanged: "Электронная почта не может быть изменена",
+    updateProfile: "Обновить профиль",
+    updating: "Обновление...",
+    cancel: "Отмена",
+    profileUpdateSuccess: "Профиль успешно обновлен",
+    profileUpdateFailed: "Не удалось обновить профиль",
+    unknownError: "Неизвестная ошибка",
+    redirectingToLogin: "Перенаправление на страницу входа...",
+
+    // Communication methods and apps
+    whatsapp: "WhatsApp",
+    telegram: "Telegram",
+    botim: "Botim",
+    wechat: "WeChat",
   },
 };
 

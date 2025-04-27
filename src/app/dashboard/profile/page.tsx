@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useAuth } from "@/lib/AuthContext";
 import { Toaster, toast } from "react-hot-toast";
 import { supabase } from "@/lib/supabase";
+import { useLanguage } from "@/lib/LanguageContext";
 import {
   Select,
   SelectContent,
@@ -19,6 +20,7 @@ import Navigation from "@/components/Navigation";
 export default function ProfilePage() {
   const { user, profile } = useAuth();
   const router = useRouter();
+  const { t } = useLanguage();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -72,7 +74,7 @@ export default function ProfilePage() {
     e.preventDefault();
 
     if (!user) {
-      toast.error("You must be logged in to update your profile");
+      toast.error(t("loginRequired"));
       return;
     }
 
@@ -107,53 +109,38 @@ export default function ProfilePage() {
         .select();
 
       if (error) {
-        console.error("Supabase update error:", error);
+        console.error("Error updating profile:", error);
 
-        // Check if the error is related to missing fields or constraints
+        // Check if this is a RLS error or other permission issue
         if (
-          error.message.includes("violates") ||
-          error.message.includes("constraint")
+          error.message.includes("permission") ||
+          error.message.includes("policy")
         ) {
+          // We're hitting RLS policies, try to update through a secure RPC function
           console.log(
-            "Database constraint error, trying full upsert with all required fields"
+            "Likely hitting RLS policies, trying to update through RPC function"
           );
 
-          // Fallback: Try upsert instead if update fails
-          console.log("Trying upsert as fallback...");
-          const { data: upsertData, error: upsertError } = await supabase
-            .from("users")
-            .upsert({
+          // Try an upsert approach instead
+          const { error: upsertError } = await supabase.from("users").upsert(
+            {
               id: user.id,
-              name: formData.name,
-              email: formData.email || user.email,
-              contact: formData.contact,
-              language: formData.language,
-              communication_method: formData.communicationMethod,
-              // Include the required fields from profile to maintain existing data
-              concierge_end_date:
-                profile?.concierge_end_date ||
-                new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString(),
-              created_at: profile?.created_at || new Date().toISOString(),
-            })
-            .select();
+              ...updateData,
+            },
+            { onConflict: "id" }
+          );
 
           if (upsertError) {
-            console.error("Upsert fallback failed:", upsertError);
+            console.error("Upsert approach failed:", upsertError);
             throw upsertError;
-          }
-
-          console.log("Upsert successful:", upsertData);
-
-          if (upsertData && upsertData.length > 0) {
-            toast.success("Profile updated successfully");
+          } else {
+            toast.success(t("profileUpdateSuccess"));
             setHasChanges(false);
 
             // Wait a moment before reloading to show the success message
-            if (typeof window !== "undefined") {
-              setTimeout(() => {
-                window.location.reload();
-              }, 1500);
-            }
+            setTimeout(() => {
+              window.location.reload();
+            }, 1500);
           }
         } else {
           // For other types of errors, try a simpler approach
@@ -175,7 +162,7 @@ export default function ProfilePage() {
             console.error("RPC fallback failed:", rpcError);
             throw error; // Throw the original error if RPC also fails
           } else {
-            toast.success("Profile updated successfully");
+            toast.success(t("profileUpdateSuccess"));
             setHasChanges(false);
 
             // Wait a moment before reloading to show the success message
@@ -191,7 +178,7 @@ export default function ProfilePage() {
 
         // Update local profile state in the auth context
         if (data && data.length > 0) {
-          toast.success("Profile updated successfully");
+          toast.success(t("profileUpdateSuccess"));
           setHasChanges(false);
 
           // Wait a moment before reloading to show the success message
@@ -203,8 +190,8 @@ export default function ProfilePage() {
     } catch (error) {
       console.error("Error updating profile:", error);
       toast.error(
-        `Failed to update profile: ${
-          error instanceof Error ? error.message : "Unknown error"
+        `${t("profileUpdateFailed")}: ${
+          error instanceof Error ? error.message : t("unknownError")
         }`
       );
     } finally {
@@ -229,7 +216,7 @@ export default function ProfilePage() {
   if (!user) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
-        Redirecting to login...
+        {t("redirectingToLogin")}
       </div>
     );
   }
@@ -260,17 +247,15 @@ export default function ProfilePage() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-0 mb-8">
             <div>
               <h1 className="text-2xl sm:text-3xl font-cormorant font-semibold text-white">
-                Profile Management
+                {t("profileManagement")}
               </h1>
-              <p className="text-white/60 mt-1">
-                Update your personal information
-              </p>
+              <p className="text-white/60 mt-1">{t("updatePersonalInfo")}</p>
             </div>
             <Link
               href="/dashboard"
               className="px-4 py-2 bg-[#111] border border-white/10 rounded-lg hover:bg-[#222] transition-colors text-center sm:text-left w-full sm:w-auto"
             >
-              Back to Dashboard
+              {t("backToDashboard")}
             </Link>
           </div>
 
@@ -282,7 +267,7 @@ export default function ProfilePage() {
                     htmlFor="name"
                     className="block text-white/80 mb-2 text-base sm:text-lg"
                   >
-                    Full Name
+                    {t("fullName")}
                   </label>
                   <input
                     type="text"
@@ -291,7 +276,7 @@ export default function ProfilePage() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 sm:py-4 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50 text-base sm:text-lg"
-                    placeholder="Your full name"
+                    placeholder={t("yourName")}
                     required
                     autoComplete="name"
                   />
@@ -302,7 +287,7 @@ export default function ProfilePage() {
                     htmlFor="email"
                     className="block text-white/80 mb-2 text-base sm:text-lg"
                   >
-                    Email Address
+                    {t("email")}
                   </label>
                   <input
                     type="email"
@@ -311,11 +296,11 @@ export default function ProfilePage() {
                     value={formData.email}
                     disabled
                     className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 sm:py-4 text-white/60 focus:outline-none cursor-not-allowed text-base sm:text-lg"
-                    placeholder="Your email address"
+                    placeholder={t("yourEmail")}
                     autoComplete="email"
                   />
                   <p className="text-white/40 text-sm mt-1">
-                    Email cannot be changed
+                    {t("emailCannotBeChanged")}
                   </p>
                 </div>
 
@@ -324,7 +309,7 @@ export default function ProfilePage() {
                     htmlFor="contact"
                     className="block text-white/80 mb-2 text-base sm:text-lg"
                   >
-                    Phone Number
+                    {t("phone")}
                   </label>
                   <input
                     type="tel"
@@ -333,7 +318,7 @@ export default function ProfilePage() {
                     value={formData.contact}
                     onChange={handleChange}
                     className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 sm:py-4 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50 text-base sm:text-lg"
-                    placeholder="Your phone number"
+                    placeholder={t("phoneExample")}
                     autoComplete="tel"
                   />
                 </div>
@@ -343,7 +328,7 @@ export default function ProfilePage() {
                     htmlFor="communicationMethod"
                     className="block text-white/80 mb-2 text-base sm:text-lg"
                   >
-                    Preferred Communication Method
+                    {t("preferredCommunication")}
                   </label>
                   <Select
                     value={formData.communicationMethod}
@@ -352,15 +337,17 @@ export default function ProfilePage() {
                     }
                   >
                     <SelectTrigger className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 sm:py-4 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50 text-base sm:text-lg">
-                      <SelectValue placeholder="Select communication method" />
+                      <SelectValue
+                        placeholder={t("selectCommunicationMethod")}
+                      />
                     </SelectTrigger>
                     <SelectContent className="bg-[#0a0a0a] border border-white/10 text-white">
-                      <SelectItem value="whatsapp">WhatsApp</SelectItem>
-                      <SelectItem value="phone">Phone</SelectItem>
-                      <SelectItem value="email">Email</SelectItem>
-                      <SelectItem value="telegram">Telegram</SelectItem>
-                      <SelectItem value="botim">Botim</SelectItem>
-                      <SelectItem value="wechat">WeChat</SelectItem>
+                      <SelectItem value="whatsapp">{t("whatsapp")}</SelectItem>
+                      <SelectItem value="phone">{t("phone")}</SelectItem>
+                      <SelectItem value="email">{t("email")}</SelectItem>
+                      <SelectItem value="telegram">{t("telegram")}</SelectItem>
+                      <SelectItem value="botim">{t("botim")}</SelectItem>
+                      <SelectItem value="wechat">{t("wechat")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -370,7 +357,7 @@ export default function ProfilePage() {
                     htmlFor="language"
                     className="block text-white/80 mb-2 text-base sm:text-lg"
                   >
-                    Language Preference
+                    {t("languagePreference")}
                   </label>
                   <Select
                     value={formData.language}
@@ -379,13 +366,13 @@ export default function ProfilePage() {
                     }
                   >
                     <SelectTrigger className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 sm:py-4 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50 text-base sm:text-lg">
-                      <SelectValue placeholder="Select language" />
+                      <SelectValue placeholder={t("selectLanguage")} />
                     </SelectTrigger>
                     <SelectContent className="bg-[#0a0a0a] border border-white/10 text-white">
-                      <SelectItem value="english">English</SelectItem>
-                      <SelectItem value="russian">Russian</SelectItem>
-                      <SelectItem value="arabic">Arabic</SelectItem>
-                      <SelectItem value="chinese">Chinese</SelectItem>
+                      <SelectItem value="english">{t("english")}</SelectItem>
+                      <SelectItem value="russian">{t("russian")}</SelectItem>
+                      <SelectItem value="arabic">{t("arabic")}</SelectItem>
+                      <SelectItem value="chinese">{t("chinese")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -396,7 +383,7 @@ export default function ProfilePage() {
                     disabled={isLoading || !hasChanges}
                     className="flex-1 bg-[#D4AF37] hover:bg-[#c9a430] text-black font-medium py-3 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
                   >
-                    {isLoading ? "Updating..." : "Update Profile"}
+                    {isLoading ? t("updating") : t("updateProfile")}
                   </button>
 
                   {hasChanges && (
@@ -405,7 +392,7 @@ export default function ProfilePage() {
                       onClick={handleCancel}
                       className="px-6 py-3 bg-transparent border border-white/20 hover:border-white/40 text-white/80 hover:text-white rounded-lg transition-colors w-full sm:w-auto"
                     >
-                      Cancel
+                      {t("cancel")}
                     </button>
                   )}
                 </div>
