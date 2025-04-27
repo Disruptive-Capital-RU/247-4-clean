@@ -258,15 +258,15 @@ export default function ServicesPage() {
                     <div className="animate-item relative bg-black/30 backdrop-blur-sm p-8 rounded-lg border border-[#D4AF37] hover:border-[#D4AF37]/80 transition-all duration-300 overflow-hidden group flex flex-col h-full">
                       <div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 to-transparent opacity-50"></div>
                       <div className="relative z-10 flex flex-col flex-grow">
-                        <div className="absolute top-10 right-2 bg-[#D4AF37]/20 px-3 py-1 rounded-full">
-                          <span className="text-xs font-dm-sans text-[#D4AF37] font-medium">
-                            {t("mostPopular")}
-                          </span>
-                        </div>
                         <div>
                           <h3 className="text-xl md:text-2xl font-cormorant font-bold text-white mb-2">
                             {t("threeDayPlan")}
                           </h3>
+                          <div className="inline-block bg-[#D4AF37]/20 px-3 py-1 rounded-full mb-3">
+                            <span className="text-xs font-dm-sans text-[#D4AF37] font-medium whitespace-nowrap">
+                              {t("mostPopular")}
+                            </span>
+                          </div>
                           <div className="mb-4">
                             <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">
                               {t("threeDayPrice")}

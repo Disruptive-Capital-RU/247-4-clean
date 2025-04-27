@@ -5,6 +5,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { useLanguage } from "@/lib/LanguageContext";
 
 interface ContactOption {
   id: string;
@@ -14,6 +15,8 @@ interface ContactOption {
 }
 
 export default function MessageConciergePopover() {
+  const { t } = useLanguage();
+
   const contactOptions: ContactOption[] = [
     {
       id: "whatsapp",
@@ -157,18 +160,17 @@ export default function MessageConciergePopover() {
   return (
     <Popover>
       <PopoverTrigger className="px-4 py-2 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 text-[#D4AF37] rounded-lg transition-colors">
-        Message Concierge
+        {t("messageConcierge")}
       </PopoverTrigger>
       <PopoverContent
         sideOffset={5}
         className="bg-[#111] border border-[#D4AF37]/30 text-white p-6 shadow-lg sm:w-[350px] w-[320px] sm:translate-x-[-80px] translate-x-[-40px]"
       >
         <h2 className="text-xl font-cormorant font-semibold mb-4 text-center">
-          Contact Your Executive Assistant
+          {t("contactYourExecutiveAssistant")}
         </h2>
         <p className="text-white/70 mb-4 text-center text-sm">
-          Select your preferred method to reach your personal executive
-          assistant
+          {t("selectPreferredMethod")}
         </p>
 
         <div className="grid grid-cols-3 gap-3">

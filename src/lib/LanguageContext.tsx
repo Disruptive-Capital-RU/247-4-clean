@@ -72,6 +72,24 @@ const translations: Translations = {
     ourServicePhilosophy: "Our Service",
     philosophy: "Philosophy",
 
+    // Why Us advantages
+    alwaysOnSupport: "Always-On Support",
+    alwaysOnSupportDesc:
+      "We handle your plans with speed, care, and quiet consistency — 24/7. Most of our clients never travel without us again.",
+    effortlessCommunication: "Effortless Communication",
+    effortlessCommunicationDesc:
+      "Most clients send one message — we take it from there. No apps, no calls, no back-and-forth. Just smooth, immediate support when you need it.",
+    tailoredAccess: "Tailored Access",
+    tailoredAccessDesc:
+      "We don't just book what's available. We arrange what brings the trip you've been wishing for to life — thoughtfully and precisely.",
+    trustedByThoseWhoDeserveMore: "Trusted by Those Who Deserve More",
+    trustedByDesc1:
+      "From international travelers and public figures to entrepreneurs, diplomats, and creatives — Reluxi is the quiet constant behind their time in Moscow.",
+    trustedByDesc2:
+      "They come for the reputation, stay for the peace of mind, and return because no one understands them quite like we do.",
+    trustedByDesc3:
+      "This isn't just a service you try — it's one you come to rely on.",
+
     // Hero section
     eliteConciergeService: "",
     alwaysWithYou: "The Modern Way to Experience Moscow",
@@ -494,6 +512,36 @@ const translations: Translations = {
     hotelSelection: "Hotel Selection",
     hotelSelectionDesc:
       "Premium hotel selection and booking services for an unforgettable stay.",
+
+    // Service Category Headings
+    shoppingCategory: "Shopping",
+    diningCulinaryCategory: "Dining & Culinary",
+    cultureHistoryCategory: "Culture & History",
+    transportCategory: "Transport",
+    medicalWellnessCategory: "Medical & Wellness",
+    nightlifeEventsCategory: "Nightlife & Events",
+    travelSupportCategory: "Travel Support",
+    allCategories: "All",
+    coreServices: "Core Services",
+    lifestyleRomantic: "Lifestyle & Romantic",
+    familyCultural: "Family & Cultural",
+    businessSecurity: "Business & Security",
+
+    // Categories for service cards - these need to be translated
+    coreCategory: "Core Services",
+    shoppingCategory2: "Shopping",
+    cultureCategory: "Culture",
+    medicalCategory: "Medical",
+    transportCategory2: "Transport",
+    businessSecurityCategory: "Business & Security",
+    lifestyleRomanticCategory: "Lifestyle & Romantic",
+    familyCulturalCategory: "Family & Cultural",
+
+    // Message concierge
+    messageConcierge: "Message Concierge",
+    contactYourExecutiveAssistant: "Contact Your Executive Assistant",
+    selectPreferredMethod:
+      "Select your preferred method to reach your personal executive assistant",
   },
 
   AR: {
@@ -537,9 +585,26 @@ const translations: Translations = {
     whyUsQuoteSource: "مستوحى من أغنية عمرو دياب 'تملي معاك'",
     whyChooseReluxi: "لماذا تختار",
     whyChooseReluxiDesc:
-      "نحن نرفع من مستوى تجربتك في موسكو من خلال التزامنا بالتميز الذي يتجاوز خدمات الكونسيرج التقليدية.",
-    ourServicePhilosophy: "فلسفة",
-    philosophy: "خدمتنا",
+      "Reluxi هي أكثر من مجرد خدمة استقبال - إنها وجودك الموثوق في مدينة أجنبية. مع الكثير من الخيارات، وعدم وجود وقت كافٍ، ولا أحد يصفي الضوضاء، نحن هنا للإرشاد والتبسيط والدعم. مهمتنا هي إزالة التوتر والاحتكاك في الأماكن غير المألوفة، بحيث تشعر كل لحظة بالهدف والرعاية والخصوصية التامة.",
+    ourServicePhilosophy: "خدمتنا",
+    philosophy: "فلسفة",
+
+    // Why Us advantages
+    alwaysOnSupport: "دعم متواصل",
+    alwaysOnSupportDesc:
+      "نتعامل مع خططك بسرعة واهتمام واتساق هادئ - على مدار الساعة. معظم عملائنا لا يسافرون أبدًا بدوننا مرة أخرى.",
+    effortlessCommunication: "تواصل سلس",
+    effortlessCommunicationDesc:
+      "معظم العملاء يرسلون رسالة واحدة - ونحن نتولى الأمر من هناك. لا تطبيقات، لا مكالمات، لا ذهاب وإياب. مجرد دعم سلس وفوري عندما تحتاجه.",
+    tailoredAccess: "وصول مخصص",
+    tailoredAccessDesc:
+      "نحن لا نحجز ما هو متاح فقط. نحن نرتب ما يجعل الرحلة التي كنت تتمناها تأتي إلى الحياة - بتفكير ودقة.",
+    trustedByThoseWhoDeserveMore: "موثوق به من قبل أولئك الذين يستحقون المزيد",
+    trustedByDesc1:
+      "من المسافرين الدوليين والشخصيات العامة إلى رجال الأعمال والدبلوماسيين والمبدعين - Reluxi هي الثابت الهادئ وراء وقتهم في موسكو.",
+    trustedByDesc2:
+      "يأتون للسمعة، ويبقون لراحة البال، ويعودون لأن لا أحد يفهمهم تمامًا مثلنا.",
+    trustedByDesc3: "هذه ليست مجرد خدمة تجربها - بل هي خدمة تعتمد عليها.",
 
     // Hero section
     eliteConciergeService: "",
@@ -874,6 +939,36 @@ const translations: Translations = {
       "أنشئ تجارب رومانسية مثالية مع خدمة التخطيط المتخصصة لدينا.",
     hotelSelection: "اختيار الفنادق",
     hotelSelectionDesc: "خدمات اختيار وحجز الفنادق الفاخرة لإقامة لا تُنسى.",
+
+    // Service Category Headings
+    shoppingCategory: "التسوق",
+    diningCulinaryCategory: "المطاعم والطهي",
+    cultureHistoryCategory: "الثقافة والتاريخ",
+    transportCategory: "النقل",
+    medicalWellnessCategory: "الطب والعافية",
+    nightlifeEventsCategory: "الحياة الليلية والفعاليات",
+    travelSupportCategory: "دعم السفر",
+    allCategories: "الكل",
+    coreServices: "الخدمات الأساسية",
+    lifestyleRomantic: "نمط الحياة والرومانسية",
+    familyCultural: "العائلة والثقافة",
+    businessSecurity: "الأعمال والأمن",
+
+    // Categories for service cards
+    coreCategory: "الخدمات الأساسية",
+    shoppingCategory2: "التسوق",
+    cultureCategory: "الثقافة",
+    medicalCategory: "الطب",
+    transportCategory2: "النقل",
+    businessSecurityCategory: "الأعمال والأمن",
+    lifestyleRomanticCategory: "نمط الحياة والرومانسية",
+    familyCulturalCategory: "العائلة والثقافة",
+
+    // Message concierge
+    messageConcierge: "تواصل مع المساعد",
+    contactYourExecutiveAssistant: "تواصل مع مساعدك التنفيذي",
+    selectPreferredMethod:
+      "اختر طريقتك المفضلة للوصول إلى مساعدك التنفيذي الشخصي",
   },
 
   CN: {
@@ -1264,6 +1359,62 @@ const translations: Translations = {
     romanticEveningDesc: "通过我们专业的策划服务，创造完美的浪漫体验。",
     hotelSelection: "酒店选择",
     hotelSelectionDesc: "高级酒店选择和预订服务，带来难忘的住宿体验。",
+
+    whyUsQuoteSource: "灵感来自阿姆尔·迪亚布的'Tamly Ma'ak'",
+    whyChooseReluxi: "为什么选择",
+    whyChooseReluxiDesc:
+      "Reluxi不仅仅是一个礼宾服务——它是您在陌生城市中值得信赖的存在。面对太多选择、时间不足且没有人为您过滤噪音时，我们在这里指导、简化并支持您。我们的使命是消除陌生环境中的压力和摩擦，使每一刻都感到有意义、被关怀并完全属于您自己。",
+    ourServicePhilosophy: "我们的服务",
+    philosophy: "理念",
+
+    // Why Us advantages
+    alwaysOnSupport: "全天候支持",
+    alwaysOnSupportDesc:
+      "我们以速度、关怀和安静的一致性处理您的计划——全天候服务。我们的大多数客户再也不会在没有我们的情况下旅行。",
+    effortlessCommunication: "轻松沟通",
+    effortlessCommunicationDesc:
+      "大多数客户只需发送一条消息——我们就会从那里接手。没有应用程序，没有电话，没有来回沟通。只有在您需要时提供的顺畅、即时的支持。",
+    tailoredAccess: "定制访问",
+    tailoredAccessDesc:
+      "我们不只是预订可用的服务。我们安排的是能让您一直期待的旅行变为现实的体验——经过深思熟虑且精确无误。",
+    trustedByThoseWhoDeserveMore: "受到值得更多的人们信赖",
+    trustedByDesc1:
+      "从国际旅行者和公众人物到企业家、外交官和创意人士——Reluxi是他们在莫斯科时光背后安静的常量。",
+    trustedByDesc2:
+      "他们因声誉而来，因心灵的平静而留下，并因为没有人像我们一样了解他们而返回。",
+    trustedByDesc3: "这不仅仅是您尝试的服务——而是您可以依赖的服务。",
+
+    // Hero section
+    // ... existing code ...
+
+    // Service Category Headings
+    shoppingCategory: "购物",
+    diningCulinaryCategory: "餐饮与美食",
+    cultureHistoryCategory: "文化与历史",
+    transportCategory: "交通",
+    medicalWellnessCategory: "医疗与健康",
+    nightlifeEventsCategory: "夜生活与活动",
+    travelSupportCategory: "旅行支持",
+    allCategories: "全部",
+    coreServices: "核心服务",
+    lifestyleRomantic: "生活方式与浪漫",
+    familyCultural: "家庭与文化",
+    businessSecurity: "商务与安全",
+
+    // Categories for service cards
+    coreCategory: "核心服务",
+    shoppingCategory2: "购物",
+    cultureCategory: "文化",
+    medicalCategory: "医疗",
+    transportCategory2: "交通",
+    businessSecurityCategory: "商务与安全",
+    lifestyleRomanticCategory: "生活方式与浪漫",
+    familyCulturalCategory: "家庭与文化",
+
+    // Message concierge
+    messageConcierge: "联系礼宾",
+    contactYourExecutiveAssistant: "联系您的行政助理",
+    selectPreferredMethod: "选择您联系个人行政助理的首选方式",
   },
 
   RU: {
@@ -1279,6 +1430,38 @@ const translations: Translations = {
     accessSuite: "Доступ к услугам",
     dashboard: "Личный кабинет",
     logout: "Выйти",
+
+    // Why Us page
+    whyUsTitle1: "Мы не просто предоставляем услуги.",
+    whyUsTitle2: "Мы предоставляем",
+    certainty: "Уверенность",
+    whyUsDescription:
+      "Вам не нужен график. Вам нужен ориентир. Ваш консьерж — больше, чем гид, он ваше доверенное присутствие в чужой стране.",
+    whyUsQuote: "Даже когда ты далеко, ты близок к моему сердцу.",
+    whyUsQuoteSource: "Вдохновлено песней Амра Диаба 'Tamly Ma'ak'",
+    whyChooseReluxi: "Почему стоит выбрать",
+    whyChooseReluxiDesc:
+      "Reluxi — это больше, чем консьерж-сервис — это ваше доверенное присутствие в чужом городе. Когда слишком много вариантов, недостаточно времени и никто не фильтрует шум, мы здесь, чтобы направлять, упрощать и поддерживать. Наша миссия — устранить стресс и трение незнакомых мест, чтобы каждый момент ощущался целенаправленным, заботливым и полностью вашим.",
+    ourServicePhilosophy: "Наш сервис",
+    philosophy: "Философия",
+
+    // Why Us advantages
+    alwaysOnSupport: "Постоянная поддержка",
+    alwaysOnSupportDesc:
+      "Мы организуем ваши планы быстро, заботливо и с неизменной последовательностью — 24/7. Большинство наших клиентов больше никогда не путешествуют без нас.",
+    effortlessCommunication: "Легкость общения",
+    effortlessCommunicationDesc:
+      "Большинство клиентов отправляют одно сообщение — и мы берем все на себя. Никаких приложений, звонков, постоянных согласований. Только плавная, немедленная поддержка, когда она вам нужна.",
+    tailoredAccess: "Индивидуальный доступ",
+    tailoredAccessDesc:
+      "Мы не просто бронируем то, что доступно. Мы организуем то, что воплощает поездку, о которой вы мечтали — продуманно и точно.",
+    trustedByThoseWhoDeserveMore: "Нам доверяют те, кто заслуживает большего",
+    trustedByDesc1:
+      "От международных путешественников и публичных персон до предпринимателей, дипломатов и творческих людей — Reluxi является тихой константой во время их пребывания в Москве.",
+    trustedByDesc2:
+      "Они приходят ради репутации, остаются ради душевного спокойствия и возвращаются, потому что никто не понимает их так, как мы.",
+    trustedByDesc3:
+      "Это не просто сервис, который вы пробуете — это сервис, на который вы полагаетесь.",
 
     // Pricing page
     freedom: "Свобода в совершенстве",
@@ -1728,6 +1911,36 @@ const translations: Translations = {
     hotelSelection: "Подбор отелей",
     hotelSelectionDesc:
       "Премиальные услуги по выбору и бронированию отелей для незабываемого пребывания.",
+
+    // Service Category Headings
+    shoppingCategory: "Шоппинг",
+    diningCulinaryCategory: "Рестораны и кулинария",
+    cultureHistoryCategory: "Культура и история",
+    transportCategory: "Транспорт",
+    medicalWellnessCategory: "Медицина и здоровье",
+    nightlifeEventsCategory: "Ночная жизнь и мероприятия",
+    travelSupportCategory: "Поддержка в путешествии",
+    allCategories: "Все",
+    coreServices: "Основные услуги",
+    lifestyleRomantic: "Образ жизни и романтика",
+    familyCultural: "Семья и культура",
+    businessSecurity: "Бизнес и безопасность",
+
+    // Categories for service cards
+    coreCategory: "Основные услуги",
+    shoppingCategory2: "Шоппинг",
+    cultureCategory: "Культура",
+    medicalCategory: "Медицина",
+    transportCategory2: "Транспорт",
+    businessSecurityCategory: "Бизнес и безопасность",
+    lifestyleRomanticCategory: "Образ жизни и романтика",
+    familyCulturalCategory: "Семья и культура",
+
+    // Message concierge
+    messageConcierge: "Связаться с консьержем",
+    contactYourExecutiveAssistant: "Свяжитесь с вашим личным ассистентом",
+    selectPreferredMethod:
+      "Выберите предпочтительный способ связи с вашим персональным ассистентом",
   },
 };
 

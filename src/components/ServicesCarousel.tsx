@@ -74,7 +74,7 @@ export default function ServicesCarousel({
         title: t("premiumFlowerService"),
         description: t("flowerServiceDesc"),
         image: "/Images/flowers.png",
-        category: "Lifestyle & Romantic",
+        category: t("lifestyleRomanticCategory"),
         duration: "Same-day delivery",
         src: "/Images/flowers.png",
         content: (
@@ -96,7 +96,7 @@ export default function ServicesCarousel({
                   title: t("premiumFlowerService"),
                   description: t("flowerServiceDesc"),
                   image: "/Images/flowers.png",
-                  category: "Lifestyle & Romantic",
+                  category: t("lifestyleRomanticCategory"),
                   duration: "Same-day delivery",
                 })
               }
@@ -112,7 +112,7 @@ export default function ServicesCarousel({
         title: t("privateChaufferService"),
         description: t("chaufferServiceDesc"),
         image: "/taxi.jpg",
-        category: "Core Services",
+        category: t("coreCategory"),
         duration: "4h or 8h",
         src: "/taxi.jpg",
         content: (
@@ -134,7 +134,7 @@ export default function ServicesCarousel({
                   title: t("privateChaufferService"),
                   description: t("chaufferServiceDesc"),
                   image: "/taxi.jpg",
-                  category: "Core Services",
+                  category: t("coreCategory"),
                   duration: "4h or 8h",
                 })
               }
@@ -150,7 +150,7 @@ export default function ServicesCarousel({
         title: t("personalShoppingExperience"),
         description: t("shoppingExperienceDesc"),
         image: "/shopping.jpg",
-        category: "Shopping",
+        category: t("shoppingCategory2"),
         duration: "3h",
         src: "/images/shopping_service_1.png",
         content: (
@@ -172,7 +172,7 @@ export default function ServicesCarousel({
                   title: t("personalShoppingExperience"),
                   description: t("shoppingExperienceDesc"),
                   image: "/shopping.jpg",
-                  category: "Shopping",
+                  category: t("shoppingCategory2"),
                   duration: "3h",
                 })
               }
@@ -188,7 +188,7 @@ export default function ServicesCarousel({
         title: t("restaurantReservations"),
         description: t("restaurantReservationsDesc"),
         image: "/restaurant.jpg",
-        category: "Core Services",
+        category: t("coreCategory"),
         src: "/images/restaurant_service_1.jpg",
         content: (
           <div className="space-y-4">
@@ -209,7 +209,7 @@ export default function ServicesCarousel({
                   title: t("restaurantReservations"),
                   description: t("restaurantReservationsDesc"),
                   image: "/restaurant.jpg",
-                  category: "Core Services",
+                  category: t("coreCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -224,7 +224,7 @@ export default function ServicesCarousel({
         title: t("architecturalIcons"),
         description: t("architecturalIconsDesc"),
         image: "/church.jpg",
-        category: "Culture",
+        category: t("cultureCategory"),
         duration: "2h",
         src: "/images/church_service_1.jpg",
         content: (
@@ -248,7 +248,7 @@ export default function ServicesCarousel({
                   title: t("architecturalIcons"),
                   description: t("architecturalIconsDesc"),
                   image: "/church.jpg",
-                  category: "Culture",
+                  category: t("cultureCategory"),
                   duration: "2h",
                 })
               }
@@ -264,7 +264,8 @@ export default function ServicesCarousel({
         title: t("medicalServices"),
         description: t("medicalServicesDesc"),
         image: "/medical.jpg",
-        category: "Medical",
+        category: t("medicalCategory"),
+        duration: "As needed",
         src: "/images/medical_service_1.jpg",
         content: (
           <div className="space-y-4">
@@ -285,7 +286,7 @@ export default function ServicesCarousel({
                   title: t("medicalServices"),
                   description: t("medicalServicesDesc"),
                   image: "/medical.jpg",
-                  category: "Medical",
+                  category: t("medicalCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -300,7 +301,8 @@ export default function ServicesCarousel({
         title: t("securityServices"),
         description: t("securityServicesDesc"),
         image: "/security.jpg",
-        category: "Business & Security",
+        category: t("businessSecurityCategory"),
+        duration: "As needed",
         src: "/images/security_service_1.jpeg",
         content: (
           <div className="space-y-4">
@@ -321,7 +323,7 @@ export default function ServicesCarousel({
                   title: t("securityServices"),
                   description: t("securityServicesDesc"),
                   image: "/security.jpg",
-                  category: "Business & Security",
+                  category: t("businessSecurityCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -336,7 +338,7 @@ export default function ServicesCarousel({
         title: t("taxiBooking"),
         description: t("taxiBookingDesc"),
         image: "/images/taxi_2.jpg",
-        category: "Core Services",
+        category: t("coreCategory"),
         src: "/images/taxi_2.jpg",
         content: (
           <div className="space-y-4">
@@ -357,7 +359,7 @@ export default function ServicesCarousel({
                   title: t("taxiBooking"),
                   description: t("taxiBookingDesc"),
                   image: "/images/taxi_2.jpg",
-                  category: "Core Services",
+                  category: t("coreCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -369,11 +371,13 @@ export default function ServicesCarousel({
       },
       {
         id: "s9",
-        title: t("wellnessBookings"),
-        description: t("wellnessBookingsDesc"),
-        image: "/images/wellness.jpg",
-        category: "Lifestyle & Romantic",
-        src: "/images/wellness.jpg",
+        title: t("familyCultural") + " Experiences",
+        description:
+          "Specially curated family-friendly activities and cultural experiences.",
+        image: "/family.jpg",
+        category: t("familyCulturalCategory"),
+        duration: "As requested",
+        src: "/family.jpg",
         content: (
           <div className="space-y-4">
             <p>
@@ -390,10 +394,11 @@ export default function ServicesCarousel({
               onClick={() =>
                 handleAddToCart({
                   id: "s9",
-                  title: t("wellnessBookings"),
-                  description: t("wellnessBookingsDesc"),
-                  image: "/images/wellness.jpg",
-                  category: "Lifestyle & Romantic",
+                  title: t("familyCultural") + " Experiences",
+                  description:
+                    "Specially curated family-friendly activities and cultural experiences.",
+                  image: "/family.jpg",
+                  category: t("familyCulturalCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -408,7 +413,7 @@ export default function ServicesCarousel({
         title: t("eventPlanning"),
         description: t("eventPlanningDesc"),
         image: "/images/event.jpg",
-        category: "Core Services",
+        category: t("coreCategory"),
         src: "/images/event.jpg",
         content: (
           <div className="space-y-4">
@@ -429,7 +434,7 @@ export default function ServicesCarousel({
                   title: t("eventPlanning"),
                   description: t("eventPlanningDesc"),
                   image: "/images/event.jpg",
-                  category: "Core Services",
+                  category: t("coreCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -444,7 +449,7 @@ export default function ServicesCarousel({
         title: t("romanticEvening"),
         description: t("romanticEveningDesc"),
         image: "/images/romantic.jpg",
-        category: "Lifestyle & Romantic",
+        category: t("lifestyleRomanticCategory"),
         src: "/images/romantic.jpg",
         content: (
           <div className="space-y-4">
@@ -465,7 +470,7 @@ export default function ServicesCarousel({
                   title: t("romanticEvening"),
                   description: t("romanticEveningDesc"),
                   image: "/images/romantic.jpg",
-                  category: "Lifestyle & Romantic",
+                  category: t("lifestyleRomanticCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -481,7 +486,7 @@ export default function ServicesCarousel({
         description:
           "Create unforgettable moments for special relationship milestones.",
         image: "/images/anniversary.png",
-        category: "Lifestyle & Romantic",
+        category: t("lifestyleRomanticCategory"),
         src: "/images/anniversary.png",
         content: (
           <div className="space-y-4">
@@ -503,7 +508,7 @@ export default function ServicesCarousel({
                   description:
                     "Create unforgettable moments for special relationship milestones.",
                   image: "/images/anniversary.png",
-                  category: "Lifestyle & Romantic",
+                  category: t("lifestyleRomanticCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -519,7 +524,7 @@ export default function ServicesCarousel({
         description:
           "Enjoy fine restaurant dining in the comfort of your hotel room.",
         image: "/images/food_delivery.jpg",
-        category: "Lifestyle & Romantic",
+        category: t("lifestyleRomanticCategory"),
         src: "/images/food_delivery.jpg",
         content: (
           <div className="space-y-4">
@@ -541,7 +546,7 @@ export default function ServicesCarousel({
                   description:
                     "Enjoy fine restaurant dining in the comfort of your hotel room.",
                   image: "/images/food_delivery.jpg",
-                  category: "Lifestyle & Romantic",
+                  category: t("lifestyleRomanticCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -557,7 +562,7 @@ export default function ServicesCarousel({
         description:
           "Curated full-day experiences for the whole family to enjoy together.",
         image: "/images/family.jpg",
-        category: "Family & Cultural",
+        category: t("familyCulturalCategory"),
         src: "/images/family.jpg",
         content: (
           <div className="space-y-4">
@@ -579,7 +584,7 @@ export default function ServicesCarousel({
                   description:
                     "Curated full-day experiences for the whole family to enjoy together.",
                   image: "/images/family.jpg",
-                  category: "Family & Cultural",
+                  category: t("familyCulturalCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -595,7 +600,7 @@ export default function ServicesCarousel({
         description:
           "Guided tours to museums, galleries and cultural landmarks with expert commentary.",
         image: "/images/museum.jpg",
-        category: "Family & Cultural",
+        category: t("familyCulturalCategory"),
         src: "/images/museum.jpg",
         content: (
           <div className="space-y-4">
@@ -617,7 +622,7 @@ export default function ServicesCarousel({
                   description:
                     "Guided tours to museums, galleries and cultural landmarks with expert commentary.",
                   image: "/images/museum.jpg",
-                  category: "Family & Cultural",
+                  category: t("familyCulturalCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -633,7 +638,7 @@ export default function ServicesCarousel({
         description:
           "Curated Halal dining experiences at the finest certified restaurants.",
         image: "/images/halal_1.jpg",
-        category: "Family & Cultural",
+        category: t("familyCulturalCategory"),
         src: "/images/halal_1.jpg",
         content: (
           <div className="space-y-4">
@@ -655,7 +660,7 @@ export default function ServicesCarousel({
                   description:
                     "Curated Halal dining experiences at the finest certified restaurants.",
                   image: "/images/halal_1.jpg",
-                  category: "Family & Cultural",
+                  category: t("familyCulturalCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -671,7 +676,7 @@ export default function ServicesCarousel({
         description:
           "Premium tickets and arrangements for concerts, theater, ballet and other performances.",
         image: "/images/ballet.jpg",
-        category: "Family & Cultural",
+        category: t("familyCulturalCategory"),
         src: "/images/ballet.jpg",
         content: (
           <div className="space-y-4">
@@ -693,7 +698,7 @@ export default function ServicesCarousel({
                   description:
                     "Premium tickets and arrangements for concerts, theater, ballet and other performances.",
                   image: "/images/ballet.jpg",
-                  category: "Family & Cultural",
+                  category: t("familyCulturalCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -709,7 +714,7 @@ export default function ServicesCarousel({
         description:
           "Premium meeting spaces for business engagements and professional gatherings.",
         image: "/images/meeting_room.jpg",
-        category: "Business & Security",
+        category: t("businessSecurityCategory"),
         src: "/images/meeting_room.jpg",
         content: (
           <div className="space-y-4">
@@ -731,7 +736,7 @@ export default function ServicesCarousel({
                   description:
                     "Premium meeting spaces for business engagements and professional gatherings.",
                   image: "/images/meeting_room.jpg",
-                  category: "Business & Security",
+                  category: t("businessSecurityCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -747,7 +752,7 @@ export default function ServicesCarousel({
         description:
           "Comprehensive support for your business activities throughout the day.",
         image: "/images/meeting.jpg",
-        category: "Business & Security",
+        category: t("businessSecurityCategory"),
         src: "/images/meeting.jpg",
         content: (
           <div className="space-y-4">
@@ -769,7 +774,7 @@ export default function ServicesCarousel({
                   description:
                     "Comprehensive support for your business activities throughout the day.",
                   image: "/images/meeting.jpg",
-                  category: "Business & Security",
+                  category: t("businessSecurityCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -785,7 +790,7 @@ export default function ServicesCarousel({
         description:
           "Exclusive private jet services for seamless luxury travel.",
         image: "/images/private_jet.jpg",
-        category: "Transport",
+        category: t("transportCategory"),
         src: "/images/private_jet.jpg",
         content: (
           <div className="space-y-4">
@@ -807,7 +812,7 @@ export default function ServicesCarousel({
                   description:
                     "Exclusive private jet services for seamless luxury travel.",
                   image: "/images/private_jet.jpg",
-                  category: "Transport",
+                  category: t("transportCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -823,7 +828,7 @@ export default function ServicesCarousel({
         description:
           "Seamless transportation to and from airports with professional drivers.",
         image: "/images/airport.jpg",
-        category: "Business & Security",
+        category: t("businessSecurityCategory"),
         src: "/images/airport.jpg",
         content: (
           <div className="space-y-4">
@@ -845,7 +850,7 @@ export default function ServicesCarousel({
                   description:
                     "Seamless transportation to and from airports with professional drivers.",
                   image: "/images/airport.jpg",
-                  category: "Business & Security",
+                  category: t("businessSecurityCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -861,7 +866,7 @@ export default function ServicesCarousel({
         description:
           "Premium catering services for events and private gatherings.",
         image: "/images/banquet.jpg",
-        category: "Business & Security",
+        category: t("businessSecurityCategory"),
         src: "/images/banquet.jpg",
         content: (
           <div className="space-y-4">
@@ -883,7 +888,7 @@ export default function ServicesCarousel({
                   description:
                     "Premium catering services for events and private gatherings.",
                   image: "/images/banquet.jpg",
-                  category: "Business & Security",
+                  category: t("businessSecurityCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -898,7 +903,7 @@ export default function ServicesCarousel({
         title: t("hotelSelection"),
         description: t("hotelSelectionDesc"),
         image: "/images/hotel.jpg",
-        category: "Core Services",
+        category: t("coreCategory"),
         src: "/images/hotel.jpg",
         content: (
           <div className="space-y-4">
@@ -920,7 +925,7 @@ export default function ServicesCarousel({
                   title: t("hotelSelection"),
                   description: t("hotelSelectionDesc"),
                   image: "/images/hotel.jpg",
-                  category: "Core Services",
+                  category: t("coreCategory"),
                 })
               }
               className="px-4 py-2 bg-[#D4AF37] hover:bg-[#B8860B] text-black font-medium rounded-md transition-colors"
@@ -962,9 +967,9 @@ export default function ServicesCarousel({
     } else {
       // Map category IDs to the actual service categories
       const categoryMap: { [key: string]: string[] } = {
-        Lifestyle: ["Lifestyle & Romantic"],
-        Family: ["Family & Cultural"],
-        Business: ["Business & Security"],
+        Lifestyle: [t("lifestyleRomanticCategory")],
+        Family: [t("familyCulturalCategory")],
+        Business: [t("businessSecurityCategory")],
       };
 
       // Get the list of service categories for the selected category filter
@@ -989,7 +994,7 @@ export default function ServicesCarousel({
     }
 
     setFilteredServices(filtered);
-  }, [searchQuery, services, activeCategory, isMounted]);
+  }, [searchQuery, services, activeCategory, isMounted, t]);
 
   // Return a loading state if not mounted yet
   if (!isMounted) {

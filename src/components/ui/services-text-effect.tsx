@@ -65,7 +65,7 @@ export const ServicesTextEffect = ({
               key={`second-${word}-${idx}`}
               className={cn(
                 "opacity-0 inline-block mr-4",
-                word.toLowerCase().includes("serve")
+                word.toLowerCase().includes("you")
                   ? "text-[#D4AF37]"
                   : textClassName || "text-white"
               )}

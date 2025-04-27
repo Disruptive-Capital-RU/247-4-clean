@@ -11,6 +11,7 @@ import {
   AlertDialogDescription,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { useLanguage } from "@/lib/LanguageContext";
 
 interface ContactOption {
   id: string;
@@ -22,18 +23,19 @@ interface ContactOption {
 export default function MessageConciergeButton() {
   const [open, setOpen] = useState(false);
   const searchParams = useSearchParams();
-  
+  const { t } = useLanguage();
+
   // Auto-open chat if openChat parameter is present in URL
   useEffect(() => {
-    const openChat = searchParams.get('openChat');
-    if (openChat === 'true') {
+    const openChat = searchParams.get("openChat");
+    if (openChat === "true") {
       setOpen(true);
-      
+
       // Clean up URL parameter after opening
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         const url = new URL(window.location.href);
-        url.searchParams.delete('openChat');
-        window.history.replaceState({}, '', url.toString());
+        url.searchParams.delete("openChat");
+        window.history.replaceState({}, "", url.toString());
       }
     }
   }, [searchParams]);
@@ -226,11 +228,10 @@ export default function MessageConciergeButton() {
         </button>
         <AlertDialogHeader>
           <AlertDialogTitle className="text-2xl font-cormorant font-semibold text-center text-white">
-            Contact Your Executive Assistant
+            {t("contactYourExecutiveAssistant")}
           </AlertDialogTitle>
           <AlertDialogDescription className="text-white/70 text-center">
-            Select your preferred method to reach your personal executive
-            assistant
+            {t("selectPreferredMethod")}
           </AlertDialogDescription>
         </AlertDialogHeader>
 
