@@ -743,7 +743,7 @@ export default function BookingSection() {
 
                         <div className="space-y-2">
                           <Label htmlFor="password" className="text-white">
-                            {safeTranslate("password", "Password")}
+                            {t("password") || "Password"}
                             <span className="text-[#D4AF37] ml-1">*</span>
                           </Label>
                           <Input
@@ -752,9 +752,7 @@ export default function BookingSection() {
                             type="password"
                             value={formData.password}
                             onChange={handleChange}
-                            placeholder={
-                              safeTranslate("enterPassword", "Enter your password")
-                            }
+                            placeholder={t("enterPassword") || "enterPassword"}
                             className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                             required
                             dir={isRTL ? "rtl" : "ltr"}
@@ -766,7 +764,7 @@ export default function BookingSection() {
                       <div className="space-y-6">
                         <div className="space-y-2">
                           <Label htmlFor="contact" className="text-white">
-                            {safeTranslate("phone", "Phone")}
+                            {t("phone") || "Phone"}
                             <span className="text-[#D4AF37] ml-1">*</span>
                           </Label>
                           <Input
@@ -774,9 +772,7 @@ export default function BookingSection() {
                             name="contact"
                             value={formData.contact}
                             onChange={handleChange}
-                            placeholder={
-                              safeTranslate("phoneExample", "+971 55 123 4567")
-                            }
+                            placeholder={t("phoneExample") || "phoneExample"}
                             className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                             required
                             dir={isRTL ? "rtl" : "ltr"}
@@ -788,7 +784,8 @@ export default function BookingSection() {
                             htmlFor="communicationMethod"
                             className="text-white"
                           >
-                            {safeTranslate("preferredCommunication", "Preferred Communication Method")}
+                            {t("preferredCommunication") ||
+                              "preferredCommunication"}
                           </Label>
                           <Select
                             value={formData.communicationMethod}
@@ -805,8 +802,7 @@ export default function BookingSection() {
                             >
                               <SelectValue
                                 placeholder={
-                                  safeTranslate("selectCommunicationMethod", 
-                                  "Select communication method")
+                                  t("selectCommunicationMethod") || "WhatsApp"
                                 }
                               />
                             </SelectTrigger>
@@ -856,7 +852,7 @@ export default function BookingSection() {
 
                         <div className="space-y-2">
                           <Label htmlFor="language" className="text-white">
-                            {safeTranslate("languagePreference", "Language Preference")}
+                            {t("languagePreference") || "languagePreference"}
                           </Label>
                           <Select
                             value={formData.language}
@@ -869,9 +865,7 @@ export default function BookingSection() {
                               dir={isRTL ? "rtl" : "ltr"}
                             >
                               <SelectValue
-                                placeholder={
-                                  safeTranslate("selectLanguage", "Select language")
-                                }
+                                placeholder={t("selectLanguage") || "english"}
                               />
                             </SelectTrigger>
                             <SelectContent
@@ -882,25 +876,25 @@ export default function BookingSection() {
                                 value="english"
                                 className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80"
                               >
-                                {safeTranslate("english", "English")}
+                                {t("english") || "English"}
                               </SelectItem>
                               <SelectItem
                                 value="russian"
                                 className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80"
                               >
-                                {safeTranslate("russian", "Russian")}
+                                {t("russian") || "Russian"}
                               </SelectItem>
                               <SelectItem
                                 value="arabic"
                                 className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80"
                               >
-                                {safeTranslate("arabic", "Arabic")}
+                                {t("arabic") || "Arabic"}
                               </SelectItem>
                               <SelectItem
                                 value="chinese"
                                 className="text-white hover:text-[#D4AF37] focus:text-[#D4AF37] focus:bg-black/80"
                               >
-                                {safeTranslate("chinese", "Chinese")}
+                                {t("chinese") || "Chinese"}
                               </SelectItem>
                             </SelectContent>
                           </Select>
@@ -924,14 +918,14 @@ export default function BookingSection() {
                         htmlFor="terms"
                         className="text-sm text-white leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                       >
-                        {safeTranslate("iHaveReadAgree", "I have read and agree to the terms of the")}{" "}
+                        {t("iHaveReadAgree") || "iHaveReadAgree Offer"}{" "}
                         <a
                           href="/legal/oferta_reluxi1.pdf"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-[#D4AF37] hover:underline"
                         >
-                          {safeTranslate("offer", "offer")}
+                          {t("offer") || ""}
                           <span className="text-[#D4AF37] ml-0.5">*</span>
                         </a>
                       </label>
@@ -950,7 +944,8 @@ export default function BookingSection() {
                       <div className="text-center mb-4">
                         <p className="text-amber-300 text-sm">
                           *{" "}
-                          {safeTranslate("captchaRequired", "Captcha verification is required before submitting")}
+                          {t("captchaRequired") ||
+                            "Captcha verification is required before submitting"}
                         </p>
                       </div>
                     )}

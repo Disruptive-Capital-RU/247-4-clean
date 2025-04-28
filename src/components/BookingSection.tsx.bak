@@ -752,9 +752,7 @@ export default function BookingSection() {
                             type="password"
                             value={formData.password}
                             onChange={handleChange}
-                            placeholder={
-                              safeTranslate("enterPassword", "Enter your password")
-                            }
+                            placeholder={safeTranslate("enterPassword", "Enter your password")}
                             className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                             required
                             dir={isRTL ? "rtl" : "ltr"}
@@ -774,9 +772,7 @@ export default function BookingSection() {
                             name="contact"
                             value={formData.contact}
                             onChange={handleChange}
-                            placeholder={
-                              safeTranslate("phoneExample", "+971 55 123 4567")
-                            }
+                            placeholder={safeTranslate("phoneExample", "+971 55 123 4567")}
                             className="bg-black/60 border border-white/20 text-white placeholder:text-white/50 focus:border-[#D4AF37] hover:border-[#D4AF37]/70 rounded-none h-12"
                             required
                             dir={isRTL ? "rtl" : "ltr"}
@@ -788,7 +784,8 @@ export default function BookingSection() {
                             htmlFor="communicationMethod"
                             className="text-white"
                           >
-                            {safeTranslate("preferredCommunication", "Preferred Communication Method")}
+                            {t("preferredCommunication") ||
+                              "preferredCommunication"}
                           </Label>
                           <Select
                             value={formData.communicationMethod}
@@ -805,8 +802,7 @@ export default function BookingSection() {
                             >
                               <SelectValue
                                 placeholder={
-                                  safeTranslate("selectCommunicationMethod", 
-                                  "Select communication method")
+                                  t("selectCommunicationMethod") || "WhatsApp"
                                 }
                               />
                             </SelectTrigger>
@@ -869,9 +865,7 @@ export default function BookingSection() {
                               dir={isRTL ? "rtl" : "ltr"}
                             >
                               <SelectValue
-                                placeholder={
-                                  safeTranslate("selectLanguage", "Select language")
-                                }
+                                placeholder={safeTranslate("selectLanguage", "Select language")}
                               />
                             </SelectTrigger>
                             <SelectContent
@@ -950,7 +944,8 @@ export default function BookingSection() {
                       <div className="text-center mb-4">
                         <p className="text-amber-300 text-sm">
                           *{" "}
-                          {safeTranslate("captchaRequired", "Captcha verification is required before submitting")}
+                          {t("captchaRequired") ||
+                            "Captcha verification is required before submitting"}
                         </p>
                       </div>
                     )}

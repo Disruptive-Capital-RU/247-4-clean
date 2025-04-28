@@ -788,7 +788,8 @@ export default function BookingSection() {
                             htmlFor="communicationMethod"
                             className="text-white"
                           >
-                            {safeTranslate("preferredCommunication", "Preferred Communication Method")}
+                            {safeTranslate("preferredCommunication", 
+                              "Preferred Communication Method"}
                           </Label>
                           <Select
                             value={formData.communicationMethod}
@@ -806,7 +807,7 @@ export default function BookingSection() {
                               <SelectValue
                                 placeholder={
                                   safeTranslate("selectCommunicationMethod", 
-                                  "Select communication method")
+                                  "Select communication method"
                                 }
                               />
                             </SelectTrigger>
@@ -924,7 +925,8 @@ export default function BookingSection() {
                         htmlFor="terms"
                         className="text-sm text-white leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                       >
-                        {safeTranslate("iHaveReadAgree", "I have read and agree to the terms of the")}{" "}
+                        {safeTranslate("iHaveReadAgree", 
+                          "I have read and agree to the terms of the"}{" "}
                         <a
                           href="/legal/oferta_reluxi1.pdf"
                           target="_blank"
@@ -950,7 +952,8 @@ export default function BookingSection() {
                       <div className="text-center mb-4">
                         <p className="text-amber-300 text-sm">
                           *{" "}
-                          {safeTranslate("captchaRequired", "Captcha verification is required before submitting")}
+                          {safeTranslate("captchaRequired", 
+                            "Captcha verification is required before submitting"}
                         </p>
                       </div>
                     )}
