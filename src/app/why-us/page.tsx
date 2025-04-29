@@ -72,6 +72,7 @@ const AdvantageCard = ({ advantage }: AdvantageCardProps) => {
 export default function WhyUsPage() {
   const { t } = useLanguage();
 
+  // Add fallbacks for all translations to prevent undefined values
   const translatedAdvantages = [
     {
       icon: <FaCalendarCheck className="w-6 h-6" />,
@@ -107,12 +108,12 @@ export default function WhyUsPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-4">
-              {t("whyChooseReluxi") || "Why Choose "}
+              {t("whyChooseReluxi") || "Why Choose"}
               <span className="text-[#D4AF37]"> Reluxi</span>
             </h2>
             <p className="font-dm-sans text-lg text-white/80 max-w-3xl mx-auto">
               {t("whyChooseReluxiDesc") ||
-                "Reluxi is more than a concierge — it&apos;s your trusted presence in a foreign city. With too many options, not enough time, and no one to filter the noise, we&apos;re here to guide, simplify, and support. Our mission is to remove the stress and friction of unfamiliar places, so every moment feels purposeful, cared for, and entirely your own."}
+                "Reluxi is more than a concierge — it's your trusted presence in a foreign city. With too many options, not enough time, and no one to filter the noise, we're here to guide, simplify, and support. Our mission is to remove the stress and friction of unfamiliar places, so every moment feels purposeful, cared for, and entirely your own."}
             </p>
           </div>
 
@@ -157,7 +158,7 @@ export default function WhyUsPage() {
                   </p>
                   <p className="italic">
                     {t("trustedByDesc3") ||
-                      "This isn&apos;t just a service you try — it&apos;s one you come to rely on."}
+                      "This isn't just a service you try — it's one you come to rely on."}
                   </p>
                 </div>
 

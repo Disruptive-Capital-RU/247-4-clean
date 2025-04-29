@@ -270,6 +270,9 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
+            <div className="mr-2">
+              <LanguageSelector />
+            </div>
             <button
               className="flex items-center ml-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -319,9 +322,6 @@ export default function Navigation() {
                 <NavLink href="/dashboard" onClick={() => setIsMenuOpen(false)}>
                   {t("dashboard")}
                 </NavLink>
-                <div className="py-2">
-                  <LanguageSelector />
-                </div>
                 <button
                   onClick={() => {
                     setIsMenuOpen(false);
@@ -340,9 +340,6 @@ export default function Navigation() {
                 <NavLink href="/why-us" onClick={() => setIsMenuOpen(false)}>
                   {t("whyUs")}
                 </NavLink>
-                <div className="py-2">
-                  <LanguageSelector />
-                </div>
                 <button
                   onClick={() => {
                     setIsMenuOpen(false);

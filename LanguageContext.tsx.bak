@@ -912,195 +912,224 @@ const translations: Translations = {
     logout: "退出登录",
     signUp: "注册",
 
+    // Book page hero section
+    bookYour: "预订您的",
+    personalConcierge: "私人礼宾服务",
+    bookingIntro:
+      "您的时间很宝贵。立即开始。与我们分享一些详细信息，我们将立即与您联系，减轻您停留期间的压力。",
+
+    // How it works section individual parts
+    howIt: "运作",
+    works: "方式",
+
+    // Booking form
+    bookingHeader: "您的时间很宝贵。立即开始。",
+    bookingDesc:
+      "只需100美元即可预订您的私人礼宾服务5天。预订后，我们将直接联系您确认到达详情、偏好和优先事项。",
+    fullName: "全名 *",
+    yourName: "您的姓名",
+    email: "电子邮箱 *",
+    yourEmail: "您的电子邮箱",
+    emailHint: "您将使用此电子邮箱登录礼宾服务控制面板",
+    password: "密码 *",
+    enterPassword: "输入您的密码",
+    phone: "电话 *",
+    phoneExample: "+971 55 123 4567",
+    phoneWhatsapp: "电话/WhatsApp *",
+    preferredCommunication: "首选通信方式",
+    selectCommunicationMethod: "选择通信方式",
+    languagePreference: "语言偏好",
+    selectLanguage: "选择语言",
+    arabic: "阿拉伯语",
+    english: "英语",
+    russian: "俄语",
+    chinese: "中文",
+    iAcceptThe: "我接受",
+    termsAndConditions: "条款和条件",
+    and: "和",
+    privacyPolicy: "隐私政策",
+    completeCaptcha: "请完成验证码验证",
+    captchaRequired: "提交前需要验证码验证",
+    validEmailRequired: "请输入有效的电子邮箱地址",
+    passwordMinLength: "密码必须至少为6个字符",
+    acceptTermsRequired: "您必须接受条款和条件才能继续",
+    processing: "处理中...",
+    emailVerificationRequired: "需要电子邮件验证",
+    reserveMyConcierge: "预订我的礼宾服务",
+    iHaveReadAgree: "我已阅读并同意",
+    checkEmailVerification: "请检查您的电子邮件以验证您的账户",
+    verifyEmailPrompt:
+      "请在继续前验证您的电子邮件地址。查看您的收件箱获取确认链接，确认后返回此页面。",
+    bookingHeadline: "您的时间很宝贵。立即开始。",
+    bookingSubheading:
+      "与我们分享一些详细信息，我们将立即与您联系，减轻您停留期间的压力 — 这样您就可以专注于重要的事情，而我们则负责处理其余事宜。",
+    bookYourConcierge: "预订您的礼宾服务",
+    bookYourPersonal:
+      "立即预订您的私人礼宾服务，将您在莫斯科的体验转变为非凡的经历。",
+
+    // How it works section
+    howItWorks: "运作方式",
+    reachOut: "联系我们",
+    reachOutDesc:
+      "向我们发送一条简短消息，告诉我们您需要什么 — 无论是晚餐预订、交通还是帮助规划您的一天。",
+    weConfirm: "我们确认",
+    weConfirmDesc:
+      "您很快会通过您首选的消息应用收到我们的回复。我们将确认请求，询问任何后续问题，并开始安排一切。",
+    secureSimplePayment: "安全简便的付款",
+    secureSimplePaymentDesc:
+      "一旦确定细节，我们将向您发送安全支付链接。付款确认后，您的礼宾服务全天候可用 — 随时准备协助该请求或您可能需要的任何其他事项。",
+    frequentlyAsked: "常见",
+    questions: "问题",
+    feeCoverQuestion: "礼宾费用包含什么？",
+    feeCoverAnswer:
+      "您的礼宾费用涵盖无限制使用真实、专属的全天候助理服务。我们处理一切——从预订晚餐到安排司机或寻找最后一刻的礼物。请注意：实际服务费用（如餐厅账单、交通费用、活动门票）将单独计费，由您直接支付。",
+    extendServiceQuestion: "我可以将礼宾服务延长超过5天吗？",
+    extendServiceAnswer:
+      "是的。如果您开始使用3天计划，您可以以每天39美元的价格添加额外天数。只需告知您的礼宾服务人员——无需填写任何其他内容。",
+    arabicClientsQuestion: "您只为说阿拉伯语的客户服务吗？",
+    arabicClientsAnswer:
+      "完全不是。虽然我们的许多客户来自阿拉伯语区域，但我们的礼宾服务人员精通阿拉伯语、英语、中文和俄语，我们欢迎任何寻求贴心、个性化支持的人。",
+    bookOnBehalfQuestion: "您能代表我预订事项，还是我必须直接支付？",
+    bookOnBehalfAnswer:
+      "我们将为您协调一切——预订、门票、礼品、交通。在大多数情况下，您直接向供应商付款。如有需要，我们可以为您安排预付款或转账。",
+    contactConciergeQuestion: "我如何联系我的礼宾服务人员？",
+    contactConciergeAnswer:
+      "您的礼宾服务人员全天候通过您首选的消息应用程序提供服务——WhatsApp、Telegram、Botim或iMessage。只需发送消息，我们将处理其余事宜。",
+    showMore: "显示更多",
+    transportQuestion: "您能安排豪华或日常交通吗？",
+    transportAnswer:
+      "是的。我们可以安排从豪华轿车服务和配备司机的车辆到可靠的日常出租车——所有这些都基于您的需求、日程安排和偏好。",
+    bookTypesQuestion: "您能为我预订哪些类型的服务？",
+    bookTypesAnswer:
+      "从餐厅、司机和水疗中心到礼品、文化活动、购物支持和私人旅游——我们处理一切。如果对您重要，对我们也同样重要。",
+    needHelpQuestion: "我不确切知道我需要什么——您能帮我决定吗？",
+    needHelpAnswer:
+      "是的。许多客户带着目标或感觉来找我们，而不是完整的计划。只需告诉我们您的想法——浪漫、放松、刺激、高效——我们将策划适合您心情和时间的想法。",
+    notTravelingQuestion: "我不是在旅行——我还能使用您的服务吗？",
+    notTravelingAnswer:
+      "当然可以。无论您住在莫斯科还是只是路过，Reluxi提供按需个人协助，满足日常需求、本地差事或临时计划。",
+    responseTimeQuestion: "您能多快响应请求？",
+    responseTimeAnswer:
+      "我们全天候服务，大多数请求在几分钟内得到确认。无论是最后一刻的晚餐、紧急交通还是即兴想法——我们都已准备就绪。",
+    multipleRequestsQuestion: "我可以同时提出多个请求吗？",
+    multipleRequestsAnswer:
+      "当然。您可以向我们发送任意多的请求——一次性发送或在整个住宿期间分批发送。我们将组织、确定优先级并根据需要跟进。",
+    privacyQuestion: "这项服务有多私密？",
+    privacyAnswer:
+      "谨慎是我们所做一切的基础。无论您是在计划惊喜、协调商务会议，还是只是重视隐私——我们绝不会分享、存储或披露您的个人信息、偏好或日程安排。",
+    refundQuestion: "您的退款政策是什么？",
+    refundAnswer:
+      "由于我们的个性化和时间敏感服务的性质，所有付款都是最终的且不可退款的。我们感谢您的理解，并始终在这里尽可能地进行调整或重新安排。",
+    reserveYourConcierge: "预订您的礼宾服务",
+
     // Hero section
     eliteConciergeService: "",
     alwaysWithYou: "体验莫斯科的现代方式",
-    heroDescription: "我们为您节省搜索和规划的时间。",
-    heroDescription2: "全天候服务，每周7天。",
-    reserveYourConcierge: "预约您的礼宾服务",
+    heroDescription: "我们为您节省数小时的搜索和规划时间。",
+    heroDescription2: "全天候24小时、一周7天为您服务。",
     discoverMore: "探索更多",
 
-    // Why Us page
-    whyUsTitle1: "我们不仅仅提供服务。",
-    whyUsTitle2: "我们提供",
-    certainty: "确定性",
-    whyUsDescription:
-      "您不需要日程表。您需要的是信号。您的礼宾不仅仅是向导——他们是您在异国他乡的可信赖存在。",
-    whyUsQuote: "即使当您远在他方，您仍然贴近我心。",
-    whyUsQuoteSource: "灵感来自Amr Diab的'Tamly Ma'ak'",
+    bookYourPersonal:
+      "立即预订您的私人礼宾服务，将您在莫斯科的体验转变为非凡的经历。",
+
+    // In the CN section, add the missing translations for WhyUs page
     whyChooseReluxi: "为何选择",
     whyChooseReluxiDesc:
-      "Reluxi不仅仅是礼宾服务——它是您在陌生城市中的可信赖存在。面对太多选择、时间不足以及没有人帮您过滤噪音，我们在这里指导、简化和支持。我们的使命是消除陌生地方的压力和摩擦，使每一刻都感到有目的、被关怀，完全属于您自己。",
+      "Reluxi不仅仅是一个礼宾服务 — 它是您在异国城市中值得信赖的存在。在选择过多、时间不足且没有人帮助筛选信息的情况下，我们在这里指导、简化和支持您。我们的使命是消除陌生地方的压力和摩擦，让每一刻都感到有目的、被关爱、完全属于自己。",
     ourServicePhilosophy: "我们的服务",
     philosophy: "理念",
-
-    // Why Us advantages
     alwaysOnSupport: "全天候支持",
     alwaysOnSupportDesc:
-      "我们以速度、关怀和安静的一致性处理您的计划——全天候。我们的大多数客户再也不会在没有我们的情况下旅行。",
+      "我们以速度、关怀和安静的一致性处理您的计划 — 全天候。我们的大多数客户再也不会在没有我们的情况下旅行。",
     effortlessCommunication: "轻松沟通",
     effortlessCommunicationDesc:
-      "大多数客户只需发送一条消息——我们接手处理。没有应用程序、没有电话、没有来回沟通。只有在您需要时提供流畅、即时的支持。",
+      "大多数客户只发送一条消息 — 我们就从那里接手。没有应用程序，没有电话，没有来回。只有在您需要时的顺畅、即时支持。",
     tailoredAccess: "定制访问",
     tailoredAccessDesc:
-      "我们不仅仅预订可用的服务。我们安排能够实现您一直期望的旅行体验——周到而精确。",
-    trustedByThoseWhoDeserveMore: "受那些值得更多的人信赖",
+      "我们不仅仅预订可用的服务。我们安排的是能让您梦想中的旅行变为现实的体验 — 体贴而精确。",
+    trustedByThoseWhoDeserveMore: "值得更多的人所信赖",
     trustedByDesc1:
-      "从国际旅行者和公众人物到企业家、外交官和创意人士——Reluxi是他们在莫斯科期间背后安静的常量。",
+      "从国际旅行者和公众人物到企业家、外交官和创意人士 — Reluxi是他们在莫斯科期间背后安静的常量。",
     trustedByDesc2:
-      "他们因声誉而来，为心灵的平静而留，又因为没有人能像我们一样理解他们而回归。",
-    trustedByDesc3: "这不仅仅是您尝试的服务——而是您开始依赖的服务。",
-
-    // Main service intro
-    serviceMainTitle: "用我们的话说",
-    serviceSubtitle: "预订、规划和提升的服务",
-    serviceIntro:
-      "从可靠的司机和精选的餐饮到个人花卉递送，Reluxi是您在莫斯科的私人助手——处理每一个细节，让您可以轻松地穿梭于城市中，没有任何压力。只需一条消息即可。",
-
-    // Services page
-    ourEliteServices: "我们的精英服务",
-    luxuryServicesForElite: "为精英提供的豪华礼宾服务",
-    howWeServeYou: "我们如何为您服务",
-    howWe: "我们如何",
+      "他们因声誉而来，为内心的平静而留，并因为没有人像我们一样了解他们而回归。",
+    trustedByDesc3: "这不仅仅是您尝试的服务 — 而是您会依赖的服务。",
     serve: "服务",
     you: "您",
-
-    // Service Categories
-    allCategories: "全部",
-    coreServices: "核心服务",
-    lifestyleRomantic: "生活方式与浪漫",
-    familyCultural: "家庭与文化",
-    businessSecurity: "商务与安全",
-    shoppingCategory: "购物",
-    diningCulinaryCategory: "餐饮与美食",
-    cultureHistoryCategory: "文化与历史",
-    transportCategory: "交通",
-    medicalWellnessCategory: "医疗与健康",
-    nightlifeEventsCategory: "夜生活与活动",
-    travelSupportCategory: "旅行支持",
-
-    // Plans
+    howWeServeYou: "我们如何为您服务",
+    howWe: "我们如何",
     freedom: "完美的自由",
     planDescription:
-      "Reluxi提供三种无缝个人支持的方式——无论您在莫斯科停留几天，需要一天特别帮助，还是希望持续获得理解您的人的协助。所有选项都包括全天候可用性、人性化沟通以及每一刻背后的周到协调。",
-
+      "Reluxi提供三种体验无缝、个性化支持的方式——无论您是在莫斯科停留几天，需要一天特殊的帮助，还是希望持续获得理解您的人的支持。所有选项都提供全天候可用性、人性化沟通和每一刻背后的周到协调。",
     oneDayExperience: "一日体验",
     oneDayPrice: "6 500₽ ($75)",
-    designedFor: "适用于",
+    designedFor: "设计适用于",
     oneDayDesignedFor:
-      "特殊场合、商务需求或与家人的优质时光——当一天值得完美安排时。",
+      "特殊场合、商务需求或与家人共度的优质时光——当一天值得完美安排。",
     whatYouGet: "您将获得",
     oneDayWhatYouGet:
-      "根据您的目标定制的一日体验——个人或专业。我们处理预订、时间安排和流程，让您的一天感觉毫不费力。",
-    examplesInclude: "例子包括",
-    oneDayExample1: "浪漫之夜，包括私人交通、晚餐预订和鲜花惊喜",
+      "围绕您个人或专业目标定制的一日体验。我们处理预订、时间安排和流程，让您的一天感觉轻松自如。",
+    examplesInclude: "包括的例子",
+    oneDayExample1: "浪漫的夜晚，包括私人交通、晚餐预订和花卉惊喜",
     oneDayExample2:
-      "家庭日，包括精心策划的活动、文化参观和适合团体的用餐——全部安排得让一天轻松流畅",
-    oneDayExample3: "商务日，包括会议场所预订、餐厅协调和地点间的交通",
-    oneDayExampleFooter: "告诉我们您需要什么样的一天——我们将使其无缝衔接。",
+      "家庭日，包括精心策划的活动、文化参观和适合团体的用餐——所有安排都是为了让这一天流畅进行",
+    oneDayExample3: "商务日，包括会议场地预订、餐厅协调和各地点之间的交通",
+    oneDayExampleFooter: "告诉我们您需要什么样的一天——我们将让它变得无缝。",
     oneDayPlan: "一日计划",
     requestOneDayPlan: "申请一日计划",
-
     mostPopular: "最受欢迎",
     threeDayPlan: "3天礼宾计划",
     threeDayPrice: "11 500₽ ($139)",
     threeDayDesignedFor:
-      "短途旅行、城市休息或希望获得全面支持而无需长期承诺的访客。",
+      "短暂的度假、城市休闲或想要完全支持但无长期承诺的访客。",
     threeDayWhatYouGet:
-      "三天不限量的个性化礼宾协助——随时可用。适合那些希望体验莫斯科最佳而无压力或规划的人。",
+      "三天的无限、个性化礼宾服务——随时可用。适合那些想要在没有压力或计划的情况下体验莫斯科最佳体验的人。",
     includes: "包括",
-    threeDayInclude1: "通过您首选的消息应用全天候访问礼宾",
-    threeDayInclude2: "跨餐饮、交通、健康、活动等的预订和协调",
-    threeDayInclude3: "可以以$39/天添加额外天数——相同服务，相同便捷",
-    threeDayIncludeFooter: "开始您与Reluxi的旅程——体验旅行可以多么轻松。",
+    threeDayInclude1: "通过您首选的消息应用24/7全天候礼宾服务",
+    threeDayInclude2: "跨餐饮、交通、健康、活动等各方面的预订和协调",
+    threeDayInclude3:
+      "可以以每天39美元的价格添加额外天数——相同的服务，相同的便捷",
+    threeDayIncludeFooter: "开始您与Reluxi的旅程——体验旅行可以如何轻松。",
     multiDayPlan: "多日计划",
     startThreeDayPlan: "开始3天计划",
-
     monthlyMembership: "月度会员",
     monthlyPrice: "28 500₽ ($339)/月",
     monthlyDesignedFor:
-      "频繁旅行者、忙碌的专业人士和希望持续访问Reluxi全面支持的城市居民。",
+      "经常旅行的人、忙碌的专业人士和想要持续访问Reluxi全面支持的城市居民。",
     monthlyWhatYouGet:
-      "无限制的月度礼宾访问，配有专属联系人，了解您的偏好并适应您的节奏。",
+      "无限制的月度礼宾服务，配有专属联系人，了解您的偏好并适应您的节奏。",
     monthlyInclude1: "全天候无限制可用",
-    monthlyInclude2: "跨日常生活、旅行、餐饮等的个性化规划",
+    monthlyInclude2: "跨日常生活、旅行、餐饮等方面的个性化规划",
     monthlyInclude3: "跨多次旅行或持续需求的一致护理和服务",
-    monthlyIncludeFooter: "享受持续、提升的支持——无论您需要我们多频繁。",
+    monthlyIncludeFooter: "享受持续、高级的支持——无论您需要我们多少次。",
     membership: "会员",
     becomeAMember: "成为会员",
-
-    // Service offerings
-    privateTransport: "私人交通",
-    privateTransportDesc:
-      "从豪华汽车到可靠的出租车，我们提供符合您的节奏、舒适度和隐私需求的交通服务——无论白天还是黑夜。",
-    diningArrangements: "餐饮安排",
-    diningArrangementsDesc:
-      "从最佳餐厅的预订到送餐到您的酒店——所有安排都符合您的口味和时间安排。",
-    dayPlanning: "日程规划和个人时间表",
-    dayPlanningDesc:
-      "您的一天，精心安排——从第一步到最后的计划，细心的关怀让这座城市感觉像您自己的。",
-    healthWellness: "健康与养生",
-    healthWellnessDesc:
-      "我们为您连接顶级水疗中心、诊所和专家——根据您的舒适度、隐私和日程安排进行访问安排。",
-    vipShopping: "贵宾购物",
-    vipShoppingDesc:
-      "精选莫斯科顶级精品店——为您提供个人化的造型支持、隐私保护和无缝购物体验。",
-    culturalExperiences: "文化体验",
-    culturalExperiencesDesc:
-      "莫斯科地标和隐藏宝藏的私人导览——由会说您的语言的内部人士指导。",
-    eveningAccess: "夜间活动和社交",
-    eveningAccessDesc: "从独家休息室到网上找不到的精致社交聚会。",
-    security: "安保服务",
-    securityDesc: "根据需要安排的个人保护——适用于隐私和心灵平静最重要的时刻。",
-    gifting: "礼品和心意",
-    giftingDesc: "鲜花、小礼品或有意义的心意——完美送达。",
-
     quickRequests: "快速请求",
-    oneTaskHandledFast: "一个任务，快速处理",
+    oneTaskHandledFast: "一项任务，快速处理",
     quickRequestsDescription:
-      "发送您的请求——我们将确认您的请求，并收取固定费用。非常适合突发需求或第一次尝试Reluxi的用户——一次发送一条消息。",
-    howItWorks: "如何运作",
-    quickRequestsHowItWorks: "按请求付费的礼宾服务——不需要计划",
-    commissionFee: "佣金费用",
-    quickRequestsFee: "500₽ ($5) 每完成一次请求",
+      "发短信告诉我们您的请求——我们将以5美元的固定佣金确认。适合自发需求或想要一次尝试Reluxi的首次用户——一次一条消息。",
+    quickRequestsHowItWorks: "按请求付费的礼宾服务——无需计划",
+    commissionFee: "佣金",
+    quickRequestsFee: "每个完成的请求500₽($5)",
     idealFor: "适合",
     quickRequestsIdealFor: "一次性预订（例如，餐厅、交通、活动门票、快递）",
     deliveryTime: "交付时间",
-    quickRequestsDeliveryTime: "所有安排在几分钟内完成——流畅、快速且实时确认",
+    quickRequestsDeliveryTime: "所有安排在几分钟内完成——流畅、快速，并实时确认",
     requestABooking: "请求预订",
-
-    readyToEnjoyTrip: "准备好真正享受旅程——无需浪费时间和精力？",
+    readyToEnjoyTrip: "准备真正享受您的旅行——不浪费时间或精力？",
     reluxiSavesYouHours:
-      "Reluxi为您节省了搜索和规划的时间。您专注于体验——我们会处理其他一切。",
-
-    // Dashboard page
-    welcomeUser: "欢迎回来",
-    valuedClient: "重要客户",
-    personalConciergeService: "您的私人礼宾服务就在您身边。",
-    youHave: "您有",
-    days: "天",
-    remainingConciergeBooking: "您的礼宾预订剩余",
-    moscowWeather: "莫斯科天气",
-    manageProfile: "管理个人资料",
-    yourPreviousRequests: "您之前的请求",
-    serviceLabel: "服务",
-    categoryLabel: "类别",
-    quantityLabel: "数量",
-    statusLabel: "状态",
-    dateLabel: "日期",
-    browseAndBookServices: "浏览和预订服务",
-    // Golden button section
-    goldenButton: "将Reluxi添加到您的主屏幕",
-    goldenButtonDesc:
-      "这不仅仅是一个按钮——这是您直接连接到奢华、谨慎和城市最佳服务的通道。一触即可连接到您的私人礼宾，日夜可用。",
-    yourGoldenButton: "您的金色按钮",
-
-    // Dashboard access
-    accessDashboard: "访问您的个人礼宾控制面板",
-    dashboardDesc: "管理服务、探索体验并直接与您的礼宾联系",
-    dashboardButton: "控制面板",
-
-    // ... existing code ...
+      "Reluxi为您节省搜索和规划的时间。您专注于体验——我们处理其他一切。",
+    personalTravelAssistant: "体验莫斯科的现代方式",
+    footerTagline: '"始终与您同在。即使世界不是。"',
+    footerNavigation: "导航",
+    footerLegal: "法律",
+    footerPrivacyPolicy: "隐私政策",
+    termsOfService: "服务条款",
+    faq: "常见问题",
+    footerContact: "联系",
+    phoneNumber: "+7 (916) 066-5133",
+    emailAddress: "my@reluxi.com",
+    copyright: " 2025 Reluxi礼宾服务。保留所有权利。",
+    footerPoweredBy: "由保密驱动，建立在信任之上，受卓越启发。",
   },
 
   RU: {
@@ -1117,68 +1146,6 @@ const translations: Translations = {
     dashboard: "Панель управления",
     logout: "Выйти",
     signUp: "Регистрация",
-
-    // Main service intro
-    serviceMainTitle: "Нашими словами",
-    serviceSubtitle: "Сервис с присутствием, силой и точностью",
-    serviceIntro:
-      "Reluxi — это ваш личный портал ко всему, что предлагает Москва — без шума, задержек или компромиссов. Мы специализируемся на предугадывании ваших желаний еще до того, как вы их выразите.",
-
-    // Service offerings
-    privateTransport: "Частный транспорт",
-    privateTransportDesc:
-      "От роскошных автомобилей до надежных такси, мы организуем транспорт, соответствующий вашему темпу, комфорту и приватности — днем или ночью.",
-    diningArrangements: "Организация питания",
-    diningArrangementsDesc:
-      "От бронирования в лучших ресторанах до доставки еды в ваш отель — все организовано в соответствии с вашим вкусом и расписанием.",
-    dayPlanning: "Планирование дня и персональное расписание",
-    dayPlanningDesc:
-      "Ваш день, тщательно организованный — от первых шагов до последних планов, с заботой, которая делает город как будто вашим собственным.",
-    culturalExperiences: "Культурные впечатления",
-    culturalExperiencesDesc:
-      "Частные экскурсии по достопримечательностям Москвы и ее скрытым сокровищам — под руководством знающих людей, говорящих на вашем языке.",
-    eveningAccess: "Вечерний доступ и мероприятия",
-    eveningAccessDesc:
-      "От эксклюзивных залов до высококлассных социальных собраний, которые вы не найдете в интернете.",
-    security: "Безопасность",
-    securityDesc:
-      "Персональная защита, организованная по запросу — для моментов, когда конфиденциальность и спокойствие имеют наибольшее значение.",
-    gifting: "Подарки и знаки внимания",
-    giftingDesc:
-      "Цветы, небольшие подарки или значимые жесты — доставлены безупречно.",
-    vipShopping: "VIP шоппинг",
-    vipShoppingDesc:
-      "Эксклюзивный доступ к самым изысканным магазинам Москвы. Русскоговорящие консультанты по моде. Эксклюзивные встречи.",
-    highEndDining: "Высокая кухня",
-    highEndDiningDesc:
-      "Гарантированные столики в самых востребованных ресторанах Москвы. Шеф-повара, готовые удовлетворить ваши предпочтения.",
-    chauffeuredVehicles: "Автомобили с водителем",
-    chauffeuredVehiclesDesc:
-      "Черные Mercedes S-класса, Maybach. Профессионально обученные водители. Полная конфиденциальность. Почасовая или дневная оплата.",
-    privateCulturalTours: "Частные культурные туры",
-    privateCulturalToursDesc:
-      "Доступ к дворцам, музеям и культурным объектам с элитными гидами и переводчиками.",
-    personalProtection: "Личная защита",
-    personalProtectionDesc:
-      "Обученная исполнительная защита по запросу. Для тех, чья конфиденциальность и безопасность не подлежат компромиссу.",
-    healthWellness: "Здоровье и благополучие",
-    healthWellnessDesc:
-      "Эксклюзивные клиники, VIP-доступ к медицинскому обслуживанию, специалистам по красоте и спа-восстановлению — без очередей.",
-    nightlifeEvents: "Ночная жизнь и мероприятия",
-    nightlifeEventsDesc:
-      "Доступ к закрытым кругам, высшим общественным собраниям и событиям, недоступным для обычных туристов.",
-
-    // Golden button section
-    goldenButton: "Добавьте Reluxi на главный экран",
-    goldenButtonDesc:
-      "Это больше, чем просто кнопка — это ваша прямая линия к роскоши, превосходству и лучшему, что может предложить город. Одно касание связывает вас с вашим персональным консьержем, доступным днем и ночью.",
-    yourGoldenButton: "Ваша золотая кнопка",
-
-    // Dashboard access
-    accessDashboard: "Доступ к вашей персональной панели консьержа",
-    dashboardDesc:
-      "Управляйте услугами, исследуйте впечатления и напрямую общайтесь с вашим консьержем",
-    dashboardButton: "Панель управления",
 
     // Book page hero section
     bookYour: "Забронируйте",
@@ -1304,6 +1271,8 @@ const translations: Translations = {
     heroDescription: "Мы экономим ваше время на поиск и планирование.",
     heroDescription2: "Доступны 24 часа в сутки, 7 дней в неделю.",
     discoverMore: "Узнать больше",
+
+    bookingHeadline: "Ваше время драгоценно. Начните сейчас.",
 
     // In the RU section, add the missing translations for WhyUs page
     whyChooseReluxi: "Почему",

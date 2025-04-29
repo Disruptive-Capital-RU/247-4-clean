@@ -79,11 +79,8 @@ export default function HeroSection() {
               className="font-dm-sans inline-block px-7 py-3 border border-[#D4AF37] text-[#D4AF37] bg-black/60 font-medium text-base rounded-sm transition-all duration-300 hover:bg-[#D4AF37] hover:text-black capitalize"
               style={{ minWidth: "180px" }}
             >
-              <span className="block leading-tight font-dm-sans text-base capitalize">
-                {t("reserve") + " " + t("your")}
-              </span>
               <span className="block font-dm-sans text-base capitalize">
-                {t("concierge")}
+                {t("reserveYourConcierge")}
               </span>
             </Link>
           </motion.div>
