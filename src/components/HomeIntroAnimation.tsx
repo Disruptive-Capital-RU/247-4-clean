@@ -101,75 +101,7 @@ export default function HomeIntroAnimation({
       />
 
       {/* New decorative elements - Arabic-inspired star patterns */}
-      <motion.div
-        className={`absolute ${isMobile ? "w-36 h-36" : "w-56 h-56"} ${
-          isMobile ? "left-[12%]" : "left-[18%]"
-        } ${isMobile ? "top-[18%]" : "top-[22%]"} opacity-40`}
-        initial={{ opacity: 0, scale: 0.5, rotate: -45 }}
-        animate={{ opacity: 0.4, scale: 1, rotate: 0 }}
-        transition={{ duration: 1.5, delay: 1.8, ease: "easeOut" }}
-      >
-        <svg
-          viewBox="0 0 100 100"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full"
-        >
-          <motion.path
-            d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z"
-            stroke="#D4AF37"
-            strokeWidth="0.8"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 1.8 }}
-          />
-          <motion.path
-            d="M50 15 L57.5 42.5 L85 50 L57.5 57.5 L50 85 L42.5 57.5 L15 50 L42.5 42.5 Z"
-            stroke="#D4AF37"
-            strokeWidth="0.5"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 2.2 }}
-          />
-        </svg>
-      </motion.div>
-
-      <motion.div
-        className={`absolute ${isMobile ? "w-36 h-36" : "w-56 h-56"} ${
-          isMobile ? "right-[12%]" : "right-[18%]"
-        } ${isMobile ? "top-[18%]" : "top-[22%]"} opacity-40`}
-        initial={{ opacity: 0, scale: 0.5, rotate: 45 }}
-        animate={{ opacity: 0.4, scale: 1, rotate: 0 }}
-        transition={{ duration: 1.5, delay: 2, ease: "easeOut" }}
-      >
-        <svg
-          viewBox="0 0 100 100"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full"
-        >
-          <motion.path
-            d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z"
-            stroke="#D4AF37"
-            strokeWidth="0.8"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 2 }}
-          />
-          <motion.path
-            d="M50 15 L57.5 42.5 L85 50 L57.5 57.5 L50 85 L42.5 57.5 L15 50 L42.5 42.5 Z"
-            stroke="#D4AF37"
-            strokeWidth="0.5"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 2.4 }}
-          />
-        </svg>
-      </motion.div>
+      {/* Star patterns removed as per request */}
 
       {/* New central decorative element - Arabesque pattern */}
       <motion.div
