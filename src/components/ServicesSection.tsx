@@ -193,7 +193,7 @@ export default function ServicesSection() {
                 src="/images/castle.jpg"
                 alt="Castle background"
                 fill
-                className="object-cover object-[30%_top] md:object-[75%_top]"
+                className="object-cover object-[30%_top] md:object-[75%_top] brightness-50"
                 priority
                 loading="eager"
                 sizes="(max-width: 768px) 100vw, 75vw"
