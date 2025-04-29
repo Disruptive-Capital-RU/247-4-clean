@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 
 export const ContainerScroll = ({
@@ -12,17 +12,27 @@ export const ContainerScroll = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
+    offset: ["start end", "end start"],
   });
-  const [isMobile, setIsMobile] = React.useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
     checkMobile();
-    window.addEventListener("resize", checkMobile);
+
+    // Use a throttled resize listener to avoid frequent updates
+    let resizeTimer: NodeJS.Timeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(checkMobile, 100);
+    };
+
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener("resize", checkMobile);
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(resizeTimer);
     };
   }, []);
 
@@ -30,13 +40,14 @@ export const ContainerScroll = ({
     return isMobile ? [0.7, 0.9] : [1.05, 1];
   };
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  // Use a smaller range for the transform to reduce computational work
+  const rotate = useTransform(scrollYProgress, [0.2, 0.8], [20, 0]);
+  const scale = useTransform(scrollYProgress, [0.2, 0.8], scaleDimensions());
+  const translate = useTransform(scrollYProgress, [0.2, 0.8], [0, -100]);
 
   return (
     <div
-      className="h-auto md:h-[80rem] min-h-[55rem] flex items-center justify-center relative p-0 md:p-6"
+      className="h-auto md:h-[80rem] min-h-[55rem] flex items-center justify-center relative p-0 md:p-6 will-change-transform"
       ref={containerRef}
     >
       <div
@@ -60,7 +71,7 @@ export const Header = ({ translate, titleComponent }: any) => {
       style={{
         translateY: translate,
       }}
-      className="div max-w-full px-4 mx-auto text-center"
+      className="div max-w-full px-4 mx-auto text-center will-change-transform"
     >
       {titleComponent}
     </motion.div>
@@ -70,6 +81,7 @@ export const Header = ({ translate, titleComponent }: any) => {
 export const Card = ({
   rotate,
   scale,
+  translate,
   children,
 }: {
   rotate: MotionValue<number>;
@@ -83,9 +95,9 @@ export const Card = ({
         rotateX: rotate,
         scale,
         boxShadow:
-          "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
+          "0 9px 20px rgba(0, 0, 0, 0.29), 0 37px 37px rgba(0, 0, 0, 0.26)",
       }}
-      className="max-w-full -mt-6 md:-mt-12 mx-auto h-auto md:h-[40rem] aspect-[16/10] md:aspect-auto w-full border-4 border-[#6C6C6C] p-1 md:p-4 bg-[#222222] rounded-[30px] shadow-2xl"
+      className="max-w-full -mt-6 md:-mt-12 mx-auto h-auto md:h-[40rem] aspect-[16/10] md:aspect-auto w-full border-4 border-[#6C6C6C] p-1 md:p-4 bg-[#222222] rounded-[30px] shadow-2xl will-change-transform"
     >
       <div className="h-full w-full overflow-hidden rounded-2xl bg-black md:rounded-2xl p-0">
         {children}

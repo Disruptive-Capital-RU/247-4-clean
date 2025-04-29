@@ -182,36 +182,40 @@ export default function ServicesSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="mb-16 relative overflow-hidden rounded-2xl -mx-4 md:-mx-6 lg:-mx-8"
         >
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-black" />{" "}
-            {/* Black base background */}
+            <div className="absolute inset-0 bg-black" />
             <div className="absolute top-0 right-0 bottom-0 w-3/5 md:w-2/3 lg:w-4/5">
-              <div className="absolute inset-0 bg-[url('/images/castle.jpg')] bg-cover bg-[position:30%_top] md:bg-[position:75%_top] right-0" />{" "}
-              {/* Image positioned further right */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/20 to-transparent" />{" "}
-              {/* Even lighter gradient */}
+              {/* Optimize image loading with priority and loading="eager" */}
+              <Image
+                src="/images/castle.jpg"
+                alt="Castle background"
+                fill
+                className="object-cover object-[30%_top] md:object-[75%_top]"
+                priority
+                loading="eager"
+                sizes="(max-width: 768px) 100vw, 75vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/20 to-transparent" />
             </div>
           </div>
           <div className="relative z-10 container mx-auto flex flex-col items-start text-left min-h-[80vh] py-32">
-            <div className="max-w-lg pl-4 md:pl-6">
+            <div className="max-w-sm sm:max-w-md md:max-w-lg pl-3 md:pl-6">
               <h2
                 className="text-3xl md:text-4xl lg:text-5xl font-cormorant font-bold text-white mb-6"
                 style={{
-                  textShadow:
-                    "0 5px 15px #000, 0 0 20px #000, 0 0 40px #000, 0 0 60px #000, 0 0 80px #000, 0 0 100px #000, 0 0 120px #000, 0 0 140px #000",
+                  textShadow: "0 5px 15px #000, 0 0 20px #000",
                 }}
               >
                 {t("serviceSubtitle")}
               </h2>
               <p
-                className="font-dm-sans text-lg font-semibold"
+                className="font-dm-sans text-lg pr-2 sm:pr-4 md:pr-0"
                 style={{
                   color: "#ffffff",
-                  textShadow:
-                    "0 5px 10px #000, 0 0 25px #000, 0 0 35px #000, 0 0 45px #000, 0 0 55px #000, 0 0 65px #000, 0 0 75px #000",
+                  textShadow: "0 2px 4px #000, 0 0 10px #000",
                 }}
               >
                 {t("serviceIntro")}
@@ -261,6 +265,10 @@ export default function ServicesSection() {
                   className="w-full h-full object-fill md:object-cover"
                   style={{ height: "calc(100% + 10px)" }}
                   priority
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="sync"
                 />
               </div>
             </div>

@@ -1,22 +1,36 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/LanguageContext";
 
 export default function HeroSection() {
   const { t } = useLanguage();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Force play the video on component mount
+    if (videoRef.current) {
+      videoRef.current.play().catch((error) => {
+        console.error("Error attempting to play video:", error);
+      });
+    }
+  }, []);
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
       {/* Video Background */}
       <video
+        ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover opacity-70"
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
+        disablePictureInPicture
+        disableRemotePlayback
       >
         <source
           src="/videos/5058324-uhd_3840_2160_25fps.mp4"
@@ -36,7 +50,9 @@ export default function HeroSection() {
           className="max-w-4xl mx-auto"
         >
           <h1 className="font-cormorant text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 text-white">
-            <span className="block text-[#D4AF37] text-5xl md:text-7xl lg:text-8xl">Reluxi</span>
+            <span className="block text-[#D4AF37] text-5xl md:text-7xl lg:text-8xl">
+              Reluxi
+            </span>
             <span className="text-2xl md:text-3xl lg:text-4xl font-normal block mt-4">
               {t("alwaysWithYou")}
             </span>
@@ -61,10 +77,14 @@ export default function HeroSection() {
             <Link
               href="/book"
               className="font-dm-sans inline-block px-7 py-3 border border-[#D4AF37] text-[#D4AF37] bg-black/60 font-medium text-base rounded-sm transition-all duration-300 hover:bg-[#D4AF37] hover:text-black capitalize"
-              style={{ minWidth: '180px' }}
+              style={{ minWidth: "180px" }}
             >
-              <span className="block leading-tight font-dm-sans text-base capitalize">{t("reserve") + " " + t("your")}</span>
-              <span className="block font-dm-sans text-base capitalize">{t("concierge")}</span>
+              <span className="block leading-tight font-dm-sans text-base capitalize">
+                {t("reserve") + " " + t("your")}
+              </span>
+              <span className="block font-dm-sans text-base capitalize">
+                {t("concierge")}
+              </span>
             </Link>
           </motion.div>
         </motion.div>
