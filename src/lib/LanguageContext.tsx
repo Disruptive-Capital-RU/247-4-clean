@@ -162,7 +162,7 @@ const translations: Translations = {
 
     mostPopular: "Most Popular",
     threeDayPlan: "3-Day Concierge Plan",
-    threeDayPrice: "11,500₽ (~$139)",
+    threeDayPrice: "10,500₽ (~$129)",
     threeDayDesignedFor:
       "Short getaways, city breaks, or visitors who want complete support without long-term commitment.",
     threeDayWhatYouGet:
@@ -699,7 +699,7 @@ const translations: Translations = {
 
     mostPopular: "الأكثر شعبية",
     threeDayPlan: "خطة كونسيرج لمدة 3 أيام",
-    threeDayPrice: "11,500₽ (~$139)",
+    threeDayPrice: "10,500₽ (~$129)",
     threeDayDesignedFor:
       "رحلات قصيرة، استراحات في المدينة، أو زوار يريدون دعمًا كاملًا بدون التزام طويل الأمد.",
     threeDayWhatYouGet:
@@ -1003,7 +1003,7 @@ const translations: Translations = {
 
     mostPopular: "最受欢迎",
     threeDayPlan: "3天礼宾计划",
-    threeDayPrice: "11,500₽ (~$139)",
+    threeDayPrice: "10,500₽ (~$129)",
     threeDayDesignedFor:
       "短途旅行、城市休息或希望获得全面支持而无需长期承诺的访客。",
     threeDayWhatYouGet:
@@ -1355,7 +1355,7 @@ const translations: Translations = {
     requestOneDayPlan: "Запросить однодневный план",
     mostPopular: "Самый популярный",
     threeDayPlan: "3-дневный план консьержа",
-    threeDayPrice: "11,500₽ (~$139)",
+    threeDayPrice: "10,500₽ (~$129)",
     threeDayDesignedFor:
       "Короткие поездки, городские перерывы или посетители, которые хотят полную поддержку без долгосрочных обязательств.",
     threeDayWhatYouGet:
