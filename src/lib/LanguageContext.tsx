@@ -40,11 +40,6 @@ const translations: Translations = {
     dashboard: "Dashboard",
     logout: "Log Out",
     offer: "Offer",
-    emailLoginPrompt: "Please enter the email you used when booking your concierge service.",
-    yourEmailAddress: "Your Email Address",
-    yourPassword: "Your Password",
-    enterPassword: "Enter the password you used during registration",
-    continue: "Continue",
 
     // Pricing page
     freedom: "Freedom, Perfected",
@@ -146,14 +141,14 @@ const translations: Translations = {
     serve: "Serve",
     you: "You",
     oneDayExperience: "One-Day Experience",
-    oneDayPrice: "6 500₽ ($75)",
-    designedFor: "Designed For",
+    oneDayPrice: "4,850₽ (~$59)",
+    designedFor: "Ideal for",
     oneDayDesignedFor:
       "Special occasions, business needs, or quality time with family — when one day deserves to be perfectly handled.",
-    whatYouGet: "What You Get",
+    whatYouGet: "What's included",
     oneDayWhatYouGet:
       "A curated one-day experience tailored around your goals — personal or professional. We handle the bookings, timing, and flow so your day feels effortless.",
-    examplesInclude: "Examples Include",
+    examplesInclude: "Frequent Requests",
     oneDayExample1:
       "A romantic evening with private transport, dinner reservations, and a floral surprise",
     oneDayExample2:
@@ -167,13 +162,13 @@ const translations: Translations = {
 
     mostPopular: "Most Popular",
     threeDayPlan: "3-Day Concierge Plan",
-    threeDayPrice: "11 500₽ ($139)",
+    threeDayPrice: "11,500₽ (~$139)",
     threeDayDesignedFor:
       "Short getaways, city breaks, or visitors who want complete support without long-term commitment.",
     threeDayWhatYouGet:
       "Three full days of unlimited, personalized concierge assistance — available at any hour. Ideal for those who want to experience the best of Moscow without stress or planning.",
     includes: "Includes",
-    threeDayInclude1: "24/7 concierge access via your preferred messaging app",
+    threeDayInclude1: "Concierge support for three full days, available 24/7",
     threeDayInclude2:
       "Booking & coordination across dining, transport, wellness, events, and more",
     threeDayInclude3:
@@ -184,12 +179,12 @@ const translations: Translations = {
     startThreeDayPlan: "Start 3-Day Plan",
 
     monthlyMembership: "Monthly Membership",
-    monthlyPrice: "28 500₽ ($339)/month",
+    monthlyPrice: "33,000₽ (~$399/month)",
     monthlyDesignedFor:
       "Frequent travelers, busy professionals, and city residents who want continuous access to Reluxi's full support.",
     monthlyWhatYouGet:
       "Unlimited monthly concierge access with a dedicated point of contact who learns your preferences and adapts to your rhythm.",
-    monthlyInclude1: "24/7 availability with no limitations",
+    monthlyInclude1: "A dedicated assistant familiar with your preferences",
     monthlyInclude2:
       "Personalized planning across daily life, travel, dining, and more",
     monthlyInclude3:
@@ -289,7 +284,7 @@ const translations: Translations = {
       "Your concierge fee covers unlimited access to a real, dedicated assistant available 24/7. We handle everything — from booking your dinner to securing a driver or sourcing a last-minute gift. Please note: actual service costs (e.g., restaurant bill, transport fare, event tickets) are billed separately and paid directly by you.",
     extendServiceQuestion: "Can I extend my concierge service beyond 5 days?",
     extendServiceAnswer:
-      "Yes. If you started with the 3-Day Plan, you can add extra days at $39/day. Just let your concierge know — no need to fill out anything else.",
+      "Yes. If you started with the 3-Day Plan, you can add extra days at 3,200₽ (~$39/day). Just let your concierge know — no need to fill out anything else.",
     arabicClientsQuestion: "Do you only work with Arabic-speaking clients?",
     arabicClientsAnswer:
       "Not at all. While many of our clients come from Arabic-speaking regions, our concierges are fluent in Arabic, English, Chinese, and Russian, and we welcome anyone looking for thoughtful, personal support.",
@@ -684,7 +679,7 @@ const translations: Translations = {
     serve: "نخدم",
     you: "ك",
     oneDayExperience: "تجربة ليوم واحد",
-    oneDayPrice: "6 500₽ ($75)",
+    oneDayPrice: "4,850₽ (~$59)",
     designedFor: "مصممة لـ",
     oneDayDesignedFor:
       "المناسبات الخاصة، والاحتياجات التجارية، أو قضاء وقت جيد مع العائلة — عندما يستحق يوم واحد أن يتم التعامل معه بشكل مثالي.",
@@ -704,7 +699,7 @@ const translations: Translations = {
 
     mostPopular: "الأكثر شعبية",
     threeDayPlan: "خطة كونسيرج لمدة 3 أيام",
-    threeDayPrice: "11 500₽ ($139)",
+    threeDayPrice: "11,500₽ (~$139)",
     threeDayDesignedFor:
       "رحلات قصيرة، استراحات في المدينة، أو زوار يريدون دعمًا كاملًا بدون التزام طويل الأمد.",
     threeDayWhatYouGet:
@@ -721,7 +716,7 @@ const translations: Translations = {
     startThreeDayPlan: "بدء خطة 3 أيام",
 
     monthlyMembership: "العضوية الشهرية",
-    monthlyPrice: "28 500₽ ($339)/شهر",
+    monthlyPrice: "33,000₽ (~$399)/شهر",
     monthlyDesignedFor:
       "المسافرون المتكررون والمهنيون المشغولون وسكان المدينة الذين يريدون وصولًا مستمرًا إلى الدعم الكامل من ريلوكسي.",
     monthlyWhatYouGet:
@@ -990,7 +985,7 @@ const translations: Translations = {
       "Reluxi提供三种无缝个人支持的方式——无论您在莫斯科停留几天，需要一天特别帮助，还是希望持续获得理解您的人的协助。所有选项都包括全天候可用性、人性化沟通以及每一刻背后的周到协调。",
 
     oneDayExperience: "一日体验",
-    oneDayPrice: "6 500₽ ($75)",
+    oneDayPrice: "4,850₽ (~$59)",
     designedFor: "适用于",
     oneDayDesignedFor:
       "特殊场合、商务需求或与家人的优质时光——当一天值得完美安排时。",
@@ -1008,7 +1003,7 @@ const translations: Translations = {
 
     mostPopular: "最受欢迎",
     threeDayPlan: "3天礼宾计划",
-    threeDayPrice: "11 500₽ ($139)",
+    threeDayPrice: "11,500₽ (~$139)",
     threeDayDesignedFor:
       "短途旅行、城市休息或希望获得全面支持而无需长期承诺的访客。",
     threeDayWhatYouGet:
@@ -1022,7 +1017,7 @@ const translations: Translations = {
     startThreeDayPlan: "开始3天计划",
 
     monthlyMembership: "月度会员",
-    monthlyPrice: "28 500₽ ($339)/月",
+    monthlyPrice: "33,000₽ (~$399)/月",
     monthlyDesignedFor:
       "频繁旅行者、忙碌的专业人士和希望持续访问Reluxi全面支持的城市居民。",
     monthlyWhatYouGet:
@@ -1340,7 +1335,7 @@ const translations: Translations = {
     planDescription:
       "Reluxi предлагает три способа получения безупречной, персональной поддержки — независимо от того, останавливаетесь ли вы в Москве на несколько дней, нуждаетесь в помощи на один особенный день или хотите постоянного доступа к человеку, который вас понимает. Все варианты включают круглосуточную доступность, человеческое общение и продуманную координацию каждого момента.",
     oneDayExperience: "Однодневный опыт",
-    oneDayPrice: "6 500₽ ($75)",
+    oneDayPrice: "4,850₽ (~$59)",
     designedFor: "Разработано для",
     oneDayDesignedFor:
       "Особые случаи, деловые потребности или качественное время с семьей — когда один день заслуживает идеальной организации.",
@@ -1360,7 +1355,7 @@ const translations: Translations = {
     requestOneDayPlan: "Запросить однодневный план",
     mostPopular: "Самый популярный",
     threeDayPlan: "3-дневный план консьержа",
-    threeDayPrice: "11 500₽ ($139)",
+    threeDayPrice: "11,500₽ (~$139)",
     threeDayDesignedFor:
       "Короткие поездки, городские перерывы или посетители, которые хотят полную поддержку без долгосрочных обязательств.",
     threeDayWhatYouGet:
@@ -1377,7 +1372,7 @@ const translations: Translations = {
     multiDayPlan: "Многодневный план",
     startThreeDayPlan: "Начать 3-дневный план",
     monthlyMembership: "Ежемесячное членство",
-    monthlyPrice: "28 500₽ ($339)/месяц",
+    monthlyPrice: "33,000₽ (~$399)/месяц",
     monthlyDesignedFor:
       "Частые путешественники, занятые профессионалы и жители города, которые хотят постоянного доступа к полной поддержке Reluxi.",
     monthlyWhatYouGet:

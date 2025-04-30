@@ -262,15 +262,15 @@ export default function ServicesPage() {
                           <h3 className="text-xl md:text-2xl font-cormorant font-bold text-white mb-2">
                             {t("threeDayPlan")}
                           </h3>
-                          <div className="flex items-center justify-between mb-3">
-                            <p className="text-xl font-cormorant font-bold text-[#D4AF37]">
+                          <div className="inline-block bg-[#D4AF37]/20 px-3 py-1 rounded-full mb-3">
+                            <span className="text-xs font-dm-sans text-[#D4AF37] font-medium whitespace-nowrap">
+                              {t("mostPopular")}
+                            </span>
+                          </div>
+                          <div className="mb-4">
+                            <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">
                               {t("threeDayPrice")}
                             </p>
-                            <div className="inline-block bg-[#D4AF37]/20 px-3 py-1 rounded-full">
-                              <span className="text-xs font-dm-sans text-[#D4AF37] font-medium whitespace-nowrap">
-                                {t("mostPopular")}
-                              </span>
-                            </div>
                           </div>
                           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
 
