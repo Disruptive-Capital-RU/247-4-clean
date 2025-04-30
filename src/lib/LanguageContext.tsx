@@ -202,7 +202,7 @@ const translations: Translations = {
     quickRequestsHowItWorks:
       "Pay-per-request concierge service — no plan required",
     commissionFee: "Commission Fee",
-    quickRequestsFee: "500₽ ($5) per fulfilled request",
+    quickRequestsFee: "570₽ (~$6,99) per fulfilled request",
     idealFor: "Ideal For",
     quickRequestsIdealFor:
       "One-off bookings (e.g., restaurant, transportation, event tickets, courier)",
@@ -738,7 +738,7 @@ const translations: Translations = {
     quickRequestsHowItWorks:
       "خدمة كونسيرج بنظام الدفع لكل طلب — لا تحتاج إلى خطة",
     commissionFee: "رسوم العمولة",
-    quickRequestsFee: "500₽ ($5) لكل طلب منفذ",
+    quickRequestsFee: "570₽ (~$6,99) لكل طلب منفذ",
     idealFor: "مثالي لـ",
     quickRequestsIdealFor:
       "حجوزات فردية (مثل المطعم والنقل وتذاكر الفعاليات والبريد السريع)",
@@ -1062,7 +1062,7 @@ const translations: Translations = {
     howItWorks: "如何运作",
     quickRequestsHowItWorks: "按请求付费的礼宾服务——不需要计划",
     commissionFee: "佣金费用",
-    quickRequestsFee: "500₽ ($5) 每完成一次请求",
+    quickRequestsFee: "570₽ (~$6,99) 每完成一次请求",
     idealFor: "适合",
     quickRequestsIdealFor: "一次性预订（例如，餐厅、交通、活动门票、快递）",
     deliveryTime: "交付时间",
@@ -1393,7 +1393,7 @@ const translations: Translations = {
     quickRequestsHowItWorks:
       "Услуга консьержа с оплатой за запрос — без необходимости плана",
     commissionFee: "Комиссионный сбор",
-    quickRequestsFee: "500₽ ($5) за каждый выполненный запрос",
+    quickRequestsFee: "570₽ (~$6,99) за каждый выполненный запрос",
     idealFor: "Идеально для",
     quickRequestsIdealFor:
       "Разовые бронирования (например, ресторан, транспорт, билеты на мероприятия, курьерская доставка)",
