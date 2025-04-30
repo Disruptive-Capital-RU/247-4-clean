@@ -23,7 +23,7 @@ export default function HeroSection() {
       {/* Video Background */}
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover opacity-70"
+        className="absolute inset-0 w-full h-full object-cover opacity-95"
         autoPlay
         loop
         muted
@@ -39,7 +39,7 @@ export default function HeroSection() {
       </video>
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
       {/* Content */}
       <div className="relative h-full flex flex-col justify-center items-center text-center px-4 md:px-6 pt-16">

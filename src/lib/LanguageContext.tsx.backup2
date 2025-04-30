@@ -40,11 +40,6 @@ const translations: Translations = {
     dashboard: "Dashboard",
     logout: "Log Out",
     offer: "Offer",
-    emailLoginPrompt: "Please enter the email you used when booking your concierge service.",
-    yourEmailAddress: "Your Email Address",
-    yourPassword: "Your Password",
-    enterPassword: "Enter the password you used during registration",
-    continue: "Continue",
 
     // Pricing page
     freedom: "Freedom, Perfected",
