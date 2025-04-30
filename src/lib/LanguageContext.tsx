@@ -197,18 +197,18 @@ const translations: Translations = {
     quickRequests: "Quick Requests",
     oneTaskHandledFast: "One Task, Handled Fast",
     quickRequestsDescription:
-      "Text us your request — we'll confirm it for a flat $5 commission. Perfect for spontaneous needs or first-time users who want to try Reluxi — one message at a time.",
+      "Text us your request — we'll confirm it for a (~$6.99) commission. Perfect for spontaneous needs or first-time users who want to try Reluxi — one message at a time.",
     howItWorks: "How It Works",
     quickRequestsHowItWorks:
-      "Pay-per-request concierge service — no plan required",
+      "Pay-per-request concierge service — execution only, no planning or customization",
     commissionFee: "Commission Fee",
     quickRequestsFee: "570₽ (~$6,99) per fulfilled request",
     idealFor: "Ideal For",
     quickRequestsIdealFor:
-      "One-off bookings (e.g., restaurant, transportation, event tickets, courier)",
+      "Straightforward, one-off bookings (e.g., restaurant reservation, transportation, event tickets, courier)",
     deliveryTime: "Delivery Time",
     quickRequestsDeliveryTime:
-      "Everything arranged within minutes — smooth, fast, and confirmed in real time",
+      "Handled within minutes — fast, smooth, and confirmed in real time",
     requestABooking: "Request a Booking",
 
     readyToEnjoyTrip:
@@ -733,18 +733,18 @@ const translations: Translations = {
     quickRequests: "طلبات سريعة",
     oneTaskHandledFast: "مهمة واحدة، تُنجز بسرعة",
     quickRequestsDescription:
-      "أرسل لنا طلبك عبر الرسائل النصية — سنؤكده مقابل عمولة ثابتة قدرها 5 دولارات. مثالي للاحتياجات العفوية أو المستخدمين لأول مرة الذين يرغبون في تجربة ريلوكسي — رسالة واحدة في كل مرة.",
+      "Text us your request — we'll confirm it for a (~$6.99) commission. Perfect for spontaneous needs or first-time users who want to try Reluxi — one message at a time.",
     howItWorks: "كيف يعمل",
     quickRequestsHowItWorks:
-      "خدمة كونسيرج بنظام الدفع لكل طلب — لا تحتاج إلى خطة",
+      "Pay-per-request concierge service — execution only, no planning or customization",
     commissionFee: "رسوم العمولة",
     quickRequestsFee: "570₽ (~$6,99) لكل طلب منفذ",
     idealFor: "مثالي لـ",
     quickRequestsIdealFor:
-      "حجوزات فردية (مثل المطعم والنقل وتذاكر الفعاليات والبريد السريع)",
+      "Straightforward, one-off bookings (e.g., restaurant reservation, transportation, event tickets, courier)",
     deliveryTime: "وقت التسليم",
     quickRequestsDeliveryTime:
-      "كل شيء يتم تنظيمه في غضون دقائق — سلس وسريع ومؤكد في الوقت الفعلي",
+      "Handled within minutes — fast, smooth, and confirmed in real time",
     requestABooking: "طلب حجز",
 
     readyToEnjoyTrip:
@@ -1058,7 +1058,7 @@ const translations: Translations = {
     quickRequests: "快速请求",
     oneTaskHandledFast: "一个任务，快速处理",
     quickRequestsDescription:
-      "发送您的请求——我们将确认您的请求，并收取固定费用。非常适合突发需求或第一次尝试Reluxi的用户——一次发送一条消息。",
+      "Text us your request — we'll confirm it for a (~$6.99) commission. Perfect for spontaneous needs or first-time users who want to try Reluxi — one message at a time.",
     howItWorks: "如何运作",
     quickRequestsHowItWorks: "按请求付费的礼宾服务——不需要计划",
     commissionFee: "佣金费用",
@@ -1389,17 +1389,17 @@ const translations: Translations = {
     quickRequests: "Быстрые запросы",
     oneTaskHandledFast: "Одна задача, быстрое решение",
     quickRequestsDescription:
-      "Отправьте нам сообщение с запросом — мы подтвердим его за фиксированную комиссию в 5 долларов. Идеально для спонтанных нужд или пользователей, впервые пробующих Reluxi — одно сообщение за раз.",
+      "Text us your request — we'll confirm it for a (~$6.99) commission. Perfect for spontaneous needs or first-time users who want to try Reluxi — one message at a time.",
     quickRequestsHowItWorks:
-      "Услуга консьержа с оплатой за запрос — без необходимости плана",
+      "Pay-per-request concierge service — execution only, no planning or customization",
     commissionFee: "Комиссионный сбор",
     quickRequestsFee: "570₽ (~$6,99) за каждый выполненный запрос",
     idealFor: "Идеально для",
     quickRequestsIdealFor:
-      "Разовые бронирования (например, ресторан, транспорт, билеты на мероприятия, курьерская доставка)",
+      "Straightforward, one-off bookings (e.g., restaurant reservation, transportation, event tickets, courier)",
     deliveryTime: "Время доставки",
     quickRequestsDeliveryTime:
-      "Все организуется в течение нескольких минут — гладко, быстро и подтверждается в реальном времени",
+      "Handled within minutes — fast, smooth, and confirmed in real time",
     requestABooking: "Запросить бронирование",
     readyToEnjoyTrip:
       "Готовы действительно насладиться поездкой — без траты времени и энергии?",
