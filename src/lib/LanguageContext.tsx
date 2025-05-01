@@ -142,55 +142,40 @@ const translations: Translations = {
     you: "You",
     oneDayExperience: "One-Day Experience",
     oneDayPrice: "4,850₽ (~$59)",
-    designedFor: "Ideal for",
-    oneDayDesignedFor:
-      "Special occasions, business needs, or quality time with family — when one day deserves to be perfectly handled.",
-    whatYouGet: "What's included",
+    idealFor: "Ideal for",
+    oneDayDesignedFor: "A Special Day — Personal or Professional.",
+    whatIncluded: "What's included",
     oneDayWhatYouGet:
-      "A curated one-day experience tailored around your goals — personal or professional. We handle the bookings, timing, and flow so your day feels effortless.",
-    examplesInclude: "Frequent Requests",
-    oneDayExample1:
-      "A romantic evening with private transport, dinner reservations, and a floral surprise",
-    oneDayExample2:
-      "A family day with thoughtfully planned activities, cultural visits, and group-friendly dining — all arranged to keep the day flowing with ease",
-    oneDayExample3:
-      "A business day with meeting space bookings, restaurant coordination, and transport between locations",
-    oneDayExampleFooter:
-      "Tell us the kind of day you need — and we'll make it seamless.",
+      "•⁠  ⁠Concierge support for one full day, available 24/7\n•⁠  ⁠Booking and planning for dining, transport, activities, and more",
+    frequentRequests: "Frequent Requests",
+    oneDayExample1: "Romantic evening with a private driver and dinner",
+    oneDayExample2: "Family outing with cultural stops and meals",
+    oneDayExample3: "Business day with meetings, transport, and meals",
     oneDayPlan: "One-Day Plan",
     requestOneDayPlan: "Request One-Day Plan",
 
     mostPopular: "Most Popular",
     threeDayPlan: "3-Day Concierge Plan",
-    threeDayPrice: "10,500₽ (~$129)",
-    threeDayDesignedFor:
-      "Short getaways, city breaks, or visitors who want complete support without long-term commitment.",
+    threeDayPrice: "10,550₽ (~$129)",
+    threeDayDesignedFor: "Visits To Moscow",
     threeDayWhatYouGet:
-      "Three full days of unlimited, personalized concierge assistance — available at any hour. Ideal for those who want to experience the best of Moscow without stress or planning.",
-    includes: "Includes",
-    threeDayInclude1: "Concierge support for three full days, available 24/7",
-    threeDayInclude2:
-      "Booking & coordination across dining, transport, wellness, events, and more",
-    threeDayInclude3:
-      "Option to add additional days for $39/day — same service, same ease",
-    threeDayIncludeFooter:
-      "Start your journey with Reluxi — and experience how effortless travel can feel.",
+      "•⁠  ⁠Concierge support for three full days, available 24/7\n•⁠  ⁠Booking and planning across dining, wellness, events, and transport\n•⁠  ⁠Add extra days for 3,200₽ (~$39/day)",
+    yourValue: "Your Value",
+    threeDayInclude1: "Explore Moscow with everything arranged",
+    threeDayInclude2: "Curated experiences with no planning stress",
+    threeDayInclude3: "Visitors who want easy access to the city's best",
     multiDayPlan: "Multi-Day Plan",
     startThreeDayPlan: "Start 3-Day Plan",
 
     monthlyMembership: "Monthly Membership",
     monthlyPrice: "33,000₽ (~$399/month)",
-    monthlyDesignedFor:
-      "Frequent travelers, busy professionals, and city residents who want continuous access to Reluxi's full support.",
+    monthlyDesignedFor: "Moscow Residents & Frequent Travelers",
     monthlyWhatYouGet:
-      "Unlimited monthly concierge access with a dedicated point of contact who learns your preferences and adapts to your rhythm.",
-    monthlyInclude1: "A dedicated assistant familiar with your preferences",
+      "•⁠  ⁠Concierge support for an entire month, available 24/7\n•⁠  ⁠A dedicated assistant familiar with your preferences\n•⁠  ⁠Personalized arrangements for dining, transport, and activities",
+    commonUses: "Common Uses",
+    monthlyInclude1: "Residents looking for a personal assistant",
     monthlyInclude2:
-      "Personalized planning across daily life, travel, dining, and more",
-    monthlyInclude3:
-      "Consistent care and service across multiple trips or ongoing needs",
-    monthlyIncludeFooter:
-      "Enjoy continuous, elevated support — no matter how often you need us.",
+      "Ideal for those who value their time and want everything handled",
     membership: "Membership",
     becomeAMember: "Become a Member",
 
@@ -680,55 +665,42 @@ const translations: Translations = {
     you: "ك",
     oneDayExperience: "تجربة ليوم واحد",
     oneDayPrice: "4,850₽ (~$59)",
-    designedFor: "مصممة لـ",
-    oneDayDesignedFor:
-      "المناسبات الخاصة، والاحتياجات التجارية، أو قضاء وقت جيد مع العائلة — عندما يستحق يوم واحد أن يتم التعامل معه بشكل مثالي.",
-    whatYouGet: "ما الذي ستحصل عليه",
+    idealFor: "مثالية لـ",
+    oneDayDesignedFor: "يوم خاص — شخصي أو مهني.",
+    whatIncluded: "ما هو مشمول",
     oneDayWhatYouGet:
-      "تجربة ليوم واحد مخصصة حول أهدافك — شخصية أو مهنية. نتعامل مع الحجوزات والتوقيت والتدفق حتى يشعر يومك بالسهولة.",
-    examplesInclude: "الأمثلة تشمل",
-    oneDayExample1:
-      "أمسية رومانسية مع وسائل نقل خاصة وحجوزات عشاء ومفاجأة زهور",
-    oneDayExample2:
-      "يوم عائلي مع أنشطة مخطط لها بعناية وزيارات ثقافية وتناول طعام مناسب للمجموعات - كل ذلك مرتب للحفاظ على تدفق اليوم بسهولة",
-    oneDayExample3:
-      "يوم عمل مع حجوزات مساحات اجتماعات وتنسيق مطاعم ونقل بين المواقع",
-    oneDayExampleFooter: "أخبرنا بنوع اليوم الذي تحتاجه — وسنجعله سلسًا.",
+      "•⁠ ⁠دعم الكونسيرج ليوم كامل، متاح على مدار الساعة\n•⁠ ⁠الحجز والتخطيط للطعام، والنقل، والأنشطة، والمزيد",
+    frequentRequests: "الطلبات المتكررة",
+    oneDayExample1: "أمسية رومانسية مع سائق خاص وعشاء",
+    oneDayExample2: "نزهة عائلية مع توقفات ثقافية ووجبات",
+    oneDayExample3: "يوم عمل مع اجتماعات ونقل ووجبات",
     oneDayPlan: "خطة ليوم واحد",
-    requestOneDayPlan: "طلب خطة ليوم واحد",
+    requestOneDayPlan: "طلب خطة يوم واحد",
 
     mostPopular: "الأكثر شعبية",
     threeDayPlan: "خطة كونسيرج لمدة 3 أيام",
-    threeDayPrice: "10,500₽ (~$129)",
-    threeDayDesignedFor:
-      "رحلات قصيرة، استراحات في المدينة، أو زوار يريدون دعمًا كاملًا بدون التزام طويل الأمد.",
+    threeDayPrice: "10,550₽ (~$129)",
+    threeDayDesignedFor: "زيارات إلى موسكو",
     threeDayWhatYouGet:
-      "ثلاثة أيام كاملة من مساعدة الكونسيرج غير المحدودة والمخصصة — متاحة في أي ساعة. مثالي لأولئك الذين يرغبون في تجربة أفضل ما في موسكو بدون إجهاد أو تخطيط.",
-    includes: "تشمل",
-    threeDayInclude1:
-      "وصول إلى الكونسيرج على مدار الساعة طوال أيام الأسبوع عبر تطبيق المراسلة المفضل لديك",
-    threeDayInclude2:
-      "الحجز والتنسيق عبر تناول الطعام والنقل والعافية والفعاليات والمزيد",
-    threeDayInclude3:
-      "خيار إضافة أيام إضافية مقابل 39 دولارًا في اليوم — نفس الخدمة، نفس السهولة",
-    threeDayIncludeFooter: "ابدأ رحلتك مع ريلوكسي — واختبر مدى سهولة السفر.",
+      "•⁠ ⁠دعم الكونسيرج لثلاثة أيام كاملة، متاح على مدار الساعة\n•⁠ ⁠الحجز والتخطيط عبر الطعام والعافية والفعاليات والنقل\n•⁠ ⁠إضافة أيام إضافية مقابل 3,200₽ (~$39/يوم)",
+    yourValue: "قيمتك",
+    threeDayInclude1: "استكشف موسكو مع كل شيء مرتب",
+    threeDayInclude2: "تجارب مختارة بدون إجهاد التخطيط",
+    threeDayInclude3: "الزوار الذين يريدون وصولاً سهلاً إلى أفضل ما في المدينة",
     multiDayPlan: "خطة متعددة الأيام",
-    startThreeDayPlan: "بدء خطة 3 أيام",
+    startThreeDayPlan: "ابدأ خطة 3 أيام",
 
     monthlyMembership: "العضوية الشهرية",
-    monthlyPrice: "33,000₽ (~$399)/شهر",
-    monthlyDesignedFor:
-      "المسافرون المتكررون والمهنيون المشغولون وسكان المدينة الذين يريدون وصولًا مستمرًا إلى الدعم الكامل من ريلوكسي.",
+    monthlyPrice: "33,000₽ (~$399/شهر)",
+    monthlyDesignedFor: "سكان موسكو والمسافرين المتكررين",
     monthlyWhatYouGet:
-      "وصول غير محدود شهريًا إلى خدمة الكونسيرج مع نقطة اتصال مخصصة تتعلم تفضيلاتك وتتكيف مع إيقاعك.",
-    monthlyInclude1: "متوفر على مدار الساعة طوال أيام الأسبوع بدون قيود",
+      "•⁠ ⁠دعم الكونسيرج لشهر كامل، متاح على مدار الساعة\n•⁠ ⁠مساعد مخصص على دراية بتفضيلاتك\n•⁠ ⁠ترتيبات مخصصة للطعام والنقل والأنشطة",
+    commonUses: "الاستخدامات الشائعة",
+    monthlyInclude1: "المقيمون الباحثون عن مساعد شخصي",
     monthlyInclude2:
-      "تخطيط مخصص عبر الحياة اليومية والسفر وتناول الطعام والمزيد",
-    monthlyInclude3: "رعاية وخدمة متسقة عبر رحلات متعددة أو احتياجات مستمرة",
-    monthlyIncludeFooter:
-      "استمتع بدعم مستمر ومرتفع — بغض النظر عن عدد المرات التي تحتاجنا فيها.",
+      "مثالي لأولئك الذين يقدرون وقتهم ويريدون التعامل مع كل شيء",
     membership: "العضوية",
-    becomeAMember: "أصبح عضوًا",
+    becomeAMember: "كن عضواً",
 
     quickRequests: "طلبات سريعة",
     oneTaskHandledFast: "مهمة واحدة، تُنجز بسرعة",
@@ -899,6 +871,153 @@ const translations: Translations = {
     copyright: " 2025 Reluxi Консьерж. Все права защищены.",
     footerPoweredBy:
       "На основе конфиденциальности, построен на доверии, вдохновлён превосходством.",
+  },
+
+  RU: {
+    // Navigation
+    home: "Главная",
+    pricing: "Цены",
+    services: "Услуги",
+    whyUs: "Почему мы",
+    login: "Вход",
+    bookNow: "Забронировать",
+    welcomeBack: "С возвращением",
+    accessSuite: "Доступ к панели",
+    dashboard: "Панель управления",
+    logout: "Выход",
+    offer: "Предложение",
+
+    // Services page
+    howWeServeYou: "Как мы вас обслуживаем",
+    howWe: "Как мы",
+    serve: "обслуживаем",
+    you: "вас",
+    freedom: "Свобода, доведенная до совершенства",
+    planDescription:
+      "Reluxi — ваш личный помощник в Москве. Больше никакой потери времени, неправильных мест или планирования в последнюю минуту. С нашей поддержкой 24/7 и экспертной координацией каждый момент будет именно таким, каким вы хотите его видеть.",
+
+    oneDayExperience: "Однодневный опыт",
+    oneDayPrice: "4,850₽ (~$59)",
+    idealFor: "Идеально для",
+    oneDayDesignedFor: "Особого дня — личного или профессионального.",
+    whatIncluded: "Что включено",
+    oneDayWhatYouGet:
+      "•⁠ ⁠Консьерж-поддержка на полный день, доступна 24/7\n•⁠ ⁠Бронирование и планирование питания, транспорта, мероприятий и многое другое",
+    frequentRequests: "Частые запросы",
+    oneDayExample1: "Романтический вечер с личным водителем и ужином",
+    oneDayExample2: "Семейная прогулка с культурными остановками и питанием",
+    oneDayExample3: "Деловой день с встречами, транспортом и питанием",
+    oneDayPlan: "Однодневный план",
+    requestOneDayPlan: "Запросить однодневный план",
+
+    mostPopular: "Самый популярный",
+    threeDayPlan: "3-дневный план консьержа",
+    threeDayPrice: "10,550₽ (~$129)",
+    threeDayDesignedFor: "Визиты в Москву",
+    threeDayWhatYouGet:
+      "•⁠ ⁠Консьерж-поддержка на три полных дня, доступна 24/7\n•⁠ ⁠Бронирование и планирование питания, оздоровления, мероприятий и транспорта\n•⁠ ⁠Добавление дополнительных дней за 3,200₽ (~$39/день)",
+    yourValue: "Ваша выгода",
+    threeDayInclude1: "Исследуйте Москву с организацией всего",
+    threeDayInclude2: "Подобранные впечатления без стресса планирования",
+    threeDayInclude3:
+      "Для посетителей, которые хотят легкий доступ к лучшему в городе",
+    multiDayPlan: "Многодневный план",
+    startThreeDayPlan: "Начать 3-дневный план",
+
+    monthlyMembership: "Ежемесячное членство",
+    monthlyPrice: "33,000₽ (~$399/месяц)",
+    monthlyDesignedFor: "Жителей Москвы и частых путешественников",
+    monthlyWhatYouGet:
+      "•⁠ ⁠Консьерж-поддержка на целый месяц, доступна 24/7\n•⁠ ⁠Выделенный помощник, знакомый с вашими предпочтениями\n•⁠ ⁠Персонализированные договоренности для питания, транспорта и мероприятий",
+    commonUses: "Типичное использование",
+    monthlyInclude1: "Для жителей, ищущих личного помощника",
+    monthlyInclude2:
+      "Идеально для тех, кто ценит свое время и хочет, чтобы все было организовано",
+    membership: "Членство",
+    becomeAMember: "Стать участником",
+
+    // Additional translations would go here
+    // ...
+
+    // Footer
+    personalTravelAssistant: "Современный способ познакомиться с Москвой",
+    footerTagline: '"Всегда с вами. Даже когда мир не с вами."',
+    footerNavigation: "Навигация",
+    footerLegal: "Юридическая информация",
+    footerPrivacyPolicy: "Политика конфиденциальности",
+    termsOfService: "Условия обслуживания",
+    faq: "Часто задаваемые вопросы",
+    footerContact: "Контакты",
+    phoneNumber: "+7 (916) 066-5133",
+    emailAddress: "my@reluxi.com",
+    copyright: " 2025 Reluxi Консьерж. Все права защищены.",
+    footerPoweredBy:
+      "На основе конфиденциальности, построен на доверии, вдохновлён превосходством.",
+  },
+
+  CN: {
+    // Navigation
+    home: "首页",
+    pricing: "价格",
+    services: "服务",
+    whyUs: "为什么选择我们",
+    login: "登录",
+    bookNow: "立即预订",
+    welcomeBack: "欢迎回来",
+    accessSuite: "访问套件",
+    dashboard: "控制面板",
+    logout: "登出",
+    offer: "优惠",
+
+    // Services page
+    howWeServeYou: "我们如何为您服务",
+    howWe: "我们如何",
+    serve: "为您",
+    you: "服务",
+    freedom: "完美自由",
+    planDescription:
+      "Reluxi是您在莫斯科的私人助理。不再浪费时间，不再去错地方，不再临时规划。有了我们全天候的支持和专业协调，每一刻都将完全符合您的期望。",
+
+    oneDayExperience: "一日体验",
+    oneDayPrice: "4,850₽ (~$59)",
+    idealFor: "适合",
+    oneDayDesignedFor: "特别的一天 — 个人或专业。",
+    whatIncluded: "包含内容",
+    oneDayWhatYouGet:
+      "•⁠ ⁠全天候管家服务，全天24小时可用\n•⁠ ⁠餐饮、交通、活动等的预订和规划",
+    frequentRequests: "常见请求",
+    oneDayExample1: "带有私人司机和晚餐的浪漫之夜",
+    oneDayExample2: "带有文化景点和用餐的家庭出游",
+    oneDayExample3: "带有会议、交通和用餐的商务日",
+    oneDayPlan: "一日计划",
+    requestOneDayPlan: "申请一日计划",
+
+    mostPopular: "最受欢迎",
+    threeDayPlan: "3天管家计划",
+    threeDayPrice: "10,550₽ (~$129)",
+    threeDayDesignedFor: "莫斯科访问",
+    threeDayWhatYouGet:
+      "•⁠ ⁠三天全天候管家服务，全天24小时可用\n•⁠ ⁠跨餐饮、健康、活动和交通的预订和规划\n•⁠ ⁠额外天数每天加收3,200₽ (~$39/天)",
+    yourValue: "您的价值",
+    threeDayInclude1: "探索莫斯科，一切都已安排",
+    threeDayInclude2: "精心策划的体验，无需规划压力",
+    threeDayInclude3: "希望轻松访问城市最佳体验的游客",
+    multiDayPlan: "多日计划",
+    startThreeDayPlan: "开始3天计划",
+
+    monthlyMembership: "月度会员",
+    monthlyPrice: "33,000₽ (~$399/月)",
+    monthlyDesignedFor: "莫斯科居民和经常旅行者",
+    monthlyWhatYouGet:
+      "•⁠ ⁠全月管家服务，全天24小时可用\n•⁠ ⁠熟悉您偏好的专属助理\n•⁠ ⁠餐饮、交通和活动的个性化安排",
+    commonUses: "常见用途",
+    monthlyInclude1: "寻找私人助理的居民",
+    monthlyInclude2: "非常适合珍视时间并希望一切都得到处理的人",
+    membership: "会员资格",
+    becomeAMember: "成为会员",
+
+    // Additional translations would go here
+    // ...
   },
 };
 

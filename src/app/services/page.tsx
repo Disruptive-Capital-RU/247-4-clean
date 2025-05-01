@@ -170,32 +170,28 @@ export default function ServicesPage() {
                       <div className="relative z-10 flex flex-col flex-grow">
                         <div>
                           <h3 className="text-xl md:text-2xl font-cormorant font-bold text-white mb-2">
-                            One-Day Experience
+                            {t("oneDayExperience")}
                           </h3>
                           <div className="mb-4">
                             <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">
-                              4,850₽ (~$59)
+                              {t("oneDayPrice")}
                             </p>
                           </div>
                           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
 
                           <div className="mb-4">
                             <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">
-                              Ideal for
+                              {t("idealFor")}
                             </h4>
                             <p className="font-dm-sans text-white/90 mb-4">
-                              A Special Day — Personal or Professional.
+                              {t("oneDayDesignedFor")}
                             </p>
 
                             <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">
-                              What's included
+                              {t("whatIncluded")}
                             </h4>
                             <p className="font-dm-sans text-white/90 mb-4">
-                              •⁠ ⁠Concierge support for one full day, available
-                              24/7
-                              <br />
-                              •⁠ ⁠Booking and planning for dining, transport,
-                              activities, and more
+                              {t("oneDayWhatYouGet")}
                             </p>
 
                             <div className="mb-4">
@@ -206,7 +202,7 @@ export default function ServicesPage() {
                                 className="flex items-center justify-between w-full text-left"
                               >
                                 <h4 className="text-sm font-dm-sans font-medium text-white/80">
-                                  Frequent Requests
+                                  {t("frequentRequests")}
                                 </h4>
                                 <span className="text-[#D4AF37]">
                                   {sectionsExpanded ? "−" : "+"}
@@ -227,18 +223,9 @@ export default function ServicesPage() {
                                   >
                                     <div className="mt-2 pl-1 border-l border-[#D4AF37]/30">
                                       <ul className="font-dm-sans text-white/90 mb-4 list-disc pl-5 space-y-2">
-                                        <li>
-                                          Romantic evening with a private driver
-                                          and dinner
-                                        </li>
-                                        <li>
-                                          Family outing with cultural stops and
-                                          meals
-                                        </li>
-                                        <li>
-                                          Business day with meetings, transport,
-                                          and meals
-                                        </li>
+                                        <li>{t("oneDayExample1")}</li>
+                                        <li>{t("oneDayExample2")}</li>
+                                        <li>{t("oneDayExample3")}</li>
                                       </ul>
                                     </div>
                                   </motion.div>
@@ -251,14 +238,14 @@ export default function ServicesPage() {
                           <button
                             onClick={() =>
                               handlePlanSelect(
-                                "One-Day Experience",
-                                "One-Day Plan",
-                                "4,850₽ (~$59)"
+                                t("oneDayExperience"),
+                                t("oneDayPlan"),
+                                t("oneDayPrice")
                               )
                             }
                             className="w-full py-3 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                           >
-                            Request One-Day Plan
+                            {t("requestOneDayPlan")}
                           </button>
                         </div>
                       </div>
@@ -270,15 +257,15 @@ export default function ServicesPage() {
                       <div className="relative z-10 flex flex-col flex-grow">
                         <div>
                           <h3 className="text-xl md:text-2xl font-cormorant font-bold text-white mb-2">
-                            3-Day Concierge Plan
+                            {t("threeDayPlan")}
                           </h3>
                           <div className="flex items-center justify-between mb-3">
                             <p className="text-xl font-cormorant font-bold text-[#D4AF37]">
-                              10,550₽ (~$129)
+                              {t("threeDayPrice")}
                             </p>
                             <div className="inline-block bg-[#D4AF37]/20 px-3 py-1 rounded-full">
                               <span className="text-xs font-dm-sans text-[#D4AF37] font-medium whitespace-nowrap">
-                                Most Popular
+                                {t("mostPopular")}
                               </span>
                             </div>
                           </div>
@@ -286,23 +273,17 @@ export default function ServicesPage() {
 
                           <div className="mb-4">
                             <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">
-                              Ideal for
+                              {t("idealFor")}
                             </h4>
                             <p className="font-dm-sans text-white/90 mb-4">
-                              Visits To Moscow
+                              {t("threeDayDesignedFor")}
                             </p>
 
                             <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">
-                              What's included
+                              {t("whatIncluded")}
                             </h4>
                             <p className="font-dm-sans text-white/90 mb-4">
-                              •⁠ ⁠Concierge support for three full days,
-                              available 24/7
-                              <br />
-                              •⁠ ⁠Booking and planning across dining, wellness,
-                              events, and transport
-                              <br />
-                              •⁠ ⁠Add extra days for 3,200₽ (~$39/day)
+                              {t("threeDayWhatYouGet")}
                             </p>
 
                             <div className="mb-4">
@@ -313,7 +294,7 @@ export default function ServicesPage() {
                                 className="flex items-center justify-between w-full text-left"
                               >
                                 <h4 className="text-sm font-dm-sans font-medium text-white/80">
-                                  Your Value
+                                  {t("yourValue")}
                                 </h4>
                                 <span className="text-[#D4AF37]">
                                   {sectionsExpanded ? "−" : "+"}
@@ -334,18 +315,9 @@ export default function ServicesPage() {
                                   >
                                     <div className="mt-2 pl-1 border-l border-[#D4AF37]/30">
                                       <ul className="font-dm-sans text-white/90 mb-4 list-disc pl-5 space-y-2">
-                                        <li>
-                                          Explore Moscow with everything
-                                          arranged
-                                        </li>
-                                        <li>
-                                          Curated experiences with no planning
-                                          stress
-                                        </li>
-                                        <li>
-                                          Visitors who want easy access to the
-                                          city's best
-                                        </li>
+                                        <li>{t("threeDayInclude1")}</li>
+                                        <li>{t("threeDayInclude2")}</li>
+                                        <li>{t("threeDayInclude3")}</li>
                                       </ul>
                                     </div>
                                   </motion.div>
@@ -358,15 +330,15 @@ export default function ServicesPage() {
                           <button
                             onClick={() =>
                               handlePlanSelect(
-                                "3-Day Concierge Plan",
-                                "Multi-Day Plan",
-                                "10,550₽ (~$129)",
+                                t("threeDayPlan"),
+                                t("multiDayPlan"),
+                                t("threeDayPrice"),
                                 3
                               )
                             }
                             className="w-full py-3 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                           >
-                            Start 3-Day Plan
+                            {t("startThreeDayPlan")}
                           </button>
                         </div>
                       </div>
@@ -378,35 +350,28 @@ export default function ServicesPage() {
                       <div className="relative z-10 flex flex-col flex-grow">
                         <div>
                           <h3 className="text-xl md:text-2xl font-cormorant font-bold text-white mb-2">
-                            Monthly Membership
+                            {t("monthlyMembership")}
                           </h3>
                           <div className="mb-4">
                             <p className="text-xl font-cormorant font-bold text-[#D4AF37] mb-1">
-                              33,000₽ (~$399/month)
+                              {t("monthlyPrice")}
                             </p>
                           </div>
                           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent my-4"></div>
 
                           <div className="mb-4">
                             <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">
-                              Ideal for
+                              {t("idealFor")}
                             </h4>
                             <p className="font-dm-sans text-white/90 mb-4">
-                              Moscow Residents & Frequent Travelers
+                              {t("monthlyDesignedFor")}
                             </p>
 
                             <h4 className="text-sm font-dm-sans font-medium text-white/80 mb-2">
-                              What's included
+                              {t("whatIncluded")}
                             </h4>
                             <p className="font-dm-sans text-white/90 mb-4">
-                              •⁠ ⁠Concierge support for an entire month,
-                              available 24/7
-                              <br />
-                              •⁠ ⁠A dedicated assistant familiar with your
-                              preferences
-                              <br />
-                              •⁠ ⁠Personalized arrangements for dining,
-                              transport, and activities
+                              {t("monthlyWhatYouGet")}
                             </p>
 
                             <div className="mb-4">
@@ -417,7 +382,7 @@ export default function ServicesPage() {
                                 className="flex items-center justify-between w-full text-left"
                               >
                                 <h4 className="text-sm font-dm-sans font-medium text-white/80">
-                                  Common Uses
+                                  {t("commonUses")}
                                 </h4>
                                 <span className="text-[#D4AF37]">
                                   {sectionsExpanded ? "−" : "+"}
@@ -438,14 +403,8 @@ export default function ServicesPage() {
                                   >
                                     <div className="mt-2 pl-1 border-l border-[#D4AF37]/30">
                                       <ul className="font-dm-sans text-white/90 mb-4 list-disc pl-5 space-y-2">
-                                        <li>
-                                          Residents looking for a personal
-                                          assistant
-                                        </li>
-                                        <li>
-                                          Ideal for those who value their time
-                                          and want everything handled
-                                        </li>
+                                        <li>{t("monthlyInclude1")}</li>
+                                        <li>{t("monthlyInclude2")}</li>
                                       </ul>
                                     </div>
                                   </motion.div>
@@ -458,14 +417,14 @@ export default function ServicesPage() {
                           <button
                             onClick={() =>
                               handlePlanSelect(
-                                "Monthly Membership",
-                                "Membership",
-                                "33,000₽ (~$399/month)"
+                                t("monthlyMembership"),
+                                t("membership"),
+                                t("monthlyPrice")
                               )
                             }
                             className="w-full py-3 mt-4 border border-[#D4AF37]/70 hover:border-[#D4AF37] text-white font-dm-sans text-sm transition-all duration-300 rounded bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20"
                           >
-                            Become a Member
+                            {t("becomeAMember")}
                           </button>
                         </div>
                       </div>
