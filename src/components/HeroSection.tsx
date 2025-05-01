@@ -10,12 +10,48 @@ export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Force play the video on component mount
-    if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        console.error("Error attempting to play video:", error);
-      });
-    }
+    // More aggressive approach to force video playback on all devices
+    const playVideo = async () => {
+      if (videoRef.current) {
+        try {
+          // Set attributes that help with autoplay
+          videoRef.current.muted = true;
+          videoRef.current.playsInline = true;
+          videoRef.current.setAttribute("playsinline", "");
+          videoRef.current.setAttribute("webkit-playsinline", "");
+
+          // Try playing the video
+          await videoRef.current.play();
+        } catch (error) {
+          console.error("Error attempting to play video:", error);
+
+          // If autoplay fails, retry on user interaction
+          const playOnInteraction = () => {
+            videoRef.current?.play();
+            document.removeEventListener("touchstart", playOnInteraction);
+            document.removeEventListener("click", playOnInteraction);
+          };
+
+          document.addEventListener("touchstart", playOnInteraction, {
+            once: true,
+          });
+          document.addEventListener("click", playOnInteraction, { once: true });
+        }
+      }
+    };
+
+    playVideo();
+
+    // Add event listeners for visibility changes to resume play when tab becomes visible
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible" && videoRef.current) {
+        videoRef.current
+          .play()
+          .catch((err) =>
+            console.error("Error playing video on visibility change:", err)
+          );
+      }
+    });
   }, []);
 
   return (
@@ -31,6 +67,7 @@ export default function HeroSection() {
         preload="auto"
         disablePictureInPicture
         disableRemotePlayback
+        controls={false}
       >
         <source
           src="/videos/5058324-uhd_3840_2160_25fps.mp4"
