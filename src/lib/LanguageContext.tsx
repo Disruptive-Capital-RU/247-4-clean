@@ -92,7 +92,7 @@ const translations: Translations = {
 
     // Hero section
     eliteConciergeService: "",
-    alwaysWithYou: "The Modern Way to Experience Moscow",
+    alwaysWithYou: "Moscows Leading Concierge Service",
     heroDescription: "We save you hours of searching and planning.",
     heroDescription2: "Available 24 hours a day, 7 days a week.",
     reserveYourConcierge: "Reserve Your Concierge",
