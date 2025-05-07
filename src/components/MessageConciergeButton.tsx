@@ -139,7 +139,33 @@ export default function MessageConciergeButton() {
           />
         </svg>
       ),
-      action: () => window.open("botim://chat?id=+79160665133", "_blank"),
+      action: () => {
+        // Try to open Botim app first
+        const botimUrl = "botim://chat?id=+79160665133";
+
+        // Create a hidden iframe to attempt to open the app
+        const iframe = document.createElement("iframe");
+        iframe.style.display = "none";
+        document.body.appendChild(iframe);
+
+        // Set a timeout to detect if app opening failed
+        const timeoutId = setTimeout(() => {
+          // App didn't open, show message or redirect to alternative
+          alert(
+            "Please install the Botim app to message +79160665133 directly, or use one of the other messaging options."
+          );
+          document.body.removeChild(iframe);
+        }, 2000);
+
+        // If app opens successfully, clear the timeout
+        iframe.onload = () => {
+          clearTimeout(timeoutId);
+          document.body.removeChild(iframe);
+        };
+
+        // Attempt to open the app
+        iframe.src = botimUrl;
+      },
     },
     {
       id: "phone",
