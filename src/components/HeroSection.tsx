@@ -19,23 +19,50 @@ export default function HeroSection() {
           videoRef.current.playsInline = true;
           videoRef.current.setAttribute("playsinline", "");
           videoRef.current.setAttribute("webkit-playsinline", "");
+          videoRef.current.setAttribute("autoplay", "");
+          videoRef.current.setAttribute("muted", "");
+          videoRef.current.defaultMuted = true;
+          videoRef.current.controls = false;
 
           // Try playing the video
-          await videoRef.current.play();
+          const playPromise = videoRef.current.play();
+
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => {
+                // Autoplay started successfully
+                console.log("Video autoplay started successfully");
+              })
+              .catch((error) => {
+                console.error("Error attempting to play video:", error);
+
+                // If autoplay fails, retry on user interaction
+                const playOnInteraction = () => {
+                  if (videoRef.current) {
+                    videoRef.current
+                      .play()
+                      .catch((e) =>
+                        console.error("Still can't play video:", e)
+                      );
+                  }
+                };
+
+                window.addEventListener("touchstart", playOnInteraction, {
+                  once: true,
+                });
+                window.addEventListener("click", playOnInteraction, {
+                  once: true,
+                });
+                window.addEventListener("scroll", playOnInteraction, {
+                  once: true,
+                });
+                window.addEventListener("keydown", playOnInteraction, {
+                  once: true,
+                });
+              });
+          }
         } catch (error) {
-          console.error("Error attempting to play video:", error);
-
-          // If autoplay fails, retry on user interaction
-          const playOnInteraction = () => {
-            videoRef.current?.play();
-            document.removeEventListener("touchstart", playOnInteraction);
-            document.removeEventListener("click", playOnInteraction);
-          };
-
-          document.addEventListener("touchstart", playOnInteraction, {
-            once: true,
-          });
-          document.addEventListener("click", playOnInteraction, { once: true });
+          console.error("Error setting up video:", error);
         }
       }
     };
@@ -43,7 +70,7 @@ export default function HeroSection() {
     playVideo();
 
     // Add event listeners for visibility changes to resume play when tab becomes visible
-    document.addEventListener("visibilitychange", () => {
+    const handleVisibilityChange = () => {
       if (document.visibilityState === "visible" && videoRef.current) {
         videoRef.current
           .play()
@@ -51,7 +78,14 @@ export default function HeroSection() {
             console.error("Error playing video on visibility change:", err)
           );
       }
-    });
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Clean up event listeners
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
   }, []);
 
   return (
