@@ -85,6 +85,16 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/Terms & Conditions Reluxi.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#D4AF37] transition-colors"
+                >
+                  {t("termsOfService")}
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/book"
                   className="hover:text-[#D4AF37] transition-colors"
                 >
