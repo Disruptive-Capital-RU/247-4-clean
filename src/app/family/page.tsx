@@ -189,47 +189,71 @@ export default function FamilyPage() {
       {/* Closing Statement Section */}
       <section className="py-16 bg-black">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="p-8 md:p-10 border border-[#D4AF37]/30 bg-black/40 backdrop-blur-sm rounded-lg relative overflow-hidden"
+              className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center"
             >
-              {/* Background gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 to-transparent opacity-30"></div>
+              {/* Family Walking Image */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="flex justify-center lg:justify-start lg:col-span-2"
+              >
+                <div className="relative inline-block p-2 border-2 border-[#D4AF37] rounded-2xl bg-gradient-to-br from-[#D4AF37]/10 to-transparent">
+                  <div className="relative overflow-hidden rounded-xl">
+                    <Image
+                      src="/images/family_walking.png"
+                      alt="Family Walking Together"
+                      width={350}
+                      height={280}
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
 
-              <div className="relative z-10 space-y-6">
-                <p className="font-dm-sans text-white/90 leading-relaxed">
-                  Our core concierge business,{" "}
-                  <span className="text-[#D4AF37] font-semibold">
-                    Reluxi Lifestyle
-                  </span>{" "}
-                  continues to thrive, delivering premium service across Moscow,
-                  from day planning and drivers to exclusive dining and
-                  experiences.
-                </p>
+              {/* Text Content */}
+              <div className="p-8 md:p-10 border border-[#D4AF37]/30 bg-black/40 backdrop-blur-sm rounded-lg relative overflow-hidden lg:col-span-3">
+                {/* Background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 to-transparent opacity-30"></div>
 
-                <p className="font-dm-sans text-white/90 leading-relaxed">
-                  <span className="text-[#D4AF37] font-semibold">
-                    Reluxi Family
-                  </span>{" "}
-                  is a separate initiative — our way of giving back.
-                </p>
-
-                <p className="font-dm-sans text-white/90 leading-relaxed">
-                  We understand that early family life can be demanding,
-                  especially in a city like Moscow. That's why we created this
-                  dedicated, free support line — to remove stress, offer
-                  clarity, and ensure you always have someone to rely on.
-                </p>
-
-                <div className="pt-4">
-                  <p className="font-dm-sans text-white/80 leading-relaxed">
-                    We're proudly based in Moscow — but Reluxi Family will soon
-                    be available in other cities too.
+                <div className="relative z-10 space-y-6">
+                  <p className="font-dm-sans text-white/90 leading-relaxed">
+                    Our core concierge business,{" "}
+                    <span className="text-[#D4AF37] font-semibold">
+                      Reluxi Lifestyle
+                    </span>{" "}
+                    continues to thrive, delivering premium service across
+                    Moscow, from day planning and drivers to exclusive dining
+                    and experiences.
                   </p>
+
+                  <p className="font-dm-sans text-white/90 leading-relaxed">
+                    <span className="text-[#D4AF37] font-semibold">
+                      Reluxi Family
+                    </span>{" "}
+                    is a separate initiative — our way of giving back.
+                  </p>
+
+                  <p className="font-dm-sans text-white/90 leading-relaxed">
+                    We understand that early family life can be demanding,
+                    especially in a city like Moscow. That's why we created this
+                    dedicated, free support line — to remove stress, offer
+                    clarity, and ensure you always have someone to rely on.
+                  </p>
+
+                  <div className="pt-4">
+                    <p className="font-dm-sans text-white/80 leading-relaxed">
+                      We're proudly based in Moscow — but Reluxi Family will
+                      soon be available in other cities too.
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
