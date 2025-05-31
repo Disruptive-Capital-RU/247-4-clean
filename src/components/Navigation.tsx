@@ -14,6 +14,7 @@ import LanguageSelector from "./LanguageSelector";
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showServicesDropdown, setShowServicesDropdown] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginMessage, setLoginMessage] = useState<string | null>(null);
@@ -236,7 +237,51 @@ export default function Navigation() {
           <nav className="hidden md:flex items-center space-x-5 font-dm-sans">
             {user ? (
               <>
-                <NavLink href="/services">{t("services")}</NavLink>
+                {/* Services Dropdown */}
+                <div
+                  className="relative"
+                  onMouseEnter={() => setShowServicesDropdown(true)}
+                  onMouseLeave={() => setShowServicesDropdown(false)}
+                >
+                  <NavLink href="/services">{t("services")}</NavLink>
+
+                  {/* Dropdown Menu */}
+                  {showServicesDropdown && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 pt-2 w-56 z-50"
+                    >
+                      <div className="bg-black/95 border border-[#D4AF37]/30 rounded-lg shadow-lg overflow-hidden">
+                        <Link
+                          href="/services?category=lifestyle"
+                          className="block px-4 py-3 text-white hover:bg-[#D4AF37]/10 transition-colors border-b border-white/10 last:border-b-0"
+                        >
+                          <div>
+                            <div className="font-medium">Reluxi Lifestyle</div>
+                            <div className="text-xs text-white/70 mt-1">
+                              Luxury & Romantic Experiences
+                            </div>
+                          </div>
+                        </Link>
+                        <Link
+                          href="/family"
+                          className="block px-4 py-3 text-white hover:bg-[#D4AF37]/10 transition-colors border-b border-white/10 last:border-b-0"
+                        >
+                          <div>
+                            <div className="font-medium">Reluxi Family</div>
+                            <div className="text-xs text-white/70 mt-1">
+                              Family & Cultural Experiences
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    </motion.div>
+                  )}
+                </div>
+
                 <NavLink href="/why-us">{t("whyUs")}</NavLink>
                 <NavLink href="/dashboard">{t("dashboard")}</NavLink>
                 <LanguageSelector />
@@ -249,7 +294,51 @@ export default function Navigation() {
               </>
             ) : (
               <>
-                <NavLink href="/services">{t("services")}</NavLink>
+                {/* Services Dropdown */}
+                <div
+                  className="relative"
+                  onMouseEnter={() => setShowServicesDropdown(true)}
+                  onMouseLeave={() => setShowServicesDropdown(false)}
+                >
+                  <NavLink href="/services">{t("services")}</NavLink>
+
+                  {/* Dropdown Menu */}
+                  {showServicesDropdown && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 pt-2 w-56 z-50"
+                    >
+                      <div className="bg-black/95 border border-[#D4AF37]/30 rounded-lg shadow-lg overflow-hidden">
+                        <Link
+                          href="/services?category=lifestyle"
+                          className="block px-4 py-3 text-white hover:bg-[#D4AF37]/10 transition-colors border-b border-white/10 last:border-b-0"
+                        >
+                          <div>
+                            <div className="font-medium">Reluxi Lifestyle</div>
+                            <div className="text-xs text-white/70 mt-1">
+                              Luxury & Romantic Experiences
+                            </div>
+                          </div>
+                        </Link>
+                        <Link
+                          href="/family"
+                          className="block px-4 py-3 text-white hover:bg-[#D4AF37]/10 transition-colors border-b border-white/10 last:border-b-0"
+                        >
+                          <div>
+                            <div className="font-medium">Reluxi Family</div>
+                            <div className="text-xs text-white/70 mt-1">
+                              Family & Cultural Experiences
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    </motion.div>
+                  )}
+                </div>
+
                 <NavLink href="/why-us">{t("whyUs")}</NavLink>
                 <LanguageSelector />
                 <button
@@ -316,6 +405,33 @@ export default function Navigation() {
                 <NavLink href="/services" onClick={() => setIsMenuOpen(false)}>
                   {t("services")}
                 </NavLink>
+                {/* Mobile Services Sub-items */}
+                <div className="pl-4 space-y-4">
+                  <Link
+                    href="/services?category=lifestyle"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-white/80 hover:text-[#D4AF37] transition-colors font-dm-sans"
+                  >
+                    <div>
+                      <div className="font-medium">Reluxi Lifestyle</div>
+                      <div className="text-xs text-white/60 mt-1">
+                        Luxury & Romantic Experiences
+                      </div>
+                    </div>
+                  </Link>
+                  <Link
+                    href="/family"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-white/80 hover:text-[#D4AF37] transition-colors font-dm-sans"
+                  >
+                    <div>
+                      <div className="font-medium">Reluxi Family</div>
+                      <div className="text-xs text-white/60 mt-1">
+                        Family & Cultural Experiences
+                      </div>
+                    </div>
+                  </Link>
+                </div>
                 <NavLink href="/why-us" onClick={() => setIsMenuOpen(false)}>
                   {t("whyUs")}
                 </NavLink>
@@ -337,6 +453,33 @@ export default function Navigation() {
                 <NavLink href="/services" onClick={() => setIsMenuOpen(false)}>
                   {t("services")}
                 </NavLink>
+                {/* Mobile Services Sub-items */}
+                <div className="pl-4 space-y-4">
+                  <Link
+                    href="/services?category=lifestyle"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-white/80 hover:text-[#D4AF37] transition-colors font-dm-sans"
+                  >
+                    <div>
+                      <div className="font-medium">Reluxi Lifestyle</div>
+                      <div className="text-xs text-white/60 mt-1">
+                        Luxury & Romantic Experiences
+                      </div>
+                    </div>
+                  </Link>
+                  <Link
+                    href="/family"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-white/80 hover:text-[#D4AF37] transition-colors font-dm-sans"
+                  >
+                    <div>
+                      <div className="font-medium">Reluxi Family</div>
+                      <div className="text-xs text-white/60 mt-1">
+                        Family & Cultural Experiences
+                      </div>
+                    </div>
+                  </Link>
+                </div>
                 <NavLink href="/why-us" onClick={() => setIsMenuOpen(false)}>
                   {t("whyUs")}
                 </NavLink>
